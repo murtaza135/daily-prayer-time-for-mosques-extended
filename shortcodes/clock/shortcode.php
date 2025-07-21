@@ -3,7 +3,7 @@
 
 function dpte_clock_shortcode() {
   wp_enqueue_style("dpte-clock", plugin_dir_url(__FILE__) . "styles.css");
-  wp_enqueue_script("dpte-clock", plugin_dir_url(__FILE__) . "script.js", [], null, true);
+  wp_enqueue_script("dpte-clock", plugin_dir_url(__FILE__) . "script.js", ['dpte-dpt-fetch-cache'], null, true);
 
   ob_start();
   $image_url = plugin_dir_url(__FILE__) . 'allah-calligraphy.svg';
