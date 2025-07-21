@@ -19,26 +19,13 @@ if (!class_exists('DailyPrayerTimeExtended')) {
     public function __construct()
     {
       add_action('wp_enqueue_scripts', function() {
-        wp_enqueue_script("dpte-date-time-utils", plugin_dir_url(__FILE__) . "utils/DateTimeUtils.js", [], null, true);
-        wp_enqueue_script("dpte-dpt-fetch-cache", plugin_dir_url(__FILE__) . "utils/DPTFetchCache.js", ["dpte-date-time-utils"], null, true);
+        wp_enqueue_script("dpte_date_time_utils", plugin_dir_url(__FILE__) . "utils/DateTimeUtils.js", [], null, true);
+        wp_enqueue_script("dpte_dpt_fetch_cache", plugin_dir_url(__FILE__) . "utils/DPTFetchCache.js", ["dpte_date_time_utils"], null, true);
       });
 
-      add_action('wp_enqueue_scripts', function() {
-        wp_enqueue_style("dpte-example", plugin_dir_url(__FILE__) . "shortcodes/example/styles.css");
-        wp_enqueue_script("dpte-example", plugin_dir_url(__FILE__) . "shortcodes/example/script.js");
-      });
       require_once plugin_dir_path(__FILE__) . "shortcodes/example/shortcode.php";
-      add_shortcode('dpte_example', 'dpte_example_shortcode');
-
-      add_action('wp_enqueue_scripts', function() {
-        wp_enqueue_style("dpte-timetable", plugin_dir_url(__FILE__) . "shortcodes/timetable/styles.css");
-        wp_enqueue_script("dpte-timetable", plugin_dir_url(__FILE__) . "shortcodes/timetable/script.js");
-      });
       require_once plugin_dir_path(__FILE__) . "shortcodes/timetable/shortcode.php";
-      add_shortcode('dpte_timetable', 'dpte_timetable_shortcode');
-
       require_once plugin_dir_path(__FILE__) . "shortcodes/clock/shortcode.php";
-      add_shortcode('dpte_clock', 'dpte_clock_shortcode');
     }
   }
 

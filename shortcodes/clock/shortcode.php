@@ -2,8 +2,8 @@
 // @source: clock adapted from https://www.youtube.com/watch?v=nVGhXcMROfU
 
 function dpte_clock_shortcode() {
-  wp_enqueue_style("dpte-clock", plugin_dir_url(__FILE__) . "styles.css");
-  wp_enqueue_script("dpte-clock", plugin_dir_url(__FILE__) . "script.js", ['dpte-dpt-fetch-cache'], null, true);
+  wp_enqueue_style("dpte_clock", plugin_dir_url(__FILE__) . "styles.css");
+  wp_enqueue_script("dpte_clock", plugin_dir_url(__FILE__) . "script.js", ["dpte_dpt_fetch_cache"], null, true);
 
   ob_start();
   $image_url = plugin_dir_url(__FILE__) . 'allah-calligraphy.svg';
@@ -40,3 +40,5 @@ function dpte_clock_shortcode() {
   <?php
   return ob_get_clean();
 }
+
+add_shortcode('dpte_clock', 'dpte_clock_shortcode');
