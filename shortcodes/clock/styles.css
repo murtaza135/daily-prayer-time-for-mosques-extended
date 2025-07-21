@@ -11,6 +11,7 @@
   width: 100%;
   aspect-ratio: 1 / 1;
   margin: auto;
+  container-type: inline-size;
 }
 
 .dpte-clock {
@@ -95,9 +96,9 @@
 
 .dpte-clock .dpte-num {
   color: var(--dpte-light-color);
-  font-size: clamp(1.5rem, 6vw + 0.5rem, 5rem);
+  font-size: clamp(1.5rem, 7.5cqw, 5rem);
   font-weight: 400;
-  margin: clamp(1rem, 4vw, 3rem);
+  margin: clamp(0.75rem, 5cqw, 4rem);
 }
 
 .dpte-clock .dpte-hours-container > li:nth-child(1) .dpte-num {
@@ -236,7 +237,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: clamp(0.2rem, 3vw, 2rem);
+  gap: clamp(0rem, 2.5cqw, 2rem);
   height: 100%;
   width: 100%;
   transform: translateY(22.5%);
@@ -246,7 +247,7 @@
 }
 
 .dpte-clock .dpte-time-remaining-header {
-  font-size: clamp(0.5rem, 4vw, 8rem);
+  font-size: clamp(1rem, 4cqw, 3rem);
   display: none;
 }
 
@@ -257,5 +258,5 @@
 }
 
 .dpte-clock .dpte-time-remaining-value {
-  font-size: clamp(0.5rem, 6vw, 16rem);
+  font-size: clamp(1.5rem, 6cqw, 4rem);
 }

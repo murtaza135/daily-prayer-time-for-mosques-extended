@@ -1,5 +1,5 @@
 const REFETCH_PRAYER_DATA_INTERVAL = 10 * 60 * 1000 /* 10 minutes */;
-const TIME_UNTIL_JAMAH_MESSAGE = (name) => `${name} jamaa'ah in:`;
+const TIME_UNTIL_JAMAH_MESSAGE = (name) => `${name} Jamaa'ah in:`;
 const TIME_UNTIL_PRAYER_END_MESSAGE = (name) => `${name} time left:`;
 
 function setTimeRemainingMessage() {
