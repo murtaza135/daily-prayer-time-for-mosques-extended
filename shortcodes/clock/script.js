@@ -17,6 +17,8 @@ function setClock() {
   hoursHand.style.transform = `rotate(${hoursRotation}deg)`;
   minutesHand.style.transform = `rotate(${minutesRotation}deg)`;
   secondsHand.style.transform = `rotate(${secondsRotation}deg)`;
+
+  console.log("hello world 234");
 }
 
 setInterval(setClock, 1000);

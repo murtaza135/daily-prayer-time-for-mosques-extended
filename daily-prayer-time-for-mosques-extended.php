@@ -32,10 +32,6 @@ if (!class_exists('DailyPrayerTimeExtended')) {
       require_once plugin_dir_path(__FILE__) . "shortcodes/timetable/shortcode.php";
       add_shortcode('dpte_timetable', 'dpte_timetable_shortcode');
 
-      add_action('wp_enqueue_scripts', function() {
-        wp_enqueue_style("dpte-clock", plugin_dir_url(__FILE__) . "shortcodes/clock/styles.css");
-        wp_enqueue_script("dpte-clock", plugin_dir_url(__FILE__) . "shortcodes/clock/script.js");
-      });
       require_once plugin_dir_path(__FILE__) . "shortcodes/clock/shortcode.php";
       add_shortcode('dpte_clock', 'dpte_clock_shortcode');
     }
