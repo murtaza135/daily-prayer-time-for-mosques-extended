@@ -1,0 +1,261 @@
+/* @source: clock adapted from https://www.youtube.com/watch?v=nVGhXcMROfU */
+
+/* clock base */
+:root {
+  --dpte-primary-color: #E89130;
+  --dpte-light-color: #CEE0F6;
+  --dpte-dark-color: #2D2F41;
+}
+
+.dpte-clock-wrapper {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  margin: auto;
+}
+
+.dpte-clock {
+  background: radial-gradient(var(--dpte-primary-color), var(--dpte-dark-color) 60%);
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border: 3px solid var(--dpte-dark-color);
+  box-shadow: 0 5px 25px rgba(14, 21, 37, 0.8);
+}
+
+/* hours */
+.dpte-clock .dpte-hours-container {
+  position: absolute;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 8;
+}
+
+.dpte-clock .dpte-hours-container > li {
+  position: absolute;
+  height: 100%;
+  top: 0;
+}
+
+.dpte-clock .dpte-hours-container > li:nth-child(1) {
+  transform: rotate(30deg);
+}
+
+.dpte-clock .dpte-hours-container > li:nth-child(2) {
+  transform: rotate(60deg);
+}
+
+.dpte-clock .dpte-hours-container > li:nth-child(3) {
+  transform: rotate(90deg);
+}
+
+.dpte-clock .dpte-hours-container > li:nth-child(4) {
+  transform: rotate(120deg);
+}
+
+.dpte-clock .dpte-hours-container > li:nth-child(5) {
+  transform: rotate(150deg);
+}
+
+.dpte-clock .dpte-hours-container > li:nth-child(6) {
+  transform: rotate(180deg);
+}
+
+.dpte-clock .dpte-hours-container > li:nth-child(7) {
+  transform: rotate(210deg);
+}
+
+.dpte-clock .dpte-hours-container > li:nth-child(8) {
+  transform: rotate(240deg);
+}
+
+.dpte-clock .dpte-hours-container > li:nth-child(9) {
+  transform: rotate(270deg);
+}
+
+.dpte-clock .dpte-hours-container > li:nth-child(10) {
+  transform: rotate(300deg);
+}
+
+.dpte-clock .dpte-hours-container > li:nth-child(11) {
+  transform: rotate(330deg);
+}
+
+.dpte-clock .dpte-hours-container > li:nth-child(12) {
+  transform: rotate(0deg);
+}
+
+.dpte-clock .dpte-num {
+  color: var(--dpte-light-color);
+  font-size: clamp(1.5rem, 6vw + 0.5rem, 5rem);
+  font-weight: 400;
+  margin: clamp(1rem, 4vw, 3rem);
+}
+
+.dpte-clock .dpte-hours-container > li:nth-child(1) .dpte-num {
+  transform: rotate(-30deg);
+}
+
+.dpte-clock .dpte-hours-container > li:nth-child(2) .dpte-num {
+  transform: rotate(-60deg);
+}
+
+.dpte-clock .dpte-hours-container > li:nth-child(3) .dpte-num {
+  transform: rotate(-90deg);
+}
+
+.dpte-clock .dpte-hours-container > li:nth-child(4) .dpte-num {
+  transform: rotate(-120deg);
+}
+
+.dpte-clock .dpte-hours-container > li:nth-child(5) .dpte-num {
+  transform: rotate(-150deg);
+}
+
+.dpte-clock .dpte-hours-container > li:nth-child(6) .dpte-num {
+  transform: rotate(-180deg);
+}
+
+.dpte-clock .dpte-hours-container > li:nth-child(7) .dpte-num {
+  transform: rotate(-210deg);
+}
+
+.dpte-clock .dpte-hours-container > li:nth-child(8) .dpte-num {
+  transform: rotate(-240deg);
+}
+
+.dpte-clock .dpte-hours-container > li:nth-child(9) .dpte-num {
+  transform: rotate(-270deg);
+}
+
+.dpte-clock .dpte-hours-container > li:nth-child(10) .dpte-num {
+  transform: rotate(-300deg);
+}
+
+.dpte-clock .dpte-hours-container > li:nth-child(11) .dpte-num {
+  transform: rotate(-330deg);
+}
+
+.dpte-clock .dpte-hours-container > li:nth-child(12) .dpte-num {
+  transform: rotate(-0deg);
+}
+
+/* hands */
+.dpte-clock .dpte-hands-container {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9;
+  width: 100%;
+  height: 100%;
+}
+
+.dpte-clock .dpte-hand {
+  position: absolute;
+}
+
+.dpte-clock .dpte-hand-hours {
+  width: 2.5%;
+  height: 60%;
+  transform: rotate(240deg);
+}
+
+.dpte-clock .dpte-hand-hours::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 50%;
+  background: linear-gradient(180deg, #ff5e9a, #ffb960);
+  border-radius: 20px;
+  box-shadow: 0 0 15px rgba(2, 2, 2, 0.5);
+}
+
+.dpte-clock .dpte-hand-minutes {
+  width: 1.6%;
+  height: 70%;
+  transform: rotate(30deg);
+}
+
+.dpte-clock .dpte-hand-minutes::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 50%;
+  background: linear-gradient(180deg, #ff5e9a, #ffb960);
+  border-radius: 20px;
+  box-shadow: 0 0 15px rgba(2, 2, 2, 0.5);
+}
+
+.dpte-clock .dpte-hand-seconds {
+  width: 1%;
+  height: 75%;
+  transform: rotate(90deg);
+}
+
+.dpte-clock .dpte-hand-seconds::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 60%;
+  background: var(--dpte-light-color);
+  border-radius: 20px;
+  box-shadow: 0 0 15px rgba(2, 2, 2, 0.5);
+}
+
+.dpte-clock .dpte-center-dot {
+  z-index: 10;
+  position: absolute;
+  background: var(--dpte-primary-color);
+  width: 4%;
+  height: 4%;
+  border-radius: 50%;
+  border: 7px solid var(--dpte-dark-color);
+}
+
+.dpte-clock .dpte-calligraphy {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: scale(0.4) translateY(-20%);
+  z-index: 1;
+}
+
+.dpte-clock .dpte-time-remaining {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: clamp(0.2rem, 3vw, 2rem);
+  height: 100%;
+  width: 100%;
+  transform: translateY(22.5%);
+  color: var(--dpte-light-color);
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.dpte-clock .dpte-time-remaining-header {
+  font-size: clamp(0.5rem, 4vw, 8rem);
+  display: none;
+}
+
+@media (min-width: 525px) {
+  .dpte-clock .dpte-time-remaining-header {
+    display: inline;
+  }
+}
+
+.dpte-clock .dpte-time-remaining-value {
+  font-size: clamp(0.5rem, 6vw, 16rem);
+}
