@@ -18,6 +18,7 @@ class DPTFetchCache {
     if (!!this.data) {
       this.prayerTimes = [
         { name: "Fajr", begins: DateTimeUtils.timeStringToDate(this.data.fajr_begins), jamah: DateTimeUtils.timeStringToDate(this.data.fajr_jamah) },
+        { name: "Sunrise", begins: DateTimeUtils.timeStringToDate(this.data.sunrise), jamah: DateTimeUtils.timeStringToDate(this.data.sunrise) },
         { name: "Zuhr", begins: DateTimeUtils.timeStringToDate(this.data.zuhr_begins), jamah: DateTimeUtils.timeStringToDate(this.data.zuhr_jamah) },
         { name: "Asr", begins: DateTimeUtils.timeStringToDate(this.data.asr_mithl_1 ?? this.data.asr_mithl_2), jamah: DateTimeUtils.timeStringToDate(this.data.asr_jamah) },
         { name: "Maghrib", begins: DateTimeUtils.timeStringToDate(this.data.maghrib_begins), jamah: DateTimeUtils.timeStringToDate(this.data.maghrib_jamah) },
