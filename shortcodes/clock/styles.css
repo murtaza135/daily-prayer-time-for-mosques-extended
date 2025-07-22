@@ -1,12 +1,13 @@
 /* @source: clock adapted from https://www.youtube.com/watch?v=nVGhXcMROfU */
 
-/* clock base */
 :root {
   --dpte-primary-color: #E89130;
+  --dpte-primary-color-2: #91622d;
   --dpte-light-color: #CEE0F6;
   --dpte-dark-color: #2D2F41;
 }
 
+/* clock base */
 .dpte-clock-wrapper {
   width: 100%;
   aspect-ratio: 1 / 1;
@@ -167,7 +168,6 @@
 .dpte-clock .dpte-hand-hours {
   width: 2.5%;
   height: 60%;
-  transform: rotate(240deg);
 }
 
 .dpte-clock .dpte-hand-hours::before {
@@ -183,7 +183,6 @@
 .dpte-clock .dpte-hand-minutes {
   width: 1.6%;
   height: 70%;
-  transform: rotate(30deg);
 }
 
 .dpte-clock .dpte-hand-minutes::before {
@@ -199,7 +198,6 @@
 .dpte-clock .dpte-hand-seconds {
   width: 1%;
   height: 75%;
-  transform: rotate(90deg);
 }
 
 .dpte-clock .dpte-hand-seconds::before {

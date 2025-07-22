@@ -1,5 +1,5 @@
 const REFETCH_PRAYER_DATA_INTERVAL = 10 * 60 * 1000 /* 10 minutes */;
-const TIME_UNTIL_JAMAH_MESSAGE = (name) => `${name} Jamaa'ah in:`;
+const TIME_UNTIL_JAMAH_MESSAGE = (name) => `${name} Jama'ah in:`;
 const TIME_UNTIL_PRAYER_END_MESSAGE = (name) => `${name} time left:`;
 
 function setTimeRemainingMessage() {
@@ -40,10 +40,13 @@ function setClock() {
   if (!!secondsHand) secondsHand.style.transform = `rotate(${secondsRotation}deg)`;
 }
 
-dptFetchCache.refetchPrayerTimes();
-setInterval(dptFetchCache.refetchPrayerTimes, REFETCH_PRAYER_DATA_INTERVAL);
+addEventListener("DOMContentLoaded", () => {
+  function setAllElements() {
+    setTimeRemainingMessage();
+    setClock();
+  }
 
-setInterval(() => {
-  setTimeRemainingMessage();
-  setClock();
-}, 1000);
+  dptFetchCache.refetchPrayerTimes();
+  setInterval(dptFetchCache.refetchPrayerTimes, REFETCH_PRAYER_DATA_INTERVAL);
+  setInterval(setAllElements, 1000);
+});

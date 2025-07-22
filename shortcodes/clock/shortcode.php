@@ -32,8 +32,8 @@ function dpte_clock_shortcode() {
       <div class="dpte-center-dot"></div>
       <img class="dpte-calligraphy" src="<?php echo esc_url($image_url); ?>" alt="">
       <p class="dpte-time-remaining">
-        <span class="dpte-time-remaining-header">Time until Jamaa'ah:</span>
-        <span class="dpte-time-remaining-value">01:43:22</span>
+        <span class="dpte-time-remaining-header"></span>
+        <span class="dpte-time-remaining-value"></span>
       </p>
     </div>
   </div>

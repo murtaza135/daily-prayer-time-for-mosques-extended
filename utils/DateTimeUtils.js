@@ -1,4 +1,6 @@
 class DateTimeUtils {
+  static months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
   static timeStringToDate(timeString, tomorrow = false) {
     const [h, m, s] = timeString.split(":").map(Number);
     const now = new Date();
