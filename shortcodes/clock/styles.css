@@ -1,11 +1,6 @@
 /* @source: clock adapted from https://www.youtube.com/watch?v=nVGhXcMROfU */
 
 :root {
-  --dpte-clock-primary-color: var(--dpte-primary-color);
-  --dpte-clock-primary-color-2: var(--dpte-primary-color-2);
-  --dpte-clock-light-color: var(--dpte-light-color);
-  --dpte-clock-dark-color: var(--dpte-dark-color);
-
   --dpte-clock-background: radial-gradient(var(--dpte-primary-color), var(--dpte-dark-color) 60%);
   --dpte-clock-border: var(--dpte-dark-color);
   --dpte-clock-number-color: var(--dpte-light-color);

@@ -1,6 +1,8 @@
 :root {
-  --dpte-primary-color: #E89130;
-  --dpte-primary-color-2: #91622d;
-  --dpte-light-color: #CEE0F6;
-  --dpte-dark-color: #2D2F41;
+  /* --dpte-primary-color: #D4AF37; */
+  --dpte-primary-color: #CFA55B;
+  --dpte-primary-color-2: #A68A1D;
+  --dpte-light-color: #FFFFFF;
+  /* --dpte-dark-color: #1C1C1E; */
+  --dpte-dark-color: #2C2C2E;
 }

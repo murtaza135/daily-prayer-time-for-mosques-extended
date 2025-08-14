@@ -26,7 +26,7 @@ function dpte_timetable_shortcode() {
           </svg>
           <p class="dpte-prayer-title">Fajr</p>
         </span>
-        <span>
+        <span class="dpte-prayer-values">
           <p class="dpte-prayer-start"><?php echo do_shortcode('[fajr_start]'); ?></p>
           <p class="dpte-prayer-prayer"><?php echo do_shortcode('[fajr_prayer]'); ?></p>
         </span>
@@ -43,7 +43,7 @@ function dpte_timetable_shortcode() {
         </svg>
           <p class="dpte-prayer-title">Sunrise</p>
         </span>
-        <span>
+        <span class="dpte-prayer-values">
           <p class="dpte-prayer-start"><?php echo do_shortcode('[sunrise]'); ?></p>
         </span>
       </div>
@@ -58,7 +58,7 @@ function dpte_timetable_shortcode() {
           </svg>
           <p class="dpte-prayer-title">Zuhr</p>
         </span>
-        <span>
+        <span class="dpte-prayer-values">
           <p class="dpte-prayer-start"><?php echo do_shortcode('[zuhr_start]'); ?></p>
           <p class="dpte-prayer-prayer"><?php echo do_shortcode('[zuhr_prayer]'); ?></p>
         </span>
@@ -73,7 +73,7 @@ function dpte_timetable_shortcode() {
           </svg>
           <p class="dpte-prayer-title">Asr</p>
         </span>
-        <span>
+        <span class="dpte-prayer-values">
           <p class="dpte-prayer-start"><?php echo do_shortcode('[asr_start]'); ?></p>
           <p class="dpte-prayer-prayer"><?php echo do_shortcode('[asr_prayer]'); ?></p>
         </span>
@@ -90,7 +90,7 @@ function dpte_timetable_shortcode() {
           </svg>
           <p class="dpte-prayer-title">Maghrib</p>
         </span>
-        <span>
+        <span class="dpte-prayer-values">
           <p class="dpte-prayer-start"><?php echo do_shortcode('[maghrib_start]'); ?></p>
           <p class="dpte-prayer-prayer"><?php echo do_shortcode('[maghrib_prayer]'); ?></p>
         </span>
@@ -106,7 +106,7 @@ function dpte_timetable_shortcode() {
           </svg>
           <p class="dpte-prayer-title">Isha</p>
         </span>
-        <span>
+        <span class="dpte-prayer-values">
           <p class="dpte-prayer-start"><?php echo do_shortcode('[isha_start]'); ?></p>
           <p class="dpte-prayer-prayer"><?php echo do_shortcode('[isha_prayer]'); ?></p>
         </span>
