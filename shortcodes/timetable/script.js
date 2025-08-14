@@ -11,6 +11,5 @@ addEventListener("DOMContentLoaded", () => {
     setJumah();
   };
 
-  dptFetchCache.refetchPrayerTimes().then(() => setAllElements());
   setInterval(setAllElements, 60 * 60 * 1000 /* 1 hour */);
 });

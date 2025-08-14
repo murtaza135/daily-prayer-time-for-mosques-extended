@@ -1,9 +1,9 @@
-const REFETCH_PRAYER_DATA_INTERVAL = 10 * 60 * 1000 /* 10 minutes */;
+const CLOCK_DATA_REFETCH_INTERVAL = 10 * 60 * 1000 /* 10 minutes */;
 const TIME_UNTIL_JAMAH_MESSAGE = (name) => `${name} Jama'ah in:`;
 const TIME_UNTIL_PRAYER_END_MESSAGE = (name) => `${name} time left:`;
 
 function setTimeRemainingMessage() {
-  const nextPrayerAndTime = dptFetchCache.getNextPrayerAndTime();
+  const nextPrayerAndTime = dptCache.getNextPrayerAndTime();
   const timeRemainingHeader = document.querySelector(".dpte-clock .dpte-time-remaining-header");
   const timeRemainingValue = document.querySelector(".dpte-clock .dpte-time-remaining-value");
   if (!timeRemainingHeader || !timeRemainingValue) return;
@@ -46,7 +46,7 @@ addEventListener("DOMContentLoaded", () => {
     setClock();
   }
 
-  dptFetchCache.refetchPrayerTimes();
-  setInterval(dptFetchCache.refetchPrayerTimes, REFETCH_PRAYER_DATA_INTERVAL);
+  dptCache.initialize();
+  dptCache.updateEvery(CLOCK_DATA_REFETCH_INTERVAL);
   setInterval(setAllElements, 1000);
 });

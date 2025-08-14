@@ -1,7 +1,11 @@
-class DPTFetchCache {
+class DPTCache {
   constructor() {
     this.data = null;
     this.prayerTimes = null;
+
+    this.intervalId = null;
+    this.subscriptionTimersList = [];
+    this.minRefetchTime = null;
   }
 
   async fetchPrayerData() {
@@ -14,7 +18,7 @@ class DPTFetchCache {
     }
   }
 
-  extractPrayerTimes() {
+  extractPrayerData() {
     if (!!this.data) {
       this.prayerTimes = [
         { name: "Fajr", begins: DateTimeUtils.timeStringToDate(this.data.fajr_begins), jamah: DateTimeUtils.timeStringToDate(this.data.fajr_jamah) },
@@ -30,9 +34,35 @@ class DPTFetchCache {
     }
   }
 
-  async refetchPrayerTimes() {
-    await this.fetchPrayerData();
-    this.extractPrayerTimes();
+  async initialize() {
+    if (!this.data || !this.prayerTimes) {
+      await this.fetchPrayerData();
+      this.extractPrayerData();
+    }
+  }
+
+  updateEvery(ms) {
+    if (ms <= 0) {
+      throw new Error("Value must be greater than 0.");
+    }
+
+    const prevMinRefetchTime = this.minRefetchTime;
+    this.subscriptionTimersList.push(ms);
+    this.minRefetchTime = this.subscriptionTimersList.length > 0
+      ? Math.min(...this.subscriptionTimersList)
+      : null;
+
+    if (!!this.minRefetchTime && prevMinRefetchTime !== this.minRefetchTime) {
+      if (this.intervalId) {
+        clearInterval(this.intervalId);
+      }
+      setInterval(async () => {
+        await this.fetchPrayerData();
+        this.extractPrayerData();
+      }, this.minRefetchTime);
+    } else if (!this.minRefetchTime && !!this.intervalId) {
+      clearInterval(this.intervalId);
+    }
   }
 
   getNextPrayerAndTime() {
@@ -66,4 +96,4 @@ class DPTFetchCache {
   }
 }
 
-window.dptFetchCache = new DPTFetchCache();
+window.dptCache = new DPTCache();

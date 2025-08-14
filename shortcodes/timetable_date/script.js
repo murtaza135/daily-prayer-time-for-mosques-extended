@@ -1,4 +1,4 @@
-const REFETCH_INTERVAL = 60 * 60 * 1000; /* 1 hour */
+const TIMETABLE_DATA_REFETCH_INTERVAL = 60 * 60 * 1000; /* 1 hour */
 
 function setTodaysDateGregorian() {
   const today = new Date();
@@ -10,7 +10,7 @@ function setTodaysDateGregorian() {
 }
 
 function setTodaysDateIslamic() {
-  const todayString = dptFetchCache.data?.hijri_date_convert;
+  const todayString = dptCache.data?.hijri_date_convert;
   const todayElement = document.querySelector(".dpte-timetable-date .dpte-timetable-date-islamic");
   if (!!todayElement && !!todayString) {
     todayElement.textContent = todayString;
@@ -23,6 +23,7 @@ addEventListener("DOMContentLoaded", () => {
     setTodaysDateIslamic();
   };
 
-  dptFetchCache.refetchPrayerTimes().then(() => setAllElements());
-  setInterval(setAllElements, REFETCH_INTERVAL);
+  dptCache.initialize().then(() => setAllElements());
+  dptCache.updateEvery(TIMETABLE_DATA_REFETCH_INTERVAL);
+  setInterval(setAllElements, 60 * 1000 /* 1 minute */);
 });
