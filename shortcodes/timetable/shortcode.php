@@ -2,15 +2,11 @@
 
 function dpte_timetable_shortcode() {
   wp_enqueue_style("dpte_timetable", plugin_dir_url(__FILE__) . "styles.css");
-  wp_enqueue_script("dpte_timetable", plugin_dir_url(__FILE__) . "script.js", ["dpte_dpt_fetch_cache", "dpte_date_time_utils"], null, true);
+  wp_enqueue_script("dpte_timetable", plugin_dir_url(__FILE__) . "script.js", ["dpte_dpt_fetch_cache"], null, true);
 
   ob_start();
   ?>
   <div class="dpte-timetable">
-    <div class="dpte-timetable-date">
-      <p class="dpte-timetable-date-gregorian"><?php echo date("d F Y") ?></p>
-      <p class="dpte-timetable-date-islamic"><?php echo do_shortcode('[hijri_date]'); ?></p>
-    </div>
     <div class="dpte-timetable-prayer-list">
       <div class="dpte-timetable-prayer-header">
           <p>Start</p>
