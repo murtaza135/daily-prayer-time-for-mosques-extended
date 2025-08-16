@@ -46,7 +46,9 @@ addEventListener("DOMContentLoaded", () => {
     setClock();
   }
 
-  dptCache.initialize();
+  dptCache.initialize().then(() => {
+    setAllElements();
+    setInterval(setAllElements, 1000);
+  });
   dptCache.updateEvery(CLOCK_DATA_REFETCH_INTERVAL);
-  setInterval(setAllElements, 1000);
 });

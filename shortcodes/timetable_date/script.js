@@ -1,4 +1,4 @@
-const TIMETABLE_DATA_REFETCH_INTERVAL = 60 * 60 * 1000; /* 1 hour */
+const TIMETABLE_DATE_DATA_REFETCH_INTERVAL = 60 * 60 * 1000; /* 1 hour */
 
 function setTodaysDateGregorian() {
   const today = new Date();
@@ -23,7 +23,9 @@ addEventListener("DOMContentLoaded", () => {
     setTodaysDateIslamic();
   };
 
-  dptCache.initialize().then(() => setAllElements());
-  dptCache.updateEvery(TIMETABLE_DATA_REFETCH_INTERVAL);
-  setInterval(setAllElements, 60 * 1000 /* 1 minute */);
+  dptCache.initialize().then(() => {
+    setAllElements();
+    setInterval(setAllElements, 60 * 1000 /* 1 minute */);
+  });
+  dptCache.updateEvery(TIMETABLE_DATE_DATA_REFETCH_INTERVAL);
 });

@@ -65,6 +65,22 @@ class DPTCache {
     }
   }
 
+  getCurrentPrayer() {
+    if (!this.prayerTimes) return null;
+    const now = new Date();
+
+    for (let i = 0; i < this.prayerTimes.length - 2; i++) {
+      const { name, begins } = this.prayerTimes[i];
+      const end = this.prayerTimes[i + 1].begins;
+
+      if (now >= begins && now < end) {
+        return name;
+      }
+    }
+
+    return null;
+  }
+
   getNextPrayerAndTime() {
     if (!this.prayerTimes) return null;
     const now = new Date();
