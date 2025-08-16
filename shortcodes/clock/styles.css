@@ -678,7 +678,7 @@
 
 .dpte-clock .dpte-hand-hours {
   width: 2.5%;
-  height: 60%;
+  height: 62.5%;
 }
 
 .dpte-clock .dpte-hand-hours::before {
@@ -773,20 +773,28 @@
 
 .dpte-clock .dpte-top-left-image {
   position: absolute;
-  transform: translate(-45%, -56%) scale(0.225);
+  top: -5%;
+  left: -5%;
+  width: 20%;
 }
 
 .dpte-clock .dpte-top-right-image {
   position: absolute;
-  transform: translate(45%, -56%) scale(0.25);
+  top: -7.5%;
+  right: -7.5%;
+  width: 25%;
 }
 
 .dpte-clock .dpte-bottom-left-image {
   position: absolute;
-  transform: translate(-45%, 55%) scale(0.225);
+  bottom: -5%;
+  left: -5%;
+  width: 20%;
 }
 
 .dpte-clock .dpte-bottom-right-image {
   position: absolute;
-  transform: translate(45%, 55%) scale(0.25);
+  bottom: -7.5%;
+  right: -7.5%;
+  width: 25%;
 }
