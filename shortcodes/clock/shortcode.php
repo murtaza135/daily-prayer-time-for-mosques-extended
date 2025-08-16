@@ -6,7 +6,9 @@ function dpte_clock_shortcode() {
   wp_enqueue_script("dpte_clock", plugin_dir_url(__FILE__) . "script.js", ["dpte_dpt_cache"], null, true);
 
   ob_start();
-  $image_url = plugin_dir_url(__FILE__) . 'allah-calligraphy.svg';
+  $center_logo = plugin_dir_url(__FILE__) . 'assets/allah-calligraphy.svg';
+  $allah_image_url = plugin_dir_url(__FILE__) . 'assets/allah.png';
+  $muhammad_image_url = plugin_dir_url(__FILE__) . 'assets/muhammad.png';
   ?>
   <div class="dpte-clock-wrapper">
     <div class="dpte-clock">
@@ -30,11 +32,15 @@ function dpte_clock_shortcode() {
         <div class="dpte-hand dpte-hand-seconds"></div>
       </div>
       <div class="dpte-center-dot"></div>
-      <img class="dpte-calligraphy" src="<?php echo esc_url($image_url); ?>" alt="">
+      <img class="dpte-center-logo" src="<?php echo esc_url($center_logo); ?>" alt="">
       <p class="dpte-time-remaining">
         <span class="dpte-time-remaining-header"></span>
         <span class="dpte-time-remaining-value"></span>
       </p>
+      <img class="dpte-top-left-image" src="<?php echo esc_url($allah_image_url); ?>" alt="">
+      <img class="dpte-top-right-image" src="<?php echo esc_url($muhammad_image_url); ?>" alt="">
+      <img class="dpte-bottom-left-image" src="<?php echo esc_url($allah_image_url); ?>" alt="">
+      <img class="dpte-bottom-right-image" src="<?php echo esc_url($muhammad_image_url); ?>" alt="">
     </div>
   </div>
   <?php

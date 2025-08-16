@@ -6,7 +6,7 @@
   --dpte-clock-number-color: var(--dpte-light-color);
   --dpte-clock-hand-hour-color: linear-gradient(180deg, #ff5e9a, #ffb960);
   --dpte-clock-hand-minute-color: linear-gradient(180deg, #ff5e9a, #ffb960);
-  --dpte-clock-hand-second-color: var(--dpte-light-color);
+  --dpte-clock-hand-second-color: #bbbbbbc7;
   --dpte-clock-center-dot-background: var(--dpte-primary-color);
   --dpte-clock-center-dot-border: var(--dpte-dark-color);
   --dpte-clock-time-remaining-color: var(--dpte-light-color);
@@ -225,7 +225,7 @@
   border: 7px solid var(--dpte-clock-center-dot-border);
 }
 
-.dpte-clock .dpte-calligraphy {
+.dpte-clock .dpte-center-logo {
   position: absolute;
   display: flex;
   justify-content: center;
@@ -247,6 +247,7 @@
   color: var(--dpte-clock-time-remaining-color);
   font-size: 2rem;
   font-weight: bold;
+  z-index: 10;
 }
 
 .dpte-clock .dpte-time-remaining-header {
@@ -262,4 +263,24 @@
 
 .dpte-clock .dpte-time-remaining-value {
   font-size: clamp(1.5rem, 6cqw, 4rem);
+}
+
+.dpte-clock .dpte-top-left-image {
+  position: absolute;
+  transform: translate(-45%, -56%) scale(0.225);
+}
+
+.dpte-clock .dpte-top-right-image {
+  position: absolute;
+  transform: translate(45%, -56%) scale(0.25);
+}
+
+.dpte-clock .dpte-bottom-left-image {
+  position: absolute;
+  transform: translate(-45%, 55%) scale(0.225);
+}
+
+.dpte-clock .dpte-bottom-right-image {
+  position: absolute;
+  transform: translate(45%, 55%) scale(0.25);
 }
