@@ -88,6 +88,7 @@
   aspect-ratio: 1 / 1;
   fill: var(--dpte-timetable-prayer-icon-color);
   stroke: var(--dpte-timetable-prayer-icon-color);
+  animation: pulse1 6s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
 @media (min-width: 525px) {
@@ -96,12 +97,10 @@
   }
 }
 
-.dpte-timetable .dpte-prayer-title {
-  color: var(--dpte-timetable-prayer-title-color);
-}
-
-.dpte-timetable .dpte-prayer-values {
-  color: var(--dpte-timetable-prayer-values-color);
+@keyframes pulse1 {
+  50% {
+    transform: scale(1.2);
+  }
 }
 
 .dpte-timetable .dpte-timetable-fajr .dpte-timetable-prayer-icon {
@@ -114,6 +113,13 @@
 
 .dpte-timetable .dpte-timetable-isha .dpte-timetable-prayer-icon {
   transform: scale(0.6);
+  animation: pulse2 6s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse2 {
+  50% {
+    transform: scale(0.8);
+  }
 }
 
 .dpte-timetable .dpte-timetable-prayer > span:nth-child(2) {
@@ -137,4 +143,12 @@
   .dpte-timetable .dpte-timetable-prayer > span:nth-child(2) > p {
     width: 4rem;
   }
+}
+
+.dpte-timetable .dpte-prayer-title {
+  color: var(--dpte-timetable-prayer-title-color);
+}
+
+.dpte-timetable .dpte-prayer-values {
+  color: var(--dpte-timetable-prayer-values-color);
 }
