@@ -1,0 +1,28 @@
+:root {
+  /* --dpte-notification-banner-background: linear-gradient(90deg, var(--dpte-dark-color) 10%, var(--dpte-primary-color) 50%, var(--dpte-dark-color) 90%); */
+  --dpte-notification-banner-background: var(--dpte-primary-color);
+}
+
+.notification-banner {
+  text-align: center;
+  padding: 0.5rem 1.25rem;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 1.15rem;
+}
+
+.notification-banner.active {
+  background: var(--dpte-notification-banner-background);
+  color: var(--dpte-dark-color);
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.notification-banner .notification-banner-content {
+  /* display: none; */
+  visibility: hidden;
+}
+
+.notification-banner.active .notification-banner-content {
+  /* display: revert; */
+  visibility: visible;
+}

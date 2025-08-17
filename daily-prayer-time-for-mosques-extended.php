@@ -28,6 +28,7 @@ if (!class_exists('DailyPrayerTimeExtended')) {
       require_once plugin_dir_path(__FILE__) . "shortcodes/timetable_date/shortcode.php";
       require_once plugin_dir_path(__FILE__) . "shortcodes/timetable/shortcode.php";
       require_once plugin_dir_path(__FILE__) . "shortcodes/clock/shortcode.php";
+      require_once plugin_dir_path(__FILE__) . "shortcodes/notification_banner/shortcode.php";
     }
   }
 
