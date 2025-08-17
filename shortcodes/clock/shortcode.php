@@ -99,10 +99,8 @@ function dpte_clock_shortcode() {
         <span class="dpte-time-remaining-header"></span>
         <span class="dpte-time-remaining-value"></span>
       </p>
-      <img class="dpte-top-left-image" src="<?php echo esc_url($allah_image_url); ?>" alt="">
-      <img class="dpte-top-right-image" src="<?php echo esc_url($muhammad_image_url); ?>" alt="">
-      <img class="dpte-bottom-left-image" src="<?php echo esc_url($allah_image_url); ?>" alt="">
-      <img class="dpte-bottom-right-image" src="<?php echo esc_url($muhammad_image_url); ?>" alt="">
+      <img class="dpte-top-left-image" src="<?php echo esc_url($muhammad_image_url); ?>" alt="">
+      <img class="dpte-top-right-image" src="<?php echo esc_url($allah_image_url); ?>" alt="">
     </div>
   </div>
   <?php

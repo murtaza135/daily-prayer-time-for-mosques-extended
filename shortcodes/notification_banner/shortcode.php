@@ -8,7 +8,7 @@ function dpte_notification_banner_shortcode() {
   ?>
   <div class="notification-banner active">
     <div class="notification-banner-content">
-      Asr Jama'ah in 30:20
+      Asr Jama'ah in: 00:12:37
     </div>
   </div>
   <?php

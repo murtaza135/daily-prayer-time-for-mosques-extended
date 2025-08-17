@@ -1,10 +1,10 @@
 :root {
-  --dpte-timetable-prayer-header-color: var(--dpte-dark-color);
-  --dpte-timetable-prayer-background: linear-gradient(90deg, var(--dpte-primary-color) 20%, var(--dpte-dark-color) 80%);
-  --dpte-timetable-prayer-active-border-color: var(--dpte-dark-color);
-  --dpte-timetable-prayer-title-color: var(--dpte-dark-color);
-  --dpte-timetable-prayer-values-color: var(--dpte-light-color);
-  --dpte-timetable-prayer-icon-color: var(--dpte-dark-color);
+  --dpte-timetable-prayer-header-color: var(--dpte-dark-color-1);
+  --dpte-timetable-prayer-background: linear-gradient(90deg, var(--dpte-primary-color-1) 20%, var(--dpte-dark-color-1) 80%);
+  --dpte-timetable-prayer-active-color: #ff5e00;
+  --dpte-timetable-prayer-title-color: var(--dpte-dark-color-1);
+  --dpte-timetable-prayer-values-color: var(--dpte-light-color-1);
+  --dpte-timetable-prayer-icon-color: var(--dpte-dark-color-1);
 }
 
 /* root */
@@ -74,7 +74,7 @@
 }
 
 .dpte-timetable .dpte-timetable-prayer.active {
-  border: 2px solid rgb(255, 94, 0);
+  border: 2px solid var(--dpte-timetable-prayer-active-color);
 }
 
 .dpte-timetable .dpte-timetable-prayer > span:nth-child(1) {
