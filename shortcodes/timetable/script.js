@@ -1,5 +1,3 @@
-const TIMETABLE_DATA_REFETCH_INTERVAL = 10 * 60 * 1000 /* 10 minutes */;
-
 function setJumah() {
   const zuhrPrayerTitle = document.querySelector(".dpte-timetable .dpte-timetable-zuhr .dpte-prayer-title");
   const isFriday = new Date().getDay() === 5;
@@ -9,6 +7,7 @@ function setJumah() {
 }
 
 function getPrayerElement(prayer) {
+  if (!prayer) return null;
   const prayerName = prayer.toLowerCase();
   if (prayerName === "fajr") return document.querySelector(".dpte-timetable .dpte-timetable-fajr");
   if (prayerName === "sunrise") return document.querySelector(".dpte-timetable .dpte-timetable-sunrise");
@@ -21,7 +20,8 @@ function getPrayerElement(prayer) {
 
 function setActivePrayer() {
   const currentPrayer = dptCache.getCurrentPrayer();
-  const currentPrayerElement = getPrayerElement(currentPrayer);
+  if (!currentPrayer) return;
+  const currentPrayerElement = getPrayerElement(currentPrayer.name);
 
   document.querySelector(".dpte-timetable .dpte-timetable-fajr").classList.remove("active");
   document.querySelector(".dpte-timetable .dpte-timetable-sunrise").classList.remove("active");
@@ -34,11 +34,8 @@ function setActivePrayer() {
 }
 
 addEventListener("DOMContentLoaded", () => {
-  dptCache.initialize().then(() => {
-    setActivePrayer();
-    setInterval(setActivePrayer, 60 * 1000 /* 1 minute */);
-    setJumah();
-    setInterval(setJumah, 15 * 60 * 1000 /* 15 minutes */);
-  });
-  dptCache.updateEvery(TIMETABLE_DATA_REFETCH_INTERVAL);
+  setActivePrayer();
+  setInterval(setActivePrayer, 60 * 1000 /* 1 minute */);
+  setJumah();
+  setInterval(setJumah, 15 * 60 * 1000 /* 15 minutes */);
 });

@@ -1,22 +1,18 @@
-const CLOCK_DATA_REFETCH_INTERVAL = 10 * 60 * 1000 /* 10 minutes */;
-const TIME_UNTIL_JAMAH_MESSAGE = (name) => `${name} Jama'ah in:`;
-const TIME_UNTIL_PRAYER_END_MESSAGE = (name) => `${name} time left:`;
-
 function setTimeRemainingMessage() {
-  const nextPrayerAndTime = dptCache.getNextPrayerAndTime();
+  const currentPrayer = dptCache.getCurrentPrayer();
   const timeRemainingHeader = document.querySelector(".dpte-clock .dpte-time-remaining-header");
   const timeRemainingValue = document.querySelector(".dpte-clock .dpte-time-remaining-value");
   if (!timeRemainingHeader || !timeRemainingValue) return;
 
-  if (!nextPrayerAndTime) {
+  if (!currentPrayer) {
     timeRemainingHeader.textContent = "";
     timeRemainingValue.textContent = "";
-  } else if (nextPrayerAndTime.waitingForJamah) {
-    timeRemainingHeader.textContent = TIME_UNTIL_JAMAH_MESSAGE(nextPrayerAndTime.name);
-    timeRemainingValue.textContent = nextPrayerAndTime.timeRemaining;
+  } else if (currentPrayer.waitingForJamah) {
+    timeRemainingHeader.textContent = `${currentPrayer.name} Jama'ah in:`;
+    timeRemainingValue.textContent = currentPrayer.timeRemaining;
   } else {
-    timeRemainingHeader.textContent = TIME_UNTIL_PRAYER_END_MESSAGE(nextPrayerAndTime.name);
-    timeRemainingValue.textContent = nextPrayerAndTime.timeRemaining;
+    timeRemainingHeader.textContent = `${currentPrayer.name} time left:`;
+    timeRemainingValue.textContent = currentPrayer.timeRemaining;
   }
 }
 
@@ -41,14 +37,8 @@ function setClock() {
 }
 
 addEventListener("DOMContentLoaded", () => {
-  function setAllElements() {
-    setTimeRemainingMessage();
-    setClock();
-  }
-
-  dptCache.initialize().then(() => {
-    setAllElements();
-    setInterval(setAllElements, 1000);
-  });
-  dptCache.updateEvery(CLOCK_DATA_REFETCH_INTERVAL);
+  setTimeRemainingMessage();
+  setInterval(setTimeRemainingMessage, 1000);
+  setClock();
+  setInterval(setClock, 1000);
 });
