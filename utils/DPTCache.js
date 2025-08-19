@@ -216,6 +216,15 @@ class DPTCache {
   getIshaPrayer() {
     return this.getPrayer("isha");
   }
+
+  isZawal() {
+    const zuhr = this.getZuhrPrayer();
+    if (!zuhr) return false;
+    const now = new Date();
+    const EXPECTED_DIFFERENCE = 20 * 60 * 1000; /* 20 minutes */
+    const actualDifference = zuhr - now;
+    return 0 < actualDifference && actualDifference <= EXPECTED_DIFFERENCE;
+  }
 }
 
 window.dptCache = new DPTCache();
