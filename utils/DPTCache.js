@@ -160,7 +160,8 @@ class DPTCache {
         const hours = `${Math.floor(diff / (1000 * 60 * 60))}`.padStart(2, "0");
         const minutes = `${Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60))}`.padStart(2, "0");
         const seconds = `${Math.floor((diff % (1000 * 60)) / 1000)}`.padStart(2, "0");
-        return { name, begins, jamah, end, timeRemaining: `${hours}:${minutes}:${seconds}`, waitingForJamah: true };
+        const timeRemaining = `${hours}:${minutes}:${seconds}`;
+        return { name, begins, jamah, end, timeRemaining, waitingForJamah: true };
       }
 
       // If now is after jamaat but before end, then return the time to next prayer
@@ -169,8 +170,21 @@ class DPTCache {
         const hours = `${Math.floor(diff / (1000 * 60 * 60))}`.padStart(2, "0");
         const minutes = `${Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60))}`.padStart(2, "0");
         const seconds = `${Math.floor((diff % (1000 * 60)) / 1000)}`.padStart(2, "0");
-        return { name, begins, jamah, end, timeRemaining: `${hours}:${minutes}:${seconds}`, waitingForJamah: false };
+        const timeRemaining = `${hours}:${minutes}:${seconds}`;
+        return { name, begins, jamah, end, timeRemaining, waitingForJamah: false };
       }
+    }
+
+    // if first prayer (fajr) is after `now`, without any previous prayers available,
+    // then its past midnight with fresh new prayers, therefore it must be Isha time
+    const { begins: end } = this.data.all[0];
+    if (now < end) {
+      const diff = end - now;
+      const hours = `${Math.floor(diff / (1000 * 60 * 60))}`.padStart(2, "0");
+      const minutes = `${Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60))}`.padStart(2, "0");
+      const seconds = `${Math.floor((diff % (1000 * 60)) / 1000)}`.padStart(2, "0");
+      const timeRemaining = `${hours}:${minutes}:${seconds}`;
+      return { name: "Isha", begins: now, jamah: now, end, timeRemaining, waitingForJamah: false };
     }
 
     return null;
