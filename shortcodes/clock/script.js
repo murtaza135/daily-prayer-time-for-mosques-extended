@@ -37,8 +37,15 @@ function setClock() {
 }
 
 addEventListener("DOMContentLoaded", () => {
-  setTimeRemainingMessage();
-  setInterval(setTimeRemainingMessage, 1000);
+  dptCache.ensurePrayerData().then(() => {
+    setTimeRemainingMessage();
+    setTimeout(setTimeRemainingMessage, 1000);
+    setTimeout(setTimeRemainingMessage, 2500);
+    setInterval(setTimeRemainingMessage, 1000);
+  });
+
   setClock();
+  setTimeout(setClock, 1000);
+  setTimeout(setClock, 2500);
   setInterval(setClock, 1000);
 });

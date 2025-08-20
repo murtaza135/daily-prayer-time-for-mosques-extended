@@ -16,11 +16,15 @@ function setTodaysDateIslamic() {
 }
 
 addEventListener("DOMContentLoaded", () => {
-  function setAllElements() {
-    setTodaysDateGregorian();
-    setTodaysDateIslamic();
-  };
+  setTodaysDateGregorian();
+  setTimeout(setTodaysDateGregorian, 1000);
+  setTimeout(setTodaysDateGregorian, 2500);
+  setInterval(setTodaysDateGregorian, 60 * 1000 /* 1 minute */);
 
-  setAllElements();
-  setInterval(setAllElements, 60 * 1000 /* 1 minute */);
+  dptCache.ensurePrayerData().then(() => {
+    setTodaysDateIslamic();
+    setTimeout(setTodaysDateIslamic, 1000);
+    setTimeout(setTodaysDateIslamic, 2500);
+    setInterval(setTodaysDateIslamic, 60 * 1000 /* 1 minute */);
+  });
 });
