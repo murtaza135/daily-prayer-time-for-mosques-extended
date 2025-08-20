@@ -163,14 +163,14 @@ class DPTCache {
       if (begins <= now && now < jamah) {
         const diff = jamah - now;
         const timeRemaining = DateTimeUtils.formatDiffToTime(diff);
-        return { name, begins, jamah, end, timeRemaining, waitingForJamah: true };
+        return { name, begins, jamah, end, diff, timeRemaining, waitingForJamah: true };
       }
 
       // If now is after jamaat but before end, then return the time to next prayer
       if (jamah <= now && now < end) {
         const diff = end - now;
         const timeRemaining = DateTimeUtils.formatDiffToTime(diff);
-        return { name, begins, jamah, end, timeRemaining, waitingForJamah: false };
+        return { name, begins, jamah, end, diff, timeRemaining, waitingForJamah: false };
       }
     }
 
@@ -180,7 +180,7 @@ class DPTCache {
     if (now < end) {
       const diff = end - now;
       const timeRemaining = DateTimeUtils.formatDiffToTime(diff);
-      return { name: "Isha", begins: now, jamah: now, end, timeRemaining, waitingForJamah: false };
+      return { name: "Isha", begins: now, jamah: now, end, diff, timeRemaining, waitingForJamah: false };
     }
 
     return null;
