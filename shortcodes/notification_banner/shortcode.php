@@ -6,9 +6,13 @@ function dpte_notification_banner_shortcode() {
 
   ob_start();
   ?>
-  <div class="notification-banner active">
-    <div class="notification-banner-content">
-      Asr Jama'ah in: 00:12:37
+  <div class="dpte-notification-banner error">
+    <div class="dpte-notification-banner-content">
+    <svg class="dpte-notification-error-image" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-label="No entry" fill="none" stroke="#ffffff">
+      <circle cx="12" cy="12" r="10" stroke="inherit" stroke-width="3"/>
+      <line x1="5.6" y1="5.6" x2="18.4" y2="18.4" stroke="inherit" stroke-width="3"/>
+    </svg>
+    <p class="dpte-notification-text">Asr Jama'ah in: 00:12:37</p>
     </div>
   </div>
   <?php

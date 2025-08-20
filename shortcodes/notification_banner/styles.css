@@ -4,7 +4,7 @@
   --dpte-notification-banner-background: var(--dpte-primary-color-1);
 }
 
-.notification-banner {
+.dpte-notification-banner {
   text-align: center;
   padding: 0.5rem 1.25rem;
   border-radius: 10px;
@@ -12,16 +12,38 @@
   font-size: 1.15rem;
 }
 
-.notification-banner.active {
+.dpte-notification-banner.active {
   background: var(--dpte-notification-banner-background);
   color: var(--dpte-dark-color-1);
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
-.notification-banner .notification-banner-content {
-  visibility: hidden;
+.dpte-notification-banner.error {
+  background: #ac0000;
+  color: var(--dpte-light-color-1);
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
-.notification-banner.active .notification-banner-content {
+.dpte-notification-banner .dpte-notification-banner-content {
+  visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  text-align: center;
+}
+
+.dpte-notification-banner.active .dpte-notification-banner-content,
+.dpte-notification-banner.error .dpte-notification-banner-content {
   visibility: visible;
+}
+
+.dpte-notification-banner .dpte-notification-banner-content .dpte-notification-error-image {
+  display: none;
+  width: 20px;
+  transform: translateY(-1px);
+}
+
+.dpte-notification-banner.error .dpte-notification-banner-content .dpte-notification-error-image {
+  display: revert;
 }
