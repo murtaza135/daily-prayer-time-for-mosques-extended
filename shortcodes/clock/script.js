@@ -42,10 +42,10 @@ addEventListener("DOMContentLoaded", () => {
     setTimeout(setTimeRemainingMessage, 1000);
     setTimeout(setTimeRemainingMessage, 2500);
     setInterval(setTimeRemainingMessage, 1000);
-  });
 
-  setClock();
-  setTimeout(setClock, 1000);
-  setTimeout(setClock, 2500);
-  setInterval(setClock, 1000);
+    setClock();
+    setTimeout(setClock, 1000);
+    setTimeout(setClock, 2500);
+    setInterval(setClock, 1000);
+  });
 });
