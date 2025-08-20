@@ -95,10 +95,12 @@ function dpte_clock_shortcode() {
       </div>
       <div class="dpte-center-dot"></div>
       <img class="dpte-center-logo" src="<?php echo esc_url($center_logo); ?>" alt="">
-      <p class="dpte-time-remaining">
-        <span class="dpte-time-remaining-header"></span>
-        <span class="dpte-time-remaining-value"></span>
-      </p>
+      <div class="dpte-time-remaining">
+        <div class="dpte-time-remaining-content">
+          <span class="dpte-time-remaining-header"></span>
+          <span class="dpte-time-remaining-value"></span>
+        </div>
+      </div>
       <img class="dpte-top-left-image" src="<?php echo esc_url($muhammad_image_url); ?>" alt="">
       <img class="dpte-top-right-image" src="<?php echo esc_url($allah_image_url); ?>" alt="">
     </div>

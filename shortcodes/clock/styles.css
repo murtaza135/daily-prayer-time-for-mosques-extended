@@ -501,18 +501,23 @@
 
 .dpte-clock .dpte-time-remaining {
   position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+  overflow: hidden;
+}
+
+.dpte-clock .dpte-time-remaining > .dpte-time-remaining-content {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   gap: clamp(0rem, 2.5cqw, 2rem);
   height: 100%;
-  width: 100%;
   transform: translateY(22.5%);
   color: var(--dpte-clock-time-remaining-color);
   font-size: 2rem;
   font-weight: bold;
-  z-index: 10;
 }
 
 .dpte-clock .dpte-time-remaining-header {
