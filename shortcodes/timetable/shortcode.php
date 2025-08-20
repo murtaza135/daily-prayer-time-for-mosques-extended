@@ -23,8 +23,12 @@ function dpte_timetable_shortcode() {
           <p class="dpte-prayer-title">Fajr</p>
         </span>
         <span class="dpte-prayer-values">
-          <p class="dpte-prayer-start"><?php echo do_shortcode('[fajr_start]'); ?></p>
-          <p class="dpte-prayer-prayer"><?php echo do_shortcode('[fajr_prayer]'); ?></p>
+          <p class="dpte-prayer-start">
+            <?php echo do_shortcode('[fajr_start]'); ?>
+          </p>
+          <p class="dpte-prayer-prayer">
+            <?php echo do_shortcode('[fajr_prayer]'); ?>
+          </p>
         </span>
       </div>
 
@@ -40,7 +44,9 @@ function dpte_timetable_shortcode() {
           <p class="dpte-prayer-title">Sunrise</p>
         </span>
         <span class="dpte-prayer-values">
-          <p class="dpte-prayer-start"><?php echo do_shortcode('[sunrise]'); ?></p>
+          <p class="dpte-prayer-start">
+            <?php echo do_shortcode('[sunrise]'); ?>
+          </p>
         </span>
       </div>
 
@@ -55,8 +61,12 @@ function dpte_timetable_shortcode() {
           <p class="dpte-prayer-title">Zuhr</p>
         </span>
         <span class="dpte-prayer-values">
-          <p class="dpte-prayer-start"><?php echo do_shortcode('[zuhr_start]'); ?></p>
-          <p class="dpte-prayer-prayer"><?php echo do_shortcode('[zuhr_prayer]'); ?></p>
+          <p class="dpte-prayer-start">
+            <?php echo do_shortcode('[zuhr_start]'); ?>
+        </p>
+          <p class="dpte-prayer-prayer">
+            <?php echo do_shortcode('[zuhr_prayer]'); ?>
+        </p>
         </span>
       </div>
 
@@ -70,8 +80,12 @@ function dpte_timetable_shortcode() {
           <p class="dpte-prayer-title">Asr</p>
         </span>
         <span class="dpte-prayer-values">
-          <p class="dpte-prayer-start"><?php echo do_shortcode('[asr_start]'); ?></p>
-          <p class="dpte-prayer-prayer"><?php echo do_shortcode('[asr_prayer]'); ?></p>
+          <p class="dpte-prayer-start">
+            <?php echo do_shortcode('[asr_start]'); ?>
+        </p>
+          <p class="dpte-prayer-prayer">
+            <?php echo do_shortcode('[asr_prayer]'); ?>
+        </p>
         </span>
       </div>
 
@@ -87,8 +101,12 @@ function dpte_timetable_shortcode() {
           <p class="dpte-prayer-title">Maghrib</p>
         </span>
         <span class="dpte-prayer-values">
-          <p class="dpte-prayer-start"><?php echo do_shortcode('[maghrib_start]'); ?></p>
-          <p class="dpte-prayer-prayer"><?php echo do_shortcode('[maghrib_prayer]'); ?></p>
+          <p class="dpte-prayer-start">
+            <?php echo do_shortcode('[maghrib_start]'); ?>
+        </p>
+          <p class="dpte-prayer-prayer">
+            <?php echo do_shortcode('[maghrib_prayer]'); ?>
+        </p>
         </span>
       </div>
 
@@ -103,8 +121,32 @@ function dpte_timetable_shortcode() {
           <p class="dpte-prayer-title">Isha</p>
         </span>
         <span class="dpte-prayer-values">
-          <p class="dpte-prayer-start"><?php echo do_shortcode('[isha_start]'); ?></p>
-          <p class="dpte-prayer-prayer"><?php echo do_shortcode('[isha_prayer]'); ?></p>
+          <p class="dpte-prayer-start">
+            <?php echo do_shortcode('[isha_start]'); ?>
+        </p>
+          <p class="dpte-prayer-prayer">
+            <?php echo do_shortcode('[isha_prayer]'); ?>
+        </p>
+        </span>
+      </div>
+
+      <div class="dpte-timetable-prayer dpte-timetable-jumah">
+        <span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="dpte-timetable-prayer-icon" viewBox="0 0 200 200" fill="#000">
+            <path d="M60 110 Q100 40 140 110 Z" /> <!-- Main dome -->
+            <rect x="50" y="110" width="100" height="50" /> <!-- Central body -->
+            <rect x="90" y="130" width="20" height="30"/> <!-- Door -->
+            <rect x="30" y="70" width="10" height="90" /> <!-- Left minaret -->
+            <polygon points="25,70 35,50 45,70" /> <!-- Left minaret -->
+            <rect x="160" y="70" width="10" height="90" /> <!-- Right minaret -->
+            <polygon points="155,70 165,50 175,70" /> <!-- Right minaret -->
+          </svg>
+          <p class="dpte-prayer-title">Jumu'ah</p>
+        </span>
+        <span class="dpte-prayer-values">
+          <p class="dpte-prayer-start">
+            <?php echo str_replace(["Jumuah"], [""], do_shortcode('[jummah_prayer]')); ?>
+          </p>
         </span>
       </div>
     </div>

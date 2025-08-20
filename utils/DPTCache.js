@@ -1,5 +1,6 @@
 class DPTCache {
   static REFETCH_INTERVAL_TIME = 10 * 60 * 1000; /* 10 minutes */
+  static ZAWAL_TIMER = 20 * 60 * 1000; /* 20 minutes */
 
   static PRAYER_INDEX = {
     fajr: 0,
@@ -12,7 +13,7 @@ class DPTCache {
 
   constructor() {
     this.data = null;
-    this.isFetching = false;
+    this.fetchPromise = null;
 
     this.loadPrayerData();
     this.intervalId = setInterval(() => this.reloadPrayerData(), DPTCache.REFETCH_INTERVAL_TIME);
@@ -121,6 +122,7 @@ class DPTCache {
 
       return {
         date: data.d_date,
+        jumah: data.jumuah,
         hijri_date: data.hijri_date_convert,
         yesterday: yesterdaysPrayers,
         today: todaysPrayers,
@@ -132,18 +134,21 @@ class DPTCache {
     return null;
   }
 
-  async reloadPrayerData() {
-    if (!this.isFetching) {
-      this.isFetching = true;
-      const data = await this._fetchPrayerData();
-      this.data = this._extractPrayerData(data);
-      this.isFetching = false;
+  async loadPrayerData() {
+    if (!this.fetchPromise) {
+      this.fetchPromise = (async () => {
+        const data = await this._fetchPrayerData();
+        this.data = this._extractPrayerData(data);
+        this.fetchPromise = null;
+        return this.data;
+      })();
     }
+    return this.fetchPromise;
   }
 
-  async loadPrayerData() {
+  async ensurePrayerData() {
     if (!this.data) {
-      await this.reloadPrayerData();
+      await this.loadPrayerData();
     }
   }
 
@@ -157,33 +162,24 @@ class DPTCache {
       // If now is after start but before jamaat, then return time to jamaat
       if (begins <= now && now < jamah) {
         const diff = jamah - now;
-        const hours = `${Math.floor(diff / (1000 * 60 * 60))}`.padStart(2, "0");
-        const minutes = `${Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60))}`.padStart(2, "0");
-        const seconds = `${Math.floor((diff % (1000 * 60)) / 1000)}`.padStart(2, "0");
-        const timeRemaining = `${hours}:${minutes}:${seconds}`;
+        const timeRemaining = DateTimeUtils.formatDiffToTime(diff);
         return { name, begins, jamah, end, timeRemaining, waitingForJamah: true };
       }
 
       // If now is after jamaat but before end, then return the time to next prayer
       if (jamah <= now && now < end) {
         const diff = end - now;
-        const hours = `${Math.floor(diff / (1000 * 60 * 60))}`.padStart(2, "0");
-        const minutes = `${Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60))}`.padStart(2, "0");
-        const seconds = `${Math.floor((diff % (1000 * 60)) / 1000)}`.padStart(2, "0");
-        const timeRemaining = `${hours}:${minutes}:${seconds}`;
+        const timeRemaining = DateTimeUtils.formatDiffToTime(diff);
         return { name, begins, jamah, end, timeRemaining, waitingForJamah: false };
       }
     }
 
     // if first prayer (fajr) is after `now`, without any previous prayers available,
-    // then its past midnight with fresh new prayers, therefore it must be Isha time
+    // then its past midnight with fresh new prayers, therefore it must be isha time
     const { begins: end } = this.data.all[0];
     if (now < end) {
       const diff = end - now;
-      const hours = `${Math.floor(diff / (1000 * 60 * 60))}`.padStart(2, "0");
-      const minutes = `${Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60))}`.padStart(2, "0");
-      const seconds = `${Math.floor((diff % (1000 * 60)) / 1000)}`.padStart(2, "0");
-      const timeRemaining = `${hours}:${minutes}:${seconds}`;
+      const timeRemaining = DateTimeUtils.formatDiffToTime(diff);
       return { name: "Isha", begins: now, jamah: now, end, timeRemaining, waitingForJamah: false };
     }
 
@@ -194,8 +190,8 @@ class DPTCache {
     if (!this.data) return null;
     const now = new Date();
 
-    const index = DPTCache.PRAYER_INDEX[name];
-    const times = !!this.data.yesterday[index]
+    const index = DPTCache.PRAYER_INDEX[name.toLowerCase()];
+    const times = !!this.data.yesterday
       ? [this.data.yesterday[index], this.data.today[index], this.data.tomorrow[index]]
       : [this.data.today[index], this.data.tomorrow[index]];
 
@@ -235,9 +231,8 @@ class DPTCache {
     const zuhr = this.getZuhrPrayer();
     if (!zuhr) return false;
     const now = new Date();
-    const EXPECTED_DIFFERENCE = 20 * 60 * 1000; /* 20 minutes */
-    const actualDifference = zuhr - now;
-    return 0 < actualDifference && actualDifference <= EXPECTED_DIFFERENCE;
+    const diff = zuhr - now;
+    return 0 < diff && diff <= ZAWAL_TIMER;
   }
 }
 

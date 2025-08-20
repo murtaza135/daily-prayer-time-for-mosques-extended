@@ -116,6 +116,10 @@
   animation: pulse2 6s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
+.dpte-timetable .dpte-timetable-jumah .dpte-timetable-prayer-icon {
+  transform: translateY(-3px);
+}
+
 @keyframes pulse2 {
   50% {
     transform: scale(0.8);
@@ -142,6 +146,26 @@
 @media (min-width: 525px) {
   .dpte-timetable .dpte-timetable-prayer > span:nth-child(2) > p {
     width: 4rem;
+  }
+}
+
+.dpte-timetable .dpte-timetable-prayer.dpte-timetable-sunrise > span:nth-child(2) > p {
+  width: 7.05rem;
+}
+
+@media (min-width: 525px) {
+  .dpte-timetable .dpte-timetable-prayer.dpte-timetable-sunrise > span:nth-child(2) > p {
+    width: 9.5rem;
+  }
+}
+
+.dpte-timetable .dpte-timetable-prayer.dpte-timetable-jumah > span:nth-child(2) > p {
+  width: 7.05rem;
+}
+
+@media (min-width: 525px) {
+  .dpte-timetable .dpte-timetable-prayer.dpte-timetable-jumah > span:nth-child(2) > p {
+    width: 9.5rem;
   }
 }
 
