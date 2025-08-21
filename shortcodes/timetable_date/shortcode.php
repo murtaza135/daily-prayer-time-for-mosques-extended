@@ -1,5 +1,9 @@
 <?php
 
+if (!defined('ABSPATH')) {
+	exit;
+}
+
 function dpte_timetable_date_shortcode() {
   wp_enqueue_style("dpte_timetable_date", plugin_dir_url(__FILE__) . "styles.css");
   wp_enqueue_script("dpte_timetable_date", plugin_dir_url(__FILE__) . "script.js", ["dpte_dpt_cache", "dpte_date_time_utils"], null, true);

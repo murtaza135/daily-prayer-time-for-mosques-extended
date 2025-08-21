@@ -1,5 +1,9 @@
 <?php
 
+if (!defined('ABSPATH')) {
+	exit;
+}
+
 function dpte_notification_banner_shortcode() {
   wp_enqueue_style("dpte-notification-banner", plugin_dir_url(__FILE__) . "styles.css");
   wp_enqueue_script("dpte-notification-banner", plugin_dir_url(__FILE__) . "script.js", ["dpte_dpt_cache"], null, true);
