@@ -16,7 +16,7 @@ add_action('dpte_extend_timetable_container', function($container) {
           <p>Change settings for the <b>[dpte_timetable]</b> shortcode.</p>
         '),
 
-      Field::make('html', 'dpte_separator_timetable_colors')
+      Field::make('html', 'crb_separator_1')
         ->set_html('<h2 style="padding: 0; margin: 0; margin-top: 1rem; font-size: 1rem; font-weight: 500;">Colors</h2>'),
 
       Field::make('color', 'dpte_timetable_prayer_header_text_color', 'Header Text Color')
@@ -47,7 +47,7 @@ add_action('dpte_extend_timetable_container', function($container) {
         ->set_default_value('#2C2C2E')
         ->set_help_text('Color of icons shown alongside prayer titles.'),
 
-      Field::make('html', 'dpte_separator_timetable_icons')
+      Field::make('html', 'crb_separator_2')
         ->set_html('<h2 style="padding: 0; margin: 0; margin-top: 1rem; font-size: 1rem; font-weight: 500;">Icons</h2>'),
 
       Field::make('checkbox', 'dpte_timetable_icon_resize_animation_running', __('Icon Animation'))
