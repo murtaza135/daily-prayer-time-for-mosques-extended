@@ -32,9 +32,4 @@ add_action('carbon_fields_register_fields', function() {
     ->set_page_file('dpte-timetable-date-options')
     ->set_page_parent('dpte-options');
   do_action('dpte_extend_timetable_date_container', $dpte_timetable_date_container);
-
-  $dpte_announcement_container = Container::make('theme_options', __('Announcements'))
-    ->set_page_file('dpte-announcement-options')
-    ->set_page_parent('dpte-options');
-  do_action('dpte_extend_announcement_container', $dpte_announcement_container);
 });
