@@ -74,7 +74,7 @@ add_action('wp_head', function() {
   $dpte_clock_hand_minute_color_gradient_2 = carbon_get_theme_option('dpte_clock_hand_minute_color_gradient_2');
   $dpte_clock_hand_second_color_gradient_1 = carbon_get_theme_option('dpte_clock_hand_second_color_gradient_1');
   $dpte_clock_hand_second_color_gradient_2 = carbon_get_theme_option('dpte_clock_hand_second_color_gradient_2');
-  $dpte_clock_center_dot_background = carbon_get_theme_option('dpte_clock_color');
+  $dpte_clock_center_dot_background = carbon_get_theme_option('dpte_clock_center_dot_background');
   $dpte_clock_center_dot_border = carbon_get_theme_option('dpte_clock_center_dot_border');
   $dpte_clock_time_remaining_color = carbon_get_theme_option('dpte_clock_time_remaining_color');
 
