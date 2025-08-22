@@ -1,16 +1,20 @@
 /* @source: clock adapted from https://www.youtube.com/watch?v=nVGhXcMROfU */
 
-:root {
-  --dpte-clock-background: radial-gradient(var(--dpte-primary-color-1), var(--dpte-dark-color-1) 60%);
-  --dpte-clock-border: var(--dpte-dark-color-1);
-  --dpte-clock-number-color: var(--dpte-light-color-1);
-  --dpte-clock-hand-hour-color: linear-gradient(180deg, #ff5e9a, #ffb960);
-  --dpte-clock-hand-minute-color: linear-gradient(180deg, #ff5e9a, #ffb960);
-  --dpte-clock-hand-second-color: #bbbbbbc7;
-  --dpte-clock-center-dot-background: var(--dpte-primary-color-1);
-  --dpte-clock-center-dot-border: var(--dpte-dark-color-1);
-  --dpte-clock-time-remaining-color: var(--dpte-light-color-1);
-}
+/* CSS VARIABLES */
+/* --dpte-clock-background-gradient-1: var(--dpte-primary-color-1); */
+/* --dpte-clock-background-gradient-2: var(--dpte-dark-color-1); */
+/* --dpte-clock-border: var(--dpte-dark-color-1); */
+/* --dpte-clock-number-color: var(--dpte-light-color-1); */
+/* --dpte-clock-minute-line-color: var(--dpte-light-color-1); */
+/* --dpte-clock-hand-hour-color-gradient-1: #ff5e9a; */
+/* --dpte-clock-hand-hour-color-gradient-2: #ffb960; */
+/* --dpte-clock-hand-minute-color-gradient-1: #ff5e9a; */
+/* --dpte-clock-hand-minute-color-gradient-2: #ffb960; */
+/* --dpte-clock-hand-second-color-gradient-1: #bbbbbbc7; */
+/* --dpte-clock-hand-second-color-gradient-2: #bbbbbbc7; */
+/* --dpte-clock-center-dot-background: var(--dpte-primary-color-1); */
+/* --dpte-clock-center-dot-border: var(--dpte-dark-color-1); */
+/* --dpte-clock-time-remaining-color: var(--dpte-light-color-1); */
 
 /* clock base */
 .dpte-clock-wrapper {
@@ -21,7 +25,7 @@
 }
 
 .dpte-clock {
-  background: var(--dpte-clock-background);
+  background: radial-gradient(var(--dpte-clock-background-gradient-1), var(--dpte-clock-background-gradient-2) 60%);
   position: relative;
   width: 100%;
   height: 100%;
@@ -415,7 +419,7 @@
 }
 
 .dpte-clock .dpte-minute-line {
-  color: var(--dpte-clock-number-color);
+  color: var(--dpte-clock-minute-line-color);
   font-size: clamp(0.3rem, 1.5cqw, 1rem);
   font-weight: 400;
 }
@@ -445,7 +449,7 @@
   position: absolute;
   width: 100%;
   height: 50%;
-  background: var(  --dpte-clock-hand-hour-color);
+  background: linear-gradient(180deg, var(--dpte-clock-hand-hour-color-gradient-1), var(--dpte-clock-hand-hour-color-gradient-2));
   border-radius: 20px;
   box-shadow: 0 0 15px rgba(2, 2, 2, 0.5);
 }
@@ -460,7 +464,7 @@
   position: absolute;
   width: 100%;
   height: 50%;
-  background: var(--dpte-clock-hand-minute-color);
+  background: linear-gradient(180deg, var(--dpte-clock-hand-minute-color-gradient-1), var(--dpte-clock-hand-minute-color-gradient-2));
   border-radius: 20px;
   box-shadow: 0 0 15px rgba(2, 2, 2, 0.5);
 }
@@ -475,7 +479,7 @@
   position: absolute;
   width: 100%;
   height: 60%;
-  background: var(--dpte-clock-hand-second-color);
+  background: linear-gradient(180deg, var(--dpte-clock-hand-second-color-gradient-1), var(--dpte-clock-hand-second-color-gradient-2));
   border-radius: 20px;
   box-shadow: 0 0 15px rgba(2, 2, 2, 0.5);
 }
