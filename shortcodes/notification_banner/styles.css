@@ -1,7 +1,10 @@
-:root {
-  --dpte-notification-banner-active-background: var(--dpte-primary-color-1);
-  --dpte-notification-banner-error-background: #ac0000;
-}
+/* CSS VARIABLES */
+/* --dpte-notification-banner-active-background: var(--dpte-primary-color-1); */
+/* --dpte-notification-banner-active-color: var(--dpte-dark-color-1); */
+/* --dpte-notification-banner-active-icon-color: var(--dpte-dark-color-1); */
+/* --dpte-notification-banner-error-background: #ac0000; */
+/* --dpte-notification-banner-error-color: var(--dpte-light-color-1); */
+/* --dpte-notification-banner-error-icon-color: var(--dpte-light-color-1); */
 
 .dpte-notification-banner {
   text-align: center;
@@ -13,13 +16,13 @@
 
 .dpte-notification-banner.active {
   background: var(--dpte-notification-banner-active-background);
-  color: var(--dpte-dark-color-1);
+  color: var(--dpte-notification-banner-active-color);
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .dpte-notification-banner.error {
   background: var(--dpte-notification-banner-error-background);
-  color: var(--dpte-light-color-1);
+  color: var(--dpte-notification-banner-error-color);
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
@@ -41,6 +44,7 @@
   display: none;
   width: 20px;
   transform: translateY(-2px) scale(1.4);
+  fill: var(--dpte-notification-banner-active-icon-color);
 }
 
 .dpte-notification-banner.active .dpte-notification-banner-content .dpte-notification-active-icon {
@@ -51,6 +55,7 @@
   display: none;
   width: 20px;
   transform: translateY(-1px);
+  stroke: var(--dpte-notification-banner-error-icon-color);
 }
 
 .dpte-notification-banner.error .dpte-notification-banner-content .dpte-notification-error-icon {
