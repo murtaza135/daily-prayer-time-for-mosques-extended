@@ -1,6 +1,5 @@
-:root {
-  --dpte-timetable-date-color: var(--dpte-primary-color-1);
-}
+/* CSS VARIABLES */
+/* --dpte-timetable-date-color: var(--dpte-primary-color-1); */
 
 /* date */
 .dpte-timetable-date {
