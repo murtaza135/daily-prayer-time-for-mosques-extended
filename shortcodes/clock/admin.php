@@ -74,6 +74,121 @@ add_action('dpte_extend_clock_container', function($container) {
       Field::make('color', 'dpte_clock_time_remaining_color', 'Time Remaining Text Color')
         ->set_default_value('#FFFFFF')
         ->set_help_text('Change the color of the "time remaining" text.'),
+
+
+      Field::make('html', 'crb_separator_2')
+        ->set_html('<h2 style="padding: 0; margin: 0; margin-top: 1rem; font-size: 1rem; font-weight: 500;">Center Logo Image</h2>'),
+
+      Field::make('image', 'dpte_clock_center_logo_image', __('Image'))
+        ->set_value_type('url')
+        ->set_help_text('Display an image/logo in the center of the clock.'),
+
+      Field::make('text', 'dpte_clock_center_logo_image_scale', 'Image Scale')
+        ->set_attribute("type", "number")
+        ->set_default_value(1)
+        ->set_help_text('Scale the center logo image.'),
+
+      Field::make('text', 'dpte_clock_center_logo_image_translate_x', 'Image Translation X')
+        ->set_attribute("type", "number")
+        ->set_default_value(0)
+        ->set_help_text('Translate the center logo image along the X-axis (in terms of a % of the clock\'s width).'),
+
+      Field::make('text', 'dpte_clock_center_logo_image_translate_y', 'Image Translation Y')
+        ->set_attribute("type", "number")
+        ->set_default_value(0)
+        ->set_help_text('Translate the center logo image along the Y-axis (in terms of a % of the clock\'s height).'),
+
+
+      Field::make('html', 'crb_separator_3')
+        ->set_html('<h2 style="padding: 0; margin: 0; margin-top: 1rem; font-size: 1rem; font-weight: 500;">Top Left Image</h2>'),
+
+      Field::make('image', 'dpte_clock_top_left_image', __('Image'))
+        ->set_value_type('url')
+        ->set_help_text('Display an image on the top left corner of the clock.'),
+
+      Field::make('text', 'dpte_clock_top_left_image_scale', 'Image Scale')
+        ->set_attribute("type", "number")
+        ->set_default_value(1)
+        ->set_help_text('Scale the top left image.'),
+
+      Field::make('text', 'dpte_clock_top_left_image_translate_x', 'Image Translation X')
+        ->set_attribute("type", "number")
+        ->set_default_value(0)
+        ->set_help_text('Translate the top left image along the X-axis (in px).'),
+
+      Field::make('text', 'dpte_clock_top_left_image_translate_y', 'Image Translation Y')
+        ->set_attribute("type", "number")
+        ->set_default_value(0)
+        ->set_help_text('Translate the top left image along the Y-axis (in px).'),
+
+
+      Field::make('html', 'crb_separator_4')
+        ->set_html('<h2 style="padding: 0; margin: 0; margin-top: 1rem; font-size: 1rem; font-weight: 500;">Top Right Image</h2>'),
+
+      Field::make('image', 'dpte_clock_top_right_image', __('Image'))
+        ->set_value_type('url')
+        ->set_help_text('Display an image on the top right corner of the clock.'),
+
+      Field::make('text', 'dpte_clock_top_right_image_scale', 'Image Scale')
+        ->set_attribute("type", "number")
+        ->set_default_value(1)
+        ->set_help_text('Scale the top right image.'),
+
+      Field::make('text', 'dpte_clock_top_right_image_translate_x', 'Image Translation X')
+        ->set_attribute("type", "number")
+        ->set_default_value(0)
+        ->set_help_text('Translate the top right image along the X-axis (in px).'),
+
+      Field::make('text', 'dpte_clock_top_right_image_translate_y', 'Image Translation Y')
+        ->set_attribute("type", "number")
+        ->set_default_value(0)
+        ->set_help_text('Translate the top right image along the Y-axis (in px).'),
+
+
+      Field::make('html', 'crb_separator_5')
+        ->set_html('<h2 style="padding: 0; margin: 0; margin-top: 1rem; font-size: 1rem; font-weight: 500;">Bottom Left Image</h2>'),
+
+      Field::make('image', 'dpte_clock_bottom_left_image', __('Image'))
+        ->set_value_type('url')
+        ->set_help_text('Display an image on the bottom left corner of the clock.'),
+
+      Field::make('text', 'dpte_clock_bottom_left_image_scale', 'Image Scale')
+        ->set_attribute("type", "number")
+        ->set_default_value(1)
+        ->set_help_text('Scale the bottom left image.'),
+
+      Field::make('text', 'dpte_clock_bottom_left_image_translate_x', 'Image Translation X')
+        ->set_attribute("type", "number")
+        ->set_default_value(0)
+        ->set_help_text('Translate the bottom left image along the X-axis (in px).'),
+
+      Field::make('text', 'dpte_clock_bottom_left_image_translate_y', 'Image Translation Y')
+        ->set_attribute("type", "number")
+        ->set_default_value(0)
+        ->set_help_text('Translate the bottom left image along the Y-axis (in px).'),
+
+
+      Field::make('html', 'crb_separator_6')
+        ->set_html('<h2 style="padding: 0; margin: 0; margin-top: 1rem; font-size: 1rem; font-weight: 500;">Bottom Right Image</h2>'),
+
+      Field::make('image', 'dpte_clock_bottom_right_image', __('Image'))
+        ->set_value_type('url')
+        ->set_help_text('Display an image on the bottom right corner of the clock.'),
+
+      Field::make('text', 'dpte_clock_bottom_right_image_scale', 'Image Scale')
+        ->set_attribute("type", "number")
+        ->set_default_value(1)
+        ->set_help_text('Scale the bottom right image.'),
+
+      Field::make('text', 'dpte_clock_bottom_right_image_translate_x', 'Image Translation X')
+        ->set_attribute("type", "number")
+        ->set_default_value(0)
+        ->set_help_text('Translate the bottom right image along the X-axis (in px).'),
+
+      Field::make('text', 'dpte_clock_bottom_right_image_translate_y', 'Image Translation Y')
+        ->set_attribute("type", "number")
+        ->set_default_value(0)
+        ->set_help_text('Translate the bottom right image along the Y-axis (in px).'),
     ]);
 });
 
@@ -93,6 +208,26 @@ add_action('wp_head', function() {
   $dpte_clock_center_dot_border = carbon_get_theme_option('dpte_clock_center_dot_border');
   $dpte_clock_time_remaining_color = carbon_get_theme_option('dpte_clock_time_remaining_color');
 
+  $dpte_clock_center_logo_image_scale = carbon_get_theme_option('dpte_clock_center_logo_image_scale');
+  $dpte_clock_center_logo_image_translate_x = carbon_get_theme_option('dpte_clock_center_logo_image_translate_x');
+  $dpte_clock_center_logo_image_translate_y = carbon_get_theme_option('dpte_clock_center_logo_image_translate_y');
+
+  $dpte_clock_top_left_image_scale = carbon_get_theme_option('dpte_clock_top_left_image_scale');
+  $dpte_clock_top_left_image_translate_x = carbon_get_theme_option('dpte_clock_top_left_image_translate_x');
+  $dpte_clock_top_left_image_translate_y = carbon_get_theme_option('dpte_clock_top_left_image_translate_y');
+
+  $dpte_clock_top_right_image_scale = carbon_get_theme_option('dpte_clock_top_right_image_scale');
+  $dpte_clock_top_right_image_translate_x = carbon_get_theme_option('dpte_clock_top_right_image_translate_x');
+  $dpte_clock_top_right_image_translate_y = carbon_get_theme_option('dpte_clock_top_right_image_translate_y');
+
+  $dpte_clock_bottom_left_image_scale = carbon_get_theme_option('dpte_clock_bottom_left_image_scale');
+  $dpte_clock_bottom_left_image_translate_x = carbon_get_theme_option('dpte_clock_bottom_left_image_translate_x');
+  $dpte_clock_bottom_left_image_translate_y = carbon_get_theme_option('dpte_clock_bottom_left_image_translate_y');
+
+  $dpte_clock_bottom_right_image_scale = carbon_get_theme_option('dpte_clock_bottom_right_image_scale');
+  $dpte_clock_bottom_right_image_translate_x = carbon_get_theme_option('dpte_clock_bottom_right_image_translate_x');
+  $dpte_clock_bottom_right_image_translate_y = carbon_get_theme_option('dpte_clock_bottom_right_image_translate_y');
+
   echo "
     <style>
       :root {
@@ -110,6 +245,26 @@ add_action('wp_head', function() {
         --dpte-clock-center-dot-background: {$dpte_clock_center_dot_background};
         --dpte-clock-center-dot-border: {$dpte_clock_center_dot_border};
         --dpte-clock-time-remaining-color: {$dpte_clock_time_remaining_color};
+
+        --dpte-clock-center-logo-image-scale: {$dpte_clock_center_logo_image_scale};
+        --dpte-clock-center-logo-image-translate-x: {$dpte_clock_center_logo_image_translate_x}%;
+        --dpte-clock-center-logo-image-translate-y: {$dpte_clock_center_logo_image_translate_y}%;
+        
+        --dpte-clock-top-left-image-scale: {$dpte_clock_top_left_image_scale};
+        --dpte-clock-top-left-image-translate-x: {$dpte_clock_top_left_image_translate_x}px;
+        --dpte-clock-top-left-image-translate-y: {$dpte_clock_top_left_image_translate_y}px;
+        
+        --dpte-clock-top-right-image-scale: {$dpte_clock_top_right_image_scale};
+        --dpte-clock-top-right-image-translate-x: {$dpte_clock_top_right_image_translate_x}px;
+        --dpte-clock-top-right-image-translate-y: {$dpte_clock_top_right_image_translate_y}px;
+        
+        --dpte-clock-bottom-left-image-scale: {$dpte_clock_bottom_left_image_scale};
+        --dpte-clock-bottom-left-image-translate-x: {$dpte_clock_bottom_left_image_translate_x}px;
+        --dpte-clock-bottom-left-image-translate-y: {$dpte_clock_bottom_left_image_translate_y}px;
+        
+        --dpte-clock-bottom-right-image-scale: {$dpte_clock_bottom_right_image_scale};
+        --dpte-clock-bottom-right-image-translate-x: {$dpte_clock_bottom_right_image_translate_x}px;
+        --dpte-clock-bottom-right-image-translate-y: {$dpte_clock_bottom_right_image_translate_y}px;
       }
     </style>
   ";
