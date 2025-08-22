@@ -1,11 +1,11 @@
-:root {
-  --dpte-timetable-prayer-header-color: var(--dpte-dark-color-1);
-  --dpte-timetable-prayer-background: linear-gradient(90deg, var(--dpte-primary-color-1) 20%, var(--dpte-dark-color-1) 80%);
-  --dpte-timetable-prayer-active-color: #ff5e00;
-  --dpte-timetable-prayer-title-color: var(--dpte-dark-color-1);
-  --dpte-timetable-prayer-values-color: var(--dpte-light-color-1);
-  --dpte-timetable-prayer-icon-color: var(--dpte-dark-color-1);
-}
+/* CSS VARIABLES */
+/* --dpte-timetable-prayer-header-text-color: var(--dpte-dark-color-1); */
+/* --dpte-timetable-prayer-background-gradient-1: var(--dpte-primary-color-1); */
+/* --dpte-timetable-prayer-background-gradient-2: var(--dpte-dark-color-1); */
+/* --dpte-timetable-prayer-active-color: #ff5e00; */
+/* --dpte-timetable-prayer-title-color: var(--dpte-dark-color-1); */
+/* --dpte-timetable-prayer-values-color: var(--dpte-light-color-1); */
+/* --dpte-timetable-prayer-icon-color: var(--dpte-dark-color-1); */
 
 /* root */
 .dpte-timetable {
@@ -29,7 +29,7 @@
   gap: 0.75rem;
   padding: 0 0.8rem;
   transform: translateY(0.5rem);
-  color: var(--dpte-timetable-prayer-header-color);
+  color: var(--dpte-timetable-prayer-header-text-color);
   font-size: 0.9rem;
   font-weight: bold;
 }
@@ -59,7 +59,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: var(--dpte-timetable-prayer-background);
+  background: linear-gradient(90deg, var(--dpte-timetable-prayer-background-gradient-1) 20%, var(--dpte-timetable-prayer-background-gradient-2) 80%);
   border-radius: 10px;
   padding: 0.3rem 0.8rem;
   font-size: 0.95rem;

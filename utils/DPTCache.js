@@ -16,7 +16,7 @@ class DPTCache {
     this.fetchPromise = null;
 
     this.loadPrayerData();
-    this.intervalId = setInterval(() => this.reloadPrayerData(), DPTCache.REFETCH_INTERVAL_TIME);
+    this.intervalId = setInterval(() => this.loadPrayerData(), DPTCache.REFETCH_INTERVAL_TIME);
   }
 
   destroy() {
