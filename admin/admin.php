@@ -23,13 +23,13 @@ add_action('carbon_fields_register_fields', function() {
     ->set_page_parent('dpte-options');
   do_action('dpte_extend_timetable_container', $dpte_timetable_container);
 
-  $dpte_notification_banner_container = Container::make('theme_options', __('Notification Banners'))
-    ->set_page_file('dpte-notification-banner-options')
-    ->set_page_parent('dpte-options');
-  do_action('dpte_extend_notification_banner_container', $dpte_notification_banner_container);
-
   $dpte_timetable_date_container = Container::make('theme_options', __('Date'))
     ->set_page_file('dpte-timetable-date-options')
     ->set_page_parent('dpte-options');
   do_action('dpte_extend_timetable_date_container', $dpte_timetable_date_container);
+
+  $dpte_notification_banner_container = Container::make('theme_options', __('Notification Banners'))
+    ->set_page_file('dpte-notification-banner-options')
+    ->set_page_parent('dpte-options');
+  do_action('dpte_extend_notification_banner_container', $dpte_notification_banner_container);
 });
