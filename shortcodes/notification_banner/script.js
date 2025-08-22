@@ -5,14 +5,24 @@ function parseTimerIntoMilliseconds(timer, fallback) {
   return timerInMilliseconds;
 }
 
+function isZawal(prayer) {
+  if (!prayer) return false;
+  if (prayer.name.toLowerCase() !== "zuhr") return false;
+  const now = new Date();
+  const diff = prayer.begins - now;
+  const zawalTimer = parseTimerIntoMilliseconds(DPTENotificationBannerOptions.ZAWAL_TIMER);
+  return 0 < diff && diff <= zawalTimer;
+}
+
 function displayNotificationMessage() {
   const notificationBannerElement = document.querySelector(".dpte-notification-banner");
   const notificationTextElement = document.querySelector(".dpte-notification-banner .dpte-notification-text");
 
   if (!!notificationBannerElement && !!notificationTextElement) {
-    const { name, jamah, diff, timeRemaining, waitingForJamah } = dptCache.getCurrentPrayer();
+    const prayer = dptCache.getCurrentPrayer();
+    const { name, jamah, diff, timeRemaining, waitingForJamah } = prayer;
 
-    if (name.toLowerCase() === "zuhr" && dptCache.isZawal()) {
+    if (isZawal(prayer)) {
       notificationBannerElement.classList.add("error");
       notificationBannerElement.classList.remove("active");
       notificationTextElement.textContent = "Zawal - Prohibited Salah Time.";
@@ -40,7 +50,6 @@ function displayNotificationMessage() {
   notificationBannerElement?.classList.remove("active");
   notificationBannerElement?.classList.remove("error");
 }
-
 
 addEventListener("DOMContentLoaded", () => {
   dptCache.ensurePrayerData().then(() => {

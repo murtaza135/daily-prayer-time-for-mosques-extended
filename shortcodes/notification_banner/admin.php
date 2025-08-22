@@ -46,16 +46,20 @@ add_action('dpte_extend_notification_banner_container', function($container) {
       Field::make('html', 'crb_separator_2')
         ->set_html('<h2 style="padding: 0; margin: 0; margin-top: 1rem; font-size: 1rem; font-weight: 500;">Timers</h2>'),
 
-      Field::make('text', 'dpte_notification_banner_error_iqamah_timer', 'Iqamah Notification Timer')
+      Field::make('text', 'dpte_notification_banner_iqamah_timer', 'Iqamah Notification Timer')
         ->set_attribute("type", "number")
         ->set_default_value(5)
         ->set_help_text('How many minutes should the notification display the countdown to Iqamah/Jama\'ah time (in minutes).'),
 
-      Field::make('text', 'dpte_notification_banner_error_jamah_timer', 'Jama\'ah Notification Timer')
+      Field::make('text', 'dpte_notification_banner_jamah_timer', 'Jama\'ah Notification Timer')
         ->set_attribute("type", "number")
         ->set_default_value(5)
         ->set_help_text('How long should the notification display that it is currently Jama\'ah time when Jama\'ah time starts (in minutes).'),
 
+      Field::make('text', 'dpte_notification_banner_zawal_timer', 'Zawal Notification Timer')
+        ->set_attribute("type", "number")
+        ->set_default_value(20)
+        ->set_help_text('How many minutes should the notification display the countdown until Zawal time finishes and Zuhr starts (in minutes).'),
     ]);
 });
 

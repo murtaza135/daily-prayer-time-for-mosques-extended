@@ -8,8 +8,9 @@ function dpte_notification_banner_shortcode() {
   wp_enqueue_style("dpte-notification-banner", plugin_dir_url(__FILE__) . "styles.css");
   wp_enqueue_script("dpte-notification-banner", plugin_dir_url(__FILE__) . "script.js", ["dpte_dpt_cache"], null, true);
   wp_localize_script("dpte-notification-banner", "DPTENotificationBannerOptions", [
-    "IQAMAH_TIMER" => carbon_get_theme_option('dpte_notification_banner_error_iqamah_timer'),
-    "JAMAH_TIMER" => carbon_get_theme_option('dpte_notification_banner_error_jamah_timer'),
+    "IQAMAH_TIMER" => carbon_get_theme_option('dpte_notification_banner_iqamah_timer'),
+    "JAMAH_TIMER" => carbon_get_theme_option('dpte_notification_banner_jamah_timer'),
+    "ZAWAL_TIMER" => carbon_get_theme_option('dpte_notification_banner_zawal_timer'),
   ]);
 
   ob_start();

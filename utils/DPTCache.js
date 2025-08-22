@@ -1,6 +1,5 @@
 class DPTCache {
   static REFETCH_INTERVAL_TIME = 10 * 60 * 1000; /* 10 minutes */
-  static ZAWAL_TIMER = 20 * 60 * 1000; /* 20 minutes */
 
   static PRAYER_INDEX = {
     fajr: 0,
@@ -225,14 +224,6 @@ class DPTCache {
 
   getIshaPrayer() {
     return this.getPrayer("isha");
-  }
-
-  isZawal() {
-    const zuhr = this.getZuhrPrayer();
-    if (!zuhr) return false;
-    const now = new Date();
-    const diff = zuhr - now;
-    return 0 < diff && diff <= ZAWAL_TIMER;
   }
 }
 
