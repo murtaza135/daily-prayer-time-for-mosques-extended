@@ -27,5 +27,16 @@ add_action('dpte_extend_base_container', function($container) {
           <p><b>[dpte_timetable_date]</b> - Displays today\'s dates from both the Gregorian calendar and Islamic Calendar.</p>
           <p><b>[dpte_notification_banner]</b> - A notification banner that shows time till Jama\'ah, Jama\'ah in progress, and Zawal time.</p>
         '),
+    ])
+    ->add_tab(__('General'), [
+      Field::make('html', 'dpte_general_settings_heading')
+        ->set_html('
+          <h2 style="padding: 0; font-size: 1.25rem; font-weight: 500;">General Settings</h2>
+        '),
+        
+      Field::make('text', 'dpte_general_settings_refetch_interval_time', 'Prayer Times Refresh Interval')
+        ->set_attribute("type", "number")
+        ->set_default_value(10)
+        ->set_help_text('How often do you want the website to refetch/refresh the prayer times (in minutes).'),
     ]);
 });

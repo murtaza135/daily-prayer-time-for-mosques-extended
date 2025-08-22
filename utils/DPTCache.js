@@ -1,6 +1,4 @@
 class DPTCache {
-  static REFETCH_INTERVAL_TIME = 10 * 60 * 1000; /* 10 minutes */
-
   static PRAYER_INDEX = {
     fajr: 0,
     sunrise: 1,
@@ -14,8 +12,11 @@ class DPTCache {
     this.data = null;
     this.fetchPromise = null;
 
+    const timerNumber = Number(DPTE_DPTCacheOptions.REFETCH_INTERVAL_TIME);
+    const timerValidated = !Number.isNaN(timerNumber) ? timerNumber : 10;
+    const timerInMilliseconds = timerValidated * 60 * 1000;
     this.loadPrayerData();
-    this.intervalId = setInterval(() => this.loadPrayerData(), DPTCache.REFETCH_INTERVAL_TIME);
+    this.intervalId = setInterval(() => this.loadPrayerData(), timerInMilliseconds);
   }
 
   destroy() {
