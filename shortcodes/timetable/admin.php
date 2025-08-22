@@ -16,7 +16,7 @@ add_action('dpte_extend_timetable_container', function($container) {
           <p>Change settings for the <b>[dpte_timetable]</b> shortcode.</p>
         '),
 
-      Field::make('html', 'crb_separator_timetable_colors')
+      Field::make('html', 'dpte_separator_timetable_colors')
         ->set_html('<h2 style="padding: 0; margin: 0; margin-top: 1rem; font-size: 1rem; font-weight: 500;">Colors</h2>'),
 
       Field::make('color', 'dpte_timetable_prayer_header_text_color', 'Header Text Color')
@@ -46,6 +46,19 @@ add_action('dpte_extend_timetable_container', function($container) {
       Field::make('color', 'dpte_timetable_prayer_icon_color', 'Prayer Icon Color')
         ->set_default_value('#2C2C2E')
         ->set_help_text('Color of icons shown alongside prayer titles.'),
+
+      Field::make('html', 'dpte_separator_timetable_icons')
+        ->set_html('<h2 style="padding: 0; margin: 0; margin-top: 1rem; font-size: 1rem; font-weight: 500;">Icons</h2>'),
+
+      Field::make('checkbox', 'dpte_timetable_icon_resize_animation_running', __('Icon Animation'))
+        ->set_default_value('running')
+        ->set_option_value('running')
+        ->set_help_text('Activate the prayer icons\' resize animation.'),
+
+      Field::make('text', 'dpte_timetable_prayer_icon_resize_animation_duration', 'Icon Animation Duration')
+        ->set_attribute("type", "number")
+        ->set_default_value(5000)
+        ->set_help_text('Duration of prayer icons\' resize animation (in ms).'),
     ]);
 });
 
@@ -57,6 +70,8 @@ add_action('wp_head', function() {
   $dpte_timetable_prayer_title_color = carbon_get_theme_option('dpte_timetable_prayer_title_color');
   $dpte_timetable_prayer_values_color = carbon_get_theme_option('dpte_timetable_prayer_values_color');
   $dpte_timetable_prayer_icon_color = carbon_get_theme_option('dpte_timetable_prayer_icon_color');
+  $dpte_timetable_icon_resize_animation_running = carbon_get_theme_option('dpte_timetable_icon_resize_animation_running') ? "running" : "paused";
+  $dpte_timetable_prayer_icon_resize_animation_duration = carbon_get_theme_option('dpte_timetable_prayer_icon_resize_animation_duration');
 
   echo "
     <style>
@@ -68,6 +83,8 @@ add_action('wp_head', function() {
         --dpte-timetable-prayer-title-color: {$dpte_timetable_prayer_title_color};
         --dpte-timetable-prayer-values-color: {$dpte_timetable_prayer_values_color};
         --dpte-timetable-prayer-icon-color: {$dpte_timetable_prayer_icon_color};
+        --dpte-timetable-icon-resize-animation-running: {$dpte_timetable_icon_resize_animation_running};
+        --dpte-timetable-prayer-icon-resize-animation-duration: {$dpte_timetable_prayer_icon_resize_animation_duration}ms;
       }
     </style>
   ";

@@ -6,6 +6,8 @@
 /* --dpte-timetable-prayer-title-color: var(--dpte-dark-color-1); */
 /* --dpte-timetable-prayer-values-color: var(--dpte-light-color-1); */
 /* --dpte-timetable-prayer-icon-color: var(--dpte-dark-color-1); */
+/* --dpte-timetable-icon-resize-animation-running: running */
+/* --dpte-timetable-prayer-icon-resize-animation-duration: 5000ms */
 
 /* root */
 .dpte-timetable {
@@ -88,7 +90,10 @@
   aspect-ratio: 1 / 1;
   fill: var(--dpte-timetable-prayer-icon-color);
   stroke: var(--dpte-timetable-prayer-icon-color);
-  animation: pulse1 6s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  animation: cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  animation-name: pulse1;
+  animation-duration: var(--dpte-timetable-prayer-icon-resize-animation-duration);
+  animation-play-state: var(--dpte-timetable-icon-resize-animation-running);
 }
 
 @media (min-width: 525px) {
@@ -113,7 +118,7 @@
 
 .dpte-timetable .dpte-timetable-isha .dpte-timetable-prayer-icon {
   transform: scale(0.6);
-  animation: pulse2 6s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  animation-name: pulse2;
 }
 
 .dpte-timetable .dpte-timetable-jumah .dpte-timetable-prayer-icon {
