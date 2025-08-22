@@ -1,5 +1,6 @@
 /* CSS VARIABLES */
 /* --dpte-timetable-date-color: var(--dpte-primary-color-1); */
+/* --dpte-timetable-date-background: #00000000 */
 
 /* date */
 .dpte-timetable-date {
@@ -8,6 +9,7 @@
   align-items: center;
   flex-direction: column;
   color: var(--dpte-timetable-date-color);
+  background: var(--dpte-timetable-date-background);
   font-size: 1.2rem;
   gap: 0;
 }

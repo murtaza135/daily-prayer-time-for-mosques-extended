@@ -21,17 +21,23 @@ add_action('dpte_extend_timetable_date_container', function($container) {
 
       Field::make('color', 'dpte_timetable_date_color', 'Date Color')
         ->set_default_value('#CFA55B')
-        ->set_help_text('Change the color of the timetable date text.'),
+        ->set_help_text('Change the color of the date text.'),
+
+      Field::make('color', 'dpte_timetable_date_background', 'Background Color')
+        ->set_default_value('#00000000')
+        ->set_help_text('Change the background of the date.'),
     ]);
 });
 
 add_action('wp_head', function() {
   $dpte_timetable_date_color = carbon_get_theme_option('dpte_timetable_date_color');
+  $dpte_timetable_date_background = carbon_get_theme_option('dpte_timetable_date_background');
 
   echo "
     <style>
       :root {
         --dpte-timetable-date-color: {$dpte_timetable_date_color};
+        --dpte-timetable-date-background: {$dpte_timetable_date_background};
       }
     </style>
   ";
