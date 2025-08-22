@@ -16,6 +16,7 @@ add_action('dpte_extend_clock_container', function($container) {
           <p>Change settings for the <b>[dpte_clock]</b> shortcode.</p>
         '),
 
+        
       Field::make('html', 'crb_separator_1')
         ->set_html('<h2 style="padding: 0; margin: 0; margin-top: 1rem; font-size: 1rem; font-weight: 500;">Colors</h2>'),
 

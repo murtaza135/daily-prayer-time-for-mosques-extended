@@ -15,12 +15,14 @@ use Carbon_Fields\Field;
 //           <h2 style="padding: 0; font-size: 1.25rem; font-weight: 500;">Example</h2>
 //           <p>Lorem Ipsum.</p>'
 //         ),
+// 			Field::make('html', 'crb_separator_1')
+//         ->set_html('<h2 style="padding: 0; margin: 0; margin-top: 1rem; font-size: 1rem; font-weight: 500;">Example Separator</h2>'),
 //     ]);
 // });
 
 // add_action('wp_head', function() {
 //   $example = carbon_get_theme_option('dpte_example_heading');
-
+//	 
 //   echo "
 //     <style>
 //       :root {

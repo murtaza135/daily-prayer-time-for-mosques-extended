@@ -1,21 +1,5 @@
 /* @source: clock adapted from https://www.youtube.com/watch?v=nVGhXcMROfU */
 
-/* CSS VARIABLES */
-/* --dpte-clock-background-gradient-1: var(--dpte-primary-color-1); */
-/* --dpte-clock-background-gradient-2: var(--dpte-dark-color-1); */
-/* --dpte-clock-border: var(--dpte-dark-color-1); */
-/* --dpte-clock-number-color: var(--dpte-light-color-1); */
-/* --dpte-clock-minute-line-color: var(--dpte-light-color-1); */
-/* --dpte-clock-hand-hour-color-gradient-1: #ff5e9a; */
-/* --dpte-clock-hand-hour-color-gradient-2: #ffb960; */
-/* --dpte-clock-hand-minute-color-gradient-1: #ff5e9a; */
-/* --dpte-clock-hand-minute-color-gradient-2: #ffb960; */
-/* --dpte-clock-hand-second-color-gradient-1: #bbbbbbc7; */
-/* --dpte-clock-hand-second-color-gradient-2: #bbbbbbc7; */
-/* --dpte-clock-center-dot-background: var(--dpte-primary-color-1); */
-/* --dpte-clock-center-dot-border: var(--dpte-dark-color-1); */
-/* --dpte-clock-time-remaining-color: var(--dpte-light-color-1); */
-
 /* clock base */
 .dpte-clock-wrapper {
   width: 100%;
@@ -499,7 +483,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  /* transform: scale(0.45) translateY(-20%); */
   transform:
     scale(var(--dpte-clock-center-logo-image-scale))
     translateX(var(--dpte-clock-center-logo-image-translate-x))
@@ -542,34 +525,6 @@
 .dpte-clock .dpte-time-remaining-value {
   font-size: clamp(1.5rem, 6cqw, 4rem);
 }
-
-/* .dpte-clock .dpte-top-left-image {
-  position: absolute;
-  top: -5%;
-  left: -5%;
-  width: 20%;
-}
-
-.dpte-clock .dpte-top-right-image {
-  position: absolute;
-  top: -7.5%;
-  right: -7.5%;
-  width: 25%;
-}
-
-.dpte-clock .dpte-bottom-left-image {
-  position: absolute;
-  bottom: -5%;
-  left: -5%;
-  width: 20%;
-}
-
-.dpte-clock .dpte-bottom-right-image {
-  position: absolute;
-  bottom: -7.5%;
-  right: -7.5%;
-  width: 25%;
-} */
 
 .dpte-clock .dpte-top-left-image {
   position: absolute;

@@ -1,14 +1,3 @@
-/* CSS VARIABLES */
-/* --dpte-timetable-prayer-header-text-color: var(--dpte-dark-color-1); */
-/* --dpte-timetable-prayer-background-gradient-1: var(--dpte-primary-color-1); */
-/* --dpte-timetable-prayer-background-gradient-2: var(--dpte-dark-color-1); */
-/* --dpte-timetable-prayer-active-color: #ff5e00; */
-/* --dpte-timetable-prayer-title-color: var(--dpte-dark-color-1); */
-/* --dpte-timetable-prayer-values-color: var(--dpte-light-color-1); */
-/* --dpte-timetable-prayer-icon-color: var(--dpte-dark-color-1); */
-/* --dpte-timetable-icon-resize-animation-running: running */
-/* --dpte-timetable-prayer-icon-resize-animation-duration: 5000ms */
-
 /* root */
 .dpte-timetable {
   display: flex;

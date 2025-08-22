@@ -16,6 +16,7 @@ add_action('dpte_extend_notification_banner_container', function($container) {
           <p>Change settings for the <b>[dpte_notification_banner]</b> shortcode.</p>
         '),
 
+        
       Field::make('html', 'crb_separator_1')
         ->set_html('<h2 style="padding: 0; margin: 0; margin-top: 1rem; font-size: 1rem; font-weight: 500;">Colors</h2>'),
 
@@ -43,6 +44,7 @@ add_action('dpte_extend_notification_banner_container', function($container) {
         ->set_default_value('#FFFFFF')
         ->set_help_text('Change the icon color of error notification banners (such as Zawal time notifications).'),
       
+
       Field::make('html', 'crb_separator_2')
         ->set_html('<h2 style="padding: 0; margin: 0; margin-top: 1rem; font-size: 1rem; font-weight: 500;">Timers</h2>'),
 

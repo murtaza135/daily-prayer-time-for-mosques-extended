@@ -1,11 +1,3 @@
-/* CSS VARIABLES */
-/* --dpte-notification-banner-active-background: var(--dpte-primary-color-1); */
-/* --dpte-notification-banner-active-color: var(--dpte-dark-color-1); */
-/* --dpte-notification-banner-active-icon-color: var(--dpte-dark-color-1); */
-/* --dpte-notification-banner-error-background: #ac0000; */
-/* --dpte-notification-banner-error-color: var(--dpte-light-color-1); */
-/* --dpte-notification-banner-error-icon-color: var(--dpte-light-color-1); */
-
 .dpte-notification-banner {
   text-align: center;
   padding: 0.5rem 1.25rem;

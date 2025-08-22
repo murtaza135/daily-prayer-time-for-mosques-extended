@@ -10,9 +10,6 @@ function dpte_clock_shortcode() {
   wp_enqueue_script("dpte_clock", plugin_dir_url(__FILE__) . "script.js", ["dpte_dpt_cache"], null, true);
 
   ob_start();
-  $center_logo = plugin_dir_url(__FILE__) . 'assets/allah-calligraphy.svg';
-  $allah_image_url = plugin_dir_url(__FILE__) . 'assets/allah.png';
-  $muhammad_image_url = plugin_dir_url(__FILE__) . 'assets/muhammad.png';
   ?>
   <div class="dpte-clock-wrapper">
     <div class="dpte-clock">
