@@ -27,13 +27,17 @@ if (!class_exists('DailyPrayerTimeExtended')) {
         wp_enqueue_script("dpte_date_time_utils", plugin_dir_url(__FILE__) . "utils/DateTimeUtils.js", [], null, true);
         wp_enqueue_script("dpte_dpt_cache", plugin_dir_url(__FILE__) . "utils/DPTCache.js", ["dpte_date_time_utils"], null, true);
       });
-
-      require_once plugin_dir_path(__FILE__) . "menu.php";
-      require_once plugin_dir_path(__FILE__) . "shortcodes/example/shortcode.php";
+      
       require_once plugin_dir_path(__FILE__) . "shortcodes/timetable_date/shortcode.php";
+      require_once plugin_dir_path(__FILE__) . "shortcodes/timetable_date/admin.php";
       require_once plugin_dir_path(__FILE__) . "shortcodes/timetable/shortcode.php";
+      require_once plugin_dir_path(__FILE__) . "shortcodes/timetable/admin.php";
       require_once plugin_dir_path(__FILE__) . "shortcodes/clock/shortcode.php";
+      require_once plugin_dir_path(__FILE__) . "shortcodes/clock/admin.php";
       require_once plugin_dir_path(__FILE__) . "shortcodes/notification_banner/shortcode.php";
+      require_once plugin_dir_path(__FILE__) . "shortcodes/notification_banner/admin.php";
+      require_once plugin_dir_path(__FILE__) . "admin/base.php";
+      require_once plugin_dir_path(__FILE__) . "admin/admin.php"; // this must be the last require
     }
   }
 
