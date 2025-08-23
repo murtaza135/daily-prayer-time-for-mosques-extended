@@ -1,18 +1,37 @@
 function setTimeRemainingMessage() {
   const currentPrayer = dptCache.getCurrentPrayer();
-  const timeRemainingHeader = document.querySelector(".dpte-clock .dpte-time-remaining-header");
-  const timeRemainingValue = document.querySelector(".dpte-clock .dpte-time-remaining-value");
-  if (!timeRemainingHeader || !timeRemainingValue) return;
+  const timeRemainingHeader = document.querySelectorAll(".dpte-clock .dpte-time-remaining-header");
+  const timeRemainingValue = document.querySelectorAll(".dpte-clock .dpte-time-remaining-value");
+  if (timeRemainingHeader.length === 0 || timeRemainingValue.length === 0) return;
 
   if (!currentPrayer) {
-    timeRemainingHeader.textContent = "";
-    timeRemainingValue.textContent = "";
+    timeRemainingHeader.forEach((element) => {
+      element.textContent = "";
+    });
+    timeRemainingValue.forEach((element) => {
+      element.textContent = "";
+    });
+  } else if (currentPrayer.name.toLowerCase() === "sunrise") {
+    timeRemainingHeader.forEach((element) => {
+      element.textContent = "Time to Zuhr:";
+    });
+    timeRemainingValue.forEach((element) => {
+      element.textContent = currentPrayer.timeRemaining;
+    });
   } else if (currentPrayer.waitingForJamah) {
-    timeRemainingHeader.textContent = `${currentPrayer.name} Jama'ah in:`;
-    timeRemainingValue.textContent = currentPrayer.timeRemaining;
+    timeRemainingHeader.forEach((element) => {
+      element.textContent = `${currentPrayer.name} Jama'ah in:`;
+    });
+    timeRemainingValue.forEach((element) => {
+      element.textContent = currentPrayer.timeRemaining;
+    });
   } else {
-    timeRemainingHeader.textContent = `${currentPrayer.name} time left:`;
-    timeRemainingValue.textContent = currentPrayer.timeRemaining;
+    timeRemainingHeader.forEach((element) => {
+      element.textContent = `${currentPrayer.name} time left:`;
+    });
+    timeRemainingValue.forEach((element) => {
+      element.textContent = currentPrayer.timeRemaining;
+    });
   }
 }
 
@@ -27,13 +46,19 @@ function setClock() {
   const minutesRotation = minutes * 6;
   const secondsRotation = seconds * 6;
 
-  const hoursHand = document.querySelector(".dpte-clock .dpte-hand-hours");
-  const minutesHand = document.querySelector(".dpte-clock .dpte-hand-minutes");
-  const secondsHand = document.querySelector(".dpte-clock .dpte-hand-seconds");
+  const hoursHand = document.querySelectorAll(".dpte-clock .dpte-hand-hours");
+  const minutesHand = document.querySelectorAll(".dpte-clock .dpte-hand-minutes");
+  const secondsHand = document.querySelectorAll(".dpte-clock .dpte-hand-seconds");
 
-  if (!!hoursHand) hoursHand.style.transform = `rotate(${hoursRotation}deg)`;
-  if (!!minutesHand) minutesHand.style.transform = `rotate(${minutesRotation}deg)`;
-  if (!!secondsHand) secondsHand.style.transform = `rotate(${secondsRotation}deg)`;
+  hoursHand.forEach((element) => {
+    element.style.transform = `rotate(${hoursRotation}deg)`;
+  });
+  minutesHand.forEach((element) => {
+    element.style.transform = `rotate(${minutesRotation}deg)`;
+  });
+  secondsHand.forEach((element) => {
+    element.style.transform = `rotate(${secondsRotation}deg)`;
+  });
 }
 
 addEventListener("DOMContentLoaded", () => {
