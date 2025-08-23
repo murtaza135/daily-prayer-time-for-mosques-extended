@@ -20,7 +20,7 @@ if (!class_exists('DailyPrayerTimeExtended')) {
     {
       add_action('after_setup_theme', function () {
         if (!class_exists('\Carbon_Fields\Carbon_Fields')) {
-          if (file_exists(plugin_dir_path(__FILE__) . 'vendor/autoloads.php')) {
+          if (file_exists(plugin_dir_path(__FILE__) . 'vendor/autoload.php')) {
             require_once plugin_dir_path(__FILE__) . 'vendor/autoload.php';
             \Carbon_Fields\Carbon_Fields::boot();
           } else {
