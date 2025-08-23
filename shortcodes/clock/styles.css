@@ -1,6 +1,16 @@
 /* @source: clock adapted from https://www.youtube.com/watch?v=nVGhXcMROfU */
 
-/* clock base */
+/* base */
+.dpte-clock-wrapper *, .dpte-clock-wrapper *::before, .dpte-clock-wrapper *::after {
+  box-sizing: border-box;
+  line-height: 1;
+}
+
+.dpte-clock-wrapper * {
+  margin: 0;
+  padding: 0;
+}
+
 .dpte-clock-wrapper {
   width: 100%;
   aspect-ratio: 1 / 1;
@@ -160,6 +170,7 @@
   position: absolute;
   height: 100%;
   top: 0;
+  padding: 0.5rem;
 }
 
 .dpte-clock .dpte-minutes-container > li:nth-child(1) {

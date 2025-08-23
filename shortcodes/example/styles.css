@@ -1,0 +1,9 @@
+.example *, .example *::before, .example *::after {
+  box-sizing: border-box;
+  line-height: 1;
+}
+
+.example * {
+  margin: 0;
+  padding: 0;
+}

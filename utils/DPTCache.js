@@ -179,8 +179,10 @@ class DPTCache {
     const { begins: end } = this.data.all[0];
     if (now < end) {
       const diff = end - now;
+      const begins = new Date();
+      begins.setHours(0, 0, 0, 0);
       const timeRemaining = DateTimeUtils.formatDiffToTime(diff);
-      return { name: "Isha", begins: now, jamah: now, end, diff, timeRemaining, waitingForJamah: false };
+      return { name: "Isha", begins, jamah: end, end, diff, timeRemaining, waitingForJamah: false };
     }
 
     return null;
