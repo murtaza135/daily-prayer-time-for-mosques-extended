@@ -1,67 +1,92 @@
 function setPrayerTimes() {
   const fajr = dptCache.getPrayer("fajr");
-  const fajrStartElement = document.querySelector(".dpte-timetable .dpte-timetable-fajr .dpte-prayer-start");
-  const fajrPrayerElement = document.querySelector(".dpte-timetable .dpte-timetable-fajr .dpte-prayer-prayer");
-  if (!!fajr && !!fajrStartElement && !!fajrPrayerElement) {
-    fajrStartElement.textContent = DateTimeUtils.formatDateToTime(fajr.begins);
-    fajrPrayerElement.textContent = DateTimeUtils.formatDateToTime(fajr.jamah);
+  const fajrStartElement = document.querySelectorAll(".dpte-timetable .dpte-timetable-fajr .dpte-prayer-start");
+  const fajrPrayerElement = document.querySelectorAll(".dpte-timetable .dpte-timetable-fajr .dpte-prayer-prayer");
+  if (!!fajr) {
+    fajrStartElement.forEach((element) => {
+      element.textContent = DateTimeUtils.formatDateToTime(fajr.begins);
+    });
+    fajrPrayerElement.forEach((element) => {
+      element.textContent = DateTimeUtils.formatDateToTime(fajr.jamah);
+    });
   }
 
   const sunrise = dptCache.getPrayer("sunrise");
-  const sunriseElement = document.querySelector(".dpte-timetable .dpte-timetable-sunrise .dpte-prayer-start");
-  if (!!sunrise && !!sunriseElement) {
-    sunriseElement.textContent = DateTimeUtils.formatDateToTime(sunrise.begins);
+  const sunriseElement = document.querySelectorAll(".dpte-timetable .dpte-timetable-sunrise .dpte-prayer-start");
+  if (!!sunrise) {
+    sunriseElement.forEach((element) => {
+      element.textContent = DateTimeUtils.formatDateToTime(sunrise.begins);
+    });
   }
 
   const zuhr = dptCache.getPrayer("zuhr");
-  const zuhrStartElement = document.querySelector(".dpte-timetable .dpte-timetable-zuhr .dpte-prayer-start");
-  const zuhrPrayerElement = document.querySelector(".dpte-timetable .dpte-timetable-zuhr .dpte-prayer-prayer");
-  if (!!zuhr && !!zuhrStartElement && !!zuhrPrayerElement) {
-    zuhrStartElement.textContent = DateTimeUtils.formatDateToTime(zuhr.begins);
-    zuhrPrayerElement.textContent = DateTimeUtils.formatDateToTime(zuhr.jamah);
+  const zuhrStartElement = document.querySelectorAll(".dpte-timetable .dpte-timetable-zuhr .dpte-prayer-start");
+  const zuhrPrayerElement = document.querySelectorAll(".dpte-timetable .dpte-timetable-zuhr .dpte-prayer-prayer");
+  if (!!zuhr) {
+    zuhrStartElement.forEach((element) => {
+      element.textContent = DateTimeUtils.formatDateToTime(zuhr.begins);
+    });
+    zuhrPrayerElement.forEach((element) => {
+      element.textContent = DateTimeUtils.formatDateToTime(zuhr.jamah);
+    });
   }
 
   const asr = dptCache.getPrayer("asr");
-  const asrStartElement = document.querySelector(".dpte-timetable .dpte-timetable-asr .dpte-prayer-start");
-  const asrPrayerElement = document.querySelector(".dpte-timetable .dpte-timetable-asr .dpte-prayer-prayer");
-  if (!!asr && !!asrStartElement && !!asrPrayerElement) {
-    asrStartElement.textContent = DateTimeUtils.formatDateToTime(asr.begins);
-    asrPrayerElement.textContent = DateTimeUtils.formatDateToTime(asr.jamah);
+  const asrStartElement = document.querySelectorAll(".dpte-timetable .dpte-timetable-asr .dpte-prayer-start");
+  const asrPrayerElement = document.querySelectorAll(".dpte-timetable .dpte-timetable-asr .dpte-prayer-prayer");
+  if (!!asr) {
+    asrStartElement.forEach((element) => {
+      element.textContent = DateTimeUtils.formatDateToTime(asr.begins);
+    });
+    asrPrayerElement.forEach((element) => {
+      element.textContent = DateTimeUtils.formatDateToTime(asr.jamah);
+    });
   }
 
   const maghrib = dptCache.getPrayer("maghrib");
-  const maghribStartElement = document.querySelector(".dpte-timetable .dpte-timetable-maghrib .dpte-prayer-start");
-  const maghribPrayerElement = document.querySelector(".dpte-timetable .dpte-timetable-maghrib .dpte-prayer-prayer");
-  if (!!maghrib && !!maghribStartElement && !!maghribPrayerElement) {
-    maghribStartElement.textContent = DateTimeUtils.formatDateToTime(maghrib.begins);
-    maghribPrayerElement.textContent = DateTimeUtils.formatDateToTime(maghrib.jamah);
+  const maghribStartElement = document.querySelectorAll(".dpte-timetable .dpte-timetable-maghrib .dpte-prayer-start");
+  const maghribPrayerElement = document.querySelectorAll(".dpte-timetable .dpte-timetable-maghrib .dpte-prayer-prayer");
+  if (!!maghrib) {
+    maghribStartElement.forEach((element) => {
+      element.textContent = DateTimeUtils.formatDateToTime(maghrib.begins);
+    });
+    maghribPrayerElement.forEach((element) => {
+      element.textContent = DateTimeUtils.formatDateToTime(maghrib.jamah);
+    });
   }
 
   const isha = dptCache.getPrayer("isha");
-  const ishaStartElement = document.querySelector(".dpte-timetable .dpte-timetable-isha .dpte-prayer-start");
-  const ishaPrayerElement = document.querySelector(".dpte-timetable .dpte-timetable-isha .dpte-prayer-prayer");
-  if (!!isha && !!ishaStartElement && !!ishaPrayerElement) {
-    ishaStartElement.textContent = DateTimeUtils.formatDateToTime(isha.begins);
-    ishaPrayerElement.textContent = DateTimeUtils.formatDateToTime(isha.jamah);
+  const ishaStartElement = document.querySelectorAll(".dpte-timetable .dpte-timetable-isha .dpte-prayer-start");
+  const ishaPrayerElement = document.querySelectorAll(".dpte-timetable .dpte-timetable-isha .dpte-prayer-prayer");
+  if (!!isha) {
+    ishaStartElement.forEach((element) => {
+      element.textContent = DateTimeUtils.formatDateToTime(isha.begins);
+    });
+    ishaPrayerElement.forEach((element) => {
+      element.textContent = DateTimeUtils.formatDateToTime(isha.jamah);
+    });
   }
 
   const jumah = dptCache.data.jumah;
-  const jumahElement = document.querySelector(".dpte-timetable .dpte-timetable-jumah .dpte-prayer-start");
-  if (!!jumah && jumah.length > 0 && !!jumahElement) {
-    jumahElement.textContent = jumah.join(" | ");
+  const jumahElement = document.querySelectorAll(".dpte-timetable .dpte-timetable-jumah .dpte-prayer-start");
+  if (!!jumah && jumah.length > 0) {
+    const jumahText = jumah.join(" | ");
+    jumahElement.forEach((element) => {
+      element.textContent = jumahText;
+    });
   }
 }
 
 function getPrayerElement(prayer) {
-  if (!prayer) return null;
+  if (!prayer) return [];
   const prayerName = prayer.toLowerCase();
-  if (prayerName === "fajr") return document.querySelector(".dpte-timetable .dpte-timetable-fajr");
-  if (prayerName === "sunrise") return document.querySelector(".dpte-timetable .dpte-timetable-sunrise");
-  if (prayerName === "zuhr") return document.querySelector(".dpte-timetable .dpte-timetable-zuhr");
-  if (prayerName === "asr") return document.querySelector(".dpte-timetable .dpte-timetable-asr");
-  if (prayerName === "maghrib") return document.querySelector(".dpte-timetable .dpte-timetable-maghrib");
-  if (prayerName === "isha") return document.querySelector(".dpte-timetable .dpte-timetable-isha");
-  return null;
+  if (prayerName === "fajr") return document.querySelectorAll(".dpte-timetable .dpte-timetable-fajr");
+  if (prayerName === "sunrise") return document.querySelectorAll(".dpte-timetable .dpte-timetable-sunrise");
+  if (prayerName === "zuhr") return document.querySelectorAll(".dpte-timetable .dpte-timetable-zuhr");
+  if (prayerName === "asr") return document.querySelectorAll(".dpte-timetable .dpte-timetable-asr");
+  if (prayerName === "maghrib") return document.querySelectorAll(".dpte-timetable .dpte-timetable-maghrib");
+  if (prayerName === "isha") return document.querySelectorAll(".dpte-timetable .dpte-timetable-isha");
+  return [];
 }
 
 function setActivePrayer() {
@@ -69,22 +94,31 @@ function setActivePrayer() {
   if (!currentPrayer) return;
   const currentPrayerElement = getPrayerElement(currentPrayer.name);
 
-  document.querySelector(".dpte-timetable .dpte-timetable-fajr")?.classList.remove("active");
-  document.querySelector(".dpte-timetable .dpte-timetable-sunrise")?.classList.remove("active");
-  document.querySelector(".dpte-timetable .dpte-timetable-zuhr")?.classList.remove("active");
-  document.querySelector(".dpte-timetable .dpte-timetable-asr")?.classList.remove("active");
-  document.querySelector(".dpte-timetable .dpte-timetable-maghrib")?.classList.remove("active");
-  document.querySelector(".dpte-timetable .dpte-timetable-isha")?.classList.remove("active");
+  const fajrElement = document.querySelectorAll(".dpte-timetable .dpte-timetable-fajr");
+  const sunriseElement = document.querySelectorAll(".dpte-timetable .dpte-timetable-sunrise");
+  const zuhrElement = document.querySelectorAll(".dpte-timetable .dpte-timetable-zuhr");
+  const asrElement = document.querySelectorAll(".dpte-timetable .dpte-timetable-asr");
+  const maghribElement = document.querySelectorAll(".dpte-timetable .dpte-timetable-maghrib");
+  const ishaElement = document.querySelectorAll(".dpte-timetable .dpte-timetable-isha");
 
-  currentPrayerElement?.classList.add("active");
+  fajrElement.forEach((element) => element.classList.remove("active"));
+  sunriseElement.forEach((element) => element.classList.remove("active"));
+  zuhrElement.forEach((element) => element.classList.remove("active"));
+  asrElement.forEach((element) => element.classList.remove("active"));
+  maghribElement.forEach((element) => element.classList.remove("active"));
+  ishaElement.forEach((element) => element.classList.remove("active"));
+
+  currentPrayerElement.forEach((element) => {
+    element.classList.add("active");
+  });
 }
 
 function setJumah() {
-  const zuhrPrayerTitle = document.querySelector(".dpte-timetable .dpte-timetable-zuhr .dpte-prayer-title");
+  const zuhrPrayerTitle = document.querySelectorAll(".dpte-timetable .dpte-timetable-zuhr .dpte-prayer-title");
   const isFriday = new Date().getDay() === 5;
-  if (!!zuhrPrayerTitle) {
-    zuhrPrayerTitle.textContent = isFriday ? "Jumu'ah" : "Zuhr";
-  }
+  zuhrPrayerTitle.forEach((element) => {
+    element.textContent = isFriday ? "Jumu'ah" : "Zuhr";
+  });
 }
 
 addEventListener("DOMContentLoaded", () => {
