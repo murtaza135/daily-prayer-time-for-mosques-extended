@@ -4,7 +4,7 @@ if (!defined('ABSPATH')) {
 	exit;
 }
 
-function dpte_notification_banner_shortcode() {
+function dpte_notification_banner_shortcode($atts) {
   wp_enqueue_style("dpte-notification-banner", plugin_dir_url(__FILE__) . "styles.css");
   wp_enqueue_script("dpte-notification-banner", plugin_dir_url(__FILE__) . "script.js", ["dpte_dpt_cache"], null, true);
   wp_localize_script("dpte-notification-banner", "DPTENotificationBannerOptions", [
@@ -13,9 +13,23 @@ function dpte_notification_banner_shortcode() {
     "ZAWAL_TIMER" => carbon_get_theme_option('dpte_notification_banner_zawal_timer'),
   ]);
 
+  $data_attrs = '';
+  $atts = shortcode_atts(
+    array(
+      'iqamahtimer' => 'true',
+      'jamahtimer' => 'true',
+      'zawaltimer' => 'true',
+    ),
+    $atts,
+    'dpte_notification_banner'
+  );
+  foreach ($atts as $key => $value) {
+    $data_attrs .= ' data-' . esc_attr($key) . '="' . esc_attr($value) . '"';
+  }
+
   ob_start();
   ?>
-  <div class="dpte-notification-banner">
+  <div class="dpte-notification-banner" <?php echo $data_attrs; ?> data-lolHehe="true">
     <div class="dpte-notification-banner-content">
       <svg class="dpte-notification-active-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
         <path d="M60 110 Q100 40 140 110 Z" /> <!-- Main dome -->

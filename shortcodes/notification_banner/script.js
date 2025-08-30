@@ -14,21 +14,41 @@ function isZawal(prayer) {
   return 0 < diff && diff <= zawalTimer;
 }
 
+function setNotificationState(element, state) {
+  switch (state) {
+    case "active":
+      element.classList.remove("error");
+      element.classList.add("active");
+      break;
+    case "error":
+      element.classList.remove("active");
+      element.classList.add("error");
+      break;
+    case "hidden":
+      element.classList.remove("active");
+      element.classList.remove("error");
+      break;
+    default:
+      break;
+  }
+}
+
 function displayNotificationMessage() {
   const notificationBannerElement = document.querySelectorAll(".dpte-notification-banner");
-  const notificationTextElement = document.querySelectorAll(".dpte-notification-banner .dpte-notification-text");
 
-  if (notificationBannerElement.length > 0 && notificationTextElement.length > 0) {
+  if (notificationBannerElement.length > 0) {
     const prayer = dptCache.getCurrentPrayer();
     const { name, jamah, diff, timeRemaining, waitingForJamah } = prayer;
 
     if (isZawal(prayer)) {
       notificationBannerElement.forEach((element) => {
-        element.classList.add("error");
-        element.classList.remove("active");
-      });
-      notificationTextElement.forEach((element) => {
-        element.textContent = "Zawal - Prohibited Salah Time.";
+        if (element.dataset.zawaltimer === "true") {
+          const textElement = element.querySelector(".dpte-notification-banner .dpte-notification-text");
+          if (!!textElement) textElement.textContent = "Zawal - Prohibited Salah Time.";
+          setNotificationState(element, "error");
+        } else {
+          setNotificationState(element, "hidden");
+        }
       });
       return;
     }
@@ -36,11 +56,13 @@ function displayNotificationMessage() {
     const iqamahTimer = parseTimerIntoMilliseconds(DPTENotificationBannerOptions.IQAMAH_TIMER);
     if (waitingForJamah && 0 < diff && diff <= iqamahTimer) {
       notificationBannerElement.forEach((element) => {
-        element.classList.remove("error");
-        element.classList.add("active");
-      });
-      notificationTextElement.forEach((element) => {
-        element.textContent = `${name} Jama'ah in ${timeRemaining.slice(3)}`;
+        if (element.dataset.iqamahtimer === "true") {
+          const textElement = element.querySelector(".dpte-notification-banner .dpte-notification-text");
+          if (!!textElement) textElement.textContent = `${name} Jama'ah in ${timeRemaining.slice(3)}`;
+          setNotificationState(element, "active");
+        } else {
+          setNotificationState(element, "hidden");
+        }
       });
       return;
     }
@@ -49,19 +71,20 @@ function displayNotificationMessage() {
     const jamahDiff = jamah - new Date();
     if (!waitingForJamah && -jamahTimer <= jamahDiff && jamahDiff < 0) {
       notificationBannerElement.forEach((element) => {
-        element.classList.remove("error");
-        element.classList.add("active");
-      });
-      notificationTextElement.forEach((element) => {
-        element.textContent = `${name} Jama'ah Time.`;
+        if (element.dataset.jamahtimer === "true") {
+          const textElement = element.querySelector(".dpte-notification-banner .dpte-notification-text");
+          if (!!textElement) textElement.textContent = `${name} Jama'ah Time.`;
+          setNotificationState(element, "active");
+        } else {
+          setNotificationState(element, "hidden");
+        }
       });
       return;
     }
   }
 
   notificationBannerElement.forEach((element) => {
-    element.classList.remove("active");
-    element.classList.remove("error");
+    setNotificationState(element, "hidden");
   });
 }
 
