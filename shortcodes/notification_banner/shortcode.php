@@ -29,7 +29,7 @@ function dpte_notification_banner_shortcode($atts) {
 
   ob_start();
   ?>
-  <div class="dpte-notification-banner" <?php echo $data_attrs; ?> data-lolHehe="true">
+  <div class="dpte-notification-banner" <?php echo $data_attrs; ?>>
     <div class="dpte-notification-banner-content">
       <svg class="dpte-notification-active-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
         <path d="M60 110 Q100 40 140 110 Z" /> <!-- Main dome -->

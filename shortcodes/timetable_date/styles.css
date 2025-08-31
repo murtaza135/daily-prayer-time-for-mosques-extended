@@ -22,3 +22,7 @@
 .dpte-timetable-date .dpte-timetable-date-gregorian {
   font-weight: bold;
 }
+
+.dpte-timetable-date:not([data-day="today"]) .dpte-timetable-date-islamic {
+  display: none;
+}
