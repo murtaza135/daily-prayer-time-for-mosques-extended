@@ -18,16 +18,6 @@ add_action('dpte_extend_base_container', function($container) {
           <p>All timetable settings must be configured via the original Daily Prayer Time plugin.</p>
         '),
     ])
-    ->add_tab(__('Shortcodes'), [
-      Field::make('html', 'dpte_shortcodes_heading')
-        ->set_html('
-          <h2 style="padding: 0; font-size: 1.25rem; font-weight: 500;">Available Shortcodes</h2>
-          <p><b>[dpte_clock]</b> - A clock that also displays time left till Jama\'ah or the end of the Salah time.</p>
-          <p><b>[dpte_timetable]</b> - A timetable showing the start and Jama\'ah times of all current prayers.</p>
-          <p><b>[dpte_timetable_date]</b> - Displays today\'s dates from both the Gregorian calendar and Islamic Calendar.</p>
-          <p><b>[dpte_notification_banner]</b> - A notification banner that shows time till Jama\'ah, Jama\'ah in progress, and Zawal time.</p>
-        '),
-    ])
     ->add_tab(__('General'), [
       Field::make('html', 'dpte_general_settings_heading')
         ->set_html('

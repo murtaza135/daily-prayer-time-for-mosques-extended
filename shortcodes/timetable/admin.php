@@ -13,6 +13,7 @@ add_action('dpte_extend_timetable_container', function($container) {
       Field::make('html', 'dpte_timetable_heading')
         ->set_html('
           <h2 style="padding: 0; font-size: 1.25rem; font-weight: 500;">[dpte_timetable]</h2>
+          <p>A timetable showing the start and Jama\'ah times of all prayers.</p>
           <p><b>Shortcode Usage and Parameters:</b></p>
           <p> - <b>[dpte_timetable]</b> - Display prayer timetable, where the times displayed are of the next prayer. For example, if today\'s Asr has NOT yet passed, then today\'s Asr time will be displayed. If today\'s Asr HAS passed, then tomorrow\'s Asr will be displayed.</p>
           <p> - <b>[dpte_timetable timetype="next"]</b> - Same as <b>[dpte_timetable]</b>, without any parameters.</p>

@@ -13,6 +13,7 @@ add_action('dpte_extend_notification_banner_container', function($container) {
       Field::make('html', 'dpte_notification_banner_heading')
         ->set_html('
           <h2 style="padding: 0; font-size: 1.25rem; font-weight: 500;">[dpte_notification_banner]</h2>
+          <p>A notification banner that shows time till Jama\'ah, Jama\'ah in progress, and Zawal time.</p>
           <p><b>Shortcode Usage and Parameters:</b></p>
           <p> - <b>[dpte_notification_banner]</b> - Display notification banner for all options.</p>
           <p> - <b>[dpte_notification_banner iqamahtimer="false"]</b> - Do not display notification banner for the countdown to Iqamah/Jama\'ah time.</p>
