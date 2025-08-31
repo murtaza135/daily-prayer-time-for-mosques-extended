@@ -11,13 +11,6 @@ function setTimeRemainingMessage() {
     timeRemainingValue.forEach((element) => {
       element.textContent = "";
     });
-  } else if (currentPrayer.name.toLowerCase() === "sunrise") {
-    timeRemainingHeader.forEach((element) => {
-      element.textContent = "Time to Zuhr:";
-    });
-    timeRemainingValue.forEach((element) => {
-      element.textContent = currentPrayer.timeRemaining;
-    });
   } else if (currentPrayer.waitingForJamah) {
     timeRemainingHeader.forEach((element) => {
       element.textContent = `${currentPrayer.name} Jama'ah in:`;
@@ -27,7 +20,9 @@ function setTimeRemainingMessage() {
     });
   } else {
     timeRemainingHeader.forEach((element) => {
-      element.textContent = `${currentPrayer.name} time left:`;
+      const nextPrayerName = dptCache.getNextPrayerName(currentPrayer.name);
+      const nextPrayerNameCapitalised = nextPrayerName.charAt(0).toUpperCase() + nextPrayerName.slice(1);
+      element.textContent = `Time to ${nextPrayerNameCapitalised}:`;
     });
     timeRemainingValue.forEach((element) => {
       element.textContent = currentPrayer.timeRemaining;

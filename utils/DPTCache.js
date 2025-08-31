@@ -8,6 +8,8 @@ class DPTCache {
     isha: 5,
   };
 
+  static PRAYER_NAMES = ["fajr", "sunrise", "zuhr", "asr", "maghrib", "isha"];
+
   constructor() {
     this.data = null;
     this.fetchPromise = null;
@@ -155,6 +157,7 @@ class DPTCache {
   getCurrentPrayer() {
     if (!this.data) return null;
     const now = new Date();
+    now.setHours(now.getHours() - 6);
 
     for (let i = 0; i < this.data.all.length - 1; i++) {
       const { name, begins, jamah, end } = this.data.all[i];
@@ -228,46 +231,11 @@ class DPTCache {
     }
   }
 
-  // getPrayer(name) {
-  //   if (!this.data) return null;
-  //   const now = new Date();
-
-  //   const index = DPTCache.PRAYER_INDEX[name.toLowerCase()];
-  //   const times = !!this.data.yesterday
-  //     ? [this.data.yesterday[index], this.data.today[index], this.data.tomorrow[index]]
-  //     : [this.data.today[index], this.data.tomorrow[index]];
-
-  //   for (let i = 0; i < times.length; i++) {
-  //     const { name, begins, jamah, end } = times[i];
-  //     if (now < end) return { name, begins, jamah, end };
-  //   }
-
-  //   return null;
-  // }
-
-  // getFajrPrayer() {
-  //   return this.getPrayer("fajr");
-  // }
-
-  // getSunrise() {
-  //   return this.getPrayer("sunrise");
-  // }
-
-  // getZuhrPrayer() {
-  //   return this.getPrayer("zuhr");
-  // }
-
-  // getAsrPrayer() {
-  //   return this.getPrayer("asr");
-  // }
-
-  // getMaghribPrayer() {
-  //   return this.getPrayer("maghrib");
-  // }
-
-  // getIshaPrayer() {
-  //   return this.getPrayer("isha");
-  // }
+  getNextPrayerName(name) {
+    const prayerName = name.toLowerCase();
+    const index = (DPTCache.PRAYER_INDEX[prayerName] + 1) % DPTCache.PRAYER_NAMES.length;
+    return DPTCache.PRAYER_NAMES[index];
+  }
 }
 
 window.dptCache = new DPTCache();
