@@ -188,7 +188,17 @@ class DPTCache {
     return null;
   }
 
-  getPrayer(name) {
+  getTodaysPrayer(name) {
+    if (!this.data) return null;
+    return this.data.today[DPTCache.PRAYER_INDEX[name.toLowerCase()]];
+  }
+
+  getTomorrowsPrayer(name) {
+    if (!this.data) return null;
+    return this.data.tomorrow[DPTCache.PRAYER_INDEX[name.toLowerCase()]];
+  }
+
+  getNextPrayer(name) {
     if (!this.data) return null;
     const now = new Date();
 
@@ -205,29 +215,59 @@ class DPTCache {
     return null;
   }
 
-  getFajrPrayer() {
-    return this.getPrayer("fajr");
+  getPrayer(name, timeType = "next") {
+    switch (timeType) {
+      case "today":
+        return this.getTodaysPrayer(name);
+      case "tomorrow":
+        return this.getTomorrowsPrayer(name);
+      case "next":
+        return this.getNextPrayer(name);
+      default:
+        return this.getNextPrayer(name);
+    }
   }
 
-  getSunrise() {
-    return this.getPrayer("sunrise");
-  }
+  // getPrayer(name) {
+  //   if (!this.data) return null;
+  //   const now = new Date();
 
-  getZuhrPrayer() {
-    return this.getPrayer("zuhr");
-  }
+  //   const index = DPTCache.PRAYER_INDEX[name.toLowerCase()];
+  //   const times = !!this.data.yesterday
+  //     ? [this.data.yesterday[index], this.data.today[index], this.data.tomorrow[index]]
+  //     : [this.data.today[index], this.data.tomorrow[index]];
 
-  getAsrPrayer() {
-    return this.getPrayer("asr");
-  }
+  //   for (let i = 0; i < times.length; i++) {
+  //     const { name, begins, jamah, end } = times[i];
+  //     if (now < end) return { name, begins, jamah, end };
+  //   }
 
-  getMaghribPrayer() {
-    return this.getPrayer("maghrib");
-  }
+  //   return null;
+  // }
 
-  getIshaPrayer() {
-    return this.getPrayer("isha");
-  }
+  // getFajrPrayer() {
+  //   return this.getPrayer("fajr");
+  // }
+
+  // getSunrise() {
+  //   return this.getPrayer("sunrise");
+  // }
+
+  // getZuhrPrayer() {
+  //   return this.getPrayer("zuhr");
+  // }
+
+  // getAsrPrayer() {
+  //   return this.getPrayer("asr");
+  // }
+
+  // getMaghribPrayer() {
+  //   return this.getPrayer("maghrib");
+  // }
+
+  // getIshaPrayer() {
+  //   return this.getPrayer("isha");
+  // }
 }
 
 window.dptCache = new DPTCache();

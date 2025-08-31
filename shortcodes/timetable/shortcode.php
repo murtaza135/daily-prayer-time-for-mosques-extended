@@ -11,7 +11,7 @@ function dpte_timetable_shortcode($atts) {
   $data_attrs = '';
   $atts = shortcode_atts(
     array(
-      'times' => 'next',
+      'timetype' => 'next',
     ),
     $atts,
     'dpte_timetable'
