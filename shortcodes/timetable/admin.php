@@ -13,11 +13,12 @@ add_action('dpte_extend_timetable_container', function($container) {
       Field::make('html', 'dpte_timetable_heading')
         ->set_html('
           <h2 style="padding: 0; font-size: 1.25rem; font-weight: 500;">[dpte_timetable]</h2>
-          <p><b>Shortcode Usage and Options:</b></p>
+          <p><b>Shortcode Usage and Parameters:</b></p>
           <p> - <b>[dpte_timetable]</b> - Display prayer timetable, where the times displayed are of the next prayer. For example, if today\'s Asr has NOT yet passed, then today\'s Asr time will be displayed. If today\'s Asr HAS passed, then tomorrow\'s Asr will be displayed.</p>
           <p> - <b>[dpte_timetable timetype="next"]</b> - Same as <b>[dpte_timetable]</b>, without any parameters.</p>
           <p> - <b>[dpte_timetable timetype="today"]</b> - Display today\'s prayer timetable.</p>
           <p> - <b>[dpte_timetable timetype="tomorrow"]</b> - Display tomorrow\'s prayer timetable.</p>
+          <p><b>Warning:</b> Inputing a non-existing parameter name or value will silently fail. So please ensure the argument name and value are correct.</p>
         '),
 
 
