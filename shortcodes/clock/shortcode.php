@@ -5,13 +5,25 @@ if (!defined('ABSPATH')) {
 	exit;
 }
 
-function dpte_clock_shortcode() {
+function dpte_clock_shortcode($atts) {
   wp_enqueue_style("dpte_clock", plugin_dir_url(__FILE__) . "styles.css");
   wp_enqueue_script("dpte_clock", plugin_dir_url(__FILE__) . "script.js", ["dpte_dpt_cache"], null, true);
 
+  $data_attrs = '';
+  $atts = shortcode_atts(
+    array(
+      'showimages' => 'true',
+    ),
+    $atts,
+    'dpte_notification_banner'
+  );
+  foreach ($atts as $key => $value) {
+    $data_attrs .= ' data-' . esc_attr($key) . '="' . esc_attr($value) . '"';
+  }
+
   ob_start();
   ?>
-  <div class="dpte-clock-wrapper">
+  <div class="dpte-clock-wrapper" <?php echo $data_attrs; ?>>
     <div class="dpte-clock">
       <ul class="dpte-hours-container">
         <li><div class="dpte-num">1</div></li>
@@ -102,10 +114,38 @@ function dpte_clock_shortcode() {
           <span class="dpte-time-remaining-value"></span>
         </div>
       </div>
-      <img class="dpte-top-left-image" src="<?php echo esc_url(carbon_get_theme_option('dpte_clock_top_left_image')); ?>" alt="">
-      <img class="dpte-top-right-image" src="<?php echo esc_url(carbon_get_theme_option('dpte_clock_top_right_image')); ?>" alt="">
-      <img class="dpte-bottom-left-image" src="<?php echo esc_url(carbon_get_theme_option('dpte_clock_bottom_left_image')); ?>" alt="">
-      <img class="dpte-bottom-right-image" src="<?php echo esc_url(carbon_get_theme_option('dpte_clock_bottom_right_image')); ?>" alt="">
+      <img
+        <?php if (isset($atts['showimages']) && $atts['showimages'] === "false") : ?>
+          style="display: none;"
+        <?php endif; ?>
+        class="dpte-top-left-image"
+        src="<?php echo esc_url(carbon_get_theme_option('dpte_clock_top_left_image')); ?>"
+        alt=""
+      >
+      <img
+        <?php if (isset($atts['showimages']) && $atts['showimages'] === "false") : ?>
+          style="display: none;"
+        <?php endif; ?>
+        class="dpte-top-right-image"
+        src="<?php echo esc_url(carbon_get_theme_option('dpte_clock_top_right_image')); ?>"
+        alt=""
+      >
+      <img
+        <?php if (isset($atts['showimages']) && $atts['showimages'] === "false") : ?>
+          style="display: none;"
+        <?php endif; ?>
+        class="dpte-bottom-left-image"
+        src="<?php echo esc_url(carbon_get_theme_option('dpte_clock_bottom_left_image')); ?>"
+        alt=""
+      >
+      <img
+        <?php if (isset($atts['showimages']) && $atts['showimages'] === "false") : ?>
+          style="display: none;"
+        <?php endif; ?>
+        class="dpte-bottom-right-image"
+        src="<?php echo esc_url(carbon_get_theme_option('dpte_clock_bottom_right_image')); ?>"
+        alt=""
+      >
     </div>
   </div>
   <?php
