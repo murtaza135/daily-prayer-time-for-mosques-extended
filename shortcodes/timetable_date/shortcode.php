@@ -24,7 +24,7 @@ function dpte_timetable_date_shortcode($atts) {
   ?>
   <div class="dpte-timetable-date" <?php echo $data_attrs; ?>>
     <p class="dpte-timetable-date-gregorian" <?php echo $data_attrs; ?>><?php echo date("d F Y") ?></p>
-    <p class="dpte-timetable-date-islamic" <?php echo $data_attrs; ?>><?php echo do_shortcode('[hijri_date]'); ?></p>
+    <p class="dpte-timetable-date-islamic" <?php echo $data_attrs; ?>></p>
   </div>
   <?php
   return ob_get_clean();
