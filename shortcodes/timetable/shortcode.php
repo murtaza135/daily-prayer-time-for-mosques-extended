@@ -4,13 +4,25 @@ if (!defined('ABSPATH')) {
 	exit;
 }
 
-function dpte_timetable_shortcode() {
+function dpte_timetable_shortcode($atts) {
   wp_enqueue_style("dpte_timetable", plugin_dir_url(__FILE__) . "styles.css");
   wp_enqueue_script("dpte_timetable", plugin_dir_url(__FILE__) . "script.js", ["dpte_dpt_cache"], null, true);
 
+  $data_attrs = '';
+  $atts = shortcode_atts(
+    array(
+      'times' => 'next',
+    ),
+    $atts,
+    'dpte_timetable'
+  );
+  foreach ($atts as $key => $value) {
+    $data_attrs .= ' data-' . esc_attr($key) . '="' . esc_attr($value) . '"';
+  }
+
   ob_start();
   ?>
-  <div class="dpte-timetable">
+  <div class="dpte-timetable" <?php echo $data_attrs; ?>>
     <div class="dpte-timetable-prayer-list">
       <div class="dpte-timetable-prayer-header">
           <p>Start</p>
@@ -27,10 +39,10 @@ function dpte_timetable_shortcode() {
           <p class="dpte-prayer-title">Fajr</p>
         </span>
         <span class="dpte-prayer-values">
-          <p class="dpte-prayer-start">
+          <p class="dpte-prayer-start" <?php echo $data_attrs; ?>>
             <?php echo do_shortcode('[fajr_start]'); ?>
           </p>
-          <p class="dpte-prayer-prayer">
+          <p class="dpte-prayer-prayer" <?php echo $data_attrs; ?>>
             <?php echo do_shortcode('[fajr_prayer]'); ?>
           </p>
         </span>
@@ -48,7 +60,7 @@ function dpte_timetable_shortcode() {
           <p class="dpte-prayer-title">Sunrise</p>
         </span>
         <span class="dpte-prayer-values">
-          <p class="dpte-prayer-start">
+          <p class="dpte-prayer-start" <?php echo $data_attrs; ?>>
             <?php echo do_shortcode('[sunrise]'); ?>
           </p>
         </span>
@@ -65,10 +77,10 @@ function dpte_timetable_shortcode() {
           <p class="dpte-prayer-title">Zuhr</p>
         </span>
         <span class="dpte-prayer-values">
-          <p class="dpte-prayer-start">
+          <p class="dpte-prayer-start" <?php echo $data_attrs; ?>>
             <?php echo do_shortcode('[zuhr_start]'); ?>
         </p>
-          <p class="dpte-prayer-prayer">
+          <p class="dpte-prayer-prayer" <?php echo $data_attrs; ?>>
             <?php echo do_shortcode('[zuhr_prayer]'); ?>
         </p>
         </span>
@@ -84,10 +96,10 @@ function dpte_timetable_shortcode() {
           <p class="dpte-prayer-title">Asr</p>
         </span>
         <span class="dpte-prayer-values">
-          <p class="dpte-prayer-start">
+          <p class="dpte-prayer-start" <?php echo $data_attrs; ?>>
             <?php echo do_shortcode('[asr_start]'); ?>
         </p>
-          <p class="dpte-prayer-prayer">
+          <p class="dpte-prayer-prayer" <?php echo $data_attrs; ?>>
             <?php echo do_shortcode('[asr_prayer]'); ?>
         </p>
         </span>
@@ -105,10 +117,10 @@ function dpte_timetable_shortcode() {
           <p class="dpte-prayer-title">Maghrib</p>
         </span>
         <span class="dpte-prayer-values">
-          <p class="dpte-prayer-start">
+          <p class="dpte-prayer-start" <?php echo $data_attrs; ?>>
             <?php echo do_shortcode('[maghrib_start]'); ?>
         </p>
-          <p class="dpte-prayer-prayer">
+          <p class="dpte-prayer-prayer" <?php echo $data_attrs; ?>>
             <?php echo do_shortcode('[maghrib_prayer]'); ?>
         </p>
         </span>
@@ -125,10 +137,10 @@ function dpte_timetable_shortcode() {
           <p class="dpte-prayer-title">Isha</p>
         </span>
         <span class="dpte-prayer-values">
-          <p class="dpte-prayer-start">
+          <p class="dpte-prayer-start" <?php echo $data_attrs; ?>>
             <?php echo do_shortcode('[isha_start]'); ?>
         </p>
-          <p class="dpte-prayer-prayer">
+          <p class="dpte-prayer-prayer" <?php echo $data_attrs; ?>>
             <?php echo do_shortcode('[isha_prayer]'); ?>
         </p>
         </span>
