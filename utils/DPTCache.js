@@ -157,7 +157,6 @@ class DPTCache {
   getCurrentPrayer() {
     if (!this.data) return null;
     const now = new Date();
-    now.setHours(now.getHours() - 6);
 
     for (let i = 0; i < this.data.all.length - 1; i++) {
       const { name, begins, jamah, end } = this.data.all[i];
