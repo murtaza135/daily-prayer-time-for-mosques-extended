@@ -13,7 +13,10 @@ add_action('dpte_extend_timetable_date_container', function($container) {
       Field::make('html', 'dpte_timetable_date_heading')
         ->set_html('
           <h2 style="padding: 0; font-size: 1.25rem; font-weight: 500;">[dpte_timetable_date]</h2>
-          <p>Change settings for the <b>[dpte_timetable_date]</b> shortcode.</p>
+          <p><b>Shortcode Usage and Options:</b></p>
+          <p> - <b>[dpte_timetable_date]</b> - Display today\'s Gregorian and Islamic dates.</p>
+          <p> - <b>[dpte_timetable_date day="today"]</b> - Display today\'s Gregorian and Islamic dates.</p>
+          <p> - <b>[dpte_timetable_date day="tomorrow"]</b> - Display tomorrow\'s Gregorian and Islamic dates.</p>
         '),
 
         
