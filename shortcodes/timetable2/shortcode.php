@@ -6,7 +6,7 @@ if (!defined('ABSPATH')) {
 
 function dpte_timetable2_shortcode($atts) {
   wp_enqueue_style("dpte_timetable2", plugin_dir_url(__FILE__) . "styles.css");
-  wp_enqueue_script("dpte_timetable2", plugin_dir_url(__FILE__) . "script.js", ["dpte_dpt_cache"], null, true);
+  wp_enqueue_script("dpte_timetable2", plugin_dir_url(__FILE__) . "script.js", ["dpte_dpt_cache", "dpte_date_time_utils"], null, true);
 
   $data_attrs = '';
   $atts = shortcode_atts(
@@ -76,7 +76,7 @@ function dpte_timetable2_shortcode($atts) {
         </div>
       </div>
 
-      <div class="dpte-timetable2-prayer dpte-timetable2-zuhr active">
+      <div class="dpte-timetable2-prayer dpte-timetable2-zuhr">
         <div class="dpte-prayer-section1">
           <p class="dpte-prayer-title">Zuhr</p>
           <p class="dpte-prayer-prayer" <?php echo $data_attrs; ?>>
@@ -139,7 +139,7 @@ function dpte_timetable2_shortcode($atts) {
     </div>
 
     <div class="dpte-timetable2-next-prayer-section">
-      <p class="dpte-timetable2-next-prayer-name">Time to Salah</p>
+      <p class="dpte-timetable2-next-prayer-name"></p>
       <p class="dpte-timetable2-next-prayer-remaining-time"></p>
     </div>
   </div>

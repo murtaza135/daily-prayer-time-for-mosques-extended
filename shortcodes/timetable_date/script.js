@@ -1,10 +1,10 @@
 function setDateGregorian() {
   const today = new Date();
-  const todayString = `${today.getDate()} ${DateTimeUtils.MONTHS[today.getMonth()]} ${today.getFullYear()}`;
+  const todayString = `${DateTimeUtils.addOrdinalSuffix(today.getDate())} ${DateTimeUtils.MONTHS[today.getMonth()]} ${today.getFullYear()}`;
 
   const tomorrow = new Date();
   tomorrow.setDate(today.getDate() + 1);
-  const tomorrowString = `${tomorrow.getDate()} ${DateTimeUtils.MONTHS[tomorrow.getMonth()]} ${tomorrow.getFullYear()}`;
+  const tomorrowString = `${DateTimeUtils.addOrdinalSuffix(tomorrow.getDate())} ${DateTimeUtils.MONTHS[tomorrow.getMonth()]} ${tomorrow.getFullYear()}`;
 
   const dateElement = document.querySelectorAll(".dpte-timetable-date .dpte-timetable-date-gregorian");
   dateElement.forEach((element) => {

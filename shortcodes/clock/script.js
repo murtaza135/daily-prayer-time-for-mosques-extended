@@ -2,7 +2,6 @@ function setTimeRemainingMessage() {
   const currentPrayer = dptCache.getCurrentPrayer();
   const timeRemainingHeader = document.querySelectorAll(".dpte-clock .dpte-time-remaining-header");
   const timeRemainingValue = document.querySelectorAll(".dpte-clock .dpte-time-remaining-value");
-  if (timeRemainingHeader.length === 0 || timeRemainingValue.length === 0) return;
 
   if (!currentPrayer) {
     timeRemainingHeader.forEach((element) => {
