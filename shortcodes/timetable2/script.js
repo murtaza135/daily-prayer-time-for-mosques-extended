@@ -161,8 +161,6 @@ addEventListener("DOMContentLoaded", () => {
     setInterval(timetable2_setActivePrayer, 1 * 60 * 1000 /* 1 minute */);
 
     timetable2_setTimeRemaining();
-    setTimeout(timetable2_setTimeRemaining, 1000);
-    setTimeout(timetable2_setTimeRemaining, 2500);
     setInterval(timetable2_setTimeRemaining, 1000);
 
     timetable2_setJumah();
@@ -176,8 +174,6 @@ addEventListener("DOMContentLoaded", () => {
     setInterval(timetable2_setDate, 1 * 60 * 1000 /* 1 minute */);
 
     timetable2_setTime();
-    setTimeout(timetable2_setTime, 1000);
-    setTimeout(timetable2_setTime, 2500);
     setInterval(timetable2_setTime, 1000);
   });
 });
