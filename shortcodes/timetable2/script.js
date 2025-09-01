@@ -152,7 +152,6 @@ class Timetable2 {
   }
 }
 
-
 addEventListener("DOMContentLoaded", () => {
   dptCache.ensurePrayerData().then(() => {
     Timetable2.setPrayerTimes();

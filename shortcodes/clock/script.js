@@ -57,7 +57,6 @@ class Clock {
   }
 }
 
-
 addEventListener("DOMContentLoaded", () => {
   dptCache.ensurePrayerData().then(() => {
     Clock.setTimeRemainingMessage();
