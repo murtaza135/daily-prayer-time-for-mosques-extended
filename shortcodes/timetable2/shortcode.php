@@ -48,7 +48,7 @@ function dpte_timetable2_shortcode($atts) {
     </div>
 
     <div class="dpte-timetable2-prayer-grid">
-      <div class="dpte-timetable2-prayer dpte-timetable2-fajr">
+      <div class="dpte-timetable2-prayer dpte-timetable2-fajr" <?php echo $data_attrs; ?>>
         <div class="dpte-prayer-section1">
           <p class="dpte-prayer-title">Fajr</p>
           <p class="dpte-prayer-prayer" <?php echo $data_attrs; ?>>
@@ -62,7 +62,7 @@ function dpte_timetable2_shortcode($atts) {
         </div>
       </div>
 
-      <div class="dpte-timetable2-prayer dpte-timetable2-sunrise">
+      <div class="dpte-timetable2-prayer dpte-timetable2-sunrise" <?php echo $data_attrs; ?>>
         <div class="dpte-prayer-section1">
           <p class="dpte-prayer-title">Sunrise</p>
           <p class="dpte-prayer-prayer" <?php echo $data_attrs; ?>>
@@ -76,7 +76,7 @@ function dpte_timetable2_shortcode($atts) {
         </div>
       </div>
 
-      <div class="dpte-timetable2-prayer dpte-timetable2-zuhr">
+      <div class="dpte-timetable2-prayer dpte-timetable2-zuhr" <?php echo $data_attrs; ?>>
         <div class="dpte-prayer-section1">
           <p class="dpte-prayer-title">Zuhr</p>
           <p class="dpte-prayer-prayer" <?php echo $data_attrs; ?>>
@@ -90,7 +90,7 @@ function dpte_timetable2_shortcode($atts) {
         </div>
       </div>
 
-      <div class="dpte-timetable2-prayer dpte-timetable2-asr">
+      <div class="dpte-timetable2-prayer dpte-timetable2-asr" <?php echo $data_attrs; ?>>
         <div class="dpte-prayer-section1">
           <p class="dpte-prayer-title">Asr</p>
           <p class="dpte-prayer-prayer" <?php echo $data_attrs; ?>>
@@ -104,7 +104,7 @@ function dpte_timetable2_shortcode($atts) {
         </div>
       </div>
 
-      <div class="dpte-timetable2-prayer dpte-timetable2-maghrib">
+      <div class="dpte-timetable2-prayer dpte-timetable2-maghrib" <?php echo $data_attrs; ?>>
         <div class="dpte-prayer-section1">
           <p class="dpte-prayer-title">Maghrib</p>
           <p class="dpte-prayer-prayer" <?php echo $data_attrs; ?>>
@@ -118,7 +118,7 @@ function dpte_timetable2_shortcode($atts) {
         </div>
       </div>
 
-      <div class="dpte-timetable2-prayer dpte-timetable2-isha">
+      <div class="dpte-timetable2-prayer dpte-timetable2-isha" <?php echo $data_attrs; ?>>
         <div class="dpte-prayer-section1">
           <p class="dpte-prayer-title">Isha</p>
           <p class="dpte-prayer-prayer" <?php echo $data_attrs; ?>>

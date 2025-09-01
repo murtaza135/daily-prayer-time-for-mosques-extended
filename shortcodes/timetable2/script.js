@@ -84,7 +84,9 @@ function timetable2_setActivePrayer() {
   ishaElement.forEach((element) => element.classList.remove("active"));
 
   currentPrayerElement.forEach((element) => {
-    element.classList.add("active");
+    if (element.dataset.timetype === "next" || element.dataset.timetype === "today") {
+      element.classList.add("active");
+    }
   });
 }
 
