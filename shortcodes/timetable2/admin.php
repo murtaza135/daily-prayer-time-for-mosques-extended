@@ -7,8 +7,6 @@ if (!defined('ABSPATH')) {
 use Carbon_Fields\Container;
 use Carbon_Fields\Field;
 
-// TODO once shortcode is made, change the fields and css variables to reflect the required settings
-
 add_action('dpte_extend_timetable_container', function($container) {
   $container
     ->add_tab(__('[dpte_timetable2]'), [
@@ -28,73 +26,90 @@ add_action('dpte_extend_timetable_container', function($container) {
       Field::make('html', 'dpte_timetable2_separator_1')
         ->set_html('<h2 style="padding: 0; margin: 0; margin-top: 1rem; font-size: 1rem; font-weight: 500;">Colors</h2>'),
 
-      Field::make('color', 'dpte_timetable2_prayer_header_text_color', 'Header Text Color')
-        ->set_default_value('#2C2C2E')
-        ->set_help_text('Color of the text in the timetable header.'),
-
-      Field::make('color', 'dpte_timetable2_prayer_background_gradient_1', 'Background Gradient 1')
+      Field::make('color', 'dpte_timetable2_title_section_background', 'Title Background')
         ->set_default_value('#CFA55B')
-        ->set_help_text('Change the gradient color of each row\'s background. If you do not want a gradient, then please set "Background Gradient 2" to the same color.'),
+        ->set_help_text('Background color of the title.'),
 
-      Field::make('color', 'dpte_timetable2_prayer_background_gradient_2', 'Background Gradient 2')
+      Field::make('color', 'dpte_timetable2_title_section_color', 'Title Text Color')
         ->set_default_value('#2C2C2E')
-        ->set_help_text('Change the gradient color of each row\'s background. If you do not want a gradient, then please set "Background Gradient 1" to the same color.'),
+        ->set_help_text('Text color of title.'),
 
-      Field::make('color', 'dpte_timetable2_prayer_active_color', 'Active Prayer Border Color')
-        ->set_default_value('#ff5e00')
-        ->set_help_text('Border color used for the currently active prayer in the timetable.'),
+      Field::make('color', 'dpte_timetable2_prayer_grid_section1_background', 'Prayer Box - Upper Section Background Color')
+        ->set_default_value('#CFA55B')
+        ->set_help_text('Background color of upper section of prayer box - the box in which the prayer times are written.'),
 
-      Field::make('color', 'dpte_timetable2_prayer_title_color', 'Prayer Name Text Color')
+      Field::make('color', 'dpte_timetable2_prayer_grid_section1_color', 'Prayer Box - Upper Section Text Color')
         ->set_default_value('#2C2C2E')
-        ->set_help_text('Text color for prayer titles (e.g., Fajr, Dhuhr, Asr, Maghrib, Isha).'),
+        ->set_help_text('Text color of upper section of prayer box - the box in which the prayer times are written.'),
 
-      Field::make('color', 'dpte_timetable2_prayer_values_color', 'Prayer Values Text Color')
+      Field::make('color', 'dpte_timetable2_prayer_grid_section2_background', 'Prayer Box - Lower Section Background Color')
+        ->set_default_value('#2C2C2E')
+        ->set_help_text('Background color of lower section of prayer box - the box in which the prayer times are written.'),
+
+      Field::make('color', 'dpte_timetable2_prayer_grid_section2_color', 'Prayer Box - Lower Section Text Color')
         ->set_default_value('#FFFFFF')
-        ->set_help_text('Text color for the prayer times/values.'),
+        ->set_help_text('Text color of lower section of prayer box - the box in which the prayer times are written.'),
 
-      Field::make('color', 'dpte_timetable2_prayer_icon_color', 'Prayer Icon Color')
+      Field::make('color', 'dpte_timetable2_prayer_grid_item_section_separator_color', 'Prayer Box - Separator Color')
+        ->set_default_value('#FFFFFF')
+        ->set_help_text('Color of separator that separates the upper and lower sections of the prayer box - the box in which the prayer times are written.'),
+
+      Field::make('color', 'dpte_timetable2_date_time_background', 'Date Time Background')
+        ->set_default_value('#CFA55B')
+        ->set_help_text('Background color of section in which the date and time is written.'),
+
+      Field::make('color', 'dpte_timetable2_date_time_color', 'Date Time Text Color')
         ->set_default_value('#2C2C2E')
-        ->set_help_text('Color of icons shown alongside prayer titles.'),
+        ->set_help_text('Text color of section in which the date and time is written.'),
+
+      Field::make('color', 'dpte_timetable2_next_prayer_background', 'Next Prayer Background')
+        ->set_default_value('#CFA55B')
+        ->set_help_text('Background color of section in which the "time to next prayer" is written.'),
+
+      Field::make('color', 'dpte_timetable2_next_prayer_color', 'Next Prayer Text Color')
+        ->set_default_value('#2C2C2E')
+        ->set_help_text('Text color of section in which the "time to next prayer" is written.'),
 
         
       Field::make('html', 'dpte_timetable2_separator_2')
-        ->set_html('<h2 style="padding: 0; margin: 0; margin-top: 1rem; font-size: 1rem; font-weight: 500;">Icons</h2>'),
+        ->set_html('<h2 style="padding: 0; margin: 0; margin-top: 1rem; font-size: 1rem; font-weight: 500;">Prayer Grid</h2>'),
 
-      Field::make('checkbox', 'dpte_timetable2_icon_resize_animation_running', __('Icon Animation'))
-        ->set_default_value('running')
-        ->set_option_value('running')
-        ->set_help_text('Activate the prayer icons\' resize animation.'),
-
-      Field::make('text', 'dpte_timetable2_prayer_icon_resize_animation_duration', 'Icon Animation Duration')
+      Field::make('text', 'dpte_timetable2_prayer_grid_max_col_count', 'Max Number of Columns')
         ->set_attribute("type", "number")
-        ->set_default_value(5000)
-        ->set_help_text('Duration of prayer icons\' resize animation (in ms).'),
+        ->set_default_value(2)
+        ->set_help_text('The maximum number of columns allowed in the prayer grid.'),
     ]);
 });
 
 add_action('wp_head', function() {
-  $dpte_timetable2_prayer_header_text_color = carbon_get_theme_option('dpte_timetable2_prayer_header_text_color');
-  $dpte_timetable2_prayer_background_gradient_1 = carbon_get_theme_option('dpte_timetable2_prayer_background_gradient_1');
-  $dpte_timetable2_prayer_background_gradient_2 = carbon_get_theme_option('dpte_timetable2_prayer_background_gradient_2');
-  $dpte_timetable2_prayer_active_color = carbon_get_theme_option('dpte_timetable2_prayer_active_color');
-  $dpte_timetable2_prayer_title_color = carbon_get_theme_option('dpte_timetable2_prayer_title_color');
-  $dpte_timetable2_prayer_values_color = carbon_get_theme_option('dpte_timetable2_prayer_values_color');
-  $dpte_timetable2_prayer_icon_color = carbon_get_theme_option('dpte_timetable2_prayer_icon_color');
-  $dpte_timetable2_icon_resize_animation_running = carbon_get_theme_option('dpte_timetable2_icon_resize_animation_running') ? "running" : "paused";
-  $dpte_timetable2_prayer_icon_resize_animation_duration = carbon_get_theme_option('dpte_timetable2_prayer_icon_resize_animation_duration');
+  $dpte_timetable2_title_section_background = carbon_get_theme_option('dpte_timetable2_title_section_background');
+  $dpte_timetable2_title_section_color = carbon_get_theme_option('dpte_timetable2_title_section_color');
+  $dpte_timetable2_prayer_grid_section1_background = carbon_get_theme_option('dpte_timetable2_prayer_grid_section1_background');
+  $dpte_timetable2_prayer_grid_section1_color = carbon_get_theme_option('dpte_timetable2_prayer_grid_section1_color');
+  $dpte_timetable2_prayer_grid_section2_background = carbon_get_theme_option('dpte_timetable2_prayer_grid_section2_background');
+  $dpte_timetable2_prayer_grid_section2_color = carbon_get_theme_option('dpte_timetable2_prayer_grid_section2_color');
+  $dpte_timetable2_prayer_grid_item_section_separator_color = carbon_get_theme_option('dpte_timetable2_prayer_grid_item_section_separator_color');
+  $dpte_timetable2_date_time_background = carbon_get_theme_option('dpte_timetable2_date_time_background');
+  $dpte_timetable2_date_time_color = carbon_get_theme_option('dpte_timetable2_date_time_color');
+  $dpte_timetable2_next_prayer_background = carbon_get_theme_option('dpte_timetable2_next_prayer_background');
+  $dpte_timetable2_next_prayer_color = carbon_get_theme_option('dpte_timetable2_next_prayer_color');
+  $dpte_timetable2_prayer_grid_max_col_count = carbon_get_theme_option('dpte_timetable2_prayer_grid_max_col_count');
 
   echo "
     <style>
       :root {
-        --dpte-timetable2-prayer-header-text-color: {$dpte_timetable2_prayer_header_text_color};
-        --dpte-timetable2-prayer-background-gradient-1: {$dpte_timetable2_prayer_background_gradient_1};
-        --dpte-timetable2-prayer-background-gradient-2: {$dpte_timetable2_prayer_background_gradient_2};
-        --dpte-timetable2-prayer-active-color: {$dpte_timetable2_prayer_active_color};
-        --dpte-timetable2-prayer-title-color: {$dpte_timetable2_prayer_title_color};
-        --dpte-timetable2-prayer-values-color: {$dpte_timetable2_prayer_values_color};
-        --dpte-timetable2-prayer-icon-color: {$dpte_timetable2_prayer_icon_color};
-        --dpte-timetable2-icon-resize-animation-running: {$dpte_timetable2_icon_resize_animation_running};
-        --dpte-timetable2-prayer-icon-resize-animation-duration: {$dpte_timetable2_prayer_icon_resize_animation_duration}ms;
+        --dpte-timetable2-title-section-background: {$dpte_timetable2_title_section_background};
+        --dpte-timetable2-title-section-color: {$dpte_timetable2_title_section_color};
+        --dpte-timetable2-prayer-grid-section1-background: {$dpte_timetable2_prayer_grid_section1_background};
+        --dpte-timetable2-prayer-grid-section1-color: {$dpte_timetable2_prayer_grid_section1_color};
+        --dpte-timetable2-prayer-grid-section2-background: {$dpte_timetable2_prayer_grid_section2_background};
+        --dpte-timetable2-prayer-grid-section2-color: {$dpte_timetable2_prayer_grid_section2_color};
+        --dpte-timetable2-prayer-grid-item-section-separator-color: {$dpte_timetable2_prayer_grid_item_section_separator_color};
+        --dpte-timetable2-date-time-background: {$dpte_timetable2_date_time_background};
+        --dpte-timetable2-date-time-color: {$dpte_timetable2_date_time_color};
+        --dpte-timetable2-next-prayer-background: {$dpte_timetable2_next_prayer_background};
+        --dpte-timetable2-next-prayer-color: {$dpte_timetable2_next_prayer_color};
+        --dpte-timetable2-prayer-grid-max-col-count: {$dpte_timetable2_prayer_grid_max_col_count};
       }
     </style>
   ";

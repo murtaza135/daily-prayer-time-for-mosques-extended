@@ -17,7 +17,8 @@
 
 /* title */
 .dpte-timetable2 .dpte-timetable2-title-section {
-  background-color: #CFA55B;
+  background-color: var(--dpte-timetable2-title-section-background);
+  color: var(--dpte-timetable2-title-section-color);
   padding: 0.3rem 0.8rem;
   border-radius: 10px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
@@ -28,13 +29,13 @@
   margin: 0;
   font-size: 1.33rem;
   font-weight: 700;
-  color: #2C2C2E;
+  color: var(--dpte-timetable2-title-section-color);
 }
 
 /* prayer times grid */
 .dpte-timetable2 .dpte-timetable2-prayer-grid {
   /* @source: https://www.youtube.com/watch?v=CHULPvkXIRo */
-  --grid-max-col-count: 2;
+  --grid-max-col-count: var(--dpte-timetable2-prayer-grid-max-col-count);
   --grid-min-col-size: 100px;
   --grid-gap: 1rem;
   --grid-col-size-calc: calc((100% - var(--grid-gap) * var(--grid-max-col-count)) / var(--grid-max-col-count));
@@ -60,8 +61,8 @@
 }
 
 .dpte-timetable2 .dpte-timetable2-prayer-grid .dpte-timetable2-prayer .dpte-prayer-section1 {
-  background-color: #CFA55B;
-  color: #2C2C2E;
+  background-color: var(--dpte-timetable2-prayer-grid-section1-background);
+  color: var(--dpte-timetable2-prayer-grid-section1-color);
   display: flex;
   gap: 0.33rem;
   flex-direction: column;
@@ -80,10 +81,10 @@
 }
 
 .dpte-timetable2 .dpte-timetable2-prayer-grid .dpte-timetable2-prayer .dpte-prayer-section2 {
-  background-color: #2C2C2E;
-  color: #FFFFFF;
+  background-color: var(--dpte-timetable2-prayer-grid-section2-background);
+  color: var(--dpte-timetable2-prayer-grid-section2-color);
   padding: 0.33rem 0.5rem;
-  border-top: 2px solid #FFFFFF;
+  border-top: 2px solid var(--dpte-timetable2-prayer-grid-item-section-separator-color);
 }
 
 .dpte-timetable2 .dpte-timetable2-prayer-grid .dpte-timetable2-prayer .dpte-prayer-start {
@@ -97,8 +98,8 @@
   gap: 2rem;
   justify-content: space-between;
   align-items: center;
-  background-color: #CFA55B;
-  color: #2C2C2E;
+  background-color: var(--dpte-timetable2-date-time-background);
+  color: var(--dpte-timetable2-date-time-color);
   padding: 0.5rem 0.8rem;
   border-radius: 10px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
@@ -121,8 +122,8 @@
   gap: 2rem;
   justify-content: space-between;
   align-items: center;
-  background-color: #CFA55B;
-  color: #2C2C2E;
+  background-color: var(--dpte-timetable2-next-prayer-background);
+  color: var(--dpte-timetable2-next-prayer-color);
   padding: 0.5rem 0.8rem;
   border-radius: 10px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
