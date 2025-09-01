@@ -15,6 +15,7 @@
   gap: 1rem;
 }
 
+/* title */
 .dpte-timetable2 .dpte-timetable2-title-section {
   background-color: #CFA55B;
   padding: 0.3rem 0.8rem;
@@ -30,6 +31,7 @@
   color: #2C2C2E;
 }
 
+/* prayer times grid */
 .dpte-timetable2 .dpte-timetable2-prayer-grid {
   /* @source: https://www.youtube.com/watch?v=CHULPvkXIRo */
   --grid-max-col-count: 2;
@@ -43,18 +45,28 @@
 }
 
 .dpte-timetable2 .dpte-timetable2-prayer-grid .dpte-timetable2-prayer {
-  background-color: #CFA55B;
-  color: #2C2C2E;
+  display: flex;
+  flex-direction: column;
   border-radius: 10px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   text-align: center;
+  overflow: hidden;
+  opacity: 0.7;
+  border: none;
+}
+
+.dpte-timetable2 .dpte-timetable2-prayer-grid .dpte-timetable2-prayer.active {
+  opacity: 1;
 }
 
 .dpte-timetable2 .dpte-timetable2-prayer-grid .dpte-timetable2-prayer .dpte-prayer-section1 {
+  background-color: #CFA55B;
+  color: #2C2C2E;
   display: flex;
   gap: 0.33rem;
   flex-direction: column;
   padding: 0.33rem 0.5rem;
+  flex-grow: 1;
 }
 
 .dpte-timetable2 .dpte-timetable2-prayer-grid .dpte-timetable2-prayer .dpte-prayer-title {
@@ -68,6 +80,8 @@
 }
 
 .dpte-timetable2 .dpte-timetable2-prayer-grid .dpte-timetable2-prayer .dpte-prayer-section2 {
+  background-color: #2C2C2E;
+  color: #FFFFFF;
   padding: 0.33rem 0.5rem;
   border-top: 2px solid #FFFFFF;
 }
@@ -75,4 +89,52 @@
 .dpte-timetable2 .dpte-timetable2-prayer-grid .dpte-timetable2-prayer .dpte-prayer-start {
   font-size: 1.1rem;
   font-weight: 500;
+}
+
+/* date-time */
+.dpte-timetable2 .dpte-timetable2-date-time-section {
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #CFA55B;
+  color: #2C2C2E;
+  padding: 0.5rem 0.8rem;
+  border-radius: 10px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  min-height: 2.33rem;
+}
+
+.dpte-timetable2 .dpte-timetable2-date-time-section .dpte-timetable2-date {
+  font-size: 1.33rem;
+  font-weight: 700;
+}
+
+.dpte-timetable2 .dpte-timetable2-date-time-section .dpte-timetable2-time {
+  font-size: 1.33rem;
+  font-weight: 700;
+}
+
+/* next prayer */
+.dpte-timetable2 .dpte-timetable2-next-prayer-section {
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #CFA55B;
+  color: #2C2C2E;
+  padding: 0.5rem 0.8rem;
+  border-radius: 10px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  min-height: 2.33rem;
+}
+
+.dpte-timetable2 .dpte-timetable2-next-prayer-section .dpte-timetable2-next-prayer-name {
+  font-size: 1.33rem;
+  font-weight: 700;
+}
+
+.dpte-timetable2 .dpte-timetable2-next-prayer-section .dpte-timetable2-next-prayer-remaining-time {
+  font-size: 1.33rem;
+  font-weight: 700;
 }

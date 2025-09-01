@@ -62,75 +62,85 @@ function dpte_timetable2_shortcode($atts) {
         </div>
       </div>
 
-      <div class="dpte-timetable2-prayer dpte-timetable2-fajr">
+      <div class="dpte-timetable2-prayer dpte-timetable2-sunrise">
         <div class="dpte-prayer-section1">
-          <p class="dpte-prayer-title">Fajr</p>
+          <p class="dpte-prayer-title">Sunrise</p>
           <p class="dpte-prayer-prayer" <?php echo $data_attrs; ?>>
-            <?php echo do_shortcode('[fajr_prayer]'); ?>
+            <?php echo do_shortcode('[sunrise]'); ?>
           </p>
         </div>
         <div class="dpte-prayer-section2">
           <p class="dpte-prayer-start" <?php echo $data_attrs; ?>>
-            <?php echo do_shortcode('[fajr_start]'); ?>
+            -
           </p>
         </div>
       </div>
 
-      <div class="dpte-timetable2-prayer dpte-timetable2-fajr">
+      <div class="dpte-timetable2-prayer dpte-timetable2-zuhr active">
         <div class="dpte-prayer-section1">
-          <p class="dpte-prayer-title">Fajr</p>
+          <p class="dpte-prayer-title">Zuhr</p>
           <p class="dpte-prayer-prayer" <?php echo $data_attrs; ?>>
-            <?php echo do_shortcode('[fajr_prayer]'); ?>
+            <?php echo do_shortcode('[zuhr_prayer]'); ?>
           </p>
         </div>
         <div class="dpte-prayer-section2">
           <p class="dpte-prayer-start" <?php echo $data_attrs; ?>>
-            <?php echo do_shortcode('[fajr_start]'); ?>
+            <?php echo do_shortcode('[zuhr_start]'); ?>
           </p>
         </div>
       </div>
 
-      <div class="dpte-timetable2-prayer dpte-timetable2-fajr">
+      <div class="dpte-timetable2-prayer dpte-timetable2-asr">
         <div class="dpte-prayer-section1">
-          <p class="dpte-prayer-title">Fajr</p>
+          <p class="dpte-prayer-title">Asr</p>
           <p class="dpte-prayer-prayer" <?php echo $data_attrs; ?>>
-            <?php echo do_shortcode('[fajr_prayer]'); ?>
+            <?php echo do_shortcode('[asr_prayer]'); ?>
           </p>
         </div>
         <div class="dpte-prayer-section2">
           <p class="dpte-prayer-start" <?php echo $data_attrs; ?>>
-            <?php echo do_shortcode('[fajr_start]'); ?>
+            <?php echo do_shortcode('[asr_start]'); ?>
           </p>
         </div>
       </div>
 
-      <div class="dpte-timetable2-prayer dpte-timetable2-fajr">
+      <div class="dpte-timetable2-prayer dpte-timetable2-maghrib">
         <div class="dpte-prayer-section1">
-          <p class="dpte-prayer-title">Fajr</p>
+          <p class="dpte-prayer-title">Maghrib</p>
           <p class="dpte-prayer-prayer" <?php echo $data_attrs; ?>>
-            <?php echo do_shortcode('[fajr_prayer]'); ?>
+            <?php echo do_shortcode('[maghrib_prayer]'); ?>
           </p>
         </div>
         <div class="dpte-prayer-section2">
           <p class="dpte-prayer-start" <?php echo $data_attrs; ?>>
-            <?php echo do_shortcode('[fajr_start]'); ?>
+            <?php echo do_shortcode('[maghrib_start]'); ?>
           </p>
         </div>
       </div>
 
-      <div class="dpte-timetable2-prayer dpte-timetable2-fajr">
+      <div class="dpte-timetable2-prayer dpte-timetable2-isha">
         <div class="dpte-prayer-section1">
-          <p class="dpte-prayer-title">Fajr</p>
+          <p class="dpte-prayer-title">Isha</p>
           <p class="dpte-prayer-prayer" <?php echo $data_attrs; ?>>
-            <?php echo do_shortcode('[fajr_prayer]'); ?>
+            <?php echo do_shortcode('[isha_prayer]'); ?>
           </p>
         </div>
         <div class="dpte-prayer-section2">
           <p class="dpte-prayer-start" <?php echo $data_attrs; ?>>
-            <?php echo do_shortcode('[fajr_start]'); ?>
+            <?php echo do_shortcode('[isha_start]'); ?>
           </p>
         </div>
       </div>
+    </div>
+
+    <div class="dpte-timetable2-date-time-section">
+      <p class="dpte-timetable2-date"><?php echo date("l jS F Y") ?></p>
+      <p class="dpte-timetable2-time"></p>
+    </div>
+
+    <div class="dpte-timetable2-next-prayer-section">
+      <p class="dpte-timetable2-next-prayer-name">Time to Salah</p>
+      <p class="dpte-timetable2-next-prayer-remaining-time"></p>
     </div>
   </div>
   <?php
