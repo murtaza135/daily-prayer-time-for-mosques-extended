@@ -25,8 +25,8 @@ function dpte_timetable_shortcode($atts) {
   <div class="dpte-timetable" <?php echo $data_attrs; ?>>
     <div class="dpte-timetable-prayer-list">
       <div class="dpte-timetable-prayer-header">
-          <p>Start</p>
-          <p>Jama'ah</p>
+        <p>Start</p>
+        <p>Jama'ah</p>
       </div>
 
       <div class="dpte-timetable-prayer dpte-timetable-fajr">

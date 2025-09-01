@@ -8,3 +8,71 @@
   margin: 0;
   padding: 0;
 }
+
+.dpte-timetable2 {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.dpte-timetable2 .dpte-timetable2-title-section {
+  background-color: #CFA55B;
+  padding: 0.3rem 0.8rem;
+  border-radius: 10px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  text-align: center;
+}
+
+.dpte-timetable2 .dpte-timetable2-title-section .dpte-timetable2-title {
+  margin: 0;
+  font-size: 1.33rem;
+  font-weight: 700;
+  color: #2C2C2E;
+}
+
+.dpte-timetable2 .dpte-timetable2-prayer-grid {
+  /* @source: https://www.youtube.com/watch?v=CHULPvkXIRo */
+  --grid-max-col-count: 2;
+  --grid-min-col-size: 100px;
+  --grid-gap: 1rem;
+  --grid-col-size-calc: calc((100% - var(--grid-gap) * var(--grid-max-col-count)) / var(--grid-max-col-count));
+  --grid-col-min-size-calc: min(100%, max(var(--grid-min-col-size), var(--grid-col-size-calc)));
+  display: grid;
+  gap: var(--grid-gap);
+  grid-template-columns: repeat(auto-fit, minmax(var(--grid-col-min-size-calc), 1fr));
+}
+
+.dpte-timetable2 .dpte-timetable2-prayer-grid .dpte-timetable2-prayer {
+  background-color: #CFA55B;
+  color: #2C2C2E;
+  border-radius: 10px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  text-align: center;
+}
+
+.dpte-timetable2 .dpte-timetable2-prayer-grid .dpte-timetable2-prayer .dpte-prayer-section1 {
+  display: flex;
+  gap: 0.33rem;
+  flex-direction: column;
+  padding: 0.33rem 0.5rem;
+}
+
+.dpte-timetable2 .dpte-timetable2-prayer-grid .dpte-timetable2-prayer .dpte-prayer-title {
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.dpte-timetable2 .dpte-timetable2-prayer-grid .dpte-timetable2-prayer .dpte-prayer-prayer {
+  font-size: 1.33rem;
+  font-weight: 600;
+}
+
+.dpte-timetable2 .dpte-timetable2-prayer-grid .dpte-timetable2-prayer .dpte-prayer-section2 {
+  padding: 0.33rem 0.5rem;
+  border-top: 2px solid #FFFFFF;
+}
+
+.dpte-timetable2 .dpte-timetable2-prayer-grid .dpte-timetable2-prayer .dpte-prayer-start {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
