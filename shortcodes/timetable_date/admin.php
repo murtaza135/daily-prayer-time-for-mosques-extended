@@ -21,7 +21,7 @@ add_action('dpte_extend_timetable_date_container', function($container) {
         '),
 
         
-      Field::make('html', 'crb_separator_1')
+      Field::make('html', 'dpte_timetable_date_separator_1')
         ->set_html('<h2 style="padding: 0; margin: 0; margin-top: 1rem; font-size: 1rem; font-weight: 500;">Colors</h2>'),
 
       Field::make('color', 'dpte_timetable_date_color', 'Date Color')

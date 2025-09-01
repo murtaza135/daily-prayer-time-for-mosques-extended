@@ -20,7 +20,7 @@ add_action('dpte_extend_clock_container', function($container) {
         '),
 
         
-      Field::make('html', 'crb_separator_1')
+      Field::make('html', 'dpte_clock_separator_1')
         ->set_html('<h2 style="padding: 0; margin: 0; margin-top: 1rem; font-size: 1rem; font-weight: 500;">Colors</h2>'),
 
       Field::make('color', 'dpte_clock_background_gradient_1', 'Clock Background Gradient 1')
@@ -80,7 +80,7 @@ add_action('dpte_extend_clock_container', function($container) {
         ->set_help_text('Change the color of the "time remaining" text.'),
 
 
-      Field::make('html', 'crb_separator_2')
+      Field::make('html', 'dpte_clock_separator_2')
         ->set_html('<h2 style="padding: 0; margin: 0; margin-top: 1rem; font-size: 1rem; font-weight: 500;">Center Logo Image</h2>'),
 
       Field::make('image', 'dpte_clock_center_logo_image', __('Image'))
@@ -103,7 +103,7 @@ add_action('dpte_extend_clock_container', function($container) {
         ->set_help_text('Translate the center logo image along the Y-axis (in terms of a % of the clock\'s height).'),
 
 
-      Field::make('html', 'crb_separator_3')
+      Field::make('html', 'dpte_clock_separator_3')
         ->set_html('<h2 style="padding: 0; margin: 0; margin-top: 1rem; font-size: 1rem; font-weight: 500;">Top Left Image</h2>'),
 
       Field::make('image', 'dpte_clock_top_left_image', __('Image'))
@@ -126,7 +126,7 @@ add_action('dpte_extend_clock_container', function($container) {
         ->set_help_text('Translate the top left image along the Y-axis (in px).'),
 
 
-      Field::make('html', 'crb_separator_4')
+      Field::make('html', 'dpte_clock_separator_4')
         ->set_html('<h2 style="padding: 0; margin: 0; margin-top: 1rem; font-size: 1rem; font-weight: 500;">Top Right Image</h2>'),
 
       Field::make('image', 'dpte_clock_top_right_image', __('Image'))
@@ -149,7 +149,7 @@ add_action('dpte_extend_clock_container', function($container) {
         ->set_help_text('Translate the top right image along the Y-axis (in px).'),
 
 
-      Field::make('html', 'crb_separator_5')
+      Field::make('html', 'dpte_clock_separator_5')
         ->set_html('<h2 style="padding: 0; margin: 0; margin-top: 1rem; font-size: 1rem; font-weight: 500;">Bottom Left Image</h2>'),
 
       Field::make('image', 'dpte_clock_bottom_left_image', __('Image'))
@@ -172,7 +172,7 @@ add_action('dpte_extend_clock_container', function($container) {
         ->set_help_text('Translate the bottom left image along the Y-axis (in px).'),
 
 
-      Field::make('html', 'crb_separator_6')
+      Field::make('html', 'dpte_clock_separator_6')
         ->set_html('<h2 style="padding: 0; margin: 0; margin-top: 1rem; font-size: 1rem; font-weight: 500;">Bottom Right Image</h2>'),
 
       Field::make('image', 'dpte_clock_bottom_right_image', __('Image'))

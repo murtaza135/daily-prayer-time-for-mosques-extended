@@ -1,0 +1,10 @@
+/* base */
+.dpte-timetable2 *, .dpte-timetable2 *::before, .dpte-timetable2 *::after {
+  box-sizing: border-box;
+  line-height: 1;
+}
+
+.dpte-timetable2 * {
+  margin: 0;
+  padding: 0;
+}
