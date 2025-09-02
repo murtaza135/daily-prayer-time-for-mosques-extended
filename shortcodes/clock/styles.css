@@ -525,7 +525,7 @@
 
 .dpte-clock .dpte-time-remaining-header {
   font-size: clamp(1rem, 4cqw, 3rem);
-  display: none;
+  /* display: none; */
 }
 
 @media (min-width: 525px) {
