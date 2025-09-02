@@ -499,6 +499,7 @@
     translateX(var(--dpte-clock-center-logo-image-translate-x))
     translateY(var(--dpte-clock-center-logo-image-translate-y));
   z-index: 1;
+  width: 100%;
 }
 
 .dpte-clock .dpte-time-remaining {
