@@ -75,7 +75,7 @@
 }
 
 .dpte-timetable .dpte-timetable-prayer.active {
-  border: 2px solid var(--dpte-timetable-prayer-active-color);
+  border: 3px solid var(--dpte-timetable-prayer-active-color);
 }
 
 .dpte-timetable .dpte-timetable-prayer > span:nth-child(1) {
