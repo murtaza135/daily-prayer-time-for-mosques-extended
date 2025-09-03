@@ -42,7 +42,6 @@ class NotificationBanner {
       const { name, jamah, diff, timeRemaining, waitingForJamah } = prayer;
 
       if (NotificationBanner.isZawal(prayer)) {
-        console.log("zawal1");
         notificationBannerElement.forEach((element) => {
           if (element.dataset.zawaltimer === "true") {
             const textElement = element.querySelector(".dpte-notification-banner .dpte-notification-text");
