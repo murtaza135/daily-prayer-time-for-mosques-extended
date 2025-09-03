@@ -8,9 +8,9 @@ class NotificationBanner {
 
   static isZawal(prayer) {
     if (!prayer) return false;
-    if (prayer.name.toLowerCase() !== "zuhr") return false;
+    if (prayer.name.toLowerCase() !== "sunrise") return false;
     const now = new Date();
-    const diff = prayer.begins - now;
+    const diff = prayer.end - now;
     const zawalTimer = NotificationBanner.parseTimerIntoMilliseconds(DPTENotificationBannerOptions.ZAWAL_TIMER);
     return 0 < diff && diff <= zawalTimer;
   }
@@ -42,6 +42,7 @@ class NotificationBanner {
       const { name, jamah, diff, timeRemaining, waitingForJamah } = prayer;
 
       if (NotificationBanner.isZawal(prayer)) {
+        console.log("zawal1");
         notificationBannerElement.forEach((element) => {
           if (element.dataset.zawaltimer === "true") {
             const textElement = element.querySelector(".dpte-notification-banner .dpte-notification-text");
