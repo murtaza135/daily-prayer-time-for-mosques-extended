@@ -92,7 +92,9 @@ class Timetable {
     ishaElement.forEach((element) => element.classList.remove("active"));
 
     currentPrayerElement.forEach((element) => {
-      element.classList.add("active");
+      if (currentPrayer.name.toLowerCase() !== "sunrise") {
+        element.classList.add("active");
+      }
     });
   }
 
