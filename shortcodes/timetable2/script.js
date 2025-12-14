@@ -127,14 +127,14 @@ class Timetable2 {
 
     if (!currentPrayer) {
       nextPrayerNameElement.forEach((element) => {
-        element.textContent = "Time to Salah ...";
+        element.textContent = "Time to Salah ";
       });
       nextPrayerRemainingTimeElement.forEach((element) => {
         element.textContent = "";
       });
     } else if (currentPrayer.waitingForJamah) {
       nextPrayerNameElement.forEach((element) => {
-        element.textContent = `${currentPrayer.name} Jama'ah in ...`;
+        element.textContent = `${currentPrayer.name} Jama'ah in `;
       });
       nextPrayerRemainingTimeElement.forEach((element) => {
         element.textContent = currentPrayer.timeRemaining;
@@ -143,7 +143,7 @@ class Timetable2 {
       nextPrayerNameElement.forEach((element) => {
         const nextPrayerName = dptCache.getNextPrayerName(currentPrayer.name);
         const nextPrayerNameCapitalised = nextPrayerName.charAt(0).toUpperCase() + nextPrayerName.slice(1);
-        element.textContent = `Time to ${nextPrayerNameCapitalised} ...`;
+        element.textContent = `Time to ${nextPrayerNameCapitalised} `;
       });
       nextPrayerRemainingTimeElement.forEach((element) => {
         element.textContent = currentPrayer.timeRemaining;
