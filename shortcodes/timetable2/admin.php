@@ -78,6 +78,15 @@ add_action('dpte_extend_timetable_container', function($container) {
         ->set_attribute("type", "number")
         ->set_default_value(2)
         ->set_help_text('The maximum number of columns allowed in the prayer grid.'),
+      
+      
+      Field::make('html', 'dpte_timetable2_separator_3')
+        ->set_html('<h2 style="padding: 0; margin: 0; margin-top: 1rem; font-size: 1rem; font-weight: 500;">Sizes</h2>'),
+      
+      Field::make('text', 'dpte_timetable2_text_size_multiplier', 'Text Size Multiplier')
+        ->set_attribute("type", "number")
+        ->set_default_value(1)
+        ->set_help_text('A multiplier for making the timetable text bigger or smaller.'),
     ]);
 });
 
@@ -94,6 +103,7 @@ add_action('wp_head', function() {
   $dpte_timetable2_next_prayer_background = carbon_get_theme_option('dpte_timetable2_next_prayer_background');
   $dpte_timetable2_next_prayer_color = carbon_get_theme_option('dpte_timetable2_next_prayer_color');
   $dpte_timetable2_prayer_grid_max_col_count = carbon_get_theme_option('dpte_timetable2_prayer_grid_max_col_count');
+  $dpte_timetable2_text_size_multiplier = carbon_get_theme_option('dpte_timetable2_text_size_multiplier');
 
   echo "
     <style>
@@ -110,6 +120,7 @@ add_action('wp_head', function() {
         --dpte-timetable2-next-prayer-background: {$dpte_timetable2_next_prayer_background};
         --dpte-timetable2-next-prayer-color: {$dpte_timetable2_next_prayer_color};
         --dpte-timetable2-prayer-grid-max-col-count: {$dpte_timetable2_prayer_grid_max_col_count};
+        --dpte-timetable2-text-size-multiplier: {$dpte_timetable2_text_size_multiplier};
       }
     </style>
   ";

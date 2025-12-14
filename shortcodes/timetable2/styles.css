@@ -10,6 +10,7 @@
 }
 
 .dpte-timetable2 {
+  --size-multiplier: var(--dpte-timetable2-text-size-multiplier, 1);
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -27,7 +28,7 @@
 
 .dpte-timetable2 .dpte-timetable2-title-section .dpte-timetable2-title {
   margin: 0;
-  font-size: 1.33rem;
+  font-size: calc(1.33rem * var(--size-multiplier));
   font-weight: 700;
   color: var(--dpte-timetable2-title-section-color);
 }
@@ -71,12 +72,12 @@
 }
 
 .dpte-timetable2 .dpte-timetable2-prayer-grid .dpte-timetable2-prayer .dpte-prayer-title {
-  font-size: 1.25rem;
+  font-size: calc(1.25rem * var(--size-multiplier));
   font-weight: 500;
 }
 
 .dpte-timetable2 .dpte-timetable2-prayer-grid .dpte-timetable2-prayer .dpte-prayer-prayer {
-  font-size: 1.33rem;
+  font-size: calc(1.33rem * var(--size-multiplier));
   font-weight: 600;
 }
 
@@ -88,7 +89,7 @@
 }
 
 .dpte-timetable2 .dpte-timetable2-prayer-grid .dpte-timetable2-prayer .dpte-prayer-start {
-  font-size: 1.1rem;
+  font-size: calc(1.1rem * var(--size-multiplier));
   font-weight: 500;
 }
 
@@ -103,16 +104,16 @@
   padding: 0.5rem 0.8rem;
   border-radius: 10px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  min-height: 2.33rem;
+  min-height: calc(2.33rem * var(--size-multiplier));
 }
 
 .dpte-timetable2 .dpte-timetable2-date-time-section .dpte-timetable2-date {
-  font-size: 1.33rem;
+  font-size: calc(1.33rem * var(--size-multiplier));
   font-weight: 700;
 }
 
 .dpte-timetable2 .dpte-timetable2-date-time-section .dpte-timetable2-time {
-  font-size: 1.33rem;
+  font-size: calc(1.33rem * var(--size-multiplier));
   font-weight: 700;
 }
 
@@ -127,15 +128,15 @@
   padding: 0.5rem 0.8rem;
   border-radius: 10px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  min-height: 2.33rem;
+  min-height: calc(2.33rem * var(--size-multiplier));
 }
 
 .dpte-timetable2 .dpte-timetable2-next-prayer-section .dpte-timetable2-next-prayer-name {
-  font-size: 1.33rem;
+  font-size: calc(1.33rem * var(--size-multiplier));
   font-weight: 700;
 }
 
 .dpte-timetable2 .dpte-timetable2-next-prayer-section .dpte-timetable2-next-prayer-remaining-time {
-  font-size: 1.33rem;
+  font-size: calc(1.33rem * var(--size-multiplier));
   font-weight: 700;
 }
