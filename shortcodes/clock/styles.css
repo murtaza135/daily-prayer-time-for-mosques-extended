@@ -12,10 +12,19 @@
 }
 
 .dpte-clock-wrapper {
+  --cw: 0px;
   width: 100%;
   aspect-ratio: 1 / 1;
   margin: auto;
   container-type: inline-size;
+}
+
+/* Chromium 105+ */
+@supports (width: 1cqw) {
+  .dpte-clock-wrapper {
+    container-type: inline-size;
+    --cw: 100cqw;
+  }
 }
 
 .dpte-clock {
@@ -100,9 +109,9 @@
 
 .dpte-clock .dpte-num {
   color: var(--dpte-clock-number-color);
-  font-size: clamp(1.5rem, 7.5cqw, 5rem);
+  font-size: clamp(1.5rem, calc(var(--cw) * 0.075), 5rem);
   font-weight: 400;
-  margin: clamp(0.75rem, 5cqw, 4rem);
+  margin: clamp(0.75rem, calc(var(--cw) * 0.05), 4rem);
 }
 
 .dpte-clock .dpte-hours-container > li:nth-child(1) .dpte-num {
@@ -415,7 +424,7 @@
 
 .dpte-clock .dpte-minute-line {
   color: var(--dpte-clock-minute-line-color);
-  font-size: clamp(0.3rem, 1.5cqw, 1rem);
+  font-size: clamp(0.3rem, calc(var(--cw) * 0.015), 1rem);
   font-weight: 400;
 }
 
@@ -515,7 +524,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: clamp(0rem, 2.5cqw, 2rem);
+  gap: clamp(0rem, calc(var(--cw) * 0.025), 2rem);
   height: 100%;
   transform: translateY(22.5%);
   color: var(--dpte-clock-time-remaining-color);
@@ -524,7 +533,7 @@
 }
 
 .dpte-clock .dpte-time-remaining-header {
-  font-size: clamp(1rem, 4cqw, 3rem);
+  font-size: clamp(1rem, calc(var(--cw) * 0.04), 3rem);
   /* display: none; */
 }
 
@@ -535,7 +544,7 @@
 }
 
 .dpte-clock .dpte-time-remaining-value {
-  font-size: clamp(1.5rem, 6cqw, 4rem);
+  font-size: clamp(1.5rem, calc(var(--cw) * 0.06), 4rem);
 }
 
 .dpte-clock .dpte-top-left-image {

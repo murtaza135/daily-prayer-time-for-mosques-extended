@@ -55,6 +55,17 @@ class Clock {
       element.style.transform = `rotate(${secondsRotation}deg)`;
     });
   }
+
+  static setContainerWidth() {
+    if (!('ResizeObserver' in window)) return;
+    const clockWrappers = document.querySelectorAll(".dpte-clock-wrapper");
+    const ro = new ResizeObserver(entries => {
+      for (const entry of entries) {
+        entry.target.style.setProperty("--cw", `${entry.contentRect.width}px`);
+      }
+    });
+    clockWrappers.forEach(clock => ro.observe(clock));
+  }
 }
 
 addEventListener("DOMContentLoaded", () => {
@@ -69,4 +80,6 @@ addEventListener("DOMContentLoaded", () => {
     setTimeout(Clock.setClock, 2500);
     setInterval(Clock.setClock, 1000);
   });
+
+  Clock.setContainerWidth();
 });
