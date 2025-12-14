@@ -9,11 +9,12 @@
 }
 
 .dpte-notification-banner {
+  --size-multiplier: var(--dpte-notification-banner-text-size-multiplier, 1);
   text-align: center;
   padding: 0.75rem 1.25rem;
   border-radius: 10px;
   font-weight: bold;
-  font-size: 1.15rem;
+  font-size: calc(1.15rem * var(--size-multiplier));
 }
 
 .dpte-notification-banner.active {
@@ -35,7 +36,7 @@
   align-items: center;
   gap: 0.5rem;
   text-align: center;
-  min-height: 20px;
+  min-height: calc(20px * var(--size-multiplier));
 }
 
 .dpte-notification-banner.active .dpte-notification-banner-content,
@@ -45,7 +46,7 @@
 
 .dpte-notification-banner .dpte-notification-banner-content .dpte-notification-active-icon {
   display: none;
-  width: 20px;
+  width: calc(20px * var(--size-multiplier));
   transform: translateY(-2px) scale(1.4);
   fill: var(--dpte-notification-banner-active-icon-color);
 }
@@ -56,7 +57,7 @@
 
 .dpte-notification-banner .dpte-notification-banner-content .dpte-notification-error-icon {
   display: none;
-  width: 20px;
+  width: calc(20px * var(--size-multiplier));
   transform: translateY(-1px);
   stroke: var(--dpte-notification-banner-error-icon-color);
 }

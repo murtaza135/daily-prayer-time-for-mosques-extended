@@ -68,6 +68,15 @@ add_action('dpte_extend_notification_banner_container', function($container) {
         ->set_attribute("type", "number")
         ->set_default_value(20)
         ->set_help_text('How many minutes should the notification display the countdown until Zawal time finishes and Zuhr starts (in minutes).'),
+
+
+      Field::make('html', 'dpte_timetable_separator_3')
+        ->set_html('<h2 style="padding: 0; margin: 0; margin-top: 1rem; font-size: 1rem; font-weight: 500;">Sizes</h2>'),
+      
+      Field::make('text', 'dpte_notification_banner_text_size_multiplier', 'Text Size Multiplier')
+        ->set_attribute("type", "number")
+        ->set_default_value(1)
+        ->set_help_text('A multiplier for making the timetable text bigger or smaller.'),
     ]);
 });
 
@@ -78,6 +87,7 @@ add_action('wp_head', function() {
   $dpte_notification_banner_error_background = carbon_get_theme_option('dpte_notification_banner_error_background');
   $dpte_notification_banner_error_color = carbon_get_theme_option('dpte_notification_banner_error_color');
   $dpte_notification_banner_error_icon_color = carbon_get_theme_option('dpte_notification_banner_error_icon_color');
+  $dpte_notification_banner_text_size_multiplier = carbon_get_theme_option('dpte_notification_banner_text_size_multiplier');
 
   echo "
     <style>
@@ -88,6 +98,7 @@ add_action('wp_head', function() {
         --dpte-notification-banner-error-background: {$dpte_notification_banner_error_background};
         --dpte-notification-banner-error-color: {$dpte_notification_banner_error_color};
         --dpte-notification-banner-error-icon-color: {$dpte_notification_banner_error_icon_color};
+        --dpte-notification-banner-text-size-multiplier: {$dpte_notification_banner_text_size_multiplier};
       }
     </style>
   ";
