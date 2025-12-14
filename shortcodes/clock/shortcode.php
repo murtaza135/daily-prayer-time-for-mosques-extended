@@ -13,6 +13,7 @@ function dpte_clock_shortcode($atts) {
   $atts = shortcode_atts(
     array(
       'showimages' => 'true',
+      'numberslanguage' => 'english'
     ),
     $atts,
     'dpte_notification_banner'
@@ -21,85 +22,41 @@ function dpte_clock_shortcode($atts) {
     $data_attrs .= ' data-' . esc_attr($key) . '="' . esc_attr($value) . '"';
   }
 
+  $numbers = [
+    'english' => [
+      1 => '1', 2 => '2', 3 => '3', 4 => '4',
+      5 => '5', 6 => '6', 7 => '7', 8 => '8',
+      9 => '9', 10 => '10', 11 => '11', 12 => '12',
+    ],
+    'arabic' => [
+      1 => '١', 2 => '٢', 3 => '٣', 4 => '٤',
+      5 => '٥', 6 => '٦', 7 => '٧', 8 => '٨',
+      9 => '٩', 10 => '١٠', 11 => '١١', 12 => '١٢',
+    ],
+  ];
+  $lang = $atts['numberslanguage'] ?? 'english';
+
   ob_start();
   ?>
   <div class="dpte-clock-wrapper" <?php echo $data_attrs; ?>>
     <div class="dpte-clock">
       <ul class="dpte-hours-container">
-        <li><div class="dpte-num">1</div></li>
-        <li><div class="dpte-num">2</div></li>
-        <li><div class="dpte-num">3</div></li>
-        <li><div class="dpte-num">4</div></li>
-        <li><div class="dpte-num">5</div></li>
-        <li><div class="dpte-num">6</div></li>
-        <li><div class="dpte-num">7</div></li>
-        <li><div class="dpte-num">8</div></li>
-        <li><div class="dpte-num">9</div></li>
-        <li><div class="dpte-num">10</div></li>
-        <li><div class="dpte-num">11</div></li>
-        <li><div class="dpte-num">12</div></li>
+        <?php
+          for ($i = 1; $i <= 12; $i++) {
+              echo '<li><div class="dpte-num">' . $numbers[$lang][$i] . '</div></li>';
+          }
+        ?>
       </ul>
       <ul class="dpte-minutes-container">
-        <li><div class="dpte-minute-line">│</div></li>
-        <li><div class="dpte-minute-line">|</div></li>
-        <li><div class="dpte-minute-line">|</div></li>
-        <li><div class="dpte-minute-line">|</div></li>
-        <li><div class="dpte-minute-line">|</div></li>
-        <li><div class="dpte-minute-line">│</div></li>
-        <li><div class="dpte-minute-line">|</div></li>
-        <li><div class="dpte-minute-line">|</div></li>
-        <li><div class="dpte-minute-line">|</div></li>
-        <li><div class="dpte-minute-line">|</div></li>
-        <li><div class="dpte-minute-line">│</div></li>
-        <li><div class="dpte-minute-line">|</div></li>
-        <li><div class="dpte-minute-line">|</div></li>
-        <li><div class="dpte-minute-line">|</div></li>
-        <li><div class="dpte-minute-line">|</div></li>
-        <li><div class="dpte-minute-line">│</div></li>
-        <li><div class="dpte-minute-line">|</div></li>
-        <li><div class="dpte-minute-line">|</div></li>
-        <li><div class="dpte-minute-line">|</div></li>
-        <li><div class="dpte-minute-line">|</div></li>
-        <li><div class="dpte-minute-line">│</div></li>
-        <li><div class="dpte-minute-line">|</div></li>
-        <li><div class="dpte-minute-line">|</div></li>
-        <li><div class="dpte-minute-line">|</div></li>
-        <li><div class="dpte-minute-line">|</div></li>
-        <li><div class="dpte-minute-line">│</div></li>
-        <li><div class="dpte-minute-line">|</div></li>
-        <li><div class="dpte-minute-line">|</div></li>
-        <li><div class="dpte-minute-line">|</div></li>
-        <li><div class="dpte-minute-line">|</div></li>
-        <li><div class="dpte-minute-line">│</div></li>
-        <li><div class="dpte-minute-line">|</div></li>
-        <li><div class="dpte-minute-line">|</div></li>
-        <li><div class="dpte-minute-line">|</div></li>
-        <li><div class="dpte-minute-line">|</div></li>
-        <li><div class="dpte-minute-line">│</div></li>
-        <li><div class="dpte-minute-line">|</div></li>
-        <li><div class="dpte-minute-line">|</div></li>
-        <li><div class="dpte-minute-line">|</div></li>
-        <li><div class="dpte-minute-line">|</div></li>
-        <li><div class="dpte-minute-line">│</div></li>
-        <li><div class="dpte-minute-line">|</div></li>
-        <li><div class="dpte-minute-line">|</div></li>
-        <li><div class="dpte-minute-line">|</div></li>
-        <li><div class="dpte-minute-line">|</div></li>
-        <li><div class="dpte-minute-line">│</div></li>
-        <li><div class="dpte-minute-line">|</div></li>
-        <li><div class="dpte-minute-line">|</div></li>
-        <li><div class="dpte-minute-line">|</div></li>
-        <li><div class="dpte-minute-line">|</div></li>
-        <li><div class="dpte-minute-line">│</div></li>
-        <li><div class="dpte-minute-line">|</div></li>
-        <li><div class="dpte-minute-line">|</div></li>
-        <li><div class="dpte-minute-line">|</div></li>
-        <li><div class="dpte-minute-line">|</div></li>
-        <li><div class="dpte-minute-line">│</div></li>
-        <li><div class="dpte-minute-line">|</div></li>
-        <li><div class="dpte-minute-line">|</div></li>
-        <li><div class="dpte-minute-line">|</div></li>
-        <li><div class="dpte-minute-line">|</div></li>
+        <?php
+          for ($i = 0; $i < 60; $i++) {
+            if ($i % 5 == 0) {
+              echo '<li><div class="dpte-minute-line">│</div></li>'; // long pipe character
+            } else {
+              echo '<li><div class="dpte-minute-line">|</div></li>'; // short pipe character
+            }
+          }
+        ?>
       </ul>
       <div class="dpte-hands-container">
         <div class="dpte-hand dpte-hand-hours"></div>
