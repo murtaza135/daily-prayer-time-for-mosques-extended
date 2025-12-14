@@ -53,7 +53,7 @@ class Timetable {
         const jumah = dptCache.data.jumah;
         const jumahElement = root.querySelector(".dpte-timetable .dpte-timetable-jumah .dpte-prayer-start");
         if (!!jumah && jumah.length > 0 && !!jumahElement) {
-          const jumahText = jumah.join(" | ");
+          const jumahText = jumah.join(" & ");
           jumahElement.textContent = jumahText;
         }
       });
