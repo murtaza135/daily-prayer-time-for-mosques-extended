@@ -67,6 +67,15 @@ add_action('dpte_extend_timetable_container', function($container) {
         ->set_attribute("type", "number")
         ->set_default_value(5000)
         ->set_help_text('Duration of prayer icons\' resize animation (in ms).'),
+
+
+      Field::make('html', 'dpte_timetable_separator_3')
+        ->set_html('<h2 style="padding: 0; margin: 0; margin-top: 1rem; font-size: 1rem; font-weight: 500;">Sizes</h2>'),
+      
+      Field::make('text', 'dpte_timetable_prayer_text_size_multiplier', 'Text Size Multiplier')
+        ->set_attribute("type", "number")
+        ->set_default_value(1)
+        ->set_help_text('A multiplier for making the timetable text bigger or smaller.'),
     ]);
 });
 
@@ -80,6 +89,7 @@ add_action('wp_head', function() {
   $dpte_timetable_prayer_icon_color = carbon_get_theme_option('dpte_timetable_prayer_icon_color');
   $dpte_timetable_icon_resize_animation_running = carbon_get_theme_option('dpte_timetable_icon_resize_animation_running') ? "running" : "paused";
   $dpte_timetable_prayer_icon_resize_animation_duration = carbon_get_theme_option('dpte_timetable_prayer_icon_resize_animation_duration');
+  $dpte_timetable_prayer_text_size_multiplier = carbon_get_theme_option('dpte_timetable_prayer_text_size_multiplier');
 
   echo "
     <style>
@@ -93,6 +103,7 @@ add_action('wp_head', function() {
         --dpte-timetable-prayer-icon-color: {$dpte_timetable_prayer_icon_color};
         --dpte-timetable-icon-resize-animation-running: {$dpte_timetable_icon_resize_animation_running};
         --dpte-timetable-prayer-icon-resize-animation-duration: {$dpte_timetable_prayer_icon_resize_animation_duration}ms;
+        --dpte-timetable-prayer-text-size-multiplier: {$dpte_timetable_prayer_text_size_multiplier};
       }
     </style>
   ";
