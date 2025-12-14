@@ -70,7 +70,7 @@ add_action('dpte_extend_notification_banner_container', function($container) {
         ->set_help_text('How many minutes should the notification display the countdown until Zawal time finishes and Zuhr starts (in minutes).'),
 
 
-      Field::make('html', 'dpte_timetable_separator_3')
+      Field::make('html', 'dpte_notification_banner_separator_3')
         ->set_html('<h2 style="padding: 0; margin: 0; margin-top: 1rem; font-size: 1rem; font-weight: 500;">Sizes</h2>'),
       
       Field::make('text', 'dpte_notification_banner_text_size_multiplier', 'Text Size Multiplier')

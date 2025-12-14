@@ -10,12 +10,13 @@
 }
 
 .dpte-timetable-date {
+  --size-multiplier: var(--dpte-timetable-date-text-size-multiplier, 1);
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   color: var(--dpte-timetable-date-color);
-  font-size: 1.2rem;
+  font-size: calc(1.2rem * var(--size-multiplier));
   gap: 0.5rem;
 }
 
