@@ -1,0 +1,40 @@
+/* base */
+.dpte-timetable2-date-component *,
+.dpte-timetable2-date-component *::before,
+.dpte-timetable2-date-component *::after {
+  box-sizing: border-box;
+  line-height: 1;
+}
+
+.dpte-timetable2-date-component * {
+  margin: 0;
+  padding: 0;
+}
+
+.dpte-timetable2-date-component {
+  --size-multiplier: var(--dpte-timetable2-text-size-multiplier, 1);
+}
+
+/* date-time */
+.dpte-timetable2-date-component .dpte-timetable2-date-time-section {
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--dpte-timetable2-date-time-background);
+  color: var(--dpte-timetable2-date-time-color);
+  padding: 0.5rem 0.8rem;
+  border-radius: 10px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  min-height: calc(2.33rem * var(--size-multiplier));
+}
+
+.dpte-timetable2-date-component .dpte-timetable2-date-time-section .dpte-timetable2-date {
+  font-size: calc(1.33rem * var(--size-multiplier));
+  font-weight: 700;
+}
+
+.dpte-timetable2-date-component .dpte-timetable2-date-time-section .dpte-timetable2-time {
+  font-size: calc(1.33rem * var(--size-multiplier));
+  font-weight: 700;
+}

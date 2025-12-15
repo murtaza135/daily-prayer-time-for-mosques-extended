@@ -1,0 +1,40 @@
+/* base */
+.dpte-timetable2-time-to-prayer-component *,
+.dpte-timetable2-time-to-prayer-component *::before,
+.dpte-timetable2-time-to-prayer-component *::after {
+  box-sizing: border-box;
+  line-height: 1;
+}
+
+.dpte-timetable2-time-to-prayer-component * {
+  margin: 0;
+  padding: 0;
+}
+
+.dpte-timetable2-time-to-prayer-component {
+  --size-multiplier: var(--dpte-timetable2-text-size-multiplier, 1);
+}
+
+/* next prayer */
+.dpte-timetable2-time-to-prayer-component .dpte-timetable2-next-prayer-section {
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--dpte-timetable2-next-prayer-background);
+  color: var(--dpte-timetable2-next-prayer-color);
+  padding: 0.5rem 0.8rem;
+  border-radius: 10px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  min-height: calc(2.33rem * var(--size-multiplier));
+}
+
+.dpte-timetable2-time-to-prayer-component .dpte-timetable2-next-prayer-section .dpte-timetable2-next-prayer-name {
+  font-size: calc(1.33rem * var(--size-multiplier));
+  font-weight: 700;
+}
+
+.dpte-timetable2-time-to-prayer-component .dpte-timetable2-next-prayer-section .dpte-timetable2-next-prayer-remaining-time {
+  font-size: calc(1.33rem * var(--size-multiplier));
+  font-weight: 700;
+}
