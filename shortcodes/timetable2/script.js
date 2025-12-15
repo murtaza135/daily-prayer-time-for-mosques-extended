@@ -69,6 +69,7 @@ class Timetable2 {
     const currentPrayer = dptCache.getCurrentPrayer();
     if (!currentPrayer) return;
     const currentPrayerElement = Timetable2.getPrayerElement(currentPrayer.name);
+    const allPrayerElements = document.querySelectorAll(".dpte-timetable2 .dpte-timetable2-prayer");
 
     const fajrElement = document.querySelectorAll(".dpte-timetable2 .dpte-timetable2-fajr");
     const sunriseElement = document.querySelectorAll(".dpte-timetable2 .dpte-timetable2-sunrise");
@@ -86,6 +87,12 @@ class Timetable2 {
 
     currentPrayerElement.forEach((element) => {
       if (element.dataset.timetype === "next" || element.dataset.timetype === "today") {
+        element.classList.add("active");
+      }
+    });
+
+    allPrayerElements.forEach((element) => {
+      if (element.dataset.alwaysactive === "true") {
         element.classList.add("active");
       }
     });

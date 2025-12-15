@@ -22,10 +22,11 @@ function dpte_timetable2_prayer_time_component_shortcode($atts) {
     $data_attrs .= ' data-' . esc_attr($key) . '="' . esc_attr($value) . '"';
   }
   $prayer = strtolower($atts['prayer']);
+  $activeclass = (strtolower($atts['alwaysactive']) === 'true') ? ' active' : '';
 
   ob_start();
   ?>
-  <div class="dpte-timetable2-prayer-time-component<?php echo ($atts['alwaysactive'] === 'true') ? ' active' : ''; ?>" <?php echo $data_attrs; ?>>
+  <div class="dpte-timetable2-prayer-time-component<?php echo $activeclass; ?>" <?php echo $data_attrs; ?>>
     <?php
       if ($prayer === 'fajr') {
         ?>
@@ -45,7 +46,7 @@ function dpte_timetable2_prayer_time_component_shortcode($atts) {
         <?php
       } else if ($prayer === 'sunrise') {
         ?>
-          <div class="dpte-timetable2-prayer dpte-timetable2-sunrise<?php echo ($atts['alwaysactive'] === 'true') ? ' active' : ''; ?>" <?php echo $data_attrs; ?>>
+          <div class="dpte-timetable2-prayer dpte-timetable2-sunrise<?php echo $activeclass; ?>" <?php echo $data_attrs; ?>>
             <div class="dpte-prayer-section1">
               <p class="dpte-prayer-title">Sunrise</p>
               <p class="dpte-prayer-prayer" <?php echo $data_attrs; ?>>
@@ -61,7 +62,7 @@ function dpte_timetable2_prayer_time_component_shortcode($atts) {
         <?php
       } else if ($prayer === 'zuhr') {
         ?>
-          <div class="dpte-timetable2-prayer dpte-timetable2-zuhr<?php echo ($atts['alwaysactive'] === 'true') ? ' active' : ''; ?>" <?php echo $data_attrs; ?>>
+          <div class="dpte-timetable2-prayer dpte-timetable2-zuhr<?php echo $activeclass; ?>" <?php echo $data_attrs; ?>>
             <div class="dpte-prayer-section1">
               <p class="dpte-prayer-title">Zuhr</p>
               <p class="dpte-prayer-prayer" <?php echo $data_attrs; ?>>
@@ -77,7 +78,7 @@ function dpte_timetable2_prayer_time_component_shortcode($atts) {
         <?php
       } else if ($prayer === 'asr') {
         ?>
-          <div class="dpte-timetable2-prayer dpte-timetable2-asr<?php echo ($atts['alwaysactive'] === 'true') ? ' active' : ''; ?>" <?php echo $data_attrs; ?>>
+          <div class="dpte-timetable2-prayer dpte-timetable2-asr<?php echo $activeclass; ?>" <?php echo $data_attrs; ?>>
             <div class="dpte-prayer-section1">
               <p class="dpte-prayer-title">Asr</p>
               <p class="dpte-prayer-prayer" <?php echo $data_attrs; ?>>
@@ -93,7 +94,7 @@ function dpte_timetable2_prayer_time_component_shortcode($atts) {
         <?php
       } else if ($prayer === 'maghrib') {
         ?>
-          <div class="dpte-timetable2-prayer dpte-timetable2-maghrib<?php echo ($atts['alwaysactive'] === 'true') ? ' active' : ''; ?>" <?php echo $data_attrs; ?>>
+          <div class="dpte-timetable2-prayer dpte-timetable2-maghrib<?php echo $activeclass; ?>" <?php echo $data_attrs; ?>>
             <div class="dpte-prayer-section1">
               <p class="dpte-prayer-title">Maghrib</p>
               <p class="dpte-prayer-prayer" <?php echo $data_attrs; ?>>
@@ -109,7 +110,7 @@ function dpte_timetable2_prayer_time_component_shortcode($atts) {
         <?php
       } else if ($prayer === 'isha') {
         ?>
-          <div class="dpte-timetable2-prayer dpte-timetable2-isha<?php echo ($atts['alwaysactive'] === 'true') ? ' active' : ''; ?>" <?php echo $data_attrs; ?>>
+          <div class="dpte-timetable2-prayer dpte-timetable2-isha<?php echo $activeclass; ?>" <?php echo $data_attrs; ?>>
             <div class="dpte-prayer-section1">
               <p class="dpte-prayer-title">Isha</p>
               <p class="dpte-prayer-prayer" <?php echo $data_attrs; ?>>
