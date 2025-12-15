@@ -12,14 +12,106 @@ add_action('dpte_extend_timetable_container', function($container) {
     ->add_tab(__('[dpte_timetable]'), [
       Field::make('html', 'dpte_timetable_heading')
         ->set_html('
-          <h2 style="padding: 0; font-size: 1.25rem; font-weight: 500;">[dpte_timetable]</h2>
-          <p>A timetable showing the start and Jama\'ah times of all prayers.</p>
-          <p><b>Shortcode Usage and Parameters:</b></p>
-          <p> - <b>[dpte_timetable]</b> - Display prayer timetable, where the times displayed are of the next prayer. For example, if today\'s Asr has NOT yet passed, then today\'s Asr time will be displayed. If today\'s Asr HAS passed, then tomorrow\'s Asr will be displayed.</p>
-          <p> - <b>[dpte_timetable timetype="next"]</b> - Same as <b>[dpte_timetable]</b>, without any parameters.</p>
-          <p> - <b>[dpte_timetable timetype="today"]</b> - Display today\'s prayer timetable.</p>
-          <p> - <b>[dpte_timetable timetype="tomorrow"]</b> - Display tomorrow\'s prayer timetable.</p>
-          <p><b>Warning:</b> Inputing a non-existing parameter name or value will silently fail. So please ensure the argument name and value are correct.</p>
+          <h2 style="margin-bottom: 0.5rem; font-size: 1.4rem; font-weight: 600;">
+            Prayer Timetable Shortcodes
+          </h2>
+
+          <p>
+            The following shortcodes allow you to display prayer timetables and individual
+            prayer times. Each shortcode supports parameters that control which prayers
+            are shown and which day\'s times are displayed.
+          </p>
+
+          <hr>
+
+          <h3 style="margin-top: 1.5rem;"><code>[dpte_timetable timetype="{timetype}"]</code></h3>
+
+          <p>
+            Displays a full prayer timetable showing the <strong>start</strong> and
+            <strong>Jama\'ah</strong> times for all prayers.
+          </p>
+
+          <h4>Usage</h4>
+          <ol>
+            <li>
+              <code>[dpte_timetable]</code><br>
+              Displays the timetable using <strong>next</strong> prayer logic.
+              <ol>
+                <li>If today\'s prayer has not yet passed, today\'s time is shown.</li>
+                <li>If today\'s prayer has already passed, tomorrow\'s time is shown.</li>
+              </ol>
+            </li>
+
+            <li>
+              <code>[dpte_timetable timetype="next"]</code><br>
+              Explicitly uses the same behavior as the default shortcode.
+            </li>
+
+            <li>
+              <code>[dpte_timetable timetype="today"]</code><br>
+              Displays <strong>today\'s</strong> prayer timetable only.
+            </li>
+
+            <li>
+              <code>[dpte_timetable timetype="tomorrow"]</code><br>
+              Displays <strong>tomorrow\'s</strong> prayer timetable only.
+            </li>
+          </ol>
+
+          <hr>
+
+          <h3 style="margin-top: 1.5rem;"><code>[dpte_timetable_prayer_time_component prayer="{prayer}" timetype="{timetype}"]</code></h3>
+
+          <p>
+            Displays the time for a <strong>single prayer</strong>.
+          </p>
+
+          <h4>Parameters</h4>
+          <ol>
+            <li>
+              <strong><code>timetype</code></strong> - Determines which day\'s prayer time is shown.
+              <br>
+              Accepted values:
+              <ol>
+                <li><code>next</code> (default)</li>
+                <li><code>today</code></li>
+                <li><code>tomorrow</code></li>
+              </ol>
+            </li>
+
+            <br>
+
+            <li>
+              <strong><code>prayer</code></strong> - Specifies which prayer to display.
+              <br>
+              Accepted values:
+              <ol>
+                <li><code>fajr</code> (default)</li>
+                <li><code>sunrise</code></li>
+                <li><code>zuhr</code></li>
+                <li><code>asr</code></li>
+                <li><code>maghrib</code></li>
+                <li><code>isha</code></li>
+                <li><code>jumah</code> or <code>jumuah</code></li>
+              </ol>
+            </li>
+          </ol>
+
+          <h4>Examples</h4>
+          <pre><code>[dpte_timetable_prayer_time_component prayer="fajr"]</code></pre>
+
+          <pre><code>[dpte_timetable_prayer_time_component prayer="asr" timetype="today"]</code></pre>
+
+          <pre><code>[dpte_timetable_prayer_time_component prayer="jumah" timetype="next"]</code></pre>
+
+          <hr>
+
+          <p>
+            <strong>Important:</strong><br>
+            If an invalid parameter name or value is provided, the shortcode will
+            fail silently. Please ensure that all parameter names and values are entered
+            exactly as documented above.
+          </p>
         '),
 
 
