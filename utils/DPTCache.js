@@ -13,6 +13,7 @@ class DPTCache {
   constructor() {
     this.data = null;
     this.fetchPromise = null;
+    this.replaceZuhrWithJumah = DPTE_DPTCacheOptions.REPLACE_ZUHR_WITH_JUMAH ?? true;
 
     const timerNumber = Number(DPTE_DPTCacheOptions.REFETCH_INTERVAL_TIME);
     const timerValidated = !Number.isNaN(timerNumber) ? timerNumber : 10;
@@ -40,6 +41,9 @@ class DPTCache {
           : this.data.today
         : null;
 
+      const isTodayFriday = this.replaceZuhrWithJumah
+        && new Date(`${data.d_date}T${data.zuhr_jamah}`).getDay() === 5;
+
       const todaysPrayers = [
         {
           name: "Fajr",
@@ -54,9 +58,11 @@ class DPTCache {
           end: new Date(`${data.d_date}T${data.zuhr_begins}`),
         },
         {
-          name: "Zuhr",
+          name: isTodayFriday ? "Jumu'ah" : "Zuhr",
           begins: new Date(`${data.d_date}T${data.zuhr_begins}`),
-          jamah: new Date(`${data.d_date}T${data.zuhr_jamah}`),
+          jamah: isTodayFriday
+            ? new Date(`${data.d_date}T${data.jumuah?.[0] || data.zuhr_jamah}`)
+            : new Date(`${data.d_date}T${data.zuhr_jamah}`),
           end: new Date(`${data.d_date}T${data.asr_mithl_1}`),
         },
         {
@@ -79,6 +85,9 @@ class DPTCache {
         },
       ];
 
+      const isTomorrowFriday = this.replaceZuhrWithJumah
+        && new Date(`${data.tomorrow.d_date}T${data.tomorrow.zuhr_jamah}`).getDay() === 5;
+
       const tomorrowsPrayers = [
         {
           name: "Fajr",
@@ -93,9 +102,11 @@ class DPTCache {
           end: new Date(`${data.tomorrow.d_date}T${data.tomorrow.zuhr_begins}`),
         },
         {
-          name: "Zuhr",
+          name: isTomorrowFriday ? "Jumu'ah" : "Zuhr",
           begins: new Date(`${data.tomorrow.d_date}T${data.tomorrow.zuhr_begins}`),
-          jamah: new Date(`${data.tomorrow.d_date}T${data.tomorrow.zuhr_jamah}`),
+          jamah: isTomorrowFriday
+            ? new Date(`${data.tomorrow.d_date}T${data.jumuah?.[0] || data.tomorrow.zuhr_jamah}`)
+            : new Date(`${data.tomorrow.d_date}T${data.tomorrow.zuhr_jamah}`),
           end: new Date(`${data.tomorrow.d_date}T${data.tomorrow.asr_mithl_1}`),
         },
         {

@@ -21,9 +21,11 @@ class Timetable {
         const zuhr = dptCache.getPrayer("zuhr", timeType);
         const zuhrStartElement = root.querySelector(".dpte-timetable .dpte-timetable-zuhr .dpte-prayer-start");
         const zuhrPrayerElement = root.querySelector(".dpte-timetable .dpte-timetable-zuhr .dpte-prayer-prayer");
+        const zuhrPrayerTitle = root.querySelector(".dpte-timetable .dpte-timetable-zuhr .dpte-prayer-title");
         if (!!zuhr && !!zuhrStartElement && !!zuhrPrayerElement) {
           zuhrStartElement.textContent = DateTimeUtils.formatDateToTime(zuhr.begins);
           zuhrPrayerElement.textContent = DateTimeUtils.formatDateToTime(zuhr.jamah);
+          if (!!zuhrPrayerTitle) zuhrPrayerTitle.textContent = zuhr.name;
         }
 
         const asr = dptCache.getPrayer("asr", timeType);
@@ -97,14 +99,6 @@ class Timetable {
       }
     });
   }
-
-  static setJumah() {
-    const zuhrPrayerTitle = document.querySelectorAll(".dpte-timetable .dpte-timetable-zuhr .dpte-prayer-title");
-    const isFriday = new Date().getDay() === 5;
-    zuhrPrayerTitle.forEach((element) => {
-      element.textContent = isFriday ? "Jumu'ah" : "Zuhr";
-    });
-  }
 }
 
 addEventListener("DOMContentLoaded", () => {
@@ -119,9 +113,4 @@ addEventListener("DOMContentLoaded", () => {
     setTimeout(Timetable.setActivePrayer, 2500);
     setInterval(Timetable.setActivePrayer, 1 * 60 * 1000 /* 1 minute */);
   });
-
-  Timetable.setJumah();
-  setTimeout(Timetable.setJumah, 1000);
-  setTimeout(Timetable.setJumah, 2500);
-  setInterval(Timetable.setJumah, 15 * 60 * 1000 /* 15 minutes */);
 });

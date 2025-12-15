@@ -12,6 +12,11 @@ add_action('carbon_fields_register_fields', function() {
     ->set_page_file('dpte-options')
     ->set_icon('dashicons-clock');
   do_action('dpte_extend_base_container', $dpte_base_container);
+
+  $dpte_general_container = Container::make('theme_options', __('General'))
+    ->set_page_file('dpte-general-options')
+    ->set_page_parent('dpte-options');
+  do_action('dpte_extend_general_container', $dpte_general_container);
   
   $dpte_clock_container = Container::make('theme_options', __('Clocks'))
     ->set_page_file('dpte-clock-options')

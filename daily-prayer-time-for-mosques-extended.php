@@ -43,10 +43,12 @@ if (!class_exists('DailyPrayerTimeExtended')) {
           wp_enqueue_script("dpte_dpt_cache", plugin_dir_url(__FILE__) . "utils/DPTCache.js", ["dpte_date_time_utils"], null, true);
           wp_localize_script("dpte_dpt_cache", "DPTE_DPTCacheOptions", [
             "REFETCH_INTERVAL_TIME" => carbon_get_theme_option('dpte_general_settings_refetch_interval_time'),
+            "REPLACE_ZUHR_WITH_JUMAH" => carbon_get_theme_option('dpte_general_settings_replace_zuhr_with_jumah'),
           ]);
         });
         
         require_once plugin_dir_path(__FILE__) . "admin/base.php";
+        require_once plugin_dir_path(__FILE__) . "admin/general.php";
         require_once plugin_dir_path(__FILE__) . "shortcodes/timetable_date/admin.php";
         require_once plugin_dir_path(__FILE__) . "shortcodes/timetable_date/shortcode.php";
         require_once plugin_dir_path(__FILE__) . "shortcodes/timetable/admin.php";
