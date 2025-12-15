@@ -13,7 +13,7 @@ add_action('dpte_extend_timetable_container', function($container) {
       Field::make('html', 'dpte_timetable_heading')
         ->set_html('
           <h2 style="margin-bottom: 0.5rem; font-size: 1.4rem; font-weight: 600;">
-            Prayer Timetable Shortcodes
+            Prayer Timetable (Design 1) Shortcodes
           </h2>
 
           <p>
@@ -31,30 +31,34 @@ add_action('dpte_extend_timetable_container', function($container) {
             <strong>Jama\'ah</strong> times for all prayers.
           </p>
 
+          <h4>Parameters</h4>
+          <ol>
+            <li>
+              <strong><code>timetype</code></strong> - Determines which day\'s prayer times are displayed.
+              <ol>
+                <li><code>next</code> (default) - If today\'s prayer has not yet passed, today\'s time is shown. If today\'s prayer has already passed, tomorrow\'s time is shown.</li>
+                <li><code>today</code> - Displays today\'s prayer timetable only.</li>
+                <li><code>tomorrow</code> - Displays tomorrow\'s prayer timetable only.</li>
+              </ol>
+            </li>
+          </ol>
+
           <h4>Usage</h4>
           <ol>
             <li>
-              <code>[dpte_timetable]</code><br>
-              Displays the timetable using <strong>next</strong> prayer logic.
-              <ol>
-                <li>If today\'s prayer has not yet passed, today\'s time is shown.</li>
-                <li>If today\'s prayer has already passed, tomorrow\'s time is shown.</li>
-              </ol>
+              <code>[dpte_timetable2]</code> - Displays the timetable using <strong>next</strong> prayer logic.
             </li>
 
             <li>
-              <code>[dpte_timetable timetype="next"]</code><br>
-              Explicitly uses the same behavior as the default shortcode.
+              <code>[dpte_timetable2 timetype="next"]</code> - Displays the timetable using <strong>next</strong> prayer logic.
             </li>
 
             <li>
-              <code>[dpte_timetable timetype="today"]</code><br>
-              Displays <strong>today\'s</strong> prayer timetable only.
+              <code>[dpte_timetable2 timetype="today"]</code> - Displays today\'s prayer timetable.
             </li>
 
             <li>
-              <code>[dpte_timetable timetype="tomorrow"]</code><br>
-              Displays <strong>tomorrow\'s</strong> prayer timetable only.
+              <code>[dpte_timetable2 timetype="tomorrow"]</code> - Displays tomorrow\'s prayer timetable.
             </li>
           </ol>
 
@@ -73,9 +77,9 @@ add_action('dpte_extend_timetable_container', function($container) {
               <br>
               Accepted values:
               <ol>
-                <li><code>next</code> (default)</li>
-                <li><code>today</code></li>
-                <li><code>tomorrow</code></li>
+                <li><code>next</code> (default) - If today\'s prayer has not yet passed, today\'s time is shown. If today\'s prayer has already passed, tomorrow\'s time is shown.</li>
+                <li><code>today</code> - Displays today\'s prayer timetable only.</li>
+                <li><code>tomorrow</code> - Displays tomorrow\'s prayer timetable only.</li>
               </ol>
             </li>
 
