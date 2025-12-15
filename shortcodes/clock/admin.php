@@ -17,6 +17,7 @@ add_action('dpte_extend_clock_container', function($container) {
           <p><b>Shortcode Usage and Parameters:</b></p>
           <p> - <b>[dpte_clock]</b> - Display clock.</p>
           <p> - <b>[dpte_clock showimages="false"]</b> - Display clock without displaying any of the 4 images on the corner.</p>
+          <p> - <b>[dpte_clock numberslanguage="arabic"]</b> - Display clock with arabic numbers.</p>
         '),
 
         
