@@ -1,7 +1,5 @@
 /* base */
-.dpte-timetable-prayer-time-component *,
-.dpte-timetable-prayer-time-component *::before,
-.dpte-timetable-prayer-time-component *::after {
+.dpte-timetable-prayer-time-component *, .dpte-timetable-prayer-time-component *::before, .dpte-timetable-prayer-time-component *::after {
   box-sizing: border-box;
   line-height: 1;
 }
@@ -11,13 +9,16 @@
   padding: 0;
 }
 
-/* prayer components */
 .dpte-timetable-prayer-time-component {
-  --size-multiplier: var(--dpte-timetable-prayer-time-component-text-size-multiplier, 1);
+  --size-multiplier: var(--dpte-timetable-text-size-multiplier, 1);
+}
+
+/* prayer items */
+.dpte-timetable-prayer-time-component .dpte-timetable-prayer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: linear-gradient(90deg, var(--dpte-timetable-prayer-time-component-prayer-background-gradient-1) 20%, var(--dpte-timetable-prayer-time-component-prayer-background-gradient-2) 80%);
+  background: linear-gradient(90deg, var(--dpte-timetable-prayer-background-gradient-1) 20%, var(--dpte-timetable-prayer-background-gradient-2) 80%);
   border-radius: 10px;
   padding: 0.3rem 0.8rem;
   font-size: calc(0.95rem * var(--size-multiplier));
@@ -26,35 +27,34 @@
 }
 
 @media (min-width: 525px) {
-  .dpte-timetable-prayer-time-component {
+  .dpte-timetable-prayer-time-component .dpte-timetable-prayer {
     font-size: calc(1.2rem * var(--size-multiplier));
   }
 }
 
-.dpte-timetable-prayer-time-component.active {
-  border: 3px solid var(--dpte-timetable-prayer-time-component-prayer-active-color);
+.dpte-timetable-prayer-time-component .dpte-timetable-prayer.active {
+  border: 3px solid var(--dpte-timetable-prayer-active-color);
 }
 
-
-.dpte-timetable-prayer-time-component > span:nth-child(1) {
+.dpte-timetable-prayer-time-component .dpte-timetable-prayer > span:nth-child(1) {
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
 
-.dpte-timetable-prayer-time-component .dpte-prayer-icon {
+.dpte-timetable-prayer-time-component .dpte-timetable-prayer-icon {
   width: calc(30px * var(--size-multiplier));
   aspect-ratio: 1 / 1;
-  fill: var(--dpte-timetable-prayer-time-component-prayer-icon-color);
-  stroke: var(--dpte-timetable-prayer-time-component-prayer-icon-color);
+  fill: var(--dpte-timetable-prayer-icon-color);
+  stroke: var(--dpte-timetable-prayer-icon-color);
   animation: cubic-bezier(0.4, 0, 0.6, 1) infinite;
   animation-name: pulse1;
-  animation-duration: var(--dpte-timetable-prayer-time-component-prayer-icon-resize-animation-duration);
-  animation-play-state: var(--dpte-timetable-prayer-time-component-icon-resize-animation-running);
+  animation-duration: var(--dpte-timetable-prayer-icon-resize-animation-duration);
+  animation-play-state: var(--dpte-timetable-icon-resize-animation-running);
 }
 
 @media (min-width: 525px) {
-  .dpte-timetable-prayer-time-component .dpte-prayer-icon {
+  .dpte-timetable-prayer-time-component .dpte-timetable-prayer-icon {
     width: calc(35px * var(--size-multiplier));
   }
 }
@@ -65,20 +65,20 @@
   }
 }
 
-.dpte-timetable-prayer-time-component.dpte-timetable-prayer-time-component-fajr .dpte-prayer-icon {
+.dpte-timetable-prayer-time-component .dpte-timetable-fajr .dpte-timetable-prayer-icon {
   transform: translateY(-2px);
 }
 
-.dpte-timetable-prayer-time-component.dpte-timetable-prayer-time-component-maghrib .dpte-prayer-icon {
+.dpte-timetable-prayer-time-component .dpte-timetable-maghrib .dpte-timetable-prayer-icon {
   transform: translateY(-2px);
 }
 
-.dpte-timetable-prayer-time-component.dpte-timetable-prayer-time-component-isha .dpte-prayer-icon {
+.dpte-timetable-prayer-time-component .dpte-timetable-isha .dpte-timetable-prayer-icon {
   transform: scale(0.6);
   animation-name: pulse2;
 }
 
-.dpte-timetable-prayer-time-component.dpte-timetable-prayer-time-component-jumah .dpte-prayer-icon {
+.dpte-timetable-prayer-time-component .dpte-timetable-jumah .dpte-timetable-prayer-icon {
   transform: translateY(-3px);
 }
 
@@ -88,7 +88,7 @@
   }
 }
 
-.dpte-timetable-prayer-time-component > span:nth-child(2) {
+.dpte-timetable-prayer-time-component .dpte-timetable-prayer > span:nth-child(2) {
   display: flex;
   align-items: center;
   text-align: center;
@@ -96,36 +96,36 @@
 }
 
 @media (min-width: 525px) {
-  .dpte-timetable-prayer-time-component > span:nth-child(2) {
+  .dpte-timetable-prayer-time-component .dpte-timetable-prayer > span:nth-child(2) {
     gap: 1.5rem;
   }
 }
 
-.dpte-timetable-prayer-time-component > span:nth-child(2) > p {
+.dpte-timetable-prayer-time-component .dpte-timetable-prayer > span:nth-child(2) > p {
   width: calc(3.15rem * var(--size-multiplier));
   text-align: center;
 }
 
 @media (min-width: 525px) {
-  .dpte-timetable-prayer-time-component > span:nth-child(2) > p {
+  .dpte-timetable-prayer-time-component .dpte-timetable-prayer > span:nth-child(2) > p {
     width: calc(4rem * var(--size-multiplier));
   }
 }
 
-.dpte-timetable-prayer-time-component.dpte-timetable-prayer-time-component-jumah > span:nth-child(2) > p {
+.dpte-timetable-prayer-time-component .dpte-timetable-prayer.dpte-timetable-jumah > span:nth-child(2) > p {
   width: calc(3.15rem * 2 * var(--size-multiplier) + 0.65rem);
 }
 
 @media (min-width: 525px) {
-  .dpte-timetable-prayer-time-component.dpte-timetable-prayer-time-component-jumah > span:nth-child(2) > p {
+  .dpte-timetable-prayer-time-component .dpte-timetable-prayer.dpte-timetable-jumah > span:nth-child(2) > p {
     width: calc(4rem * 2 * var(--size-multiplier) + 1.5rem);
   }
 }
 
 .dpte-timetable-prayer-time-component .dpte-prayer-title {
-  color: var(--dpte-timetable-prayer-time-component-prayer-title-color);
+  color: var(--dpte-timetable-prayer-title-color);
 }
 
 .dpte-timetable-prayer-time-component .dpte-prayer-values {
-  color: var(--dpte-timetable-prayer-time-component-prayer-values-color);
+  color: var(--dpte-timetable-prayer-values-color);
 }
