@@ -17,6 +17,7 @@
   aspect-ratio: 1 / 1;
   margin: auto;
   container-type: inline-size;
+  position: relative;
 }
 
 /* Chromium 105+ */
@@ -37,7 +38,9 @@
   align-items: center;
   border-radius: 50%;
   border: 3px solid var(--dpte-clock-border);
-  box-shadow: 0 5px 25px rgba(14, 21, 37, 0.8);
+  /* box-shadow: 0 5px 25px rgba(14, 21, 37, 0.8); */
+  --shadow: 0 5px 25px rgba(14, 21, 37, 0.8);
+  z-index: 1;
 }
 
 /* hours */
@@ -508,6 +511,19 @@
     translateX(var(--dpte-clock-center-logo-image-translate-x))
     translateY(var(--dpte-clock-center-logo-image-translate-y));
   z-index: 1;
+  width: 100%;
+}
+
+.dpte-clock-wrapper .dpte-center-logo-background {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform:
+    scale(var(--dpte-clock-center-logo-image-background-scale))
+    translateX(var(--dpte-clock-center-logo-image-background-translate-x))
+    translateY(var(--dpte-clock-center-logo-image-background-translate-y));
+  z-index: 0;
   width: 100%;
 }
 

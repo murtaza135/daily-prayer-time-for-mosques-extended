@@ -39,6 +39,7 @@ function dpte_clock_shortcode($atts) {
   ob_start();
   ?>
   <div class="dpte-clock-wrapper" <?php echo $data_attrs; ?>>
+    <img class="dpte-center-logo-background" src="<?php echo esc_url(carbon_get_theme_option('dpte_clock_center_logo_image_background')); ?>" alt="">
     <div class="dpte-clock">
       <ul class="dpte-hours-container">
         <?php
