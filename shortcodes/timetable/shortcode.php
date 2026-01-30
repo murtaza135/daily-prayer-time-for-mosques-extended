@@ -8,21 +8,68 @@ function dpte_timetable_shortcode($atts) {
   wp_enqueue_style("dpte_timetable", plugin_dir_url(__FILE__) . "styles.css");
   wp_enqueue_script("dpte_timetable", plugin_dir_url(__FILE__) . "script.js", ["dpte_dpt_cache"], null, true);
 
-  $data_attrs = '';
-  $atts = shortcode_atts(
-    array(
-      'timetype' => 'next',
-    ),
-    $atts,
-    'dpte_timetable'
-  );
+  // change all kebab-case attributes to snake_case attributes
+  $normalized_atts = array();
   foreach ($atts as $key => $value) {
-    $data_attrs .= ' data-' . esc_attr($key) . '="' . esc_attr($value) . '"';
+    $normalized_key = str_replace('-', '_', $key);
+    $normalized_atts[$normalized_key] = $value;
+  }
+  $atts = $normalized_atts;
+
+  // merge default atts and with user-provided atts
+  $default_atts = array(
+    // general
+    // ...
+
+    // css
+    'timetable_prayer_header_text_color' => '#2C2C2E',
+    'timetable_prayer_background_gradient_1' => '#CFA55B',
+    'timetable_prayer_background_gradient_2' => '#2C2C2E',
+    'timetable_prayer_active_color' => '#ff5e00',
+    'timetable_prayer_title_color' => '#2C2C2E',
+    'timetable_prayer_values_color' => '#FFFFFF',
+    'timetable_prayer_icon_color' => '#2C2C2E',
+    'timetable_icon_resize_animation_running' => 'running',
+    'timetable_prayer_icon_resize_animation_duration' => '5000',
+    'timetable_text_size_multiplier' => '1',
+
+    // js
+    'timetype' => 'next',
+  );
+  $atts = shortcode_atts($default_atts, $atts, 'dpte_timetable');
+
+  // generate css properties from atts
+  $style_keys = array(
+    'timetable_prayer_header_text_color',
+    'timetable_prayer_background_gradient_1',
+    'timetable_prayer_background_gradient_2',
+    'timetable_prayer_active_color',
+    'timetable_prayer_title_color',
+    'timetable_prayer_values_color',
+    'timetable_prayer_icon_color',
+    'timetable_icon_resize_animation_running',
+    'timetable_prayer_icon_resize_animation_duration',
+    'timetable_text_size_multiplier',
+  );
+  $style = '';
+  foreach ($style_keys as $key) {
+    if (isset($atts[$key])) {
+      $style .= '--dpte-' . esc_attr(str_replace('_', '-', $key)) . ':' . esc_attr($atts[$key]) . ';';
+    }
+  }
+
+  // generate data attributes from atts
+  $data_keys  = array('timetype');
+  $data_attrs = '';
+  foreach ($data_keys as $key) {
+    if (isset($atts[$key])) {
+      $data_attrs .= ' data-' . esc_attr(str_replace('_', '-', $key)) . '="' . esc_attr($atts[$key]) . '"';
+    }
   }
 
   ob_start();
   ?>
-  <div class="dpte-timetable" <?php echo $data_attrs; ?>>
+  <div class="dpte-timetable" style="<?php echo esc_attr($style); ?>" <?php echo $data_attrs; ?>>
     <div class="dpte-timetable-prayer-list">
       <div class="dpte-timetable-prayer-header">
         <p>Start</p>
