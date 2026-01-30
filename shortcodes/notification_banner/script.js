@@ -39,6 +39,7 @@ class NotificationBanner {
 
     if (notificationBannerElement.length > 0) {
       const prayer = dptCache.getCurrentPrayer();
+      if (!prayer) return;
       const { name, jamah, diff, timeRemaining, waitingForJamah } = prayer;
 
       if (NotificationBanner.isZawal(prayer)) {

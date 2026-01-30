@@ -30,7 +30,7 @@ function dpte_timetable2_title_component_shortcode($atts) {
     'timetable2_prayer_grid_section2_color' => '#FFFFFF',
     'timetable2_prayer_grid_item_section_separator_color' => '#FFFFFF',
     'timetable2_date_time_background' => '#CFA55B',
-    'timetable2_date_time_color' => '#CFA55B',
+    'timetable2_date_time_color' => '#2C2C2E',
     'timetable2_next_prayer_background' => '#CFA55B',
     'timetable2_next_prayer_color' => '#2C2C2E',
     'timetable2_prayer_grid_max_col_count' => '2',

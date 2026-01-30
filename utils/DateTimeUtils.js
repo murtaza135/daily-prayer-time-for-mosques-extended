@@ -69,7 +69,7 @@ class DateTimeUtils {
       b = 1 + a - Math.floor(a / 4.);
     }
     const bb = jd + b + 1524;
-    const cc = Math.floor((bb - 122.1) / 365.25);
+    let cc = Math.floor((bb - 122.1) / 365.25);
     const dd = Math.floor(365.25 * cc);
     const ee = Math.floor((bb - dd) / 30.6001);
     day = (bb - dd) - Math.floor(30.6001 * ee);

@@ -111,7 +111,6 @@ class Timetable2 {
 
   static setDate() {
     const now = new Date();
-
     const dateElement = document.querySelectorAll(".dpte-timetable2 .dpte-timetable2-date");
     // TODO change to same type of code in timetable_date shortcode, and move into DateTimeUtils
     const dateStringParts = now.toLocaleDateString("en-GB", { weekday: "long", day: "numeric", month: "long", year: "numeric" }).split(" ");
