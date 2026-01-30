@@ -8,23 +8,76 @@ function dpte_timetable2_shortcode($atts) {
   wp_enqueue_style("dpte_timetable2", plugin_dir_url(__FILE__) . "styles.css");
   wp_enqueue_script("dpte_timetable2", plugin_dir_url(__FILE__) . "script.js", ["dpte_dpt_cache", "dpte_date_time_utils"], null, true);
 
-  $data_attrs = '';
-  $atts = shortcode_atts(
-    array(
-      'timetype' => 'next',
-      'alwaysactive' => 'false',
-    ),
-    $atts,
-    'dpte_timetable'
-  );
+  // change all kebab-case attributes to snake_case attributes
+  $normalized_atts = array();
   foreach ($atts as $key => $value) {
-    $data_attrs .= ' data-' . esc_attr($key) . '="' . esc_attr($value) . '"';
+    $normalized_key = str_replace('-', '_', $key);
+    $normalized_atts[$normalized_key] = $value;
   }
+  $atts = $normalized_atts;
+
+  // merge default atts and with user-provided atts
+  $default_atts = array(
+    // general
+    'alwaysactive' => 'false',
+
+    // css
+    'timetable2_title_section_background' => '#CFA55B',
+    'timetable2_title_section_color' => '#2C2C2E',
+    'timetable2_prayer_grid_section1_background' => '#CFA55B',
+    'timetable2_prayer_grid_section1_color' => '#2C2C2E',
+    'timetable2_prayer_grid_section2_background' => '#2C2C2E',
+    'timetable2_prayer_grid_section2_color' => '#FFFFFF',
+    'timetable2_prayer_grid_item_section_separator_color' => '#FFFFFF',
+    'timetable2_date_time_background' => '#CFA55B',
+    'timetable2_date_time_color' => '#CFA55B',
+    'timetable2_next_prayer_background' => '#CFA55B',
+    'timetable2_next_prayer_color' => '#2C2C2E',
+    'timetable2_prayer_grid_max_col_count' => '2',
+    'timetable2_text_size_multiplier' => '1',
+
+    // js
+    'timetype' => 'next',
+  );
+  $atts = shortcode_atts($default_atts, $atts, 'dpte_timetable2');
+
+  // generate css properties from atts
+  $style_keys = array(
+    'timetable2_title_section_background',
+    'timetable2_title_section_color',
+    'timetable2_prayer_grid_section1_background',
+    'timetable2_prayer_grid_section1_color',
+    'timetable2_prayer_grid_section2_background',
+    'timetable2_prayer_grid_section2_color',
+    'timetable2_prayer_grid_item_section_separator_color',
+    'timetable2_date_time_background',
+    'timetable2_date_time_color',
+    'timetable2_next_prayer_background',
+    'timetable2_next_prayer_color',
+    'timetable2_prayer_grid_max_col_count',
+    'timetable2_text_size_multiplier',
+  );
+  $style = '';
+  foreach ($style_keys as $key) {
+    if (isset($atts[$key])) {
+      $style .= '--dpte-' . esc_attr(str_replace('_', '-', $key)) . ':' . esc_attr($atts[$key]) . ';';
+    }
+  }
+
+  // generate data attributes from atts
+  $data_keys  = array('timetype');
+  $data_attrs = '';
+  foreach ($data_keys as $key) {
+    if (isset($atts[$key])) {
+      $data_attrs .= ' data-' . esc_attr(str_replace('_', '-', $key)) . '="' . esc_attr($atts[$key]) . '"';
+    }
+  }
+
   $activeclass = (strtolower($atts['alwaysactive']) === 'true') ? ' active' : '';
 
   ob_start();
   ?>
-  <div class="dpte-timetable2" <?php echo $data_attrs; ?>>
+  <div class="dpte-timetable2" style="<?php echo esc_attr($style); ?>" <?php echo $data_attrs; ?>>
     <div class="dpte-timetable2-title-section">
       <h2 class="dpte-timetable2-title">
         <?php
