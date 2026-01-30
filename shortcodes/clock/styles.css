@@ -514,15 +514,15 @@
   width: 100%;
 }
 
-.dpte-clock-wrapper .dpte-center-logo-background {
+.dpte-clock-wrapper .dpte-center-background-logo {
   position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
   transform:
-    scale(var(--dpte-clock-center-logo-image-background-scale))
-    translateX(var(--dpte-clock-center-logo-image-background-translate-x))
-    translateY(var(--dpte-clock-center-logo-image-background-translate-y));
+    scale(var(--dpte-clock-center-background-logo-image-scale))
+    translateX(var(--dpte-clock-center-background-logo-image-translate-x))
+    translateY(var(--dpte-clock-center-background-logo-image-translate-y));
   z-index: 0;
   width: 100%;
 }
