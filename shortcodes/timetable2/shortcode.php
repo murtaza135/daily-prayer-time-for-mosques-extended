@@ -19,8 +19,8 @@ function dpte_timetable2_shortcode($atts) {
   // merge default atts and with user-provided atts
   $default_atts = array(
     // general
-    'alwaysactive' => 'false',
-
+    // ...
+    
     // css
     'timetable2_title_section_background' => '#CFA55B',
     'timetable2_title_section_color' => '#2C2C2E',
@@ -35,9 +35,10 @@ function dpte_timetable2_shortcode($atts) {
     'timetable2_next_prayer_color' => '#2C2C2E',
     'timetable2_prayer_grid_max_col_count' => '2',
     'timetable2_text_size_multiplier' => '1',
-
+    
     // js
     'timetype' => 'next',
+    'alwaysactive' => 'false',
   );
   $atts = shortcode_atts($default_atts, $atts, 'dpte_timetable2');
 
@@ -65,7 +66,7 @@ function dpte_timetable2_shortcode($atts) {
   }
 
   // generate data attributes from atts
-  $data_keys  = array('timetype');
+  $data_keys  = array('timetype', 'alwaysactive');
   $data_attrs = '';
   foreach ($data_keys as $key) {
     if (isset($atts[$key])) {
