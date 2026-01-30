@@ -13,23 +13,64 @@ function dpte_notification_banner_shortcode($atts) {
     "ZAWAL_TIMER" => carbon_get_theme_option('dpte_notification_banner_zawal_timer'),
   ]);
 
-  $data_attrs = '';
-  $atts = shortcode_atts(
-    array(
-      'iqamahtimer' => 'true',
-      'jamahtimer' => 'true',
-      'zawaltimer' => 'true',
-    ),
-    $atts,
-    'dpte_notification_banner'
-  );
+  // change all kebab-case attributes to snake_case attributes
+  $normalized_atts = array();
   foreach ($atts as $key => $value) {
-    $data_attrs .= ' data-' . esc_attr($key) . '="' . esc_attr($value) . '"';
+    $normalized_key = str_replace('-', '_', $key);
+    $normalized_atts[$normalized_key] = $value;
+  }
+  $atts = $normalized_atts;
+
+  // merge default atts and with user-provided atts
+  $default_atts = array(
+    // general
+    // ...
+
+    // css
+    'notification_banner_active_background' => '#CFA55B',
+    'notification_banner_active_color' => '#2C2C2E',
+    'notification_banner_active_icon_color' => '#2C2C2E',
+    'notification_banner_error_background' => '#ac0000',
+    'notification_banner_error_color' => '#FFFFFF',
+    'notification_banner_error_icon_color' => '#FFFFFF',
+    'notification_banner_text_size_multiplier' => '1',
+
+    // js
+    'iqamah_timer_active' => 'true',
+    'jamah_timer_active' => 'true',
+    'zawal_timer_active' => 'true',
+  );
+  $atts = shortcode_atts($default_atts, $atts, 'dpte_notification_banner');
+
+  // generate css properties from atts
+  $style_keys = array(
+    'notification_banner_active_background',
+    'notification_banner_active_color',
+    'notification_banner_active_icon_color',
+    'notification_banner_error_background',
+    'notification_banner_error_color',
+    'notification_banner_error_icon_color',
+    'notification_banner_text_size_multiplier',
+  );
+  $style = '';
+  foreach ($style_keys as $key) {
+    if (isset($atts[$key])) {
+      $style .= '--dpte-' . esc_attr(str_replace('_', '-', $key)) . ':' . esc_attr($atts[$key]) . ';';
+    }
+  }
+
+  // generate data attributes from atts
+  $data_keys  = array('iqamah_timer_active', 'iqamah_timer_active', 'zawal_timer_active');
+  $data_attrs = '';
+  foreach ($data_keys as $key) {
+    if (isset($atts[$key])) {
+      $data_attrs .= ' data-' . esc_attr(str_replace('_', '-', $key)) . '="' . esc_attr($atts[$key]) . '"';
+    }
   }
 
   ob_start();
   ?>
-  <div class="dpte-notification-banner" <?php echo $data_attrs; ?>>
+  <div class="dpte-notification-banner active" style="<?php echo esc_attr($style); ?>" <?php echo $data_attrs; ?>>
     <div class="dpte-notification-banner-content">
       <svg class="dpte-notification-active-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
         <path d="M60 110 Q100 40 140 110 Z" /> <!-- Main dome -->

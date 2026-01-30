@@ -43,7 +43,7 @@ class NotificationBanner {
 
       if (NotificationBanner.isZawal(prayer)) {
         notificationBannerElement.forEach((element) => {
-          if (element.dataset.zawaltimer === "true") {
+          if (element.dataset.zawalTimerActive === "true") {
             const textElement = element.querySelector(".dpte-notification-banner .dpte-notification-text");
             if (!!textElement) textElement.textContent = "Zawal - Prohibited Salah Time.";
             NotificationBanner.setNotificationState(element, "error");
@@ -57,7 +57,7 @@ class NotificationBanner {
       const iqamahTimer = NotificationBanner.parseTimerIntoMilliseconds(DPTENotificationBannerOptions.IQAMAH_TIMER);
       if (waitingForJamah && 0 < diff && diff <= iqamahTimer) {
         notificationBannerElement.forEach((element) => {
-          if (element.dataset.iqamahtimer === "true") {
+          if (element.dataset.iqamahTimerActive === "true") {
             const textElement = element.querySelector(".dpte-notification-banner .dpte-notification-text");
             if (!!textElement) textElement.textContent = `${name} Jama'ah in ${timeRemaining.slice(3)}`;
             NotificationBanner.setNotificationState(element, "active");
@@ -72,7 +72,7 @@ class NotificationBanner {
       const jamahDiff = jamah - new Date();
       if (!waitingForJamah && -jamahTimer <= jamahDiff && jamahDiff < 0) {
         notificationBannerElement.forEach((element) => {
-          if (element.dataset.jamahtimer === "true") {
+          if (element.dataset.jamahTimerActive === "true") {
             const textElement = element.querySelector(".dpte-notification-banner .dpte-notification-text");
             if (!!textElement) textElement.textContent = `${name} Jama'ah Time.`;
             NotificationBanner.setNotificationState(element, "active");
