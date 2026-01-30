@@ -19,35 +19,5 @@ add_action('dpte_extend_timetable_date_container', function($container) {
           <p> - <b>[dpte_timetable_date day="today"]</b> - Same as <b>[dpte_timetable_date]</b>, without any parameters.</p>
           <p> - <b>[dpte_timetable_date day="tomorrow"]</b> - Display tomorrow\'s Gregorian and Islamic dates.</p>
         '),
-
-        
-      Field::make('html', 'dpte_timetable_date_separator_1')
-        ->set_html('<h2 style="padding: 0; margin: 0; margin-top: 1rem; font-size: 1rem; font-weight: 500;">Colors</h2>'),
-
-      Field::make('color', 'dpte_timetable_date_color', 'Date Color')
-        ->set_default_value('#CFA55B')
-        ->set_help_text('Change the color of the date text.'),
-
-      Field::make('html', 'dpte_timetable_date_separator_2')
-        ->set_html('<h2 style="padding: 0; margin: 0; margin-top: 1rem; font-size: 1rem; font-weight: 500;">Sizes</h2>'),
-      
-      Field::make('text', 'dpte_timetable_date_text_size_multiplier', 'Text Size Multiplier')
-        ->set_attribute("type", "number")
-        ->set_default_value(1)
-        ->set_help_text('A multiplier for making the timetable text bigger or smaller.'),
     ]);
-});
-
-add_action('wp_head', function() {
-  $dpte_timetable_date_color = carbon_get_theme_option('dpte_timetable_date_color');
-  $dpte_timetable_date_text_size_multiplier = carbon_get_theme_option('dpte_timetable_date_text_size_multiplier');
-
-  echo "
-    <style>
-      :root {
-        --dpte-timetable-date-color: {$dpte_timetable_date_color};
-        --dpte-timetable-date-text-size-multiplier: {$dpte_timetable_date_text_size_multiplier};
-      }
-    </style>
-  ";
 });
