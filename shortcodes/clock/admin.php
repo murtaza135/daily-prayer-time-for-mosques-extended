@@ -47,10 +47,10 @@ add_action('dpte_extend_clock_container', function($container) {
   clock_center_logo_image_scale="1"
   clock_center_logo_image_translate_x="0"
   clock_center_logo_image_translate_y="0"
-  clock_center_logo_image_background=""
-  clock_center_logo_image_background_scale="1"
-  clock_center_logo_image_background_translate_x="0"
-  clock_center_logo_image_background_translate_y="0"
+  clock_center_background_logo_image=""
+  clock_center_background_logo_image_scale="1"
+  clock_center_background_logo_image_translate_x="0"
+  clock_center_background_logo_image_translate_y="0"
   clock_top_left_image=""
   clock_top_left_image_scale="1"
   clock_top_left_image_translate_x="0"
@@ -101,10 +101,10 @@ add_action('dpte_extend_clock_container', function($container) {
             <li><strong><code>clock_center_logo_image_translate_x</code></strong> - Horizontal translation of the center logo (%).</li>
             <li><strong><code>clock_center_logo_image_translate_y</code></strong> - Vertical translation of the center logo (%).</li>
 
-            <li><strong><code>clock_center_logo_image_background</code></strong> - URL of the background center logo image.</li>
-            <li><strong><code>clock_center_logo_image_background_scale</code></strong> - Scale factor of the background logo image.</li>
-            <li><strong><code>clock_center_logo_image_background_translate_x</code></strong> - Horizontal translation of the background logo (%).</li>
-            <li><strong><code>clock_center_logo_image_background_translate_y</code></strong> - Vertical translation of the background logo (%).</li>
+            <li><strong><code>clock_center_background_logo_image</code></strong> - URL of the background center logo image.</li>
+            <li><strong><code>clock_center_background_logo_image_scale</code></strong> - Scale factor of the background logo image.</li>
+            <li><strong><code>clock_center_background_logo_image_translate_x</code></strong> - Horizontal translation of the background logo (%).</li>
+            <li><strong><code>clock_center_background_logo_image_translate_y</code></strong> - Vertical translation of the background logo (%).</li>
 
             <li><strong><code>clock_top_left_image</code></strong> - Image displayed in the top-left corner.</li>
             <li><strong><code>clock_top_right_image</code></strong> - Image displayed in the top-right corner.</li>
