@@ -39,7 +39,7 @@ add_action('dpte_extend_timetable_container', function($container) {
   timetable_prayer_values_color="#FFFFFF"
   timetable_prayer_icon_color="#2C2C2E"
   timetable_icon_resize_animation_running="running"
-  timetable_prayer_icon_resize_animation_duration="5000"
+  timetable_prayer_icon_resize_animation_duration="5000ms"
   timetable_text_size_multiplier="1"
 ]</textarea>
           </p>
@@ -108,7 +108,7 @@ add_action('dpte_extend_timetable_container', function($container) {
 
             <li>
               <strong><code>timetable_prayer_icon_resize_animation_duration</code></strong> -
-              Duration of the prayer icon resize animation, in milliseconds.
+              Duration of the prayer icon resize animation. You must specify the units of time, e.g. 5s or 5000ms.
             </li>
 
             <li>
@@ -135,7 +135,7 @@ add_action('dpte_extend_timetable_container', function($container) {
   timetable_prayer_values_color="#FFFFFF"
   timetable_prayer_icon_color="#2C2C2E"
   timetable_icon_resize_animation_running="running"
-  timetable_prayer_icon_resize_animation_duration="5000"
+  timetable_prayer_icon_resize_animation_duration="5000ms"
   timetable_text_size_multiplier="1"
 ]</textarea>
           </p>
@@ -211,7 +211,7 @@ add_action('dpte_extend_timetable_container', function($container) {
 
             <li>
               <strong><code>timetable_prayer_icon_resize_animation_duration</code></strong> -
-              Duration of the prayer icon resize animation, in milliseconds.
+              Duration of the prayer icon resize animation. You must specify the units of time, e.g. 5s or 5000ms.
             </li>
 
             <li>

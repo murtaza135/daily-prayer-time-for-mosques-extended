@@ -30,7 +30,7 @@ function dpte_timetable_shortcode($atts) {
     'timetable_prayer_values_color' => '#FFFFFF',
     'timetable_prayer_icon_color' => '#2C2C2E',
     'timetable_icon_resize_animation_running' => 'running',
-    'timetable_prayer_icon_resize_animation_duration' => '5000',
+    'timetable_prayer_icon_resize_animation_duration' => '5000ms',
     'timetable_text_size_multiplier' => '1',
 
     // js
