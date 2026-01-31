@@ -35,6 +35,7 @@ add_action('dpte_extend_timetable_container', function($container) {
   timetable_prayer_background_gradient_1="#CFA55B"
   timetable_prayer_background_gradient_2="#2C2C2E"
   timetable_prayer_active_color="#ff5e00"
+  timetable_prayer_active_border_thickness="3px"
   timetable_prayer_title_color="#2C2C2E"
   timetable_prayer_values_color="#FFFFFF"
   timetable_prayer_icon_color="#2C2C2E"
@@ -80,6 +81,11 @@ add_action('dpte_extend_timetable_container', function($container) {
             <li>
               <strong><code>timetable_prayer_active_color</code></strong> -
               Border color applied to the currently active prayer.
+            </li>
+
+            <li>
+              <strong><code>timetable_prayer_active_border_thickness</code></strong> -
+              Border thickness of the currently active prayer.
             </li>
 
             <li>
@@ -131,6 +137,7 @@ add_action('dpte_extend_timetable_container', function($container) {
   timetable_prayer_background_gradient_1="#CFA55B"
   timetable_prayer_background_gradient_2="#2C2C2E"
   timetable_prayer_active_color="#ff5e00"
+  timetable_prayer_active_border_thickness="3px"
   timetable_prayer_title_color="#2C2C2E"
   timetable_prayer_values_color="#FFFFFF"
   timetable_prayer_icon_color="#2C2C2E"
@@ -183,6 +190,11 @@ add_action('dpte_extend_timetable_container', function($container) {
             <li>
               <strong><code>timetable_prayer_active_color</code></strong> -
               Border color applied to the currently active prayer.
+            </li>
+
+            <li>
+              <strong><code>timetable_prayer_active_border_thickness</code></strong> -
+              Border thickness of the currently active prayer.
             </li>
 
             <li>

@@ -33,7 +33,10 @@
 }
 
 .dpte-timetable-prayer-time-component .dpte-timetable-prayer.active {
-  border: 3px solid var(--dpte-timetable-prayer-active-color);
+  border:
+    var(--timetable-prayer-active-border-thickness, 3px)
+    solid
+    var(--dpte-timetable-prayer-active-color);
 }
 
 .dpte-timetable-prayer-time-component .dpte-timetable-prayer > span:nth-child(1) {
