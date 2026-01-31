@@ -22,18 +22,8 @@ function dpte_timetable2_time_to_prayer_component_shortcode($atts) {
     // ...
     
     // css
-    'timetable2_title_section_background' => '#CFA55B',
-    'timetable2_title_section_color' => '#2C2C2E',
-    'timetable2_prayer_grid_section1_background' => '#CFA55B',
-    'timetable2_prayer_grid_section1_color' => '#2C2C2E',
-    'timetable2_prayer_grid_section2_background' => '#2C2C2E',
-    'timetable2_prayer_grid_section2_color' => '#FFFFFF',
-    'timetable2_prayer_grid_item_section_separator_color' => '#FFFFFF',
-    'timetable2_date_time_background' => '#CFA55B',
-    'timetable2_date_time_color' => '#2C2C2E',
     'timetable2_next_prayer_background' => '#CFA55B',
     'timetable2_next_prayer_color' => '#2C2C2E',
-    'timetable2_prayer_grid_max_col_count' => '2',
     'timetable2_text_size_multiplier' => '1',
     
     // js
@@ -43,18 +33,8 @@ function dpte_timetable2_time_to_prayer_component_shortcode($atts) {
 
   // generate css properties from atts
   $style_keys = array(
-    'timetable2_title_section_background',
-    'timetable2_title_section_color',
-    'timetable2_prayer_grid_section1_background',
-    'timetable2_prayer_grid_section1_color',
-    'timetable2_prayer_grid_section2_background',
-    'timetable2_prayer_grid_section2_color',
-    'timetable2_prayer_grid_item_section_separator_color',
-    'timetable2_date_time_background',
-    'timetable2_date_time_color',
     'timetable2_next_prayer_background',
     'timetable2_next_prayer_color',
-    'timetable2_prayer_grid_max_col_count',
     'timetable2_text_size_multiplier',
   );
   $style = '';

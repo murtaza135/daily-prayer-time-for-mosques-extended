@@ -24,71 +24,181 @@ add_action('dpte_extend_timetable_container', function($container) {
 
           <hr>
 
-          <h3 style="margin-top: 1.5rem;"><code>[dpte_timetable2 timetype={timetype} alwaysactive={alwaysactive}]</code></h3>
+          <h3>dpte_timetable2</h3>
+
+          <p style="margin-top: 1.5rem;">
+<textarea
+  readonly
+  style="width: 100%; min-height: 370px; font-family: monospace; font-size: 0.9rem; line-height: 1.4; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px; background: #fafafa; color: #2c2c2e; resize: none; box-sizing: border-box; white-space: pre;"
+>[dpte_timetable2
+  timetype="next"
+  alwaysactive="false"
+  timetable2_title_section_background="#CFA55B"
+  timetable2_title_section_color="#2C2C2E"
+  timetable2_prayer_grid_section1_background="#CFA55B"
+  timetable2_prayer_grid_section1_color="#2C2C2E"
+  timetable2_prayer_grid_section2_background="#2C2C2E"
+  timetable2_prayer_grid_section2_color="#FFFFFF"
+  timetable2_prayer_grid_item_section_separator_color="#FFFFFF"
+  timetable2_date_time_background="#CFA55B"
+  timetable2_date_time_color="#2C2C2E"
+  timetable2_next_prayer_background="#CFA55B"
+  timetable2_next_prayer_color="#2C2C2E"
+  timetable2_prayer_grid_max_col_count="2"
+  timetable2_text_size_multiplier="1"
+]</textarea>
+          </p>
 
           <p>
             Displays the full prayer timetable (Design 2), showing both
-            <strong>start</strong> and <strong>Jama\'ah</strong> times for all prayers.
+            <strong>start</strong> and <strong>Jama&rsquo;ah</strong> times for all prayers.
           </p>
 
           <h4>Parameters</h4>
           <ol>
             <li>
-              <strong><code>timetype</code></strong> - Determines which day\'s prayer times are displayed.
+              <strong><code>timetype</code></strong> - Determines which day&rsquo;s prayer times are displayed.
               <ol>
-                <li><code>next</code> (default) - If today\'s prayer has not yet passed, today\'s time is shown. If today\'s prayer has already passed, tomorrow\'s time is shown.</li>
-                <li><code>today</code> - Displays today\'s prayer timetable only.</li>
-                <li><code>tomorrow</code> - Displays tomorrow\'s prayer timetable only.</li>
+                <li><code>next</code> (default) - Shows today&rsquo;s prayer if it has not yet passed; otherwise shows tomorrow&rsquo;s prayer.</li>
+                <li><code>today</code> - Displays today&rsquo;s prayer timetable only.</li>
+                <li><code>tomorrow</code> - Displays tomorrow&rsquo;s prayer timetable only.</li>
               </ol>
             </li>
 
-            <br>
-
             <li>
-              <strong><code>alwaysactive</code></strong> - Forces the <code>active</code> styling
-              to be applied, even when the prayer is not currently active.
-              Accepted values: <code>true</code> or <code>false</code> (default).
-            </li>
-          </ol>
-
-          <h4>Usage</h4>
-          <ol>
-            <li>
-              <code>[dpte_timetable2]</code> - Displays the timetable using <strong>next</strong> prayer logic.
+              <strong><code>alwaysactive</code></strong> - Forces the active styling to be applied even when the prayer is not currently active.
+              <ol>
+                <li><code>false</code> (default) - Active styling is applied only when appropriate.</li>
+                <li><code>true</code> - Active styling is always applied.</li>
+              </ol>
             </li>
 
             <li>
-              <code>[dpte_timetable2 timetype="today"]</code> - Displays today\'s prayer timetable.
+              <strong><code>timetable2_title_section_background</code></strong> -
+              Background color of the timetable title section.
             </li>
 
             <li>
-              <code>[dpte_timetable2 timetype="tomorrow"]</code> - Displays tomorrow\'s prayer timetable.
+              <strong><code>timetable2_title_section_color</code></strong> -
+              Text color of the timetable title.
             </li>
 
             <li>
-              <code>[dpte_timetable2 alwaysactive="true"]</code> - Displays the timetable with all prayers styled as active.
+              <strong><code>timetable2_prayer_grid_section1_background</code></strong> -
+              Background color of the upper section of each prayer box.
+            </li>
+
+            <li>
+              <strong><code>timetable2_prayer_grid_section1_color</code></strong> -
+              Text color of the upper section of each prayer box.
+            </li>
+
+            <li>
+              <strong><code>timetable2_prayer_grid_section2_background</code></strong> -
+              Background color of the lower section of each prayer box.
+            </li>
+
+            <li>
+              <strong><code>timetable2_prayer_grid_section2_color</code></strong> -
+              Text color of the lower section of each prayer box.
+            </li>
+
+            <li>
+              <strong><code>timetable2_prayer_grid_item_section_separator_color</code></strong> -
+              Color of the separator between the upper and lower sections of each prayer box.
+            </li>
+
+            <li>
+              <strong><code>timetable2_date_time_background</code></strong> -
+              Background color of the section displaying the current date and time.
+            </li>
+
+            <li>
+              <strong><code>timetable2_date_time_color</code></strong> -
+              Text color of the section displaying the current date and time.
+            </li>
+
+            <li>
+              <strong><code>timetable2_next_prayer_background</code></strong> -
+              Background color of the section displaying the time to the next prayer.
+            </li>
+
+            <li>
+              <strong><code>timetable2_next_prayer_color</code></strong> -
+              Text color of the section displaying the time to the next prayer.
+            </li>
+
+            <li>
+              <strong><code>timetable2_prayer_grid_max_col_count</code></strong> -
+              Maximum number of columns allowed in the prayer grid layout.
+            </li>
+
+            <li>
+              <strong><code>timetable2_text_size_multiplier</code></strong> -
+              A multiplier used to increase or decrease the size of all timetable text.
             </li>
           </ol>
 
           <hr>
 
-          <h3 style="margin-top: 1.5rem;"><code>[dpte_timetable2_date_component]</code></h3>
+          <h3>dpte_timetable2_date_component</h3>
 
-          <p>
-            Displays the current date and time. This component is intended to be used
-            alongside the Design 2 timetable layout.
+          <p style="margin-top: 1.5rem;">
+<textarea
+  readonly
+  style="width: 100%; min-height: 130px; font-family: monospace; font-size: 0.9rem; line-height: 1.4; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px; background: #fafafa; color: #2c2c2e; resize: none; box-sizing: border-box; white-space: pre;"
+>[dpte_timetable2_date_component
+  timetable2_date_time_background="#CFA55B"
+  timetable2_date_time_color="#2C2C2E"
+  timetable2_text_size_multiplier="1"
+]</textarea>
           </p>
 
-          <h4>Usage</h4>
-          <pre><code>[dpte_timetable2_date_component]</code></pre>
+          <p>
+            Displays the current date and time. This component is intended to be used alongside the Design 2 timetable layout.
+          </p>
+
+          <h4>Parameters</h4>
+          <ol>
+            <li>
+              <strong><code>timetable2_date_time_background</code></strong> -
+              Background color of the section displaying the current date and time.
+            </li>
+
+            <li>
+              <strong><code>timetable2_date_time_color</code></strong> -
+              Text color of the section displaying the current date and time.
+            </li>
+
+            <li>
+              <strong><code>timetable2_text_size_multiplier</code></strong> -
+              A multiplier used to increase or decrease the size of all timetable text.
+            </li>
+          </ol>
 
           <hr>
 
-          <h3 style="margin-top: 1.5rem;"><code>[dpte_timetable2_prayer_time_component prayer={prayer} timetype={timetype} alwaysactive={alwaysactive}]</code></h3>
+          <h3>dpte_timetable2_prayer_time_component</h3>
+
+          <p style="margin-top: 1.5rem;">
+<textarea
+  readonly
+  style="width: 100%; min-height: 250px; font-family: monospace; font-size: 0.9rem; line-height: 1.4; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px; background: #fafafa; color: #2c2c2e; resize: none; box-sizing: border-box; white-space: pre;"
+>[dpte_timetable2_prayer_time_component
+  prayer="fajr"
+  timetype="next"
+  alwaysactive="false"
+  timetable2_prayer_grid_section1_background="#CFA55B"
+  timetable2_prayer_grid_section1_color="#2C2C2E"
+  timetable2_prayer_grid_section2_background="#2C2C2E"
+  timetable2_prayer_grid_section2_color="#FFFFFF"
+  timetable2_prayer_grid_item_section_separator_color="#FFFFFF"
+  timetable2_text_size_multiplier="1"
+]</textarea>
+          </p>
 
           <p>
-            Displays the time for an individual prayer. This is useful for building
-            custom layouts using separate prayer components.
+            Displays the time for an individual prayer. This is useful for building custom layouts using separate prayer components.
           </p>
 
           <h4>Parameters</h4>
@@ -96,84 +206,155 @@ add_action('dpte_extend_timetable_container', function($container) {
             <li>
               <strong><code>prayer</code></strong> - Specifies which prayer to display.
               <ol>
-                <li><code>fajr</code></li>
+                <li><code>fajr</code> (default)</li>
                 <li><code>sunrise</code></li>
                 <li><code>zuhr</code></li>
                 <li><code>asr</code></li>
                 <li><code>maghrib</code></li>
                 <li><code>isha</code></li>
+                <li><code>jumah</code> or <code>jumuah</code></li>
               </ol>
             </li>
 
-            <br>
-
             <li>
-              <strong><code>timetype</code></strong> - Determines which day\'s prayer time is shown.
+              <strong><code>timetype</code></strong> - Determines which day&rsquo;s prayer times are displayed.
               <ol>
-                <li><code>next</code> (default) - If today\'s prayer has not yet passed, today\'s time is shown. If today\'s prayer has already passed, tomorrow\'s time is shown.</li>
-                <li><code>today</code> - Displays today\'s prayer timetable only.</li>
-                <li><code>tomorrow</code> - Displays tomorrow\'s prayer timetable only.</li>
+                <li><code>next</code> (default) - Shows today&rsquo;s prayer if it has not yet passed; otherwise shows tomorrow&rsquo;s prayer.</li>
+                <li><code>today</code> - Displays today&rsquo;s prayer timetable only.</li>
+                <li><code>tomorrow</code> - Displays tomorrow&rsquo;s prayer timetable only.</li>
               </ol>
             </li>
 
-            <br>
+            <li>
+              <strong><code>alwaysactive</code></strong> - Forces the active styling to be applied even when the prayer is not currently active.
+              <ol>
+                <li><code>false</code> (default) - Active styling is applied only when appropriate.</li>
+                <li><code>true</code> - Active styling is always applied.</li>
+              </ol>
+            </li>
 
             <li>
-              <strong><code>alwaysactive</code></strong> - Forces the <code>active</code> styling
-              even if the prayer is not currently active.
-              Accepted values: <code>true</code> or <code>false</code> (default).
+              <strong><code>timetable2_prayer_grid_section1_background</code></strong> -
+              Background color of the upper section of each prayer box.
+            </li>
+
+            <li>
+              <strong><code>timetable2_prayer_grid_section1_color</code></strong> -
+              Text color of the upper section of each prayer box.
+            </li>
+
+            <li>
+              <strong><code>timetable2_prayer_grid_section2_background</code></strong> -
+              Background color of the lower section of each prayer box.
+            </li>
+
+            <li>
+              <strong><code>timetable2_prayer_grid_section2_color</code></strong> -
+              Text color of the lower section of each prayer box.
+            </li>
+
+            <li>
+              <strong><code>timetable2_prayer_grid_item_section_separator_color</code></strong> -
+              Color of the separator between the upper and lower sections of each prayer box.
+            </li>
+
+            <li>
+              <strong><code>timetable2_text_size_multiplier</code></strong> -
+              A multiplier used to increase or decrease the size of all timetable text.
             </li>
           </ol>
 
-          <h4>Examples</h4>
-          <pre><code>[dpte_timetable2_prayer_time_component prayer="fajr"]</code></pre>
-
-          <pre><code>[dpte_timetable2_prayer_time_component prayer="asr" timetype="today"]</code></pre>
-
-          <pre><code>[dpte_timetable2_prayer_time_component prayer="maghrib" alwaysactive="true"]</code></pre>
-
           <hr>
 
-          <h3 style="margin-top: 1.5rem;"><code>[dpte_timetable2_time_to_prayer_component]</code></h3>
+          <h3>dpte_timetable2_time_to_prayer_component</h3>
+
+          <p style="margin-top: 1.5rem;">
+<textarea
+  readonly
+  style="width: 100%; min-height: 130px; font-family: monospace; font-size: 0.9rem; line-height: 1.4; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px; background: #fafafa; color: #2c2c2e; resize: none; box-sizing: border-box; white-space: pre;"
+>[dpte_timetable2_time_to_prayer_component
+  timetable2_next_prayer_background="#CFA55B"
+  timetable2_next_prayer_color="#2C2C2E"
+  timetable2_text_size_multiplier="1"
+]</textarea>
+          </p>
 
           <p>
             Displays the remaining time until the next prayer.
           </p>
 
-          <h4>Usage</h4>
-          <pre><code>[dpte_timetable2_time_to_prayer_component]</code></pre>
+          <h4>Parameters</h4>
+          <ol>
+            <li>
+              <strong><code>timetable2_next_prayer_background</code></strong> -
+              Background color of the section displaying the time to the next prayer.
+            </li>
+
+            <li>
+              <strong><code>timetable2_next_prayer_color</code></strong> -
+              Text color of the section displaying the time to the next prayer.
+            </li>
+
+            <li>
+              <strong><code>timetable2_text_size_multiplier</code></strong> -
+              A multiplier used to increase or decrease the size of all timetable text.
+            </li>
+          </ol>
 
           <hr>
 
-          <h3 style="margin-top: 1.5rem;"><code>[dpte_timetable2_title_component timetype={timetype}]</code></h3>
+          <h3>dpte_timetable2_title_component</h3>
+
+          <p style="margin-top: 1.5rem;">
+<textarea
+  readonly
+  style="width: 100%; min-height: 150px; font-family: monospace; font-size: 0.9rem; line-height: 1.4; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px; background: #fafafa; color: #2c2c2e; resize: none; box-sizing: border-box; white-space: pre;"
+>[dpte_timetable2_title_component
+  timetype="next"
+  timetable2_title_section_background="#CFA55B"
+  timetable2_title_section_color="#2C2C2E"
+  timetable2_text_size_multiplier="1"
+]</textarea>
+          </p>
 
           <p>
-            Displays the timetable title. The title automatically adapts based on
-            the selected time context.
+            Displays the timetable title. The title automatically adapts based on the selected time context.
           </p>
 
           <h4>Parameters</h4>
           <ol>
             <li>
-              <strong><code>timetype</code></strong> - Controls how the title is displayed.
+              <strong><code>timetype</code></strong> - Determines which day&rsquo;s prayer times are displayed.
               <ol>
-                <li><code>next</code> (default) - If today\'s prayer has not yet passed, today\'s time is shown. If today\'s prayer has already passed, tomorrow\'s time is shown.</li>
-                <li><code>today</code> - Displays today\'s prayer timetable only.</li>
-                <li><code>tomorrow</code> - Displays tomorrow\'s prayer timetable only.</li>
+                <li><code>next</code> (default) - Shows today&rsquo;s prayer if it has not yet passed; otherwise shows tomorrow&rsquo;s prayer.</li>
+                <li><code>today</code> - Displays today&rsquo;s prayer timetable only.</li>
+                <li><code>tomorrow</code> - Displays tomorrow&rsquo;s prayer timetable only.</li>
               </ol>
             </li>
-          </ol>
 
-          <h4>Usage</h4>
-          <pre><code>[dpte_timetable2_title_component]</code></pre>
+            <li>
+              <strong><code>timetable2_title_section_background</code></strong> -
+              Background color of the timetable title section.
+            </li>
+
+            <li>
+              <strong><code>timetable2_title_section_color</code></strong> -
+              Text color of the timetable title.
+            </li>
+
+            <li>
+              <strong><code>timetable2_text_size_multiplier</code></strong> -
+              A multiplier used to increase or decrease the size of all timetable text.
+            </li>
+          </ol>
 
           <hr>
 
           <p>
             <strong>Important:</strong><br>
-            Providing an invalid parameter name or value will cause the shortcode
-            to fail silently. Please ensure all parameters match the documentation
-            exactly.
+            If an invalid parameter name or value is provided, the shortcode will
+            fail silently. Please ensure that all parameter names and values are entered
+            exactly as documented above.
           </p>
         '),
     ]);

@@ -22,7 +22,6 @@ function dpte_timetable_prayer_time_component_shortcode($atts) {
     'prayer' => 'fajr',
 
     // css
-    'timetable_prayer_header_text_color' => '#2C2C2E',
     'timetable_prayer_background_gradient_1' => '#CFA55B',
     'timetable_prayer_background_gradient_2' => '#2C2C2E',
     'timetable_prayer_active_color' => '#ff5e00',
@@ -40,7 +39,6 @@ function dpte_timetable_prayer_time_component_shortcode($atts) {
 
   // generate css properties from atts
   $style_keys = array(
-    'timetable_prayer_header_text_color',
     'timetable_prayer_background_gradient_1',
     'timetable_prayer_background_gradient_2',
     'timetable_prayer_active_color',

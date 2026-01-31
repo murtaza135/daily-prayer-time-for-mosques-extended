@@ -17,54 +17,128 @@ add_action('dpte_extend_timetable_container', function($container) {
           </h2>
 
           <p>
-            The following shortcodes allow you to display prayer timetables and individual
-            prayer times. Each shortcode supports parameters that control which prayers
-            are shown and which day\'s times are displayed.
+            Displays a complete prayer timetable including prayer names, times,
+            active prayer highlighting, animations, and visual customization.
           </p>
 
           <hr>
 
-          <h3 style="margin-top: 1.5rem;"><code>[dpte_timetable timetype="{timetype}"]</code></h3>
+          <h3>dpte_timetable</h3>
+
+          <p style="margin-top: 1.5rem;">
+<textarea
+  readonly
+  style="width: 100%; min-height: 290px; font-family: monospace; font-size: 0.9rem; line-height: 1.4; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px; background: #fafafa; color: #2c2c2e; resize: none; box-sizing: border-box; white-space: pre;"
+>[dpte_timetable
+  timetype="next"
+  timetable_prayer_header_text_color="#2C2C2E"
+  timetable_prayer_background_gradient_1="#CFA55B"
+  timetable_prayer_background_gradient_2="#2C2C2E"
+  timetable_prayer_active_color="#ff5e00"
+  timetable_prayer_title_color="#2C2C2E"
+  timetable_prayer_values_color="#FFFFFF"
+  timetable_prayer_icon_color="#2C2C2E"
+  timetable_icon_resize_animation_running="running"
+  timetable_prayer_icon_resize_animation_duration="5000"
+  timetable_text_size_multiplier="1"
+]</textarea>
+          </p>
 
           <p>
             Displays a full prayer timetable showing the <strong>start</strong> and
-            <strong>Jama\'ah</strong> times for all prayers.
+            <strong>Jama&rsquo;ah</strong> times for all prayers.
           </p>
 
           <h4>Parameters</h4>
           <ol>
             <li>
-              <strong><code>timetype</code></strong> - Determines which day\'s prayer times are displayed.
+              <strong><code>timetype</code></strong> - Determines which day&rsquo;s prayer times are displayed.
               <ol>
-                <li><code>next</code> (default) - If today\'s prayer has not yet passed, today\'s time is shown. If today\'s prayer has already passed, tomorrow\'s time is shown.</li>
-                <li><code>today</code> - Displays today\'s prayer timetable only.</li>
-                <li><code>tomorrow</code> - Displays tomorrow\'s prayer timetable only.</li>
+                <li><code>next</code> (default) - Shows today&rsquo;s prayer if it has not yet passed; otherwise shows
+                  tomorrow&rsquo;s prayer.</li>
+                <li><code>today</code> - Displays today&rsquo;s prayer timetable only.</li>
+                <li><code>tomorrow</code> - Displays tomorrow&rsquo;s prayer timetable only.</li>
               </ol>
             </li>
-          </ol>
 
-          <h4>Usage</h4>
-          <ol>
             <li>
-              <code>[dpte_timetable2]</code> - Displays the timetable using <strong>next</strong> prayer logic.
+              <strong><code>timetable_prayer_header_text_color</code></strong> -
+              Color of the text displayed in the timetable header.
             </li>
 
             <li>
-              <code>[dpte_timetable2 timetype="next"]</code> - Displays the timetable using <strong>next</strong> prayer logic.
+              <strong><code>timetable_prayer_background_gradient_1</code></strong> -
+              First color used for the background gradient of each prayer row.
             </li>
 
             <li>
-              <code>[dpte_timetable2 timetype="today"]</code> - Displays today\'s prayer timetable.
+              <strong><code>timetable_prayer_background_gradient_2</code></strong> -
+              Second color used for the background gradient of each prayer row.
+              Set this to the same value as Gradient 1 to disable the gradient.
             </li>
 
             <li>
-              <code>[dpte_timetable2 timetype="tomorrow"]</code> - Displays tomorrow\'s prayer timetable.
+              <strong><code>timetable_prayer_active_color</code></strong> -
+              Border color applied to the currently active prayer.
+            </li>
+
+            <li>
+              <strong><code>timetable_prayer_title_color</code></strong> -
+              Text color of prayer names such as Fajr, Zuhr, Asr, Maghrib, and Isha.
+            </li>
+
+            <li>
+              <strong><code>timetable_prayer_values_color</code></strong> -
+              Text color of the prayer time values.
+            </li>
+
+            <li>
+              <strong><code>timetable_prayer_icon_color</code></strong> -
+              Color of icons displayed next to prayer names.
+            </li>
+
+            <li>
+              <strong><code>timetable_icon_resize_animation_running</code></strong> -
+              Enables or disables the resize animation applied to prayer icons.
+              <ol>
+                <li><code>running</code> (default) - Animation is enabled.</li>
+                <li><code>paused</code> - Animation is disabled.</li>
+              </ol>
+            </li>
+
+            <li>
+              <strong><code>timetable_prayer_icon_resize_animation_duration</code></strong> -
+              Duration of the prayer icon resize animation, in milliseconds.
+            </li>
+
+            <li>
+              <strong><code>timetable_text_size_multiplier</code></strong> -
+              A multiplier used to increase or decrease the size of all timetable text.
             </li>
           </ol>
 
           <hr>
 
-          <h3 style="margin-top: 1.5rem;"><code>[dpte_timetable_prayer_time_component prayer="{prayer}" timetype="{timetype}"]</code></h3>
+          <h3>dpte_timetable_prayer_time_component</h3>
+
+          <p style="margin-top: 1.5rem;">
+<textarea
+  readonly
+  style="width: 100%; min-height: 290px; font-family: monospace; font-size: 0.9rem; line-height: 1.4; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px; background: #fafafa; color: #2c2c2e; resize: none; box-sizing: border-box; white-space: pre;"
+>[dpte_timetable_prayer_time_component
+  prayer="fajr"
+  timetype="next"
+  timetable_prayer_background_gradient_1="#CFA55B"
+  timetable_prayer_background_gradient_2="#2C2C2E"
+  timetable_prayer_active_color="#ff5e00"
+  timetable_prayer_title_color="#2C2C2E"
+  timetable_prayer_values_color="#FFFFFF"
+  timetable_prayer_icon_color="#2C2C2E"
+  timetable_icon_resize_animation_running="running"
+  timetable_prayer_icon_resize_animation_duration="5000"
+  timetable_text_size_multiplier="1"
+]</textarea>
+          </p>
 
           <p>
             Displays the time for a <strong>single prayer</strong>.
@@ -73,22 +147,7 @@ add_action('dpte_extend_timetable_container', function($container) {
           <h4>Parameters</h4>
           <ol>
             <li>
-              <strong><code>timetype</code></strong> - Determines which day\'s prayer time is shown.
-              <br>
-              Accepted values:
-              <ol>
-                <li><code>next</code> (default) - If today\'s prayer has not yet passed, today\'s time is shown. If today\'s prayer has already passed, tomorrow\'s time is shown.</li>
-                <li><code>today</code> - Displays today\'s prayer timetable only.</li>
-                <li><code>tomorrow</code> - Displays tomorrow\'s prayer timetable only.</li>
-              </ol>
-            </li>
-
-            <br>
-
-            <li>
               <strong><code>prayer</code></strong> - Specifies which prayer to display.
-              <br>
-              Accepted values:
               <ol>
                 <li><code>fajr</code> (default)</li>
                 <li><code>sunrise</code></li>
@@ -99,14 +158,67 @@ add_action('dpte_extend_timetable_container', function($container) {
                 <li><code>jumah</code> or <code>jumuah</code></li>
               </ol>
             </li>
+
+            <li>
+              <strong><code>timetype</code></strong> - Determines which day&rsquo;s prayer times are displayed.
+              <ol>
+                <li><code>next</code> (default) - Shows today&rsquo;s prayer if it has not yet passed; otherwise shows
+                  tomorrow&rsquo;s prayer.</li>
+                <li><code>today</code> - Displays today&rsquo;s prayer timetable only.</li>
+                <li><code>tomorrow</code> - Displays tomorrow&rsquo;s prayer timetable only.</li>
+              </ol>
+            </li>
+
+            <li>
+              <strong><code>timetable_prayer_background_gradient_1</code></strong> -
+              First color used for the background gradient of each prayer row.
+            </li>
+
+            <li>
+              <strong><code>timetable_prayer_background_gradient_2</code></strong> -
+              Second color used for the background gradient of each prayer row.
+              Set this to the same value as Gradient 1 to disable the gradient.
+            </li>
+
+            <li>
+              <strong><code>timetable_prayer_active_color</code></strong> -
+              Border color applied to the currently active prayer.
+            </li>
+
+            <li>
+              <strong><code>timetable_prayer_title_color</code></strong> -
+              Text color of prayer names such as Fajr, Zuhr, Asr, Maghrib, and Isha.
+            </li>
+
+            <li>
+              <strong><code>timetable_prayer_values_color</code></strong> -
+              Text color of the prayer time values.
+            </li>
+
+            <li>
+              <strong><code>timetable_prayer_icon_color</code></strong> -
+              Color of icons displayed next to prayer names.
+            </li>
+
+            <li>
+              <strong><code>timetable_icon_resize_animation_running</code></strong> -
+              Enables or disables the resize animation applied to prayer icons.
+              <ol>
+                <li><code>running</code> (default) - Animation is enabled.</li>
+                <li><code>paused</code> - Animation is disabled.</li>
+              </ol>
+            </li>
+
+            <li>
+              <strong><code>timetable_prayer_icon_resize_animation_duration</code></strong> -
+              Duration of the prayer icon resize animation, in milliseconds.
+            </li>
+
+            <li>
+              <strong><code>timetable_text_size_multiplier</code></strong> -
+              A multiplier used to increase or decrease the size of all timetable text.
+            </li>
           </ol>
-
-          <h4>Examples</h4>
-          <pre><code>[dpte_timetable_prayer_time_component prayer="fajr"]</code></pre>
-
-          <pre><code>[dpte_timetable_prayer_time_component prayer="asr" timetype="today"]</code></pre>
-
-          <pre><code>[dpte_timetable_prayer_time_component prayer="jumah" timetype="next"]</code></pre>
 
           <hr>
 
