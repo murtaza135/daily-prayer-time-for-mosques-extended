@@ -77,7 +77,7 @@
 
 .dpte-timetable .dpte-timetable-prayer.active {
   border:
-    var(--timetable-prayer-active-border-thickness, 3px)
+    var(--dpte-timetable-prayer-active-border-thickness, 3px)
     solid
     var(--dpte-timetable-prayer-active-color);
 }
