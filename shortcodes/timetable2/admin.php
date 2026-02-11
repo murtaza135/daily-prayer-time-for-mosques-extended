@@ -42,6 +42,7 @@ add_action('dpte_extend_timetable_container', function($container) {
   timetable2_prayer_grid_section2_color="#FFFFFF"
   timetable2_prayer_grid_section2_active_color="#FFFFFF"
   timetable2_prayer_grid_item_section_separator_color="#FFFFFF"
+  timetable2_prayer_grid_non_active_opacity="0.7"
   timetable2_date_time_background="#CFA55B"
   timetable2_date_time_color="#2C2C2E"
   timetable2_next_prayer_background="#CFA55B"
@@ -207,6 +208,7 @@ add_action('dpte_extend_timetable_container', function($container) {
   timetable2_prayer_grid_section2_color="#FFFFFF"
   timetable2_prayer_grid_section2_active_color="#FFFFFF"
   timetable2_prayer_grid_item_section_separator_color="#FFFFFF"
+  timetable2_prayer_grid_non_active_opacity="0.7"
   timetable2_text_size_multiplier="1"
 ]</textarea>
           </p>

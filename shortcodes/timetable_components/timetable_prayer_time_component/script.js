@@ -19,7 +19,6 @@ class TimetablePrayerTimeComponent {
         }
 
         const zuhr = dptCache.getPrayer("zuhr", timeType);
-        console.log(zuhr);
         const zuhrStartElement = root.querySelector(".dpte-timetable-prayer-time-component .dpte-timetable-zuhr .dpte-prayer-start");
         const zuhrPrayerElement = root.querySelector(".dpte-timetable-prayer-time-component .dpte-timetable-zuhr .dpte-prayer-prayer");
         const zuhrPrayerTitle = root.querySelector(".dpte-timetable-prayer-time-component .dpte-timetable-zuhr .dpte-prayer-title");

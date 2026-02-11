@@ -23,7 +23,7 @@
 	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 	text-align: center;
 	overflow: hidden;
-	opacity: 0.7;
+	opacity: var(--dpte-timetable2-prayer-grid-non-active-opacity, 0.7);
 	border: none;
 }
 
