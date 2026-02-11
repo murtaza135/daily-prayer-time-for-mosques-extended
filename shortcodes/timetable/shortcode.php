@@ -33,11 +33,15 @@ function dpte_timetable_shortcode($atts) {
     'timetable_icon_resize_animation_running' => 'running',
     'timetable_prayer_icon_resize_animation_duration' => '5000ms',
     'timetable_text_size_multiplier' => '1',
+    'timetable_prayer_jumah_display' => 'hide',
 
     // js
     'timetype' => 'next',
   );
   $atts = shortcode_atts($default_atts, $atts, 'dpte_timetable');
+
+  // atts transformations
+  $atts['timetable_prayer_jumah_display'] = $atts['timetable_prayer_jumah_display'] == "hide" ? "none" : "flex";
 
   // generate css properties from atts
   $style_keys = array(
@@ -52,6 +56,7 @@ function dpte_timetable_shortcode($atts) {
     'timetable_icon_resize_animation_running',
     'timetable_prayer_icon_resize_animation_duration',
     'timetable_text_size_multiplier',
+    'timetable_prayer_jumah_display',
   );
   $style = '';
   foreach ($style_keys as $key) {
@@ -117,11 +122,20 @@ function dpte_timetable_shortcode($atts) {
 
       <div class="dpte-timetable-prayer dpte-timetable-zuhr">
         <span>
-          <svg class="dpte-timetable-prayer-icon" viewBox="0 0 64 64" fill="#000" stroke="#000">
+          <svg class="dpte-timetable-prayer-icon dpte-timetable-prayer-icon-zuhr" viewBox="0 0 64 64" fill="#000" stroke="#000">
             <circle cx="32" cy="32" r="12" fill="inherit" />
             <g stroke="inherit" stroke-width="2">
               <path d="M32 8v8M32 48v8M8 32h8M48 32h8M16 16l6 6M42 42l6 6M16 48l6-6M42 22l6-6" />
             </g>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" class="dpte-timetable-prayer-icon dpte-timetable-prayer-icon-jumah hidden" viewBox="0 0 200 200" fill="#000">
+            <path d="M60 110 Q100 40 140 110 Z" /> <!-- Main dome -->
+            <rect x="50" y="110" width="100" height="50" /> <!-- Central body -->
+            <rect x="90" y="130" width="20" height="30"/> <!-- Door -->
+            <rect x="30" y="70" width="10" height="90" /> <!-- Left minaret -->
+            <polygon points="25,70 35,50 45,70" /> <!-- Left minaret -->
+            <rect x="160" y="70" width="10" height="90" /> <!-- Right minaret -->
+            <polygon points="155,70 165,50 175,70" /> <!-- Right minaret -->
           </svg>
           <p class="dpte-prayer-title">Zuhr</p>
         </span>

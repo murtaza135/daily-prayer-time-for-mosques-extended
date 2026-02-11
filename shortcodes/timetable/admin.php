@@ -28,7 +28,7 @@ add_action('dpte_extend_timetable_container', function($container) {
           <p style="margin-top: 1.5rem;">
 <textarea
   readonly
-  style="width: 100%; min-height: 290px; font-family: monospace; font-size: 0.9rem; line-height: 1.4; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px; background: #fafafa; color: #2c2c2e; resize: none; box-sizing: border-box; white-space: pre;"
+  style="width: 100%; min-height: 330px; font-family: monospace; font-size: 0.9rem; line-height: 1.4; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px; background: #fafafa; color: #2c2c2e; resize: none; box-sizing: border-box; white-space: pre;"
 >[dpte_timetable
   timetype="next"
   timetable_prayer_header_text_color="#2C2C2E"
@@ -42,6 +42,7 @@ add_action('dpte_extend_timetable_container', function($container) {
   timetable_icon_resize_animation_running="running"
   timetable_prayer_icon_resize_animation_duration="5000ms"
   timetable_text_size_multiplier="1"
+  timetable_prayer_jumah_display="hide"
 ]</textarea>
           </p>
 
@@ -120,6 +121,15 @@ add_action('dpte_extend_timetable_container', function($container) {
             <li>
               <strong><code>timetable_text_size_multiplier</code></strong> -
               A multiplier used to increase or decrease the size of all timetable text.
+            </li>
+
+            <li>
+              <strong><code>timetable_prayer_jumah_display</code></strong> -
+              Show or hide Jumah prayer bar.
+              <ol>
+                <li><code>hide</code> (default) - Hide Jumah prayer bar.</li>
+                <li><code>show</code> - Show Jumah prayer bar.</li>
+              </ol>
             </li>
           </ol>
 
