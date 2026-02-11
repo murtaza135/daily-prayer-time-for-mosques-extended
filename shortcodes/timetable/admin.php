@@ -28,7 +28,7 @@ add_action('dpte_extend_timetable_container', function($container) {
           <p style="margin-top: 1.5rem;">
 <textarea
   readonly
-  style="width: 100%; min-height: 330px; font-family: monospace; font-size: 0.9rem; line-height: 1.4; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px; background: #fafafa; color: #2c2c2e; resize: none; box-sizing: border-box; white-space: pre;"
+  style="width: 100%; min-height: 350px; font-family: monospace; font-size: 0.9rem; line-height: 1.4; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px; background: #fafafa; color: #2c2c2e; resize: none; box-sizing: border-box; white-space: pre;"
 >[dpte_timetable
   timetype="next"
   timetable_prayer_header_text_color="#2C2C2E"
@@ -37,7 +37,8 @@ add_action('dpte_extend_timetable_container', function($container) {
   timetable_prayer_active_color="#ff5e00"
   timetable_prayer_active_border_thickness="3px"
   timetable_prayer_title_color="#2C2C2E"
-  timetable_prayer_values_color="#FFFFFF"
+  timetable_prayer_start_values_color="#FFFFFF"
+  timetable_prayer_jamah_values_color="#FFFFFF"
   timetable_prayer_icon_color="#2C2C2E"
   timetable_icon_resize_animation_running="running"
   timetable_prayer_icon_resize_animation_duration="5000ms"
@@ -95,8 +96,13 @@ add_action('dpte_extend_timetable_container', function($container) {
             </li>
 
             <li>
-              <strong><code>timetable_prayer_values_color</code></strong> -
-              Text color of the prayer time values.
+              <strong><code>timetable_prayer_start_values_color</code></strong> -
+              Text color of the prayer start time values.
+            </li>
+
+            <li>
+              <strong><code>timetable_prayer_jamah_values_color</code></strong> -
+              Text color of the prayer jamah time values.
             </li>
 
             <li>

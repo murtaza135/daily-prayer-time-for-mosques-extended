@@ -185,6 +185,10 @@
 	color: var(--dpte-timetable-prayer-title-color);
 }
 
-.dpte-timetable .dpte-prayer-values {
-	color: var(--dpte-timetable-prayer-values-color);
+.dpte-timetable .dpte-prayer-start {
+	color: var(--dpte-timetable-prayer-start-values-color);
+}
+
+.dpte-timetable .dpte-prayer-prayer {
+	color: var(--dpte-timetable-prayer-jamah-values-color);
 }

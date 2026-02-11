@@ -28,7 +28,8 @@ function dpte_timetable_shortcode($atts) {
     'timetable_prayer_active_color' => '#ff5e00',
     'timetable_prayer_active_border_thickness' => '3px',
     'timetable_prayer_title_color' => '#2C2C2E',
-    'timetable_prayer_values_color' => '#FFFFFF',
+    'timetable_prayer_start_values_color' => '#FFFFFF',
+    'timetable_prayer_jamah_values_color' => '#FFFFFF',
     'timetable_prayer_icon_color' => '#2C2C2E',
     'timetable_icon_resize_animation_running' => 'running',
     'timetable_prayer_icon_resize_animation_duration' => '5000ms',
@@ -51,7 +52,8 @@ function dpte_timetable_shortcode($atts) {
     'timetable_prayer_active_color',
     'timetable_prayer_active_border_thickness',
     'timetable_prayer_title_color',
-    'timetable_prayer_values_color',
+    'timetable_prayer_start_values_color',
+    'timetable_prayer_jamah_values_color',
     'timetable_prayer_icon_color',
     'timetable_icon_resize_animation_running',
     'timetable_prayer_icon_resize_animation_duration',
@@ -114,7 +116,7 @@ function dpte_timetable_shortcode($atts) {
           <p class="dpte-prayer-title">Sunrise</p>
         </span>
         <span class="dpte-prayer-values">
-          <p class="dpte-prayer-start" <?php echo $data_attrs; ?>>
+          <p class="dpte-prayer-prayer" <?php echo $data_attrs; ?>>
             <?php echo do_shortcode('[sunrise]'); ?>
           </p>
         </span>

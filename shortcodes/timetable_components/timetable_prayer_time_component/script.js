@@ -19,6 +19,7 @@ class TimetablePrayerTimeComponent {
         }
 
         const zuhr = dptCache.getPrayer("zuhr", timeType);
+        console.log(zuhr);
         const zuhrStartElement = root.querySelector(".dpte-timetable-prayer-time-component .dpte-timetable-zuhr .dpte-prayer-start");
         const zuhrPrayerElement = root.querySelector(".dpte-timetable-prayer-time-component .dpte-timetable-zuhr .dpte-prayer-prayer");
         const zuhrPrayerTitle = root.querySelector(".dpte-timetable-prayer-time-component .dpte-timetable-zuhr .dpte-prayer-title");
@@ -26,6 +27,16 @@ class TimetablePrayerTimeComponent {
           zuhrStartElement.textContent = DateTimeUtils.formatDateToTime(zuhr.begins);
           zuhrPrayerElement.textContent = DateTimeUtils.formatDateToTime(zuhr.jamah);
           if (!!zuhrPrayerTitle) zuhrPrayerTitle.textContent = zuhr.name;
+        }
+
+        const zuhrIconElement = root.querySelector(".dpte-timetable-prayer-time-component .dpte-timetable-zuhr .dpte-timetable-prayer-icon-zuhr");
+        const jumahIconElement = root.querySelector(".dpte-timetable-prayer-time-component .dpte-timetable-zuhr .dpte-timetable-prayer-icon-jumah");
+        if (zuhr?.name === "Jumu'ah") {
+          jumahIconElement?.classList.remove("hidden");
+          zuhrIconElement?.classList.add("hidden");
+        } else {
+          zuhrIconElement?.classList.remove("hidden");
+          jumahIconElement?.classList.add("hidden");
         }
 
         const asr = dptCache.getPrayer("asr", timeType);
@@ -103,6 +114,11 @@ class TimetablePrayerTimeComponent {
 
 addEventListener("DOMContentLoaded", () => {
   dptCache.ensurePrayerData().then(() => {
+    setInterval(() => {
+      console.log(dptCache.data);
+      console.log(dptCache.getCurrentPrayer());
+    }, 1000);
+
     TimetablePrayerTimeComponent.setPrayerTimes();
     setTimeout(TimetablePrayerTimeComponent.setPrayerTimes, 1000);
     setTimeout(TimetablePrayerTimeComponent.setPrayerTimes, 2500);
