@@ -1,142 +1,154 @@
 /* base */
-.dpte-timetable2 *, .dpte-timetable2 *::before, .dpte-timetable2 *::after {
-  box-sizing: border-box;
-  line-height: 1;
+.dpte-timetable2 *,
+.dpte-timetable2 *::before,
+.dpte-timetable2 *::after {
+	box-sizing: border-box;
+	line-height: 1;
 }
 
 .dpte-timetable2 * {
-  margin: 0;
-  padding: 0;
+	margin: 0;
+	padding: 0;
 }
 
 .dpte-timetable2 {
-  --size-multiplier: var(--dpte-timetable2-text-size-multiplier, 1);
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+	--size-multiplier: var(--dpte-timetable2-text-size-multiplier, 1);
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
 }
 
 /* title */
 .dpte-timetable2 .dpte-timetable2-title-section {
-  background-color: var(--dpte-timetable2-title-section-background);
-  color: var(--dpte-timetable2-title-section-color);
-  padding: 0.3rem 0.8rem;
-  border-radius: 10px;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  text-align: center;
+	background-color: var(--dpte-timetable2-title-section-background);
+	color: var(--dpte-timetable2-title-section-color);
+	padding: 0.3rem 0.8rem;
+	border-radius: 10px;
+	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+	text-align: center;
 }
 
 .dpte-timetable2 .dpte-timetable2-title-section .dpte-timetable2-title {
-  margin: 0;
-  font-size: calc(1.33rem * var(--size-multiplier));
-  font-weight: 700;
-  color: var(--dpte-timetable2-title-section-color);
+	margin: 0;
+	font-size: calc(1.33rem * var(--size-multiplier));
+	font-weight: 700;
+	color: var(--dpte-timetable2-title-section-color);
 }
 
 /* prayer times grid */
 .dpte-timetable2 .dpte-timetable2-prayer-grid {
-  /* @source: https://www.youtube.com/watch?v=CHULPvkXIRo */
-  --grid-max-col-count: var(--dpte-timetable2-prayer-grid-max-col-count);
-  --grid-min-col-size: 100px;
-  --grid-gap: 1rem;
-  --grid-col-size-calc: calc((100% - var(--grid-gap) * var(--grid-max-col-count)) / var(--grid-max-col-count));
-  --grid-col-min-size-calc: min(100%, max(var(--grid-min-col-size), var(--grid-col-size-calc)));
-  display: grid;
-  gap: var(--grid-gap);
-  grid-template-columns: repeat(auto-fit, minmax(var(--grid-col-min-size-calc), 1fr));
+	/* @source: https://www.youtube.com/watch?v=CHULPvkXIRo */
+	--grid-max-col-count: var(--dpte-timetable2-prayer-grid-max-col-count);
+	--grid-min-col-size: 100px;
+	--grid-gap: 1rem;
+	--grid-col-size-calc: calc(
+		(100% - var(--grid-gap) * var(--grid-max-col-count)) / var(--grid-max-col-count)
+	);
+	--grid-col-min-size-calc: min(100%, max(var(--grid-min-col-size), var(--grid-col-size-calc)));
+	display: grid;
+	gap: var(--grid-gap);
+	grid-template-columns: repeat(auto-fit, minmax(var(--grid-col-min-size-calc), 1fr));
 }
 
 .dpte-timetable2 .dpte-timetable2-prayer-grid .dpte-timetable2-prayer {
-  display: flex;
-  flex-direction: column;
-  border-radius: 10px;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  text-align: center;
-  overflow: hidden;
-  opacity: 0.7;
-  border: none;
+	display: flex;
+	flex-direction: column;
+	border-radius: 10px;
+	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+	text-align: center;
+	overflow: hidden;
+	opacity: 0.7;
+	border: none;
 }
 
 .dpte-timetable2 .dpte-timetable2-prayer-grid .dpte-timetable2-prayer.active {
-  opacity: 1;
+	opacity: 1;
 }
 
 .dpte-timetable2 .dpte-timetable2-prayer-grid .dpte-timetable2-prayer .dpte-prayer-section1 {
-  background-color: var(--dpte-timetable2-prayer-grid-section1-background);
-  color: var(--dpte-timetable2-prayer-grid-section1-color);
-  display: flex;
-  gap: 0.33rem;
-  flex-direction: column;
-  padding: 0.33rem 0.5rem;
-  flex-grow: 1;
+	background-color: var(--dpte-timetable2-prayer-grid-section1-background);
+	color: var(--dpte-timetable2-prayer-grid-section1-color);
+	display: flex;
+	gap: 0.33rem;
+	flex-direction: column;
+	padding: 0.33rem 0.5rem;
+	flex-grow: 1;
+}
+
+.dpte-timetable2 .dpte-timetable2-prayer-grid .dpte-timetable2-prayer.active .dpte-prayer-section1 {
+	color: var(--dpte-timetable2-prayer-grid-section1-active-color);
 }
 
 .dpte-timetable2 .dpte-timetable2-prayer-grid .dpte-timetable2-prayer .dpte-prayer-title {
-  font-size: calc(1.25rem * var(--size-multiplier));
-  font-weight: 500;
+	font-size: calc(1.25rem * var(--size-multiplier));
+	font-weight: 500;
 }
 
 .dpte-timetable2 .dpte-timetable2-prayer-grid .dpte-timetable2-prayer .dpte-prayer-prayer {
-  font-size: calc(1.33rem * var(--size-multiplier));
-  font-weight: 600;
+	font-size: calc(1.33rem * var(--size-multiplier));
+	font-weight: 600;
 }
 
 .dpte-timetable2 .dpte-timetable2-prayer-grid .dpte-timetable2-prayer .dpte-prayer-section2 {
-  background-color: var(--dpte-timetable2-prayer-grid-section2-background);
-  color: var(--dpte-timetable2-prayer-grid-section2-color);
-  padding: 0.33rem 0.5rem;
-  border-top: 2px solid var(--dpte-timetable2-prayer-grid-item-section-separator-color);
+	background-color: var(--dpte-timetable2-prayer-grid-section2-background);
+	color: var(--dpte-timetable2-prayer-grid-section2-color);
+	padding: 0.33rem 0.5rem;
+	border-top: 2px solid var(--dpte-timetable2-prayer-grid-item-section-separator-color);
+}
+
+.dpte-timetable2 .dpte-timetable2-prayer-grid .dpte-timetable2-prayer.active .dpte-prayer-section2 {
+	color: var(--dpte-timetable2-prayer-grid-section2-active-color);
 }
 
 .dpte-timetable2 .dpte-timetable2-prayer-grid .dpte-timetable2-prayer .dpte-prayer-start {
-  font-size: calc(1.1rem * var(--size-multiplier));
-  font-weight: 500;
+	font-size: calc(1.1rem * var(--size-multiplier));
+	font-weight: 500;
 }
 
 /* date-time */
 .dpte-timetable2 .dpte-timetable2-date-time-section {
-  display: flex;
-  gap: 2rem;
-  justify-content: space-between;
-  align-items: center;
-  background-color: var(--dpte-timetable2-date-time-background);
-  color: var(--dpte-timetable2-date-time-color);
-  padding: 0.5rem 0.8rem;
-  border-radius: 10px;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  min-height: calc(2.33rem * var(--size-multiplier));
+	display: flex;
+	gap: 2rem;
+	justify-content: space-between;
+	align-items: center;
+	background-color: var(--dpte-timetable2-date-time-background);
+	color: var(--dpte-timetable2-date-time-color);
+	padding: 0.5rem 0.8rem;
+	border-radius: 10px;
+	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+	min-height: calc(2.33rem * var(--size-multiplier));
 }
 
 .dpte-timetable2 .dpte-timetable2-date-time-section .dpte-timetable2-date {
-  font-size: calc(1.33rem * var(--size-multiplier));
-  font-weight: 700;
+	font-size: calc(1.33rem * var(--size-multiplier));
+	font-weight: 700;
 }
 
 .dpte-timetable2 .dpte-timetable2-date-time-section .dpte-timetable2-time {
-  font-size: calc(1.33rem * var(--size-multiplier));
-  font-weight: 700;
+	font-size: calc(1.33rem * var(--size-multiplier));
+	font-weight: 700;
 }
 
 /* next prayer */
 .dpte-timetable2 .dpte-timetable2-next-prayer-section {
-  display: flex;
-  gap: 2rem;
-  justify-content: space-between;
-  align-items: center;
-  background-color: var(--dpte-timetable2-next-prayer-background);
-  color: var(--dpte-timetable2-next-prayer-color);
-  padding: 0.5rem 0.8rem;
-  border-radius: 10px;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  min-height: calc(2.33rem * var(--size-multiplier));
+	display: flex;
+	gap: 2rem;
+	justify-content: space-between;
+	align-items: center;
+	background-color: var(--dpte-timetable2-next-prayer-background);
+	color: var(--dpte-timetable2-next-prayer-color);
+	padding: 0.5rem 0.8rem;
+	border-radius: 10px;
+	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+	min-height: calc(2.33rem * var(--size-multiplier));
 }
 
 .dpte-timetable2 .dpte-timetable2-next-prayer-section .dpte-timetable2-next-prayer-name {
-  font-size: calc(1.33rem * var(--size-multiplier));
-  font-weight: 700;
+	font-size: calc(1.33rem * var(--size-multiplier));
+	font-weight: 700;
 }
 
 .dpte-timetable2 .dpte-timetable2-next-prayer-section .dpte-timetable2-next-prayer-remaining-time {
-  font-size: calc(1.33rem * var(--size-multiplier));
-  font-weight: 700;
+	font-size: calc(1.33rem * var(--size-multiplier));
+	font-weight: 700;
 }

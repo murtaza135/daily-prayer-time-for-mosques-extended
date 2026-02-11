@@ -24,8 +24,10 @@ function dpte_timetable2_prayer_time_component_shortcode($atts) {
     // css
     'timetable2_prayer_grid_section1_background' => '#CFA55B',
     'timetable2_prayer_grid_section1_color' => '#2C2C2E',
+    'timetable2_prayer_grid_section1_active_color' => '#2C2C2E',
     'timetable2_prayer_grid_section2_background' => '#2C2C2E',
     'timetable2_prayer_grid_section2_color' => '#FFFFFF',
+    'timetable2_prayer_grid_section2_active_color' => '#FFFFFF',
     'timetable2_prayer_grid_item_section_separator_color' => '#FFFFFF',
     'timetable2_text_size_multiplier' => '1',
     
@@ -39,8 +41,10 @@ function dpte_timetable2_prayer_time_component_shortcode($atts) {
   $style_keys = array(
     'timetable2_prayer_grid_section1_background',
     'timetable2_prayer_grid_section1_color',
+    'timetable2_prayer_grid_section1_active_color',
     'timetable2_prayer_grid_section2_background',
     'timetable2_prayer_grid_section2_color',
+    'timetable2_prayer_grid_section2_active_color',
     'timetable2_prayer_grid_item_section_separator_color',
     'timetable2_text_size_multiplier',
   );

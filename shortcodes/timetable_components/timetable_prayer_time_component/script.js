@@ -114,11 +114,6 @@ class TimetablePrayerTimeComponent {
 
 addEventListener("DOMContentLoaded", () => {
   dptCache.ensurePrayerData().then(() => {
-    setInterval(() => {
-      console.log(dptCache.data);
-      console.log(dptCache.getCurrentPrayer());
-    }, 1000);
-
     TimetablePrayerTimeComponent.setPrayerTimes();
     setTimeout(TimetablePrayerTimeComponent.setPrayerTimes, 1000);
     setTimeout(TimetablePrayerTimeComponent.setPrayerTimes, 2500);

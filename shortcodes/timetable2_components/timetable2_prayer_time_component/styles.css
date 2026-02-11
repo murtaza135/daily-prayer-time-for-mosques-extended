@@ -1,62 +1,72 @@
 /* base */
-.dpte-timetable2-prayer-time-component *, .dpte-timetable2-prayer-time-component *::before, .dpte-timetable2-prayer-time-component *::after {
-  box-sizing: border-box;
-  line-height: 1;
+.dpte-timetable2-prayer-time-component *,
+.dpte-timetable2-prayer-time-component *::before,
+.dpte-timetable2-prayer-time-component *::after {
+	box-sizing: border-box;
+	line-height: 1;
 }
 
 .dpte-timetable2-prayer-time-component * {
-  margin: 0;
-  padding: 0;
+	margin: 0;
+	padding: 0;
 }
 
 .dpte-timetable2-prayer-time-component {
-  --size-multiplier: var(--dpte-timetable2-text-size-multiplier, 1);
+	--size-multiplier: var(--dpte-timetable2-text-size-multiplier, 1);
 }
 
 /* prayer times */
 .dpte-timetable2-prayer-time-component .dpte-timetable2-prayer {
-  display: flex;
-  flex-direction: column;
-  border-radius: 10px;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  text-align: center;
-  overflow: hidden;
-  opacity: 0.7;
-  border: none;
+	display: flex;
+	flex-direction: column;
+	border-radius: 10px;
+	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+	text-align: center;
+	overflow: hidden;
+	opacity: 0.7;
+	border: none;
 }
 
 .dpte-timetable2-prayer-time-component .dpte-timetable2-prayer.active {
-  opacity: 1;
+	opacity: 1;
 }
 
 .dpte-timetable2-prayer-time-component .dpte-timetable2-prayer .dpte-prayer-section1 {
-  background-color: var(--dpte-timetable2-prayer-grid-section1-background);
-  color: var(--dpte-timetable2-prayer-grid-section1-color);
-  display: flex;
-  gap: 0.33rem;
-  flex-direction: column;
-  padding: 0.33rem 0.5rem;
-  flex-grow: 1;
+	background-color: var(--dpte-timetable2-prayer-grid-section1-background);
+	color: var(--dpte-timetable2-prayer-grid-section1-color);
+	display: flex;
+	gap: 0.33rem;
+	flex-direction: column;
+	padding: 0.33rem 0.5rem;
+	flex-grow: 1;
+}
+
+.dpte-timetable2-prayer-time-component .dpte-timetable2-prayer.active .dpte-prayer-section1 {
+	color: var(--dpte-timetable2-prayer-grid-section1-active-color);
 }
 
 .dpte-timetable2-prayer-time-component .dpte-timetable2-prayer .dpte-prayer-title {
-  font-size: calc(1.25rem * var(--size-multiplier));
-  font-weight: 500;
+	font-size: calc(1.25rem * var(--size-multiplier));
+	font-weight: 500;
 }
 
 .dpte-timetable2-prayer-time-component .dpte-timetable2-prayer .dpte-prayer-prayer {
-  font-size: calc(1.33rem * var(--size-multiplier));
-  font-weight: 600;
+	font-size: calc(1.33rem * var(--size-multiplier));
+	font-weight: 600;
 }
 
 .dpte-timetable2-prayer-time-component .dpte-timetable2-prayer .dpte-prayer-section2 {
-  background-color: var(--dpte-timetable2-prayer-grid-section2-background);
-  color: var(--dpte-timetable2-prayer-grid-section2-color);
-  padding: 0.33rem 0.5rem;
-  border-top: 2px solid var(--dpte-timetable2-prayer-grid-item-section-separator-color);
+	background-color: var(--dpte-timetable2-prayer-grid-section2-background);
+	color: var(--dpte-timetable2-prayer-grid-section2-color);
+	padding: 0.33rem 0.5rem;
+	border-top: 2px solid var(--dpte-timetable2-prayer-grid-item-section-separator-color);
+}
+
+.dpte-timetable2-prayer-time-component .dpte-timetable2-prayer.active .dpte-prayer-section2 {
+	color: var(--dpte-timetable2-prayer-grid-section2-active-color);
 }
 
 .dpte-timetable2-prayer-time-component .dpte-timetable2-prayer .dpte-prayer-start {
-  font-size: calc(1.1rem * var(--size-multiplier));
-  font-weight: 500;
+	font-size: calc(1.1rem * var(--size-multiplier));
+	font-weight: 500;
 }

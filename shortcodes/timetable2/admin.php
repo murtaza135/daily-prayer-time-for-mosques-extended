@@ -29,7 +29,7 @@ add_action('dpte_extend_timetable_container', function($container) {
           <p style="margin-top: 1.5rem;">
 <textarea
   readonly
-  style="width: 100%; min-height: 370px; font-family: monospace; font-size: 0.9rem; line-height: 1.4; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px; background: #fafafa; color: #2c2c2e; resize: none; box-sizing: border-box; white-space: pre;"
+  style="width: 100%; min-height: 410px; font-family: monospace; font-size: 0.9rem; line-height: 1.4; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px; background: #fafafa; color: #2c2c2e; resize: none; box-sizing: border-box; white-space: pre;"
 >[dpte_timetable2
   timetype="next"
   alwaysactive="false"
@@ -37,8 +37,10 @@ add_action('dpte_extend_timetable_container', function($container) {
   timetable2_title_section_color="#2C2C2E"
   timetable2_prayer_grid_section1_background="#CFA55B"
   timetable2_prayer_grid_section1_color="#2C2C2E"
+  timetable2_prayer_grid_section1_active_color="#2C2C2E"
   timetable2_prayer_grid_section2_background="#2C2C2E"
   timetable2_prayer_grid_section2_color="#FFFFFF"
+  timetable2_prayer_grid_section2_active_color="#FFFFFF"
   timetable2_prayer_grid_item_section_separator_color="#FFFFFF"
   timetable2_date_time_background="#CFA55B"
   timetable2_date_time_color="#2C2C2E"
@@ -94,6 +96,11 @@ add_action('dpte_extend_timetable_container', function($container) {
             </li>
 
             <li>
+              <strong><code>timetable2_prayer_grid_section1_active_color</code></strong> -
+              Text color of the upper section of each prayer box when active.
+            </li>
+
+            <li>
               <strong><code>timetable2_prayer_grid_section2_background</code></strong> -
               Background color of the lower section of each prayer box.
             </li>
@@ -101,6 +108,11 @@ add_action('dpte_extend_timetable_container', function($container) {
             <li>
               <strong><code>timetable2_prayer_grid_section2_color</code></strong> -
               Text color of the lower section of each prayer box.
+            </li>
+
+            <li>
+              <strong><code>timetable2_prayer_grid_section2_active_color</code></strong> -
+              Text color of the lower section of each prayer box when active.
             </li>
 
             <li>
@@ -183,15 +195,17 @@ add_action('dpte_extend_timetable_container', function($container) {
           <p style="margin-top: 1.5rem;">
 <textarea
   readonly
-  style="width: 100%; min-height: 250px; font-family: monospace; font-size: 0.9rem; line-height: 1.4; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px; background: #fafafa; color: #2c2c2e; resize: none; box-sizing: border-box; white-space: pre;"
+  style="width: 100%; min-height: 290px; font-family: monospace; font-size: 0.9rem; line-height: 1.4; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px; background: #fafafa; color: #2c2c2e; resize: none; box-sizing: border-box; white-space: pre;"
 >[dpte_timetable2_prayer_time_component
   prayer="fajr"
   timetype="next"
   alwaysactive="false"
   timetable2_prayer_grid_section1_background="#CFA55B"
   timetable2_prayer_grid_section1_color="#2C2C2E"
+  timetable2_prayer_grid_section1_active_color="#2C2C2E"
   timetable2_prayer_grid_section2_background="#2C2C2E"
   timetable2_prayer_grid_section2_color="#FFFFFF"
+  timetable2_prayer_grid_section2_active_color="#FFFFFF"
   timetable2_prayer_grid_item_section_separator_color="#FFFFFF"
   timetable2_text_size_multiplier="1"
 ]</textarea>
@@ -244,6 +258,11 @@ add_action('dpte_extend_timetable_container', function($container) {
             </li>
 
             <li>
+              <strong><code>timetable2_prayer_grid_section1_active_color</code></strong> -
+              Text color of the upper section of each prayer box when active.
+            </li>
+
+            <li>
               <strong><code>timetable2_prayer_grid_section2_background</code></strong> -
               Background color of the lower section of each prayer box.
             </li>
@@ -251,6 +270,11 @@ add_action('dpte_extend_timetable_container', function($container) {
             <li>
               <strong><code>timetable2_prayer_grid_section2_color</code></strong> -
               Text color of the lower section of each prayer box.
+            </li>
+            
+            <li>
+              <strong><code>timetable2_prayer_grid_section2_active_color</code></strong> -
+              Text color of the lower section of each prayer box when active.
             </li>
 
             <li>
