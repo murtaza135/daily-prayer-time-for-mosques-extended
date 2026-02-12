@@ -127,6 +127,7 @@
 .dpte-timetable2 .dpte-timetable2-date-time-section .dpte-timetable2-time {
 	font-size: calc(1.33rem * var(--size-multiplier));
 	font-weight: 700;
+	white-space: nowrap;
 }
 
 /* next prayer */
