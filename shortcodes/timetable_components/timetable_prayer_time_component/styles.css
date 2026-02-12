@@ -115,7 +115,7 @@
 
 @media (min-width: 600px) {
 	.dpte-timetable-prayer-time-component .dpte-timetable-prayer > span:nth-child(2) > p {
-		width: calc(5.15rem * var(--size-multiplier));
+		width: calc(5.2rem * var(--size-multiplier));
 	}
 }
 
@@ -131,7 +131,7 @@
 		.dpte-timetable-prayer.dpte-timetable-jumah
 		> span:nth-child(2)
 		> p {
-		width: calc(5.15rem * 2 * var(--size-multiplier) + 1.5rem);
+		width: calc(5.2rem * 2 * var(--size-multiplier) + 1.5rem);
 	}
 }
 
