@@ -35,13 +35,17 @@ add_action('dpte_extend_notification_banner_container', function($container) {
   notification_banner_error_background="#ac0000"
   notification_banner_error_color="#FFFFFF"
   notification_banner_error_icon_color="#FFFFFF"
-  notification_banner_iqamah_timer="5"
-  notification_banner_jamah_timer="5"
-  notification_banner_zawal_timer="20"
   notification_banner_text_size_multiplier="1"
   iqamah_timer_active="true"
   jamah_timer_active="true"
-  zawal_timer_active="true"
+  morning_makrooh_timer_active="true"
+  zawal_makrooh_timer_active="true"
+  evening_makrooh_timer_active="true"
+  morning_makrooh_timer_message="Makrooh (Prohibited) Salah Time."
+  zawal_makrooh_timer_message="Zawal - Makrooh (Prohibited) Salah Time."
+  evening_makrooh_timer_message="Makrooh (Prohibited) Salah Time."
+  default_message="Welcome."
+  default_message_type="message"
 ]</textarea>
           </p>
 
@@ -53,79 +57,111 @@ add_action('dpte_extend_notification_banner_container', function($container) {
           <h4>Parameters</h4>
           <ol>
             <li>
-              <strong><code>notification_banner_active_background</code></strong> –
+              <strong><code>notification_banner_active_background</code></strong> -
               Background color of normal notification banners.
             </li>
 
             <li>
-              <strong><code>notification_banner_active_color</code></strong> –
+              <strong><code>notification_banner_active_color</code></strong> -
               Text color of normal notification banners.
             </li>
 
             <li>
-              <strong><code>notification_banner_active_icon_color</code></strong> –
+              <strong><code>notification_banner_active_icon_color</code></strong> -
               Icon color of normal notification banners.
             </li>
 
             <li>
-              <strong><code>notification_banner_error_background</code></strong> –
+              <strong><code>notification_banner_error_background</code></strong> -
               Background color of error notification banners (e.g. Zawal notifications).
             </li>
 
             <li>
-              <strong><code>notification_banner_error_color</code></strong> –
+              <strong><code>notification_banner_error_color</code></strong> -
               Text color of error notification banners.
             </li>
 
             <li>
-              <strong><code>notification_banner_error_icon_color</code></strong> –
+              <strong><code>notification_banner_error_icon_color</code></strong> -
               Icon color of error notification banners.
             </li>
 
             <li>
-              <strong><code>notification_banner_iqamah_timer</code></strong> –
-              Number of minutes before Jama&rsquo;ah that the countdown notification is shown.
-            </li>
-
-            <li>
-              <strong><code>notification_banner_jamah_timer</code></strong> –
-              Number of minutes the notification remains visible once Jama&rsquo;ah begins.
-            </li>
-
-            <li>
-              <strong><code>notification_banner_zawal_timer</code></strong> –
-              Number of minutes the Zawal countdown notification is shown before Zuhr begins.
-            </li>
-
-            <li>
-              <strong><code>notification_banner_text_size_multiplier</code></strong> –
+              <strong><code>notification_banner_text_size_multiplier</code></strong> -
               Multiplier used to increase or decrease the banner text size.
             </li>
 
             <li>
-              <strong><code>iqamah_timer_active</code></strong> –
+              <strong><code>iqamah_timer_active</code></strong> -
               Enable or disable notifications when the Iqamah timer starts.
               <ol>
-                <li><code>true</code> (default) – Notification is shown.</li>
-                <li><code>false</code> – Notification is hidden.</li>
+                <li><code>true</code> (default) - Notification is shown.</li>
+                <li><code>false</code> - Notification is hidden.</li>
               </ol>
             </li>
 
             <li>
-              <strong><code>jamah_timer_active</code></strong> –
+              <strong><code>jamah_timer_active</code></strong> -
               Enable or disable notifications when Jama&rsquo;ah time starts.
               <ol>
-                <li><code>true</code> (default) – Notification is shown.</li>
-                <li><code>false</code> – Notification is hidden.</li>
+                <li><code>true</code> (default) - Notification is shown.</li>
+                <li><code>false</code> - Notification is hidden.</li>
               </ol>
             </li>
 
             <li>
-              <strong><code>zawal_timer_active</code></strong> –
-              Enable or disable notifications during Zawal time.
+              <strong><code>morning_makrooh_timer_active</code></strong> -
+              Enable or disable notifications during morning makrooh time.
               <ol>
-                <li><code>true</code> (default) – Notification is shown.</li>
-                <li><code>false</code> – Notification is hidden.</li>
+                <li><code>true</code> (default) - Notification is shown.</li>
+                <li><code>false</code> - Notification is hidden.</li>
+              </ol>
+            </li>
+
+            <li>
+              <strong><code>zawal_makrooh_timer_active</code></strong> -
+              Enable or disable notifications during zawal makrooh time.
+              <ol>
+                <li><code>true</code> (default) - Notification is shown.</li>
+                <li><code>false</code> - Notification is hidden.</li>
+              </ol>
+            </li>
+
+            <li>
+              <strong><code>evening_makrooh_timer_active</code></strong> -
+              Enable or disable notifications during evening makrooh time.
+              <ol>
+                <li><code>true</code> (default) - Notification is shown.</li>
+                <li><code>false</code> - Notification is hidden.</li>
+              </ol>
+            </li>
+
+            <li>
+              <strong><code>morning_makrooh_timer_message</code></strong> -
+              Default notification message during morning makrooh time.
+            </li>
+
+            <li>
+              <strong><code>zawal_makrooh_timer_message</code></strong> -
+              Default notification message during zawal makrooh time.
+            </li>
+
+            <li>
+              <strong><code>evening_makrooh_timer_message</code></strong> -
+              Default notification message during evening makrooh time.
+            </li>
+
+            <li>
+              <strong><code>default_message</code></strong> -
+              Default notification message to show when no other higher priority notification message is to be displayed.
+            </li>
+
+            <li>
+              <strong><code>default_message_type</code></strong> -
+              Type of message to show.
+              <ol>
+                <li><code>message</code> (default) - The default message set with the <code>default_message</code> property.</li>
+                <li><code>timer</code> - Timer to next prayer.</li>
               </ol>
             </li>
           </ol>
@@ -153,9 +189,19 @@ add_action('dpte_extend_notification_banner_container', function($container) {
         ->set_default_value(5)
         ->set_help_text('How long should the notification display that it is currently Jama\'ah time when Jama\'ah time starts (in minutes).'),
 
-      Field::make('text', 'dpte_notification_banner_zawal_timer', 'Zawal Notification Timer')
+      Field::make('text', 'dpte_notification_banner_morning_makrooh_timer', 'Morning Makrooh Notification Timer')
+        ->set_attribute("type", "number")
+        ->set_default_value(20)
+        ->set_help_text('How many minutes should the notification display the countdown until the morning makrooh time finishes after the end of Fajr (in minutes).'),
+
+      Field::make('text', 'dpte_notification_banner_zawal_makrooh_timer', 'Zawal Makrooh Notification Timer')
         ->set_attribute("type", "number")
         ->set_default_value(20)
         ->set_help_text('How many minutes should the notification display the countdown until Zawal time finishes and Zuhr starts (in minutes).'),
+
+      Field::make('text', 'dpte_notification_banner_evening_makrooh_timer', 'Evening Makrooh Notification Timer')
+        ->set_attribute("type", "number")
+        ->set_default_value(20)
+        ->set_help_text('How many minutes should the notification display the countdown until the evening makrooh time finishes and Maghrib starts (in minutes).'),
     ]);
 });

@@ -10,7 +10,9 @@ function dpte_notification_banner_shortcode($atts) {
   wp_localize_script("dpte-notification-banner", "DPTENotificationBannerOptions", [
     "IQAMAH_TIMER" => carbon_get_theme_option('dpte_notification_banner_iqamah_timer'),
     "JAMAH_TIMER" => carbon_get_theme_option('dpte_notification_banner_jamah_timer'),
-    "ZAWAL_TIMER" => carbon_get_theme_option('dpte_notification_banner_zawal_timer'),
+    "MORNING_MAKROOH_TIMER" => carbon_get_theme_option('dpte_notification_banner_morning_makrooh_timer'),
+    "ZAWAL_MAKROOH_TIMER" => carbon_get_theme_option('dpte_notification_banner_zawal_makrooh_timer'),
+    "EVENING_MAKROOH_TIMER" => carbon_get_theme_option('dpte_notification_banner_evening_makrooh_timer'),
   ]);
 
   // change all kebab-case attributes to snake_case attributes
@@ -38,7 +40,14 @@ function dpte_notification_banner_shortcode($atts) {
     // js
     'iqamah_timer_active' => 'true',
     'jamah_timer_active' => 'true',
-    'zawal_timer_active' => 'true',
+    'morning_makrooh_timer_active' => 'true',
+    'zawal_makrooh_timer_active' => 'true',
+    'evening_makrooh_timer_active' => 'true',
+    'morning_makrooh_timer_message' => 'Makrooh (Prohibited) Salah Time.',
+    'zawal_makrooh_timer_message' => 'Zawal - Makrooh (Prohibited) Salah Time.',
+    'evening_makrooh_timer_message' => 'Makrooh (Prohibited) Salah Time.',
+    'default_message' => 'Welcome.',
+    'default_message_type' => 'message',
   );
   $atts = shortcode_atts($default_atts, $atts, 'dpte_notification_banner');
 
@@ -60,7 +69,18 @@ function dpte_notification_banner_shortcode($atts) {
   }
 
   // generate data attributes from atts
-  $data_keys  = array('iqamah_timer_active', 'iqamah_timer_active', 'zawal_timer_active');
+  $data_keys  = array(
+    'iqamah_timer_active',
+    'iqamah_timer_active',
+    'morning_makrooh_timer_active',
+    'zawal_makrooh_timer_active',
+    'evening_makrooh_timer_active',
+    'morning_makrooh_timer_message',
+    'zawal_makrooh_timer_message',
+    'evening_makrooh_timer_message',
+    'default_message',
+    'default_message_type',
+  );
   $data_attrs = '';
   foreach ($data_keys as $key) {
     if (isset($atts[$key])) {
