@@ -71,7 +71,7 @@ function dpte_notification_banner_shortcode($atts) {
   // generate data attributes from atts
   $data_keys  = array(
     'iqamah_timer_active',
-    'iqamah_timer_active',
+    'jamah_timer_active',
     'morning_makrooh_timer_active',
     'zawal_makrooh_timer_active',
     'evening_makrooh_timer_active',
