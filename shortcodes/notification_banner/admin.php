@@ -181,7 +181,7 @@ add_action('dpte_extend_notification_banner_container', function($container) {
 
       Field::make('text', 'dpte_notification_banner_iqamah_timer', 'Iqamah Notification Timer')
         ->set_attribute("type", "number")
-        ->set_default_value(5)
+        ->set_default_value(2)
         ->set_help_text('How many minutes should the notification display the countdown to Iqamah/Jama\'ah time (in minutes).'),
 
       Field::make('text', 'dpte_notification_banner_jamah_timer', 'Jama\'ah Notification Timer')
