@@ -1,607 +1,619 @@
 /* @source: clock adapted from https://www.youtube.com/watch?v=nVGhXcMROfU */
 
 /* base */
-.dpte-clock-wrapper *, .dpte-clock-wrapper *::before, .dpte-clock-wrapper *::after {
-  box-sizing: border-box;
-  line-height: 1;
+.dpte-clock-wrapper *,
+.dpte-clock-wrapper *::before,
+.dpte-clock-wrapper *::after {
+	box-sizing: border-box;
+	line-height: 1;
 }
 
 .dpte-clock-wrapper * {
-  margin: 0;
-  padding: 0;
+	margin: 0;
+	padding: 0;
 }
 
 .dpte-clock-wrapper {
-  --cw: 0px;
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  margin: auto;
-  container-type: inline-size;
-  position: relative;
+	--cw: 0px;
+	width: 100%;
+	aspect-ratio: 1 / 1;
+	margin: auto;
+	container-type: inline-size;
+	position: relative;
 }
 
 /* Chromium 105+ */
 @supports (width: 1cqw) {
-  .dpte-clock-wrapper {
-    container-type: inline-size;
-    --cw: 100cqw;
-  }
+	.dpte-clock-wrapper {
+		container-type: inline-size;
+		--cw: 100cqw;
+	}
 }
 
 .dpte-clock {
-  background: radial-gradient(var(--dpte-clock-background-gradient-1), var(--dpte-clock-background-gradient-2) 60%);
-  position: relative;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  border: 3px solid var(--dpte-clock-border);
-  /* box-shadow: 0 5px 25px rgba(14, 21, 37, 0.8); */
-  z-index: 1;
+	background: radial-gradient(
+		var(--dpte-clock-background-gradient-1),
+		var(--dpte-clock-background-gradient-2) 60%
+	);
+	position: relative;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50%;
+	border: 3px solid var(--dpte-clock-border);
+	/* box-shadow: 0 5px 25px rgba(14, 21, 37, 0.8); */
+	z-index: 1;
 }
 
 /* hours */
 .dpte-clock .dpte-hours-container {
-  position: absolute;
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 8;
+	position: absolute;
+	list-style: none;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 8;
 }
 
 .dpte-clock .dpte-hours-container > li {
-  position: absolute;
-  height: 100%;
-  top: 0;
+	position: absolute;
+	height: 100%;
+	top: 0;
 }
 
 .dpte-clock .dpte-hours-container > li:nth-child(1) {
-  transform: rotate(30deg);
+	transform: rotate(30deg);
 }
 
 .dpte-clock .dpte-hours-container > li:nth-child(2) {
-  transform: rotate(60deg);
+	transform: rotate(60deg);
 }
 
 .dpte-clock .dpte-hours-container > li:nth-child(3) {
-  transform: rotate(90deg);
+	transform: rotate(90deg);
 }
 
 .dpte-clock .dpte-hours-container > li:nth-child(4) {
-  transform: rotate(120deg);
+	transform: rotate(120deg);
 }
 
 .dpte-clock .dpte-hours-container > li:nth-child(5) {
-  transform: rotate(150deg);
+	transform: rotate(150deg);
 }
 
 .dpte-clock .dpte-hours-container > li:nth-child(6) {
-  transform: rotate(180deg);
+	transform: rotate(180deg);
 }
 
 .dpte-clock .dpte-hours-container > li:nth-child(7) {
-  transform: rotate(210deg);
+	transform: rotate(210deg);
 }
 
 .dpte-clock .dpte-hours-container > li:nth-child(8) {
-  transform: rotate(240deg);
+	transform: rotate(240deg);
 }
 
 .dpte-clock .dpte-hours-container > li:nth-child(9) {
-  transform: rotate(270deg);
+	transform: rotate(270deg);
 }
 
 .dpte-clock .dpte-hours-container > li:nth-child(10) {
-  transform: rotate(300deg);
+	transform: rotate(300deg);
 }
 
 .dpte-clock .dpte-hours-container > li:nth-child(11) {
-  transform: rotate(330deg);
+	transform: rotate(330deg);
 }
 
 .dpte-clock .dpte-hours-container > li:nth-child(12) {
-  transform: rotate(0deg);
+	transform: rotate(0deg);
 }
 
 .dpte-clock .dpte-num {
-  color: var(--dpte-clock-number-color);
-  font-size: clamp(1.5rem, calc(var(--cw) * 0.075), 5rem);
-  font-weight: 400;
-  margin: clamp(0.75rem, calc(var(--cw) * 0.05), 4rem);
+	color: var(--dpte-clock-number-color);
+	font-size: clamp(1.5rem, calc(var(--cw) * 0.075), 5rem);
+	font-weight: 400;
+	margin: clamp(0.75rem, calc(var(--cw) * 0.05), 4rem);
 }
 
 .dpte-clock .dpte-hours-container > li:nth-child(1) .dpte-num {
-  transform: rotate(-30deg);
+	transform: rotate(-30deg);
 }
 
 .dpte-clock .dpte-hours-container > li:nth-child(2) .dpte-num {
-  transform: rotate(-60deg);
+	transform: rotate(-60deg);
 }
 
 .dpte-clock .dpte-hours-container > li:nth-child(3) .dpte-num {
-  transform: rotate(-90deg);
+	transform: rotate(-90deg);
 }
 
 .dpte-clock .dpte-hours-container > li:nth-child(4) .dpte-num {
-  transform: rotate(-120deg);
+	transform: rotate(-120deg);
 }
 
 .dpte-clock .dpte-hours-container > li:nth-child(5) .dpte-num {
-  transform: rotate(-150deg);
+	transform: rotate(-150deg);
 }
 
 .dpte-clock .dpte-hours-container > li:nth-child(6) .dpte-num {
-  transform: rotate(-180deg);
+	transform: rotate(-180deg);
 }
 
 .dpte-clock .dpte-hours-container > li:nth-child(7) .dpte-num {
-  transform: rotate(-210deg);
+	transform: rotate(-210deg);
 }
 
 .dpte-clock .dpte-hours-container > li:nth-child(8) .dpte-num {
-  transform: rotate(-240deg);
+	transform: rotate(-240deg);
 }
 
 .dpte-clock .dpte-hours-container > li:nth-child(9) .dpte-num {
-  transform: rotate(-270deg);
+	transform: rotate(-270deg);
 }
 
 .dpte-clock .dpte-hours-container > li:nth-child(10) .dpte-num {
-  transform: rotate(-300deg) translate(5px, 3px);
+	transform: rotate(-300deg) translate(5px, 3px);
 }
 
 .dpte-clock .dpte-hours-container > li:nth-child(11) .dpte-num {
-  transform: rotate(-330deg);
+	transform: rotate(-330deg);
 }
 
 .dpte-clock .dpte-hours-container > li:nth-child(12) .dpte-num {
-  transform: rotate(-0deg);
+	transform: rotate(-0deg);
 }
 
 /* minutes */
 .dpte-clock .dpte-minutes-container {
-  position: absolute;
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 8;
+	position: absolute;
+	list-style: none;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 8;
 }
 
 .dpte-clock .dpte-minutes-container > li {
-  position: absolute;
-  height: 100%;
-  top: 0;
-  padding: 0.5rem;
+	position: absolute;
+	height: 100%;
+	top: 0;
+	padding: 0.5rem;
 }
 
 .dpte-clock .dpte-minutes-container > li:nth-child(1) {
-  transform: rotate(0deg);
+	transform: rotate(0deg);
 }
 
 .dpte-clock .dpte-minutes-container > li:nth-child(2) {
-  transform: rotate(6deg);
+	transform: rotate(6deg);
 }
 
 .dpte-clock .dpte-minutes-container > li:nth-child(3) {
-  transform: rotate(12deg);
+	transform: rotate(12deg);
 }
 
 .dpte-clock .dpte-minutes-container > li:nth-child(4) {
-  transform: rotate(18deg);
+	transform: rotate(18deg);
 }
 
 .dpte-clock .dpte-minutes-container > li:nth-child(5) {
-  transform: rotate(24deg);
+	transform: rotate(24deg);
 }
 
 .dpte-clock .dpte-minutes-container > li:nth-child(6) {
-  transform: rotate(30deg);
+	transform: rotate(30deg);
 }
 
 .dpte-clock .dpte-minutes-container > li:nth-child(7) {
-  transform: rotate(36deg);
+	transform: rotate(36deg);
 }
 
 .dpte-clock .dpte-minutes-container > li:nth-child(8) {
-  transform: rotate(42deg);
+	transform: rotate(42deg);
 }
 
 .dpte-clock .dpte-minutes-container > li:nth-child(9) {
-  transform: rotate(48deg);
+	transform: rotate(48deg);
 }
 
 .dpte-clock .dpte-minutes-container > li:nth-child(10) {
-  transform: rotate(54deg);
+	transform: rotate(54deg);
 }
 
 .dpte-clock .dpte-minutes-container > li:nth-child(11) {
-  transform: rotate(60deg);
+	transform: rotate(60deg);
 }
 
 .dpte-clock .dpte-minutes-container > li:nth-child(12) {
-  transform: rotate(66deg);
+	transform: rotate(66deg);
 }
 
 .dpte-clock .dpte-minutes-container > li:nth-child(13) {
-  transform: rotate(72deg);
+	transform: rotate(72deg);
 }
 
 .dpte-clock .dpte-minutes-container > li:nth-child(14) {
-  transform: rotate(78deg);
+	transform: rotate(78deg);
 }
 
 .dpte-clock .dpte-minutes-container > li:nth-child(15) {
-  transform: rotate(84deg);
+	transform: rotate(84deg);
 }
 
 .dpte-clock .dpte-minutes-container > li:nth-child(16) {
-  transform: rotate(90deg);
+	transform: rotate(90deg);
 }
 
 .dpte-clock .dpte-minutes-container > li:nth-child(17) {
-  transform: rotate(96deg);
+	transform: rotate(96deg);
 }
 
 .dpte-clock .dpte-minutes-container > li:nth-child(18) {
-  transform: rotate(102deg);
+	transform: rotate(102deg);
 }
 
 .dpte-clock .dpte-minutes-container > li:nth-child(19) {
-  transform: rotate(108deg);
+	transform: rotate(108deg);
 }
 
 .dpte-clock .dpte-minutes-container > li:nth-child(20) {
-  transform: rotate(114deg);
+	transform: rotate(114deg);
 }
 
 .dpte-clock .dpte-minutes-container > li:nth-child(21) {
-  transform: rotate(120deg);
+	transform: rotate(120deg);
 }
 
 .dpte-clock .dpte-minutes-container > li:nth-child(22) {
-  transform: rotate(126deg);
+	transform: rotate(126deg);
 }
 
 .dpte-clock .dpte-minutes-container > li:nth-child(23) {
-  transform: rotate(132deg);
+	transform: rotate(132deg);
 }
 
 .dpte-clock .dpte-minutes-container > li:nth-child(24) {
-  transform: rotate(138deg);
+	transform: rotate(138deg);
 }
 
 .dpte-clock .dpte-minutes-container > li:nth-child(25) {
-  transform: rotate(144deg);
+	transform: rotate(144deg);
 }
 
 .dpte-clock .dpte-minutes-container > li:nth-child(26) {
-  transform: rotate(150deg);
+	transform: rotate(150deg);
 }
 
 .dpte-clock .dpte-minutes-container > li:nth-child(27) {
-  transform: rotate(156deg);
+	transform: rotate(156deg);
 }
 
 .dpte-clock .dpte-minutes-container > li:nth-child(28) {
-  transform: rotate(162deg);
+	transform: rotate(162deg);
 }
 
 .dpte-clock .dpte-minutes-container > li:nth-child(29) {
-  transform: rotate(168deg);
+	transform: rotate(168deg);
 }
 
 .dpte-clock .dpte-minutes-container > li:nth-child(30) {
-  transform: rotate(174deg);
+	transform: rotate(174deg);
 }
 
 .dpte-clock .dpte-minutes-container > li:nth-child(31) {
-  transform: rotate(180deg);
+	transform: rotate(180deg);
 }
 
 .dpte-clock .dpte-minutes-container > li:nth-child(32) {
-  transform: rotate(186deg);
+	transform: rotate(186deg);
 }
 
 .dpte-clock .dpte-minutes-container > li:nth-child(33) {
-  transform: rotate(192deg);
+	transform: rotate(192deg);
 }
 
 .dpte-clock .dpte-minutes-container > li:nth-child(34) {
-  transform: rotate(198deg);
+	transform: rotate(198deg);
 }
 
 .dpte-clock .dpte-minutes-container > li:nth-child(35) {
-  transform: rotate(204deg);
+	transform: rotate(204deg);
 }
 
 .dpte-clock .dpte-minutes-container > li:nth-child(36) {
-  transform: rotate(210deg);
+	transform: rotate(210deg);
 }
 
 .dpte-clock .dpte-minutes-container > li:nth-child(37) {
-  transform: rotate(216deg);
+	transform: rotate(216deg);
 }
 
 .dpte-clock .dpte-minutes-container > li:nth-child(38) {
-  transform: rotate(222deg);
+	transform: rotate(222deg);
 }
 
 .dpte-clock .dpte-minutes-container > li:nth-child(39) {
-  transform: rotate(228deg);
+	transform: rotate(228deg);
 }
 
 .dpte-clock .dpte-minutes-container > li:nth-child(40) {
-  transform: rotate(234deg);
+	transform: rotate(234deg);
 }
 
 .dpte-clock .dpte-minutes-container > li:nth-child(41) {
-  transform: rotate(240deg);
+	transform: rotate(240deg);
 }
 
 .dpte-clock .dpte-minutes-container > li:nth-child(42) {
-  transform: rotate(246deg);
+	transform: rotate(246deg);
 }
 
 .dpte-clock .dpte-minutes-container > li:nth-child(43) {
-  transform: rotate(252deg);
+	transform: rotate(252deg);
 }
 
 .dpte-clock .dpte-minutes-container > li:nth-child(44) {
-  transform: rotate(258deg);
+	transform: rotate(258deg);
 }
 
 .dpte-clock .dpte-minutes-container > li:nth-child(45) {
-  transform: rotate(264deg);
+	transform: rotate(264deg);
 }
 
 .dpte-clock .dpte-minutes-container > li:nth-child(46) {
-  transform: rotate(270deg);
+	transform: rotate(270deg);
 }
 
 .dpte-clock .dpte-minutes-container > li:nth-child(47) {
-  transform: rotate(276deg);
+	transform: rotate(276deg);
 }
 
 .dpte-clock .dpte-minutes-container > li:nth-child(48) {
-  transform: rotate(282deg);
+	transform: rotate(282deg);
 }
 
 .dpte-clock .dpte-minutes-container > li:nth-child(49) {
-  transform: rotate(288deg);
+	transform: rotate(288deg);
 }
 
 .dpte-clock .dpte-minutes-container > li:nth-child(50) {
-  transform: rotate(294deg);
+	transform: rotate(294deg);
 }
 
 .dpte-clock .dpte-minutes-container > li:nth-child(51) {
-  transform: rotate(300deg);
+	transform: rotate(300deg);
 }
 
 .dpte-clock .dpte-minutes-container > li:nth-child(52) {
-  transform: rotate(306deg);
+	transform: rotate(306deg);
 }
 
 .dpte-clock .dpte-minutes-container > li:nth-child(53) {
-  transform: rotate(312deg);
+	transform: rotate(312deg);
 }
 
 .dpte-clock .dpte-minutes-container > li:nth-child(54) {
-  transform: rotate(318deg);
+	transform: rotate(318deg);
 }
 
 .dpte-clock .dpte-minutes-container > li:nth-child(55) {
-  transform: rotate(324deg);
+	transform: rotate(324deg);
 }
 
 .dpte-clock .dpte-minutes-container > li:nth-child(56) {
-  transform: rotate(330deg);
+	transform: rotate(330deg);
 }
 
 .dpte-clock .dpte-minutes-container > li:nth-child(57) {
-  transform: rotate(336deg);
+	transform: rotate(336deg);
 }
 
 .dpte-clock .dpte-minutes-container > li:nth-child(58) {
-  transform: rotate(342deg);
+	transform: rotate(342deg);
 }
 
 .dpte-clock .dpte-minutes-container > li:nth-child(59) {
-  transform: rotate(348deg);
+	transform: rotate(348deg);
 }
 
 .dpte-clock .dpte-minutes-container > li:nth-child(60) {
-  transform: rotate(354deg);
+	transform: rotate(354deg);
 }
 
 .dpte-clock .dpte-minute-line {
-  color: var(--dpte-clock-minute-line-color);
-  font-size: clamp(0.3rem, calc(var(--cw) * 0.015), 1rem);
-  font-weight: 400;
+	color: var(--dpte-clock-minute-line-color);
+	font-size: clamp(0.3rem, calc(var(--cw) * 0.015), 1rem);
+	font-weight: 400;
 }
 
 /* hands */
 .dpte-clock .dpte-hands-container {
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9;
-  width: 100%;
-  height: 100%;
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 9;
+	width: 100%;
+	height: 100%;
 }
 
 .dpte-clock .dpte-hand {
-  position: absolute;
+	position: absolute;
 }
 
 .dpte-clock .dpte-hand-hours {
-  width: 2.5%;
-  height: 62.5%;
+	width: 2.5%;
+	height: 62.5%;
 }
 
 .dpte-clock .dpte-hand-hours::before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 50%;
-  background: linear-gradient(180deg, var(--dpte-clock-hand-hour-color-gradient-1), var(--dpte-clock-hand-hour-color-gradient-2));
-  border-radius: 20px;
-  box-shadow: 0 0 15px rgba(2, 2, 2, 0.5);
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 50%;
+	background: linear-gradient(
+		180deg,
+		var(--dpte-clock-hand-hour-color-gradient-1),
+		var(--dpte-clock-hand-hour-color-gradient-2)
+	);
+	border-radius: 20px;
+	box-shadow: 0 0 15px rgba(2, 2, 2, 0.5);
 }
 
 .dpte-clock .dpte-hand-minutes {
-  width: 1.6%;
-  height: 70%;
+	width: 1.6%;
+	height: 70%;
 }
 
 .dpte-clock .dpte-hand-minutes::before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 50%;
-  background: linear-gradient(180deg, var(--dpte-clock-hand-minute-color-gradient-1), var(--dpte-clock-hand-minute-color-gradient-2));
-  border-radius: 20px;
-  box-shadow: 0 0 15px rgba(2, 2, 2, 0.5);
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 50%;
+	background: linear-gradient(
+		180deg,
+		var(--dpte-clock-hand-minute-color-gradient-1),
+		var(--dpte-clock-hand-minute-color-gradient-2)
+	);
+	border-radius: 20px;
+	box-shadow: 0 0 15px rgba(2, 2, 2, 0.5);
 }
 
 .dpte-clock .dpte-hand-seconds {
-  width: 1%;
-  height: 75%;
+	width: 1%;
+	height: 75%;
 }
 
 .dpte-clock .dpte-hand-seconds::before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 60%;
-  background: linear-gradient(180deg, var(--dpte-clock-hand-second-color-gradient-1), var(--dpte-clock-hand-second-color-gradient-2));
-  border-radius: 20px;
-  box-shadow: 0 0 15px rgba(2, 2, 2, 0.5);
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 60%;
+	background: linear-gradient(
+		180deg,
+		var(--dpte-clock-hand-second-color-gradient-1),
+		var(--dpte-clock-hand-second-color-gradient-2)
+	);
+	border-radius: 20px;
+	box-shadow: 0 0 15px rgba(2, 2, 2, 0.5);
 }
 
 .dpte-clock .dpte-center-dot {
-  z-index: 10;
-  position: absolute;
-  background: var(--dpte-clock-center-dot-background);
-  width: 4%;
-  height: 4%;
-  border-radius: 50%;
-  border: 7px solid var(--dpte-clock-center-dot-border);
+	z-index: 10;
+	position: absolute;
+	background: var(--dpte-clock-center-dot-background);
+	width: 4%;
+	height: 4%;
+	border-radius: 50%;
+	border: 7px solid var(--dpte-clock-center-dot-border);
 }
 
 .dpte-clock .dpte-center-logo {
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transform:
-    scale(var(--dpte-clock-center-logo-image-scale))
-    translateX(var(--dpte-clock-center-logo-image-translate-x))
-    translateY(var(--dpte-clock-center-logo-image-translate-y));
-  z-index: 1;
-  width: 100%;
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transform: scale(var(--dpte-clock-center-logo-image-scale))
+		translateX(var(--dpte-clock-center-logo-image-translate-x))
+		translateY(var(--dpte-clock-center-logo-image-translate-y));
+	z-index: 1;
+	width: 100%;
 }
 
 .dpte-clock-wrapper .dpte-center-background-logo {
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transform:
-    scale(var(--dpte-clock-center-background-logo-image-scale))
-    translateX(var(--dpte-clock-center-background-logo-image-translate-x))
-    translateY(var(--dpte-clock-center-background-logo-image-translate-y));
-  z-index: 0;
-  width: 100%;
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transform: scale(var(--dpte-clock-center-background-logo-image-scale))
+		translateX(var(--dpte-clock-center-background-logo-image-translate-x))
+		translateY(var(--dpte-clock-center-background-logo-image-translate-y));
+	z-index: 0;
+	width: 100%;
 }
 
 .dpte-clock .dpte-time-remaining {
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  z-index: 10;
-  overflow: hidden;
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	z-index: 10;
+	overflow: hidden;
+	display: var(--dpte-clock-time-remaining-display, block);
 }
 
 .dpte-clock .dpte-time-remaining > .dpte-time-remaining-content {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  gap: clamp(0rem, calc(var(--cw) * 0.025), 2rem);
-  height: 100%;
-  transform: translateY(22.5%);
-  color: var(--dpte-clock-time-remaining-color);
-  font-size: 2rem;
-  font-weight: bold;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	gap: clamp(0rem, calc(var(--cw) * 0.025), 2rem);
+	height: 100%;
+	transform: translateY(22.5%);
+	color: var(--dpte-clock-time-remaining-color);
+	font-size: 2rem;
+	font-weight: bold;
 }
 
 .dpte-clock .dpte-time-remaining-header {
-  font-size: clamp(1rem, calc(var(--cw) * 0.04), 3rem);
-  /* display: none; */
+	font-size: clamp(1rem, calc(var(--cw) * 0.04), 3rem);
+	/* display: none; */
 }
 
 @media (min-width: 525px) {
-  .dpte-clock .dpte-time-remaining-header {
-    display: inline;
-  }
+	.dpte-clock .dpte-time-remaining-header {
+		display: inline;
+	}
 }
 
 .dpte-clock .dpte-time-remaining-value {
-  font-size: clamp(1.5rem, calc(var(--cw) * 0.06), 4rem);
+	font-size: clamp(1.5rem, calc(var(--cw) * 0.06), 4rem);
 }
 
 .dpte-clock .dpte-top-left-image {
-  position: absolute;
-  top: -7.5%;
-  left: -7.5%;
-  width: 25%;
-  transform:
-    scale(var(--dpte-clock-top-left-image-scale))
-    translateX(var(--dpte-clock-top-left-image-translate-x))
-    translateY(var(--dpte-clock-top-left-image-translate-y));
+	position: absolute;
+	top: -7.5%;
+	left: -7.5%;
+	width: 25%;
+	transform: scale(var(--dpte-clock-top-left-image-scale))
+		translateX(var(--dpte-clock-top-left-image-translate-x))
+		translateY(var(--dpte-clock-top-left-image-translate-y));
 }
 
 .dpte-clock .dpte-top-right-image {
-  position: absolute;
-  top: -7.5%;
-  right: -7.5%;
-  width: 25%;
-  transform:
-    scale(var(--dpte-clock-top-right-image-scale))
-    translateX(var(--dpte-clock-top-right-image-translate-x))
-    translateY(var(--dpte-clock-top-right-image-translate-y));
+	position: absolute;
+	top: -7.5%;
+	right: -7.5%;
+	width: 25%;
+	transform: scale(var(--dpte-clock-top-right-image-scale))
+		translateX(var(--dpte-clock-top-right-image-translate-x))
+		translateY(var(--dpte-clock-top-right-image-translate-y));
 }
 
 .dpte-clock .dpte-bottom-left-image {
-  position: absolute;
-  bottom: -7.5%;
-  left: -7.5%;
-  width: 25%;
-  transform:
-    scale(var(--dpte-clock-bottom-left-image-scale))
-    translateX(var(--dpte-clock-bottom-left-image-translate-x))
-    translateY(var(--dpte-clock-bottom-left-image-translate-y));
+	position: absolute;
+	bottom: -7.5%;
+	left: -7.5%;
+	width: 25%;
+	transform: scale(var(--dpte-clock-bottom-left-image-scale))
+		translateX(var(--dpte-clock-bottom-left-image-translate-x))
+		translateY(var(--dpte-clock-bottom-left-image-translate-y));
 }
 
 .dpte-clock .dpte-bottom-right-image {
-  position: absolute;
-  bottom: -7.5%;
-  right: -7.5%;
-  width: 25%;
-  transform:
-    scale(var(--dpte-clock-bottom-right-image-scale))
-    translateX(var(--dpte-clock-bottom-right-image-translate-x))
-    translateY(var(--dpte-clock-bottom-right-image-translate-y));
+	position: absolute;
+	bottom: -7.5%;
+	right: -7.5%;
+	width: 25%;
+	transform: scale(var(--dpte-clock-bottom-right-image-scale))
+		translateX(var(--dpte-clock-bottom-right-image-translate-x))
+		translateY(var(--dpte-clock-bottom-right-image-translate-y));
 }

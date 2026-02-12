@@ -27,7 +27,7 @@ add_action('dpte_extend_clock_container', function($container) {
           <p style="margin-top: 1.5rem;">
 <textarea
   readonly
-  style="width: 100%; min-height: 420px; font-family: monospace; font-size: 0.9rem; line-height: 1.4; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px; background: #fafafa; color: #2c2c2e; resize: none; box-sizing: border-box; white-space: pre;"
+  style="width: 100%; min-height: 440px; font-family: monospace; font-size: 0.9rem; line-height: 1.4; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px; background: #fafafa; color: #2c2c2e; resize: none; box-sizing: border-box; white-space: pre;"
 >[dpte_clock
   clock_background_gradient_1="#CFA55B"
   clock_background_gradient_2="#2C2C2E"
@@ -42,6 +42,7 @@ add_action('dpte_extend_clock_container', function($container) {
   clock_hand_second_color_gradient_2="#bbbbbbc7"
   clock_center_dot_background="#CFA55B"
   clock_center_dot_border="#2C2C2E"
+  clock_time_remaining_display="show"
   clock_time_remaining_color="#FFFFFF"
   clock_center_logo_image=""
   clock_center_logo_image_scale="1"
@@ -94,6 +95,13 @@ add_action('dpte_extend_clock_container', function($container) {
 
             <li><strong><code>clock_center_dot_background</code></strong> - Background color of the center dot.</li>
             <li><strong><code>clock_center_dot_border</code></strong> - Border color of the center dot.</li>
+            <li>
+              <strong><code>clock_time_remaining_display</code></strong> - Show or hide time remaining display.
+              <ol>
+                <li><code>show</code> (default) - Show time remaining display.</li>
+                <li><code>hide</code> - Hide time remaining display.</li>
+              </ol>
+            </li>
             <li><strong><code>clock_time_remaining_color</code></strong> - Color of the time-remaining text.</li>
 
             <li><strong><code>clock_center_logo_image</code></strong> - URL of the center logo image.</li>

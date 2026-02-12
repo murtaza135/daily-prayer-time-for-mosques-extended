@@ -43,6 +43,7 @@ function dpte_clock_shortcode($atts) {
     'clock_hand_second_color_gradient_2' => '#bbbbbbc7',
     'clock_center_dot_background' => '#CFA55B',
     'clock_center_dot_border' => '#2C2C2E',
+    'clock_time_remaining_display' => 'show',
     'clock_time_remaining_color' => '#FFFFFF',
     'clock_center_logo_image_scale' => '1',
     'clock_center_logo_image_translate_x' => '0',
@@ -68,13 +69,16 @@ function dpte_clock_shortcode($atts) {
   );
   $atts = shortcode_atts($default_atts, $atts, 'dpte_clock');
 
+  // atts transformations
+  $atts['clock_time_remaining_display'] = $atts['clock_time_remaining_display'] == "hide" ? "none" : "block";
+
   // generate css properties from atts
   $style_keys = array(
     'clock_background_gradient_1', 'clock_background_gradient_2', 'clock_border', 'clock_number_color',
     'clock_minute_line_color', 'clock_hand_hour_color_gradient_1', 'clock_hand_hour_color_gradient_2',
     'clock_hand_minute_color_gradient_1', 'clock_hand_minute_color_gradient_2',
     'clock_hand_second_color_gradient_1', 'clock_hand_second_color_gradient_2',
-    'clock_center_dot_background', 'clock_center_dot_border', 'clock_time_remaining_color',
+    'clock_center_dot_background', 'clock_center_dot_border', 'clock_time_remaining_display', 'clock_time_remaining_color',
     'clock_center_logo_image_scale', 'clock_center_logo_image_translate_x', 'clock_center_logo_image_translate_y',
     'clock_center_background_logo_image_scale', 'clock_center_background_logo_image_translate_x', 'clock_center_background_logo_image_translate_y',
     'clock_top_left_image_scale', 'clock_top_left_image_translate_x', 'clock_top_left_image_translate_y',
