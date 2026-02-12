@@ -152,4 +152,5 @@
 .dpte-timetable2 .dpte-timetable2-next-prayer-section .dpte-timetable2-next-prayer-remaining-time {
 	font-size: calc(1.33rem * var(--size-multiplier));
 	font-weight: 700;
+	white-space: nowrap;
 }
