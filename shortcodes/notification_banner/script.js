@@ -140,7 +140,13 @@ class NotificationBanner {
       if (element.dataset.defaultMessageType === "message") {
         textElement.textContent = element.dataset.defaultMessage;
       } else if (element.dataset.defaultMessageType === "timer") {
-        textElement.textContent = `${prayer.name} prayer in ${prayer.timeRemaining}`;
+        if (prayer.waitingForJamah) {
+          textElement.textContent = `${prayer.name} Jama'ah in ${prayer.timeRemaining}`;
+        } else {
+          const nextPrayerName = dptCache.getNextPrayerName(prayer.name);
+          const nextPrayerNameCapitalised = nextPrayerName.charAt(0).toUpperCase() + nextPrayerName.slice(1);
+          textElement.textContent = `${nextPrayerNameCapitalised} prayer in ${prayer.timeRemaining}`;
+        }
       } else {
         textElement.textContent = "Welcome.";
       }

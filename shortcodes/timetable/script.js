@@ -63,7 +63,7 @@ class Timetable {
         }
 
         const jumah = dptCache.data.jumah;
-        const jumahElement = root.querySelector(".dpte-timetable .dpte-timetable-jumah .dpte-prayer-start");
+        const jumahElement = root.querySelector(".dpte-timetable .dpte-timetable-jumah .dpte-prayer-prayer");
         if (!!jumah && jumah.length > 0 && !!jumahElement) {
           const jumahDates = jumah.map((time) => {
             const [hours, minutes] = time.split(":").map(Number);

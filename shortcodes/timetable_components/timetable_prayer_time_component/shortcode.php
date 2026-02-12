@@ -229,7 +229,7 @@ function dpte_timetable_prayer_time_component_shortcode($atts) {
               <p class="dpte-prayer-title">Jumu'ah</p>
             </span>
             <span class="dpte-prayer-values">
-              <p class="dpte-prayer-start">
+              <p class="dpte-prayer-prayer">
                 <?php echo str_replace(["Jumuah", "|"], ["", "&"], do_shortcode('[jummah_prayer]')); ?>
               </p>
             </span>
