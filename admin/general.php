@@ -22,5 +22,10 @@ add_action('dpte_extend_general_container', function($container) {
         ->set_default_value('yes')
         ->set_option_value('yes')
         ->set_help_text('Replace all occurrences of "Zuhr" with "Jumu\'ah" on Friday.'),
+
+      Field::make('checkbox', 'dpte_general_settings_24_hour_time_format', __('24 Hour Format'))
+        ->set_default_value('yes')
+        ->set_option_value('no')
+        ->set_help_text('Use the 24 hour format?'),
     ]);
 });

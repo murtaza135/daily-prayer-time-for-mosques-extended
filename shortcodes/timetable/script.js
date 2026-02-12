@@ -13,7 +13,7 @@ class Timetable {
         }
 
         const sunrise = dptCache.getPrayer("sunrise", timeType);
-        const sunriseElement = root.querySelector(".dpte-timetable .dpte-timetable-sunrise .dpte-prayer-start");
+        const sunriseElement = root.querySelector(".dpte-timetable .dpte-timetable-sunrise .dpte-prayer-prayer");
         if (!!sunrise && !!sunriseElement) {
           sunriseElement.textContent = DateTimeUtils.formatDateToTime(sunrise.begins);
         }
@@ -63,9 +63,16 @@ class Timetable {
         }
 
         const jumah = dptCache.data.jumah;
+        console.log(jumah);
         const jumahElement = root.querySelector(".dpte-timetable .dpte-timetable-jumah .dpte-prayer-start");
         if (!!jumah && jumah.length > 0 && !!jumahElement) {
-          const jumahText = jumah.join(" & ");
+          const jumahDates = jumah.map((time) => {
+            const [hours, minutes] = time.split(":").map(Number);
+            const date = new Date();
+            date.setHours(hours, minutes, 0, 0);
+            return DateTimeUtils.formatDateToTime(date);
+          });
+          const jumahText = jumahDates.join(" & ");
           jumahElement.textContent = jumahText;
         }
       });

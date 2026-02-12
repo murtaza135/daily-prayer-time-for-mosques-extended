@@ -1,6 +1,7 @@
 class DateTimeUtils {
   static MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
   static ISLAMIC_MONTHS = ["Muharram", "Safar", "Rabi ul-Awwal", "Rabi ul-Thani", "Jumada al-Ula", "Jumada al-Thaniyah", "Rajab", "Sha'ban", "Ramadan", "Shawwal", "Dhul Qa'ada", "Dhul Hijja"];
+  static TIME_FORMAT_24_HOUR = DPTE_DateTimeUtilsOptions.TIME_FORMAT_24_HOUR ?? false;
 
   static formatDiffToTime(diff) {
     const hours = `${Math.floor(diff / (1000 * 60 * 60))}`.padStart(2, "0");
@@ -10,9 +11,18 @@ class DateTimeUtils {
   }
 
   static formatDateToTime(date) {
-    const hours = `${date.getHours()}`.padStart(2, "0");
-    const minutes = `${date.getMinutes()}`.padStart(2, "0");
-    return `${hours}:${minutes}`;
+    if (DateTimeUtils.TIME_FORMAT_24_HOUR) {
+      const hours = `${date.getHours()}`.padStart(2, "0");
+      const minutes = `${date.getMinutes()}`.padStart(2, "0");
+      return `${hours}:${minutes}`;
+    } else {
+      const amOrPm = date.getHours() >= 12 ? "PM" : "AM";
+      let hoursNumber = date.getHours() % 12;
+      if (hoursNumber === 0) hoursNumber = 12;
+      const hours = `${hoursNumber}`;
+      const minutes = `${date.getMinutes()}`.padStart(2, "0");
+      return `${hours}:${minutes} ${amOrPm}`;
+    }
   }
 
   // @source: https://www.w3resource.com/javascript-exercises/fundamental/javascript-fundamental-exercise-122.php
