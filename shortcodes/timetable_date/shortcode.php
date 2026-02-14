@@ -26,7 +26,7 @@ function dpte_timetable_date_shortcode($atts) {
     'timetable_date_text_size_multiplier' => '1',
 
     // js
-    'day' => 'today',
+    // ...
   );
   $atts = shortcode_atts($default_atts, $atts, 'dpte_timetable_date');
 
@@ -40,7 +40,7 @@ function dpte_timetable_date_shortcode($atts) {
   }
 
   // generate data attributes from atts
-  $data_keys  = array('day');
+  $data_keys  = array();
   $data_attrs = '';
   foreach ($data_keys as $key) {
     if (isset($atts[$key])) {
@@ -52,7 +52,9 @@ function dpte_timetable_date_shortcode($atts) {
   ?>
   <div class="dpte-timetable-date" style="<?php echo esc_attr($style); ?>" <?php echo $data_attrs; ?>>
     <p class="dpte-timetable-date-gregorian" <?php echo $data_attrs; ?>><?php echo date("jS F Y") ?></p>
-    <p class="dpte-timetable-date-islamic" <?php echo $data_attrs; ?>></p>
+    <p class="dpte-timetable-date-islamic" <?php echo $data_attrs; ?>>
+      <?php echo do_shortcode('[hijri_date]'); ?>
+    </p>
   </div>
   <?php
   return ob_get_clean();

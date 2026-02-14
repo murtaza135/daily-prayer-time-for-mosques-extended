@@ -27,11 +27,10 @@ add_action('dpte_extend_timetable_date_container', function($container) {
           <p style="margin-top: 1.5rem;">
 <textarea
   readonly
-  style="width: 100%; min-height: 130px; font-family: monospace; font-size: 0.9rem; line-height: 1.4; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px; background: #fafafa; color: #2c2c2e; resize: none; box-sizing: border-box; white-space: pre;"
+  style="width: 100%; min-height: 110px; font-family: monospace; font-size: 0.9rem; line-height: 1.4; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px; background: #fafafa; color: #2c2c2e; resize: none; box-sizing: border-box; white-space: pre;"
 >[dpte_timetable_date
   timetable_date_color="#CFA55B"
   timetable_date_text_size_multiplier="1"
-  day="today"
 ]</textarea>
           </p>
 
@@ -43,22 +42,13 @@ add_action('dpte_extend_timetable_date_container', function($container) {
           <h4>Parameters</h4>
           <ol>
             <li>
-              <strong><code>timetable_date_color</code></strong> –
+              <strong><code>timetable_date_color</code></strong> -
               Change the color of the date text.
             </li>
 
             <li>
-              <strong><code>timetable_date_text_size_multiplier</code></strong> –
+              <strong><code>timetable_date_text_size_multiplier</code></strong> -
               A multiplier used to increase or decrease the date text size.
-            </li>
-
-            <li>
-              <strong><code>day</code></strong> –
-              Determines which date is displayed.
-              <ol>
-                <li><code>today</code> (default) – Displays today&rsquo;s date.</li>
-                <li><code>tomorrow</code> – Displays tomorrow&rsquo;s date.</li>
-              </ol>
             </li>
           </ol>
 
