@@ -203,19 +203,22 @@ class DPTCache {
 
   getTodaysPrayer(name) {
     if (!this.data) return null;
-    return this.data.today[DPTCache.PRAYER_INDEX[name.toLowerCase()]];
+    const prayerName = this._extractPrayerName(name);
+    return this.data.today[DPTCache.PRAYER_INDEX[prayerName]];
   }
 
   getTomorrowsPrayer(name) {
     if (!this.data) return null;
-    return this.data.tomorrow[DPTCache.PRAYER_INDEX[name.toLowerCase()]];
+    const prayerName = this._extractPrayerName(name);
+    return this.data.tomorrow[DPTCache.PRAYER_INDEX[prayerName]];
   }
 
   getNextPrayer(name) {
     if (!this.data) return null;
     const now = new Date();
 
-    const index = DPTCache.PRAYER_INDEX[name.toLowerCase()];
+    const prayerName = this._extractPrayerName(name);
+    const index = DPTCache.PRAYER_INDEX[prayerName];
     const times = !!this.data.yesterday
       ? [this.data.yesterday[index], this.data.today[index], this.data.tomorrow[index]]
       : [this.data.today[index], this.data.tomorrow[index]];
@@ -229,26 +232,36 @@ class DPTCache {
   }
 
   getPrayer(name, timeType = "next") {
+    const prayerName = this._extractPrayerName(name);
     switch (timeType) {
       case "today":
-        return this.getTodaysPrayer(name);
+        return this.getTodaysPrayer(prayerName);
       case "tomorrow":
-        return this.getTomorrowsPrayer(name);
+        return this.getTomorrowsPrayer(prayerName);
       case "next":
-        return this.getNextPrayer(name);
+        return this.getNextPrayer(prayerName);
       default:
-        return this.getNextPrayer(name);
+        return this.getNextPrayer(prayerName);
     }
   }
 
   getNextPrayerName(name) {
     console.log(name);
     console.log(DPTCache.PRAYER_INDEX);
-    const prayerName = name.toLowerCase();
+    const prayerName = this._extractPrayerName(name);
+    console.log(prayerName);
     const index = (DPTCache.PRAYER_INDEX[prayerName] + 1) % DPTCache.PRAYER_NAMES.length;
     console.log(index);
     console.log(DPTCache.PRAYER_NAMES[index]);
     return DPTCache.PRAYER_NAMES[index];
+  }
+
+  _extractPrayerName(name) {
+    let prayerName = name.toLowerCase();
+    if (prayerName === "jumu'ah" || prayerName === "jumuah" || prayerName === "jumah") {
+      prayerName = "zuhr";
+    }
+    return prayerName;
   }
 }
 
