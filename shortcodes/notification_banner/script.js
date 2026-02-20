@@ -141,11 +141,12 @@ class NotificationBanner {
         textElement.textContent = element.dataset.defaultMessage;
       } else if (element.dataset.defaultMessageType === "timer") {
         if (prayer.waitingForJamah) {
+          // TODO if jumah, only show "Jumu'ah", not "Jumu'ah Jama'ah"?
           textElement.textContent = `${prayer.name} Jama'ah in ${prayer.timeRemaining}`;
         } else {
           const nextPrayerName = dptCache.getNextPrayerName(prayer.name);
           const nextPrayerNameCapitalised = nextPrayerName.charAt(0).toUpperCase() + nextPrayerName.slice(1);
-          textElement.textContent = `${nextPrayerNameCapitalised} prayer in ${prayer.timeRemaining}`;
+          textElement.textContent = `${nextPrayerNameCapitalised} starts in ${prayer.timeRemaining}`;
         }
       } else {
         textElement.textContent = "Welcome.";

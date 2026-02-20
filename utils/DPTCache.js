@@ -246,13 +246,8 @@ class DPTCache {
   }
 
   getNextPrayerName(name) {
-    console.log(name);
-    console.log(DPTCache.PRAYER_INDEX);
     const prayerName = this._extractPrayerName(name);
-    console.log(prayerName);
     const index = (DPTCache.PRAYER_INDEX[prayerName] + 1) % DPTCache.PRAYER_NAMES.length;
-    console.log(index);
-    console.log(DPTCache.PRAYER_NAMES[index]);
     return DPTCache.PRAYER_NAMES[index];
   }
 

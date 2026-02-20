@@ -9,7 +9,6 @@ class TimetableDate {
   }
 
   static setDateIslamic() {
-    console.log(dptCache.data);
     const todayString = dptCache.data?.hijri_date ?? "";
     const dateElement = document.querySelectorAll(".dpte-timetable-date .dpte-timetable-date-islamic");
     dateElement.forEach((element) => {
