@@ -27,10 +27,14 @@ class DPTCache {
   }
 
   async _fetchPrayerData() {
-    const res = await fetch(`${window.location.origin}/wp-json/dpt/v1/prayertime?filter=today`);
-    const data = await res.json();
-    if (!res.ok) return null;
-    return data[0];
+    try {
+      const res = await fetch(`${window.location.origin}/wp-json/dpt/v1/prayertime?filter=today`);
+      const data = await res.json();
+      if (!res.ok) return null;
+      return data[0];
+    } catch {
+      return null;
+    }
   }
 
   _extractPrayerData(data) {
@@ -144,7 +148,7 @@ class DPTCache {
       };
     }
 
-    return null;
+    return this.data;
   }
 
   async loadPrayerData() {
