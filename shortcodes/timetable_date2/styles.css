@@ -1,0 +1,21 @@
+/* date */
+.dpte-timetable-date2 *, .dpte-timetable-date2 *::before, .dpte-timetable-date2 *::after {
+  box-sizing: border-box;
+  line-height: 1;
+}
+
+.dpte-timetable-date2 * {
+  margin: 0;
+  padding: 0;
+}
+
+.dpte-timetable-date2 {
+  --size-multiplier: var(--dpte-timetable-date-text-size-multiplier, 1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: var(--dpte-timetable-date-color);
+  font-size: calc(1.2rem * var(--size-multiplier));
+  gap: 0.5rem;
+}

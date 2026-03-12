@@ -1,0 +1,7 @@
+class Example {
+
+}
+
+addEventListener("DOMContentLoaded", () => {
+
+});
