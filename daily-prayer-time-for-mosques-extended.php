@@ -67,6 +67,8 @@ if (!class_exists('DailyPrayerTimeExtended')) {
         require_once plugin_dir_path(__FILE__) . "shortcodes/timetable2_components/timetable2_title_component/shortcode.php";
         require_once plugin_dir_path(__FILE__) . "shortcodes/clock/admin.php";
         require_once plugin_dir_path(__FILE__) . "shortcodes/clock/shortcode.php";
+        require_once plugin_dir_path(__FILE__) . "shortcodes/digital_clock/admin.php";
+        require_once plugin_dir_path(__FILE__) . "shortcodes/digital_clock/shortcode.php";
         require_once plugin_dir_path(__FILE__) . "shortcodes/notification_banner/admin.php";
         require_once plugin_dir_path(__FILE__) . "shortcodes/notification_banner/shortcode.php";
         require_once plugin_dir_path(__FILE__) . "admin/admin.php"; // this must be the last require

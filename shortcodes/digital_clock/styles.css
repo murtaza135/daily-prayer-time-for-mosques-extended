@@ -1,9 +1,25 @@
-.example *, .example *::before, .example *::after {
+/* digital clock */
+.dpte-digital-clock *, .dpte-digital-clock *::before, .dpte-digital-clock *::after {
   box-sizing: border-box;
   line-height: 1;
 }
 
-.example * {
+.dpte-digital-clock * {
   margin: 0;
   padding: 0;
+}
+
+.dpte-digital-clock {
+  --size-multiplier: var(--dpte-digital-clock-text-size-multiplier, 1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: var(--dpte-digital-clock-color);
+  font-size: calc(1.2rem * var(--size-multiplier));
+  gap: 0.5rem;
+}
+
+.dpte-digital-clock .dpte-digital-clock-text {
+  font-weight: bold;
 }

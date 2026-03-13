@@ -25,6 +25,23 @@ class DateTimeUtils {
     }
   }
 
+  static formatDateToTimeWithSeconds(date) {
+    if (DateTimeUtils.TIME_FORMAT_24_HOUR) {
+      const hours = `${date.getHours()}`.padStart(2, "0");
+      const minutes = `${date.getMinutes()}`.padStart(2, "0");
+      const seconds = `${date.getSeconds()}`.padStart(2, "0");
+      return `${hours}:${minutes}:${seconds}`;
+    } else {
+      const amOrPm = date.getHours() >= 12 ? "PM" : "AM";
+      let hoursNumber = date.getHours() % 12;
+      if (hoursNumber === 0) hoursNumber = 12;
+      const hours = `${hoursNumber}`.padStart(2, "0");
+      const minutes = `${date.getMinutes()}`.padStart(2, "0");
+      const seconds = `${date.getSeconds()}`.padStart(2, "0");
+      return `${hours}:${minutes}:${seconds} ${amOrPm}`;
+    }
+  }
+
   // @source: https://www.w3resource.com/javascript-exercises/fundamental/javascript-fundamental-exercise-122.php
   static addOrdinalSuffix(num) {
     const int = parseInt(num);

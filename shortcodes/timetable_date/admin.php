@@ -36,7 +36,8 @@ add_action('dpte_extend_timetable_date_container', function($container) {
 
           <p>
             Displays dates from both the <strong>Gregorian calendar</strong> and the
-            <strong>Islamic calendar</strong>.
+            <strong>Islamic calendar</strong> together. This shortcode displays the
+						Gregorian date at the top, and then the Islamic date at the bottom.
           </p>
 
           <h4>Parameters</h4>

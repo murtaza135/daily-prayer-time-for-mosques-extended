@@ -33,7 +33,7 @@ addEventListener("DOMContentLoaded", () => {
       }
     }
 
-    setDateText();
+    setTimeout(setDateText, 1000);
     setInterval(setDateText, 10000);
   });
 });
