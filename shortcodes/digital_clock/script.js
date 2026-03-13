@@ -10,6 +10,8 @@ class DigitalClock {
 }
 
 addEventListener("DOMContentLoaded", () => {
-  DigitalClock.setTime();
-  setInterval(DigitalClock.setTime, 1000);
+  dptCache.ensurePrayerData().then(() => {
+    DigitalClock.setTime();
+    setInterval(DigitalClock.setTime, 1000);
+  });
 });
