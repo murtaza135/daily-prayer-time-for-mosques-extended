@@ -59,8 +59,6 @@ class NotificationBanner {
       const prayer = dptCache.getCurrentPrayer();
       if (!prayer) return;
       const { name, jamah, diff, timeRemaining, waitingForJamah } = prayer;
-      console.log(timeRemaining);
-      console.log(timeRemaining.slice(3));
 
       if (NotificationBanner.isMorningMakroohTime(prayer)) {
         notificationBannerElement.forEach((element) => {

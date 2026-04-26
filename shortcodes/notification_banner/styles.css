@@ -34,7 +34,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 0.5rem;
+  gap: 1rem;
   text-align: center;
   min-height: calc(20px * var(--size-multiplier));
 }
