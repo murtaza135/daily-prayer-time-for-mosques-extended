@@ -11,7 +11,7 @@ class TimetableDate {
   static setDateIslamic() {
     const today = new Date();
     const todayStringGregorian = `${DateTimeUtils.addOrdinalSuffix(today.getDate())} ${DateTimeUtils.MONTHS[today.getMonth()]} ${today.getFullYear()}`;
-    const todayStringIslamic = dptCache.data?.hijri_date ?? "";
+    const todayStringIslamic = dptCache.data?.hijri_date ?? todayStringGregorian;
     const dateElement = document.querySelectorAll(".dpte-timetable-date2 .dpte-timetable-date2-text");
     dateElement.forEach((element) => {
       element.textContent = todayStringIslamic;
@@ -34,6 +34,6 @@ addEventListener("DOMContentLoaded", () => {
     }
 
     setTimeout(setDateText, 1000);
-    setInterval(setDateText, 10000);
+    setInterval(setDateText, 10000 /* 10 seconds */);
   });
 });

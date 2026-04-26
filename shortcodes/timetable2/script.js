@@ -110,7 +110,7 @@ class Timetable2 {
     });
   }
 
-  static setDate() {
+  static setDateGregorian() {
     const now = new Date();
     const dateElement = document.querySelectorAll(".dpte-timetable2 .dpte-timetable2-date");
     // TODO change to same type of code in timetable_date shortcode, and move into DateTimeUtils
@@ -118,6 +118,18 @@ class Timetable2 {
     const dateString = `${dateStringParts[0]} ${DateTimeUtils.addOrdinalSuffix(dateStringParts[1])} ${dateStringParts[2]} ${dateStringParts[3]}`;
     dateElement.forEach((element) => {
       element.textContent = dateString;
+    });
+  }
+
+  static setDateIslamic() {
+    const now = new Date();
+    const dateElement = document.querySelectorAll(".dpte-timetable2 .dpte-timetable2-date");
+    // TODO change to same type of code in timetable_date shortcode, and move into DateTimeUtils
+    const dateStringParts = now.toLocaleDateString("en-GB", { weekday: "long", day: "numeric", month: "long", year: "numeric" }).split(" ");
+    const todayStringGregorian = `${dateStringParts[0]} ${DateTimeUtils.addOrdinalSuffix(dateStringParts[1])} ${dateStringParts[2]} ${dateStringParts[3]}`;
+    const todayStringIslamic = dptCache.data?.hijri_date ?? todayStringGregorian;
+    dateElement.forEach((element) => {
+      element.textContent = todayStringIslamic;
     });
   }
 
@@ -154,7 +166,19 @@ class Timetable2 {
 }
 
 addEventListener("DOMContentLoaded", () => {
+  const currentDateType = { value: "islamic" };
+
   dptCache.ensurePrayerData().then(() => {
+    function setDateText() {
+      if (currentDateType.value === "islamic") {
+        currentDateType.value = "gregorian";
+        Timetable2.setDateGregorian();
+      } else {
+        currentDateType.value = "islamic";
+        Timetable2.setDateIslamic();
+      }
+    }
+
     Timetable2.setPrayerTimes();
     setTimeout(Timetable2.setPrayerTimes, 1000);
     setTimeout(Timetable2.setPrayerTimes, 2500);
@@ -168,10 +192,10 @@ addEventListener("DOMContentLoaded", () => {
     Timetable2.setTimeRemaining();
     setInterval(Timetable2.setTimeRemaining, 1000);
 
-    Timetable2.setDate();
-    setTimeout(Timetable2.setDate, 1000);
-    setTimeout(Timetable2.setDate, 2500);
-    setInterval(Timetable2.setDate, 1 * 60 * 1000 /* 1 minute */);
+    Timetable2.setDateGregorian();
+    setTimeout(Timetable2.setDateGregorian, 1000);
+    setTimeout(setDateText, 2500);
+    setInterval(setDateText, 10000 /* 10 seconds */);
 
     Timetable2.setTime();
     setInterval(Timetable2.setTime, 1000);
