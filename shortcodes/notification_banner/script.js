@@ -59,12 +59,15 @@ class NotificationBanner {
       const prayer = dptCache.getCurrentPrayer();
       if (!prayer) return;
       const { name, jamah, diff, timeRemaining, waitingForJamah } = prayer;
+      console.log(timeRemaining);
+      console.log(timeRemaining.slice(3));
 
       if (NotificationBanner.isMorningMakroohTime(prayer)) {
         notificationBannerElement.forEach((element) => {
           if (element.dataset.morningMakroohTimerActive === "true") {
             const textElement = element.querySelector(".dpte-notification-banner .dpte-notification-text");
-            if (!!textElement) textElement.textContent = element.dataset.morningMakroohTimerMessage;
+            const message = (element.dataset.morningMakroohTimerMessage ?? "").replaceAll("{{timer}}", timeRemaining.slice(3));
+            if (!!textElement) textElement.textContent = message;
             NotificationBanner.setNotificationState(element, "error");
           } else {
             NotificationBanner.setDefaultMessage(element, prayer);
@@ -77,7 +80,8 @@ class NotificationBanner {
         notificationBannerElement.forEach((element) => {
           if (element.dataset.zawalMakroohTimerActive === "true") {
             const textElement = element.querySelector(".dpte-notification-banner .dpte-notification-text");
-            if (!!textElement) textElement.textContent = element.dataset.zawalMakroohTimerMessage;
+            const message = (element.dataset.zawalMakroohTimerMessage ?? "").replaceAll("{{timer}}", timeRemaining.slice(3));
+            if (!!textElement) textElement.textContent = message;
             NotificationBanner.setNotificationState(element, "error");
           } else {
             NotificationBanner.setDefaultMessage(element, prayer);
@@ -90,7 +94,8 @@ class NotificationBanner {
         notificationBannerElement.forEach((element) => {
           if (element.dataset.eveningMakroohTimerActive === "true") {
             const textElement = element.querySelector(".dpte-notification-banner .dpte-notification-text");
-            if (!!textElement) textElement.textContent = element.dataset.eveningMakroohTimerMessage;
+            const message = (element.dataset.eveningMakroohTimerMessage ?? "").replaceAll("{{timer}}", timeRemaining.slice(3));
+            if (!!textElement) textElement.textContent = message;
             NotificationBanner.setNotificationState(element, "error");
           } else {
             NotificationBanner.setDefaultMessage(element, prayer);

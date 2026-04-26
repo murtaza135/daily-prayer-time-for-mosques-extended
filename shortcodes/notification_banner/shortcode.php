@@ -43,9 +43,9 @@ function dpte_notification_banner_shortcode($atts) {
     'morning_makrooh_timer_active' => 'true',
     'zawal_makrooh_timer_active' => 'true',
     'evening_makrooh_timer_active' => 'true',
-    'morning_makrooh_timer_message' => 'Makrooh (Prohibited) Salah Time.',
-    'zawal_makrooh_timer_message' => 'Zawal - Makrooh (Prohibited) Salah Time.',
-    'evening_makrooh_timer_message' => 'Makrooh (Prohibited) Salah Time.',
+    'morning_makrooh_timer_message' => 'Makrooh (Prohibited) Time - {{timer}}',
+    'zawal_makrooh_timer_message' => 'Zawal Makrooh (Prohibited) Time - {{timer}}',
+    'evening_makrooh_timer_message' => 'Makrooh (Prohibited) Time - {{timer}}',
     'default_message' => 'Welcome.',
     'default_message_type' => 'message',
   );
