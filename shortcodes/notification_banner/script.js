@@ -159,11 +159,53 @@ class NotificationBanner {
       NotificationBanner.setNotificationState(element, "hidden");
     }
   }
+
+  static displayDailyMessage() {
+    const prayer = dptCache.getCurrentPrayer();
+    if (NotificationBanner.isMorningMakroohTime(prayer)) return false;
+    if (NotificationBanner.isZawal(prayer)) return false;
+    if (NotificationBanner.isEveningMakroohTime(prayer)) return false;
+    const dayNumber = new Date().getDate();
+    const message = DPTENotificationBannerOptions.DAILY_MESSAGES[dayNumber] ?? "";
+    if (!message) return false;
+
+    const notificationBannerElement = document.querySelectorAll(".dpte-notification-banner");
+    let result = false;
+    notificationBannerElement.forEach((element) => {
+      const textElement = element.querySelector(".dpte-notification-banner .dpte-notification-text");
+      if (!textElement) return;
+      textElement.textContent = message;
+      result = true;
+    });
+
+    return result;
+  }
 }
 
 addEventListener("DOMContentLoaded", () => {
+  const currentDisplay = { value: "notificationMessage", interval: 0 };
+
   dptCache.ensurePrayerData().then(() => {
+    function setDisplay() {
+      currentDisplay.interval++;
+      if (currentDisplay.interval === 10) {
+        currentDisplay.interval = 0;
+        if (currentDisplay.value === "dailyMessage") {
+          currentDisplay.value = "notificationMessage";
+        } else {
+          currentDisplay.value = "dailyMessage";
+        }
+      }
+
+      if (currentDisplay.value === "notificationMessage") {
+        NotificationBanner.displayNotificationMessage();
+      } else {
+        const result = NotificationBanner.displayDailyMessage();
+        if (!result) NotificationBanner.displayNotificationMessage();
+      }
+    }
+
     NotificationBanner.displayNotificationMessage();
-    setInterval(NotificationBanner.displayNotificationMessage, 1000);
+    setInterval(setDisplay, 1000);
   });
 });

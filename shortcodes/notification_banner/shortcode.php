@@ -7,12 +7,22 @@ if (!defined('ABSPATH')) {
 function dpte_notification_banner_shortcode($atts) {
   wp_enqueue_style("dpte-notification-banner", plugin_dir_url(__FILE__) . "styles.css");
   wp_enqueue_script("dpte-notification-banner", plugin_dir_url(__FILE__) . "script.js", ["dpte_dpt_cache"], null, true);
+
+  // get all daily messages from carbon fields and insert into array
+  $daily_messages = [];
+  for ($day = 1; $day <= 31; $day++) {
+    $daily_messages[$day] = carbon_get_theme_option(
+      'dpte_notification_banner_daily_message_' . $day
+    );
+  }
+
   wp_localize_script("dpte-notification-banner", "DPTENotificationBannerOptions", [
     "IQAMAH_TIMER" => carbon_get_theme_option('dpte_notification_banner_iqamah_timer'),
     "JAMAH_TIMER" => carbon_get_theme_option('dpte_notification_banner_jamah_timer'),
     "MORNING_MAKROOH_TIMER" => carbon_get_theme_option('dpte_notification_banner_morning_makrooh_timer'),
     "ZAWAL_MAKROOH_TIMER" => carbon_get_theme_option('dpte_notification_banner_zawal_makrooh_timer'),
     "EVENING_MAKROOH_TIMER" => carbon_get_theme_option('dpte_notification_banner_evening_makrooh_timer'),
+    "DAILY_MESSAGES" => $daily_messages,
   ]);
 
   // change all kebab-case attributes to snake_case attributes

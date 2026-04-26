@@ -176,6 +176,7 @@ add_action('dpte_extend_notification_banner_container', function($container) {
           </p>
         '),
 
+
       Field::make('html', 'dpte_notification_banner_separator_1')
         ->set_html('<h2 style="padding: 0; margin: 0; margin-top: 1rem; font-size: 1rem; font-weight: 500;">Timers</h2>'),
 
@@ -203,5 +204,102 @@ add_action('dpte_extend_notification_banner_container', function($container) {
         ->set_attribute("type", "number")
         ->set_default_value(20)
         ->set_help_text('How many minutes should the notification display the countdown until the evening makrooh time finishes and Maghrib starts (in minutes).'),
+
+
+      Field::make('html', 'dpte_notification_banner_separator_2')
+        ->set_html('<h2 style="padding: 0; margin: 0; margin-top: 1rem; font-size: 1rem; font-weight: 500;">Daily Messages</h2>'),
+
+      Field::make('text', 'dpte_notification_banner_daily_message_1', 'Day 1')
+        ->set_attribute("maxLength", 50),
+
+      Field::make('text', 'dpte_notification_banner_daily_message_2', 'Day 2')
+        ->set_attribute("maxLength", 50),
+    
+      Field::make('text', 'dpte_notification_banner_daily_message_3', 'Day 3')
+        ->set_attribute("maxLength", 50),
+    
+      Field::make('text', 'dpte_notification_banner_daily_message_4', 'Day 4')
+        ->set_attribute("maxLength", 50),
+    
+      Field::make('text', 'dpte_notification_banner_daily_message_5', 'Day 5')
+        ->set_attribute("maxLength", 50),
+    
+      Field::make('text', 'dpte_notification_banner_daily_message_6', 'Day 6')
+        ->set_attribute("maxLength", 50),
+    
+      Field::make('text', 'dpte_notification_banner_daily_message_7', 'Day 7')
+        ->set_attribute("maxLength", 50),
+    
+      Field::make('text', 'dpte_notification_banner_daily_message_8', 'Day 8')
+        ->set_attribute("maxLength", 50),
+    
+      Field::make('text', 'dpte_notification_banner_daily_message_9', 'Day 9')
+        ->set_attribute("maxLength", 50),
+    
+      Field::make('text', 'dpte_notification_banner_daily_message_10', 'Day 10')
+        ->set_attribute("maxLength", 50),
+    
+      Field::make('text', 'dpte_notification_banner_daily_message_11', 'Day 11')
+        ->set_attribute("maxLength", 50),
+    
+      Field::make('text', 'dpte_notification_banner_daily_message_12', 'Day 12')
+        ->set_attribute("maxLength", 50),
+    
+      Field::make('text', 'dpte_notification_banner_daily_message_13', 'Day 13')
+        ->set_attribute("maxLength", 50),
+    
+      Field::make('text', 'dpte_notification_banner_daily_message_14', 'Day 14')
+        ->set_attribute("maxLength", 50),
+    
+      Field::make('text', 'dpte_notification_banner_daily_message_15', 'Day 15')
+        ->set_attribute("maxLength", 50),
+    
+      Field::make('text', 'dpte_notification_banner_daily_message_16', 'Day 16')
+        ->set_attribute("maxLength", 50),
+    
+      Field::make('text', 'dpte_notification_banner_daily_message_17', 'Day 17')
+        ->set_attribute("maxLength", 50),
+    
+      Field::make('text', 'dpte_notification_banner_daily_message_18', 'Day 18')
+        ->set_attribute("maxLength", 50),
+    
+      Field::make('text', 'dpte_notification_banner_daily_message_19', 'Day 19')
+        ->set_attribute("maxLength", 50),
+    
+      Field::make('text', 'dpte_notification_banner_daily_message_20', 'Day 20')
+        ->set_attribute("maxLength", 50),
+    
+      Field::make('text', 'dpte_notification_banner_daily_message_21', 'Day 21')
+        ->set_attribute("maxLength", 50),
+    
+      Field::make('text', 'dpte_notification_banner_daily_message_22', 'Day 22')
+        ->set_attribute("maxLength", 50),
+    
+      Field::make('text', 'dpte_notification_banner_daily_message_23', 'Day 23')
+        ->set_attribute("maxLength", 50),
+    
+      Field::make('text', 'dpte_notification_banner_daily_message_24', 'Day 24')
+        ->set_attribute("maxLength", 50),
+    
+      Field::make('text', 'dpte_notification_banner_daily_message_25', 'Day 25')
+        ->set_attribute("maxLength", 50),
+    
+      Field::make('text', 'dpte_notification_banner_daily_message_26', 'Day 26')
+        ->set_attribute("maxLength", 50),
+    
+      Field::make('text', 'dpte_notification_banner_daily_message_27', 'Day 27')
+        ->set_attribute("maxLength", 50),
+    
+      Field::make('text', 'dpte_notification_banner_daily_message_28', 'Day 28')
+        ->set_attribute("maxLength", 50),
+    
+      Field::make('text', 'dpte_notification_banner_daily_message_29', 'Day 29')
+        ->set_attribute("maxLength", 50),
+    
+      Field::make('text', 'dpte_notification_banner_daily_message_30', 'Day 30')
+        ->set_attribute("maxLength", 50),
+    
+      Field::make('text', 'dpte_notification_banner_daily_message_31', 'Day 31')
+        ->set_attribute("maxLength", 50),
     ]);
 });
