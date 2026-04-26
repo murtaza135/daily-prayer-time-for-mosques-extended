@@ -41,9 +41,9 @@ add_action('dpte_extend_notification_banner_container', function($container) {
   morning_makrooh_timer_active="true"
   zawal_makrooh_timer_active="true"
   evening_makrooh_timer_active="true"
-  morning_makrooh_timer_message="Makrooh (Prohibited) Salah Time."
-  zawal_makrooh_timer_message="Zawal - Makrooh (Prohibited) Salah Time."
-  evening_makrooh_timer_message="Makrooh (Prohibited) Salah Time."
+  morning_makrooh_timer_message="Makrooh (Prohibited) Time - {{timer}}"
+  zawal_makrooh_timer_message="Zawal Makrooh (Prohibited) Time - {{timer}}"
+  evening_makrooh_timer_message="Makrooh (Prohibited) Time - {{timer}}"
   default_message="Welcome."
   default_message_type="message"
 ]</textarea>
@@ -138,17 +138,17 @@ add_action('dpte_extend_notification_banner_container', function($container) {
 
             <li>
               <strong><code>morning_makrooh_timer_message</code></strong> -
-              Default notification message during morning makrooh time.
+              Notification message during morning makrooh time. Include {{timer}} to insert remaining time within message.
             </li>
 
             <li>
               <strong><code>zawal_makrooh_timer_message</code></strong> -
-              Default notification message during zawal makrooh time.
+              Notification message during zawal makrooh time. Include {{timer}} to insert remaining time within message.
             </li>
 
             <li>
               <strong><code>evening_makrooh_timer_message</code></strong> -
-              Default notification message during evening makrooh time.
+              Notification message during evening makrooh time. Include {{timer}} to insert remaining time within message.
             </li>
 
             <li>
