@@ -21,7 +21,7 @@ class Timetable2 {
         const zuhr = dptCache.getPrayer("zuhr", timeType);
         const zuhrStartElement = root.querySelector(".dpte-timetable2 .dpte-timetable2-zuhr .dpte-prayer-start");
         const zuhrPrayerElement = root.querySelector(".dpte-timetable2 .dpte-timetable2-zuhr .dpte-prayer-prayer");
-        const zuhrPrayerTitle = root.querySelector(".dpte-timetable2 .dpte-timetable-zuhr .dpte-prayer-title");
+        const zuhrPrayerTitle = root.querySelector(".dpte-timetable2 .dpte-timetable2-zuhr .dpte-prayer-title");
         if (!!zuhr && !!zuhrStartElement && !!zuhrPrayerElement) {
           zuhrStartElement.textContent = DateTimeUtils.formatDateToTime(zuhr.begins);
           zuhrPrayerElement.textContent = DateTimeUtils.formatDateToTime(zuhr.jamah);
@@ -70,7 +70,8 @@ class Timetable2 {
   static setActivePrayer() {
     const currentPrayer = dptCache.getCurrentPrayer();
     if (!currentPrayer) return;
-    const currentPrayerElement = Timetable2.getPrayerElement(currentPrayer.name);
+    const extractedPrayerName = dptCache._extractPrayerName(currentPrayer.name);
+    const currentPrayerElement = Timetable2.getPrayerElement(extractedPrayerName);
     const allPrayerElements = document.querySelectorAll(".dpte-timetable2 .dpte-timetable2-prayer");
 
     const fajrElement = document.querySelectorAll(".dpte-timetable2 .dpte-timetable2-fajr");

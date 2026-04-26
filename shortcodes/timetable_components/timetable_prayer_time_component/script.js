@@ -93,7 +93,8 @@ class TimetablePrayerTimeComponent {
   static setActivePrayer() {
     const currentPrayer = dptCache.getCurrentPrayer();
     if (!currentPrayer) return;
-    const currentPrayerElement = TimetablePrayerTimeComponent.getPrayerElement(currentPrayer.name);
+    const extractedPrayerName = dptCache._extractPrayerName(currentPrayer.name);
+    const currentPrayerElement = TimetablePrayerTimeComponent.getPrayerElement(extractedPrayerName);
 
     const fajrElement = document.querySelectorAll(".dpte-timetable-prayer-time-component .dpte-timetable-fajr");
     const sunriseElement = document.querySelectorAll(".dpte-timetable-prayer-time-component .dpte-timetable-sunrise");
