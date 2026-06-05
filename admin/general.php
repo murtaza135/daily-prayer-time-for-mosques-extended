@@ -27,5 +27,12 @@ add_action('dpte_extend_general_container', function($container) {
         ->set_default_value('yes')
         ->set_option_value('no')
         ->set_help_text('Use the 24 hour format?'),
+
+      Field::make('select', 'dpte_general_settings_asr_start_time', __( 'Set Asr Start Time (Coming Soon)' ))
+        ->set_options(array(
+          'asr_mithl_1' => "Maliki/Shafi'i/Hanbali (asr_mithl_1)",
+          'asr_mithl_2' => "Hanafi (asr_mithl_2)",
+        ))
+        ->set_help_text('Set start time for Asr.')
     ]);
 });

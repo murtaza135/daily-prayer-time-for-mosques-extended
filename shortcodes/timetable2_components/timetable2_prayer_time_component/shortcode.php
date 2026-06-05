@@ -132,7 +132,7 @@ function dpte_timetable2_prayer_time_component_shortcode($atts) {
             </div>
             <div class="dpte-prayer-section2">
               <p class="dpte-prayer-start" <?php echo $data_attrs; ?>>
-                <?php echo do_shortcode('[asr_start]'); ?>
+                <?php echo do_shortcode('[asr_start asr=hanafi]'); ?>
               </p>
             </div>
           </div>

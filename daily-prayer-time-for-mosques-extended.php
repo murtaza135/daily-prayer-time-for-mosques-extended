@@ -47,6 +47,7 @@ if (!class_exists('DailyPrayerTimeExtended')) {
           wp_localize_script("dpte_dpt_cache", "DPTE_DPTCacheOptions", [
             "REFETCH_INTERVAL_TIME" => carbon_get_theme_option('dpte_general_settings_refetch_interval_time'),
             "REPLACE_ZUHR_WITH_JUMAH" => carbon_get_theme_option('dpte_general_settings_replace_zuhr_with_jumah'),
+            "ASR_START_TIME" => carbon_get_theme_option('dpte_general_settings_asr_start_time'),
           ]);
         });
         

@@ -67,11 +67,11 @@ class DPTCache {
           jamah: isTodayFriday
             ? new Date(`${data.d_date}T${data.jumuah?.[0] || data.zuhr_jamah}`)
             : new Date(`${data.d_date}T${data.zuhr_jamah}`),
-          end: new Date(`${data.d_date}T${data.asr_mithl_1}`),
+          end: new Date(`${data.d_date}T${data.asr_mithl_2}`),
         },
         {
           name: "Asr",
-          begins: new Date(`${data.d_date}T${data.asr_mithl_1}`),
+          begins: new Date(`${data.d_date}T${data.asr_mithl_2}`),
           jamah: new Date(`${data.d_date}T${data.asr_jamah}`),
           end: new Date(`${data.d_date}T${data.maghrib_begins}`),
         },
@@ -111,11 +111,11 @@ class DPTCache {
           jamah: isTomorrowFriday
             ? new Date(`${data.tomorrow.d_date}T${data.jumuah?.[0] || data.tomorrow.zuhr_jamah}`)
             : new Date(`${data.tomorrow.d_date}T${data.tomorrow.zuhr_jamah}`),
-          end: new Date(`${data.tomorrow.d_date}T${data.tomorrow.asr_mithl_1}`),
+          end: new Date(`${data.tomorrow.d_date}T${data.tomorrow.asr_mithl_2}`),
         },
         {
           name: "Asr",
-          begins: new Date(`${data.tomorrow.d_date}T${data.tomorrow.asr_mithl_1}`),
+          begins: new Date(`${data.tomorrow.d_date}T${data.tomorrow.asr_mithl_2}`),
           jamah: new Date(`${data.tomorrow.d_date}T${data.tomorrow.asr_jamah}`),
           end: new Date(`${data.tomorrow.d_date}T${data.tomorrow.maghrib_begins}`),
         },

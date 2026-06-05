@@ -160,7 +160,7 @@ function dpte_timetable_prayer_time_component_shortcode($atts) {
             </span>
             <span class="dpte-prayer-values">
               <p class="dpte-prayer-start" <?php echo $data_attrs; ?>>
-                <?php echo do_shortcode('[asr_start]'); ?>
+                <?php echo do_shortcode('[asr_start asr=hanafi]'); ?>
             </p>
               <p class="dpte-prayer-prayer" <?php echo $data_attrs; ?>>
                 <?php echo do_shortcode('[asr_prayer]'); ?>
